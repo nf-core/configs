@@ -7,7 +7,6 @@
 A repository for hosting nextflow config files containing custom parameters required to run nf-core pipelines at different Institutions.
 
 ## Table of contents
-* [Introduction](#introduction)
 * [Using an existing config](#using-an-existing-config)
     * [Configuration and parameters](#configuration-and-parameters)
     * [Offline usage](#offline-usage)
@@ -17,24 +16,29 @@ A repository for hosting nextflow config files containing custom parameters requ
     * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
 * [Help](#help)
 
-## Introduction
-
-The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter can be used with nf-core pipelines in order to load custom config files that you have available locally. However, if you or other people within your organisation are likely to be running nf-core pipelines regularly it may be a good idea to create a custom config file that defines some generic settings unique to the computing environment within your organisation. This will ensure that your custom config file will be automatically downloaded, and available at run-time to all `nf-core` pipelines, and to everyone within your organisation. You will simply have to specify `-profile <config_name>` in the command used to run the pipeline.
-
-See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
-
 ## Using an existing config
+
+The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter can be used with nf-core pipelines in order to load custom config files that you have available locally. However, if you or other people within your organisation are likely to be running nf-core pipelines regularly it may be a good idea to use/create a custom config file that defines some generic settings unique to the computing environment within your organisation. See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
 ### Configuration and parameters
 
+The config files hosted in this repository define a set of parameters which are specific to compute environments at different Institutions but generic enough to be used with all `nf-core` pipelines.
+
+All nf-core pipelines inherit the functionality provided by Nextflow, and as such custom config files can contain parameters/definitions that are available to both. For example, if you have the ability to use [Singularity](https://singularity.lbl.gov/) on your HPC you can add and customise the [`Nextflow Singularity scope`](https://www.nextflow.io/docs/latest/config.html#scope-singularity) to your config file. Similarly, you can add and customise a [`Nextflow executor`](https://www.nextflow.io/docs/latest/executor.html) depending on the job submission process available on your cluster. In contrast, the `params` section in your custom config file will typically define parameters that are available to nf-core pipelines.
+
+You should be able to get a good idea as to how other people are customising the execution of their nf-core pipelines by looking at some of the config files in [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf).
+
 ### Offline usage
 
+If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline. You can then run the pipeline with the `-c` parameter - see [Testing](#testing) for example.
 
 ## Adding a new config
 
+If you decide to upload your custom config file to `nf-core/configs` then this will ensure that your custom config file will be automatically downloaded, and available at run-time to all `nf-core` pipelines, and to everyone within your organisation. You will simply have to specify `-profile <config_name>` in the command used to run the pipeline. See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
+
 ### Testing
 
-Once you have created your custom config file please can you test that your pipeline of choice runs as expected by using the [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter.
+If you want to add a new custom config file to `nf-core/configs` please can you test that your pipeline of choice runs as expected by using the [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter.
 
 ```bash
 ## Example command for nf-core/rnaseq
