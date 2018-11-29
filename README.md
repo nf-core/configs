@@ -45,4 +45,4 @@ Commit and push these changes to your local clone on GitHub, and then [create a 
 
 We will be notified automatically when you have created your pull request, and providing that everything adheres to `nf-core` guidelines we will endeavour to approve your pull request as soon as possible.
 
-If you have any questions or issues please send us a message on [`Slack`](https://nf-core-invite.herokuapp.com/).
+If you have any questions or issues please send us a message on [Slack](https://nf-core-invite.herokuapp.com/).
