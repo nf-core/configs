@@ -11,7 +11,7 @@ A repository for hosting nextflow config files containing custom parameters requ
 * [Overview](#overview)
 * [Testing](#testing)
 * [Documentation](#documentation)
-* [Uploading to `nf-core/configs`](#uploading-to-nf-core-configs)
+* [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
 * [Help](#help)
 
 ## Overview
@@ -33,13 +33,13 @@ nextflow run nf-core/rnaseq --reads '*_R{1,2}.fastq.gz' --genome GRCh37 -c '[pat
 
 You will have to create a [Markdown document](https://www.markdownguide.org/getting-started/) outlining the details required to use the custom config file within your organisation.
 
-See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs)) for examples.
+See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs) for examples.
 
 ## Uploading to `nf-core/configs`
 
-[Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/configs` repository to your own github account. Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory. You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
+[Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/configs` repository to your own GitHub account. Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory. You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
 
-Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo.
+Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
 ## Help
 
