@@ -6,7 +6,7 @@ To use, run the pipeline with `-profile crick`. This will download and launch th
 
 Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on CAMP. You can do this by issuing the commands below:
 
-```
+```bash
 ## Load Nextflow and Singularity environment modules
 module purge
 module load Nextflow/0.32.0
