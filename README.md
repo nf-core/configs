@@ -41,8 +41,8 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
-## Help
-
 We will be notified automatically when you have created your pull request, and providing that everything adheres to `nf-core` guidelines we will endeavour to approve your pull request as soon as possible.
+
+## Help
 
 If you have any questions or issues please send us a message on [Slack](https://nf-core-invite.herokuapp.com/).
