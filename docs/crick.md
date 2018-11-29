@@ -1,6 +1,6 @@
 # nf-core/configs: Crick (CAMP HPC) Configuration
 
-This pipeline has been successfully configured for use on the CAMP HPC cluster at the [The Francis Crick Institute](https://www.crick.ac.uk/).
+All nf-core pipelines have been successfully configured for use on the CAMP HPC cluster at the [The Francis Crick Institute](https://www.crick.ac.uk/).
 
 To use, run the pipeline with `-profile crick`. This will download and launch the [`crick.config`](../conf/crick.config) which has been pre-configured with a setup suitable for the CAMP HPC cluster. Using this profile, Nextflow will download a temporary singularity image with all of the required software before execution of the pipeline.
 
