@@ -1,8 +1,6 @@
 <img src="docs/images/nf-core-logo.png" width="400">
 
 # [nf-core/configs](https://github.com/nf-core/configs)
-[![Build Status](https://travis-ci.org/nf-core/configs.svg?branch=master)](https://travis-ci.org/nf-core/configs)
-[![codecov](https://codecov.io/gh/nf-core/configs/branch/master/graph/badge.svg)](https://codecov.io/gh/nf-core/configs)
 
 A repository for hosting nextflow config files containing custom parameters required to run nf-core pipelines at different Institutions.
 
