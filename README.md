@@ -47,7 +47,7 @@ nextflow run nf-core/rnaseq --reads '*_R{1,2}.fastq.gz' --genome GRCh37 -c '[pat
 
 ### Documentation
 
-You will have to create a [Markdown document](https://www.markdownguide.org/getting-started/) outlining the details required to use the custom config file within your organisation.
+You will have to create a [Markdown document](https://www.markdownguide.org/getting-started/) outlining the details required to use the custom config file within your organisation. You might orientate yourself using the [Template](docs/template.md) that we provide and filling out the information for your cluster there.
 
 See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs) for examples.
 
