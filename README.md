@@ -51,6 +51,22 @@ You will have to create a [Markdown document](https://www.markdownguide.org/gett
 
 See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs) for examples.
 
+Currently documentation is available for the following clusters:
+
+* [BINAC](docs/binac.md)
+* [CCGA](docs/ccga.md)
+* [CFC](docs/binac.md)
+* [CRICK](docs/crick.md)
+* [GIS](docs/gis.md)
+* [HEBBE](docs/hebbe.md)
+* [MENDEL](docs/mendel.md)
+* [PHOENIX](docs/phoenix.md)
+* [SHH](docs/shh.md)
+* [UCT_HEX](docs/uct_hex.md)
+* [UPPMAX-DEVEL](docs/uppmax-devel.md)
+* [UPPMAX](docs/uppmax.md)
+* [UZH](docs/uzh.md)
+
 ### Uploading to `nf-core/configs`
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/configs` repository to your own GitHub account. Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory. You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
