@@ -4,8 +4,6 @@ All nf-core pipelines have been successfully configured for use on the BINAC clu
 
 To use, run the pipeline with `-profile binac`. This will download and launch the [`binac.config`](../conf/binac.config) which has been pre-configured with a setup suitable for the BINAC cluster. Using this profile, Nextflow will download a singularity image with all of the required software before execution of the pipeline.
 
-## Below are non-mandatory information e.g. on modules to load etc. 
-
 Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on BINAC cluster. You can do this by issuing the commands below:
 
 ```bash
