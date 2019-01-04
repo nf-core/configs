@@ -38,7 +38,7 @@ Please also make sure to add an extra `params` section with `params.  config_pro
 
 ### Testing
 
-If you want to add a new custom config file to `nf-core/configs` please can you test that your pipeline of choice runs as expected by using the [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter.
+If you want to add a new custom config file to `nf-core/configs` please test that your pipeline of choice runs as expected by using the [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter.
 
 ```bash
 ## Example command for nf-core/rnaseq
