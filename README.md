@@ -34,6 +34,8 @@ If you want to use an existing config available in `nf-core/configs`, and you're
 
 If you decide to upload your custom config file to `nf-core/configs` then this will ensure that your custom config file will be automatically downloaded, and available at run-time to all nf-core pipelines, and to everyone within your organisation. You will simply have to specify `-profile <config_name>` in the command used to run the pipeline. See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
+Please also make sure to add an extra `params` section with `params.  config_profile_name`, `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values. Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
+
 ### Testing
 
 If you want to add a new custom config file to `nf-core/configs` please can you test that your pipeline of choice runs as expected by using the [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter.
