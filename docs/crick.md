@@ -11,9 +11,6 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 module purge
 module load Nextflow/0.32.0
 module load Singularity/2.6.0-foss-2016b
-
-## Example command for nf-core/atacseq
-nextflow run nf-core/atacseq -profile crick --genome GRCh37 --design /path/to/design.csv --email test.user@crick.ac.uk
 ```
 
 A local copy of the iGenomes resource has been made available on CAMP so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto CAMP so have a look in the `igenomes_base` path specified in [`crick.config`](../conf/crick.config), and if your genome of interest isnt present please contact [BABS](mailto:bioinformatics@crick.ac.uk).
