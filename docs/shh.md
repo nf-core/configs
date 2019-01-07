@@ -8,9 +8,7 @@ Note that the configuration file is currently optimised for `nf-core/eager`. It
 will submit to the medium queue but with a walltime of 48 hours.
 
 ## Preparation
-
-Before running the pipeline you will need to create a the following folder in your `/projects1/users/` directory. This will be used to store the singularity software images, which
-will take up too much space for your home directory.
+Before running the pipeline you will need to create a the following folder in your `/projects1/users/` directory. This will be used to store the singularity software images, which will take up too much space for your home directory.
 
 This should be named as follows, replacing `<your_user>` with your username:
 
