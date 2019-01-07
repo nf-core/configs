@@ -13,7 +13,6 @@ module load devel/java_jdk/1.8.0u112
 module load devel/singularity/3.0.1
 ```
 
-All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
 
 >NB: You will need an account to use the HPC cluster BINAC in order to run the pipeline. If in doubt contact IT.
 
