@@ -11,9 +11,6 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 module purge
 module load devel/java_jdk/1.8.0u121
 module load qbic/singularity_slurm/3.0.1
-
-## Example command for nf-core/atacseq
-nextflow run nf-core/atacseq -profile PROFILE --genome GRCh37 --design /path/to/design.csv --email test.user@crick.ac.uk
 ```
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.

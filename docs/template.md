@@ -13,9 +13,6 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 module purge
 module load Nextflow/0.32.0
 module load Singularity/2.6.0
-
-## Example command for nf-core/atacseq
-nextflow run nf-core/atacseq -profile PROFILE --genome GRCh37 --design /path/to/design.csv --email test.user@crick.ac.uk
 ```
 
 ## Below are non-mandatory information on iGenomes specific configuration
