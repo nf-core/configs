@@ -1,6 +1,6 @@
 # nf-core/configs: BINAC Configuration
 
-All nf-core pipelines have been successfully configured for use on the BINAC cluster at the insert institution here.
+All nf-core pipelines have been successfully configured for use on the BinAC cluster at Baden-Württemberg HPC.
 
 To use, run the pipeline with `-profile binac`. This will download and launch the [`binac.config`](../conf/binac.config) which has been pre-configured with a setup suitable for the BINAC cluster. Using this profile, Nextflow will download a singularity image with all of the required software before execution of the pipeline.
 
