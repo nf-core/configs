@@ -17,7 +17,8 @@ module load Singularity/2.6.0
 
 ## Below are non-mandatory information on iGenomes specific configuration
 
-A local copy of the iGenomes resource has been made available on PROFILE CLUSTER so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto PROFILE CLUSTER so have a look in the `igenomes_base` path specified in [`profile.config`](../conf/profile.config).
+A local copy of the iGenomes resource has been made available on PROFILE CLUSTER so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline.
+You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
 
 >NB: You will need an account to use the HPC cluster on PROFILE CLUSTER in order to run the pipeline. If in doubt contact IT.
