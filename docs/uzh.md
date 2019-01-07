@@ -1,6 +1,6 @@
 # nf-core/configs: UZH Configuration
 
-All nf-core pipelines have been successfully configured for use on the UZH cluster at the insert institution here.
+All nf-core pipelines have been successfully configured for use on the UZH cluster at the University of Zürich.
 
 To use, run the pipeline with `-profile uzh`. This will download and launch the [`uzh.config`](../conf/uzh.config) which has been pre-configured with a setup suitable for the UZH cluster. Using this profile, Nextflow will download a singularity image with all of the required software before execution of the pipeline.
 
