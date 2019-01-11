@@ -2,9 +2,9 @@
 
 All nf-core pipelines have been successfully configured for use on the PROFILE CLUSTER at the insert institution here.
 
-To use, run the pipeline with `-profile PROFILENAME`. This will download and launch the [`profile.config`](../conf/profile.config) which has been pre-configured with a setup suitable for the PROFILE cluster. Using this profile, Nextflow will download a singularity image with all of the required software before execution of the pipeline.
+To use, run the pipeline with `-profile PROFILENAME`. This will download and launch the [`profile.config`](../conf/profile.config) which has been pre-configured with a setup suitable for the PROFILE cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
-## Below are non-mandatory information e.g. on modules to load etc. 
+## Below are non-mandatory information e.g. on modules to load etc.
 
 Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on PROFILE CLUSTER. You can do this by issuing the commands below:
 

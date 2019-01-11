@@ -3,7 +3,7 @@
 All nf-core pipelines have been successfully configured for use on the Swedish UPPMAX clusters.
 
 ## Using the UPPMAX config profile
-To use, run the pipeline with `-profile uppmax` (one hyphen). This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers. Using this profile, Nextflow will download a singularity image with all of the required software before execution of the pipeline.
+To use, run the pipeline with `-profile uppmax` (one hyphen). This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 In addition to this config profile, you will also need to specify an UPPMAX project id.
 You can do this with the `--project` flag (two hyphens) when launching nextflow. For example:
