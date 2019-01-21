@@ -60,6 +60,7 @@ Currently documentation is available for the following clusters:
 * [GIS](docs/gis.md)
 * [HEBBE](docs/hebbe.md)
 * [MENDEL](docs/mendel.md)
+* [MUNIN](docs/munin.md)
 * [PHOENIX](docs/phoenix.md)
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
