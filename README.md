@@ -47,11 +47,11 @@ pipeline directly calling the single institutional config file that you need wit
 
 ```bash
 ## Example command for nf-core/rnaseq
-nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config ..
+nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config
 ```
 
-> Note that the nf-core/tools helper package has a `download` subcommand download required
-> pipeline files for you to make this process easier.
+> Note that the nf-core/tools helper package has a `download` command to download all required pipeline
+> files + singularity containers + institutional configs in one go for you, to make this process easier.
 
 ## Adding a new config
 
