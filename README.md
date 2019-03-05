@@ -32,7 +32,7 @@ If you want to use an existing config available in `nf-core/configs`, and you're
 or `params.custom_config_base` set to the location of the directory containing the repository files:
 
 ```bash
-## Download and unizp the config files
+## Download and unzip the config files
 cd /path/to/my/configs
 wget https://github.com/nf-core/configs/archive/master.zip
 unzip master.zip
