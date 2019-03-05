@@ -16,7 +16,7 @@ A repository for hosting nextflow config files containing custom parameters requ
 
 ## Using an existing config
 
-The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter can be used with nf-core pipelines in order to load custom config files that you have available locally. However, if you or other people within your organisation are likely to be running nf-core pipelines regularly it may be a good idea to use/create a custom config file that defines some generic settings unique to the computing environment within your organisation. 
+The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter can be used with nf-core pipelines in order to load custom config files that you have available locally. However, if you or other people within your organisation are likely to be running nf-core pipelines regularly it may be a good idea to use/create a custom config file that defines some generic settings unique to the computing environment within your organisation.
 
 ### Configuration and parameters
 
@@ -28,7 +28,30 @@ You should be able to get a good idea as to how other people are customising the
 
 ### Offline usage
 
-If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline. You can then run the pipeline with the `-c` parameter - see [Testing](#testing) for example.
+If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline. Then run the pipeline with `--custom_config_base`
+or `params.custom_config_base` set to the location of the directory containing the repository files:
+
+```bash
+## Download and unzip the config files
+cd /path/to/my/configs
+wget https://github.com/nf-core/configs/archive/master.zip
+unzip master.zip
+
+## Run the pipeline
+cd /path/to/my/data
+nextflow run /path/to/pipeline/ --custom_config_base /path/to/my/configs/configs-master/
+```
+
+Alternatively, instead of using the configuration profiles from this repository, you can run your
+pipeline directly calling the single institutional config file that you need with the `-c` parameter.
+
+```bash
+## Example command for nf-core/rnaseq
+nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config
+```
+
+> Note that the nf-core/tools helper package has a `download` command to download all required pipeline
+> files + singularity containers + institutional configs in one go for you, to make this process easier.
 
 ## Adding a new config
 
