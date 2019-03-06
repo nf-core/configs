@@ -18,6 +18,7 @@ install:
   - mkdir /tmp/nextflow && cd /tmp/nextflow
   - wget -qO- get.nextflow.io | bash
   - sudo ln -s /tmp/nextflow/nextflow /usr/local/bin/nextflow
+  - mkdir -p ${TRAVIS_BUILD_DIR}/tests && cd ${TRAVIS_BUILD_DIR}/tests
 
 env:
   - NXF_VER='18.10.1' # Specify a minimum NF version that should be tested and work
