@@ -25,4 +25,4 @@ env:
 
 script:
   # Run the pipeline with the test profile and test remote config
-  - nextflow run nf-core/hlatyping -profile test_configs,test,docker
+  - nextflow run nf-core/hlatyping --custom_config_version $TRAVIS_BRANCH -profile test_configs,test,docker
