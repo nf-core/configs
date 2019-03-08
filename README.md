@@ -46,7 +46,6 @@ Alternatively, instead of using the configuration profiles from this repository,
 pipeline directly calling the single institutional config file that you need with the `-c` parameter.
 
 ```bash
-## Example command for nf-core/rnaseq
 nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config
 ```
 
