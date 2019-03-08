@@ -26,4 +26,4 @@ env:
 
 script:
   # Run the pipeline with the test profile and test remote config
-  - grep -o "[a-z]*.config\""  ${TRAVIS_BUILD_DIR}/nfcore_custom.config | sed 's/.config\"//g' | cat | xargs -I {} nextflow run ${TRAVIS_BUILD_DIR}/configtest.nf -{}
+  - grep -o "[a-z]*.config\""  ${TRAVIS_BUILD_DIR}/nfcore_custom.config | sed 's/.config\"//g' | cat | xargs -I {} nextflow run ${TRAVIS_BUILD_DIR}/configtest.nf -profile {}
