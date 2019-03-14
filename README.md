@@ -2,6 +2,8 @@
 
 # [nf-core/configs](https://github.com/nf-core/configs)
 
+[![Build Status](https://travis-ci.org/nf-core/configs.svg?branch=master)](https://travis-ci.org/nf-core/configs)
+
 A repository for hosting nextflow config files containing custom parameters required to run nf-core pipelines at different Institutions.
 
 ## Table of contents
@@ -16,7 +18,7 @@ A repository for hosting nextflow config files containing custom parameters requ
 
 ## Using an existing config
 
-The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter can be used with nf-core pipelines in order to load custom config files that you have available locally. However, if you or other people within your organisation are likely to be running nf-core pipelines regularly it may be a good idea to use/create a custom config file that defines some generic settings unique to the computing environment within your organisation. 
+The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter can be used with nf-core pipelines in order to load custom config files that you have available locally. However, if you or other people within your organisation are likely to be running nf-core pipelines regularly it may be a good idea to use/create a custom config file that defines some generic settings unique to the computing environment within your organisation.
 
 ### Configuration and parameters
 
@@ -28,13 +30,42 @@ You should be able to get a good idea as to how other people are customising the
 
 ### Offline usage
 
-If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline. You can then run the pipeline with the `-c` parameter - see [Testing](#testing) for example.
+If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline. Then run the pipeline with `--custom_config_base`
+or `params.custom_config_base` set to the location of the directory containing the repository files:
+
+```bash
+## Download and unzip the config files
+cd /path/to/my/configs
+wget https://github.com/nf-core/configs/archive/master.zip
+unzip master.zip
+
+## Run the pipeline
+cd /path/to/my/data
+nextflow run /path/to/pipeline/ --custom_config_base /path/to/my/configs/configs-master/
+```
+
+Alternatively, instead of using the configuration profiles from this repository, you can run your
+pipeline directly calling the single institutional config file that you need with the `-c` parameter.
+
+```bash
+nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config
+```
+
+> Note that the nf-core/tools helper package has a `download` command to download all required pipeline
+> files + singularity containers + institutional configs in one go for you, to make this process easier.
 
 ## Adding a new config
 
 If you decide to upload your custom config file to `nf-core/configs` then this will ensure that your custom config file will be automatically downloaded, and available at run-time to all nf-core pipelines, and to everyone within your organisation. You will simply have to specify `-profile <config_name>` in the command used to run the pipeline. See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
-Please also make sure to add an extra `params` section with `params.  config_profile_name`, `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values. Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
+Please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values. Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
+
+## Checking user hostnames
+
+If your cluster has a set of consistent hostnames, nf-core pipelines can check that users are using your profile.
+Add one or more hostname substrings to `params.hostnames` under a key that matches the profile name.
+If the user's hostname contains this string at the start of a run or when a run fails and their profile
+does not contain the profile name, a warning message will be printed.
 
 ### Testing
 
