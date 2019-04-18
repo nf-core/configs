@@ -85,6 +85,7 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 Currently documentation is available for the following clusters:
 
 * [BINAC](docs/binac.md)
+* [BIGPURPLE](docs/bigpurple.md)
 * [CCGA](docs/ccga.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
@@ -93,6 +94,7 @@ Currently documentation is available for the following clusters:
 * [MENDEL](docs/mendel.md)
 * [MUNIN](docs/munin.md)
 * [PHOENIX](docs/phoenix.md)
+* [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
 * [UPPMAX-DEVEL](docs/uppmax-devel.md)
