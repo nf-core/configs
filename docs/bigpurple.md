@@ -20,4 +20,5 @@ git clone this repo, copy the `bigpurple.config` from the conf folder and then y
 
 
 >NB: You will need an account to use the HPC cluster BigPurple in order to run the pipeline. If in doubt contact MCIT.
+
 >NB: You will need to install nextflow in your home directory - instructions are on nextflow.io (or ask the writer of this profile). The reason there is no module for nextflow on the cluster, is that the development cycle of nextflow is rapid and it's easy to update yourself: `nextflow self-update`
