@@ -1,6 +1,4 @@
-<img src="docs/images/nf-core-logo.png" width="400">
-
-# [nf-core/configs](https://github.com/nf-core/configs)
+# ![nf-core/configs](docs/images/nfcore-configs_logo.png)
 
 [![Build Status](https://travis-ci.org/nf-core/configs.svg?branch=master)](https://travis-ci.org/nf-core/configs)
 
