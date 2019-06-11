@@ -99,7 +99,7 @@ If you close your laptop, get onto the train, or lose WiFi connection, you may l
 tmux attach -n nextflow
 ```
 
-To restart the jobs from where you left off, add the `-resume` flag to your `netflow` command:
+To restart the jobs from where you left off, add the `-resume` flag to your `nextflow` command:
 
 
 ```
@@ -110,6 +110,7 @@ nextflow run -profile czbiohub_aws nf-core/rnaseq \
     -resume
 ```
 
+It's important that this command be re-run from the same directory as there is a "hidden" `.nextflow` folder that contains all the metadata and information about previous runs.
 
 ## iGenomes specific configuration
 
