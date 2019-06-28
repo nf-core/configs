@@ -3,13 +3,13 @@
 All nf-core pipelines have been successfully configured for use on the Swedish UPPMAX clusters.
 
 ## Using the UPPMAX config profile
-To use, run the pipeline with `-profile uppmax` (one hyphen). This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile uppmax-rackham`, `-profile uppmax-bianca` or `-profile uppmax-irma` (one hyphen). This will download and launch the general [`uppmax.config`](../conf/uppmax.config) together with the appropriate cluster specific config which has been pre-configured with a setup suitable for the UPPMAX servers. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 In addition to this config profile, you will also need to specify an UPPMAX project id.
 You can do this with the `--project` flag (two hyphens) when launching nextflow. For example:
 
 ```bash
-nextflow run nf-core/PIPELINE -profile uppmax --project SNIC 2018/1-234 # ..rest of pipeline flags
+nextflow run nf-core/PIPELINE -profile uppmax-rackham --project SNIC 2018/1-234 # ..rest of pipeline flags
 ```
 
 Before running the pipeline you will need to either install Nextflow or load it using the environment module system.
@@ -21,8 +21,8 @@ Just run Nextflow on a login node and it will handle everything else.
 A local copy of the iGenomes resource has been made available on all UPPMAX clusters so you should be able to run the pipeline against any reference available in the `igenomes.config`.
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
-## Running offline with Bianca
-If running on Bianca, you will have no internet connection and these configs will not be loaded.
+## Running offline with Bianca or Irma
+If running on Bianca or Irma, you will have no internet connection and these configs will not be loaded.
 Please use the nf-core helper tool on a different system to download the required pipeline files, and transfer them to bianca.
 This helper tool bundles the config files in this repo together with the pipeline files, so the profile will still be available.
 
