@@ -1,6 +1,4 @@
-<img src="docs/images/nf-core-logo.png" width="400">
-
-# [nf-core/configs](https://github.com/nf-core/configs)
+# ![nf-core/configs](docs/images/nfcore-configs_logo.png)
 
 [![Build Status](https://travis-ci.org/nf-core/configs.svg?branch=master)](https://travis-ci.org/nf-core/configs)
 
@@ -58,7 +56,14 @@ nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_co
 
 If you decide to upload your custom config file to `nf-core/configs` then this will ensure that your custom config file will be automatically downloaded, and available at run-time to all nf-core pipelines, and to everyone within your organisation. You will simply have to specify `-profile <config_name>` in the command used to run the pipeline. See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
-Please also make sure to add an extra `params` section with `params.  config_profile_name`, `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values. Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
+Please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values. Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
+
+## Checking user hostnames
+
+If your cluster has a set of consistent hostnames, nf-core pipelines can check that users are using your profile.
+Add one or more hostname substrings to `params.hostnames` under a key that matches the profile name.
+If the user's hostname contains this string at the start of a run or when a run fails and their profile
+does not contain the profile name, a warning message will be printed.
 
 ### Testing
 
@@ -78,6 +83,7 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 Currently documentation is available for the following clusters:
 
 * [BINAC](docs/binac.md)
+* [BIGPURPLE](docs/bigpurple.md)
 * [CCGA](docs/ccga.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
@@ -86,6 +92,7 @@ Currently documentation is available for the following clusters:
 * [MENDEL](docs/mendel.md)
 * [MUNIN](docs/munin.md)
 * [PHOENIX](docs/phoenix.md)
+* [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
 * [UPPMAX-DEVEL](docs/uppmax-devel.md)

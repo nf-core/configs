@@ -22,6 +22,7 @@ Now you can run pipelines with abandon!
 
 ### 2. Make a GitHub repo for your workflows (optional :)
 
+
 To make sharing your pipelines and commands easy between your teammates, it's best to share code in a GitHub repository. One way is to store the commands in a Makefile ([example](https://github.com/czbiohub/kh-workflows/blob/master/nf-kmer-similarity/Makefile)) which can contain multiple `nextflow run` commands so that you don't need to remember the S3 bucket or output directory for every single one. [Makefiles](https://kbroman.org/minimal_make/) are broadly used in the software community for running many complex commands. Makefiles can have a lot of dependencies and be confusing, so we're only going to write *simple* Makefiles.
 
 ```
@@ -82,6 +83,7 @@ git push origin master
 
 ### 3. Run your workflow!!
 
+
 Remember to specify `-profile czbiohub_aws` to grab the CZ Biohub-specific AWS configurations, and an `--outdir` with an AWS S3 bucket so you don't run out of space on your small AMI
 
 ```
@@ -115,6 +117,7 @@ It's important that this command be re-run from the same directory as there is a
 ## iGenomes specific configuration
 
 A local copy of the iGenomes resource has been made available on `s3://czbiohub-reference/igenomes` (in `us-west-2` region) so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline.
+
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
 For Human and Mouse, we use [GENCODE](https://www.gencodegenes.org/) gene annotations. This doesn't change how you would specify the genome name, only that the pipelines run with the `czbiohub_aws` profile would be with GENCODE rather than iGenomes.
