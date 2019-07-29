@@ -85,7 +85,7 @@ Currently documentation is available for the following clusters:
 * [BINAC](docs/binac.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [CCGA](docs/ccga.md)
-* [CCGA-DX]/docs/ccga_dx.md)
+* [CCGA_DX](/docs/ccga_dx.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
 * [GIS](docs/gis.md)
