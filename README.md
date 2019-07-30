@@ -98,6 +98,7 @@ Currently documentation is available for the following clusters:
 * [UPPMAX-DEVEL](docs/uppmax-devel.md)
 * [UPPMAX](docs/uppmax.md)
 * [UZH](docs/uzh.md)
+* [PASTEUR](docs/pasteur.md)
 
 ### Uploading to `nf-core/configs`
 
