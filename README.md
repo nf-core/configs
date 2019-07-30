@@ -82,7 +82,6 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Currently documentation is available for the following clusters:
 
-* [AQUILA](docs/aquila.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [BINAC](docs/binac.md)
 * [CCGA](docs/ccga.md)
