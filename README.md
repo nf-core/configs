@@ -1,6 +1,4 @@
-<img src="docs/images/nf-core-logo.png" width="400">
-
-# [nf-core/configs](https://github.com/nf-core/configs)
+# ![nf-core/configs](docs/images/nfcore-configs_logo.png)
 
 [![Build Status](https://travis-ci.org/nf-core/configs.svg?branch=master)](https://travis-ci.org/nf-core/configs)
 
@@ -88,6 +86,7 @@ Currently documentation is available for the following clusters:
 * [BINAC](docs/binac.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [CCGA](docs/ccga.md)
+* [CCGA_DX](/docs/ccga_dx.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
 * [GIS](docs/gis.md)
@@ -101,6 +100,7 @@ Currently documentation is available for the following clusters:
 * [UPPMAX-DEVEL](docs/uppmax-devel.md)
 * [UPPMAX](docs/uppmax.md)
 * [UZH](docs/uzh.md)
+* [PASTEUR](docs/pasteur.md)
 
 ### Uploading to `nf-core/configs`
 
