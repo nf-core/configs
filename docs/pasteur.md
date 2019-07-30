@@ -43,7 +43,7 @@ module load singularity
 
 # Run nextflow workflow
 nextflow run \\
-/path/to/pipeline-dir/from/step/2/workflow \\
+/path/to/pipeline-dir/from/step/3/workflow \\
 -resume 
 -profile pasteur \\
 -with-singularity /path/to/pipeline-dir/from/step/3/singularity-images/singularity.img \\
