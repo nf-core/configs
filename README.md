@@ -93,6 +93,7 @@ Currently documentation is available for the following clusters:
 * [HEBBE](docs/hebbe.md)
 * [MENDEL](docs/mendel.md)
 * [MUNIN](docs/munin.md)
+* [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
@@ -100,7 +101,6 @@ Currently documentation is available for the following clusters:
 * [UPPMAX-DEVEL](docs/uppmax-devel.md)
 * [UPPMAX](docs/uppmax.md)
 * [UZH](docs/uzh.md)
-* [PASTEUR](docs/pasteur.md)
 
 ### Uploading to `nf-core/configs`
 
