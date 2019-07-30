@@ -83,8 +83,8 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 Currently documentation is available for the following clusters:
 
 * [AQUILA](docs/aquila.md)
-* [BINAC](docs/binac.md)
 * [BIGPURPLE](docs/bigpurple.md)
+* [BINAC](docs/binac.md)
 * [CCGA](docs/ccga.md)
 * [CCGA_DX](/docs/ccga_dx.md)
 * [CFC](docs/binac.md)
@@ -98,8 +98,8 @@ Currently documentation is available for the following clusters:
 * [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
-* [UPPMAX-DEVEL](docs/uppmax-devel.md)
 * [UPPMAX](docs/uppmax.md)
+* [UPPMAX-DEVEL](docs/uppmax-devel.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
