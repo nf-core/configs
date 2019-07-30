@@ -8,14 +8,16 @@ To use, run the pipeline with `-profile pasteur`. This will download and launch 
 
 ## Running the workflow on the Pasteur cluster
 
->Nextflow is not installed by default on the Pasteur cluster.
+Nextflow is not installed by default on the Pasteur cluster.
 - Install Nextflow : [here](https://www.nextflow.io/docs/latest/getstarted.html#)
 
 
->Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command. 
+Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command. 
 Nextflow shouldn't run directly on the submission node but on a compute node.
-The compute nodes don't have access to internet so you need to run it offline. To do that:
-1. Create a virtualenv to install nf-core in order to get the workflow
+The compute nodes don't have access to internet so you need to run it offline. 
+
+To do that:
+1. Create a virtualenv to install nf-core
 ```bash
 module purge
 module load Python/3.6.0
