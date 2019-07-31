@@ -100,7 +100,7 @@ Currently documentation is available for the following clusters:
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
 * [UPPMAX](docs/uppmax.md)
-* [UPPMAX-DEVEL](docs/uppmax-devel.md)
+* [UPPMAX_DEVEL](docs/uppmax.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
