@@ -82,24 +82,26 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Currently documentation is available for the following clusters:
 
-* [BINAC](docs/binac.md)
 * [BIGPURPLE](docs/bigpurple.md)
+* [BINAC](docs/binac.md)
 * [CCGA](docs/ccga.md)
 * [CCGA_DX](/docs/ccga_dx.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
+* [CZBIOHUB_AWS](docs/czbiohub.md)
+* [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
 * [GIS](docs/gis.md)
 * [HEBBE](docs/hebbe.md)
 * [MENDEL](docs/mendel.md)
 * [MUNIN](docs/munin.md)
+* [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
-* [UPPMAX-DEVEL](docs/uppmax-devel.md)
 * [UPPMAX](docs/uppmax.md)
+* [UPPMAX_DEVEL](docs/uppmax.md)
 * [UZH](docs/uzh.md)
-* [PASTEUR](docs/pasteur.md)
 
 ### Uploading to `nf-core/configs`
 
@@ -111,4 +113,4 @@ We will be notified automatically when you have created your pull request, and p
 
 ## Help
 
-If you have any questions or issues please send us a message on [Slack](https://nf-core-invite.herokuapp.com/).
+If you have any questions or issues please send us a message on [Slack](https://nf-co.re/join/slack).

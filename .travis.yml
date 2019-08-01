@@ -17,8 +17,8 @@ install:
   - mkdir -p ${TRAVIS_BUILD_DIR}/tests && cd ${TRAVIS_BUILD_DIR}/tests
 
 env:
-  - NXF_VER='18.10.1' # Specify a minimum NF version that should be tested and work
-  - NXF_VER='' # Plus: get the latest NF version and check, that it works
+  - NXF_VER='18.10.1' SCRATCH='~' # Specify a minimum NF version that should be tested and work. Set SCRATCH for prince.config.
+  - NXF_VER='' SCRATCH='~'        # Plus: get the latest NF version and check, that it works. Set SCRATCH for prince.config.
 
 script:
   # Run the pipeline with the test profile and test remote config
@@ -26,4 +26,5 @@ script:
       grep "{.*includeConfig.*[a-z]*\.config\"" ${TRAVIS_BUILD_DIR}/nfcore_custom.config | \
       tr -s ' ' | \
       cut -d " " -f 2 | \
+      grep -v "czbiohub_aws" | \
       xargs -I {} nextflow run ${TRAVIS_BUILD_DIR}/configtest.nf -profile {}
