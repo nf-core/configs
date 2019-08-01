@@ -26,4 +26,5 @@ script:
       grep "{.*includeConfig.*[a-z]*\.config\"" ${TRAVIS_BUILD_DIR}/nfcore_custom.config | \
       tr -s ' ' | \
       cut -d " " -f 2 | \
+      grep -v "czbiohub_aws" | \
       xargs -I {} nextflow run ${TRAVIS_BUILD_DIR}/configtest.nf -profile {}
