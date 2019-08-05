@@ -92,6 +92,7 @@ Currently documentation is available for the following clusters:
 * [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
 * [GIS](docs/gis.md)
 * [HEBBE](docs/hebbe.md)
+* [KRAKEN](docs/kraken.md)
 * [MENDEL](docs/mendel.md)
 * [MUNIN](docs/munin.md)
 * [PASTEUR](docs/pasteur.md)
