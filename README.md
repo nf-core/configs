@@ -84,6 +84,7 @@ Currently documentation is available for the following clusters:
 
 * [BIGPURPLE](docs/bigpurple.md)
 * [BINAC](docs/binac.md)
+* [CBE](docs/cbe.md)
 * [CCGA](docs/ccga.md)
 * [CCGA_DX](/docs/ccga_dx.md)
 * [CFC](docs/binac.md)
