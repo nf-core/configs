@@ -27,4 +27,4 @@ script:
       tr -s ' ' | \
       cut -d " " -f 2 | \
       grep -v "czbiohub_aws" | \
-      xargs -I {} nextflow run ${TRAVIS_BUILD_DIR}/configtest.nf -profile {}
+                            xargs -I {} nextflow run ${TRAVIS_BUILD_DIR}/configtest.nf --custom_config_base=${TRAVIS_BUILD_DIR} -profile {}
