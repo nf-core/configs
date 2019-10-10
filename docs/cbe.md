@@ -10,7 +10,7 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 ## Load Nextflow and Singularity environment modules
 module purge
 module load nextflow/19.04.0
-module load singularity/3.1.0
+module load singularity/3.2.1
 ```
 
 >NB: You will need an account to use the HPC cluster on CBE in order to run the pipeline. If in doubt contact IT.
