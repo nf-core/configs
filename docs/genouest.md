@@ -6,7 +6,9 @@ To use, run the pipeline with `-profile genouest`. This will download and launch
 
 ## Running the workflow on the GenOuest cluster
 
-Nextflow is installed on the GenOuest cluster. You need to activate it like this:
+Nextflow is installed on the GenOuest cluster. Some documentation is available on the [GenOuest website](https://www.genouest.org/howto/#nextflow).
+
+You need to activate it like this:
 
 ```bash
 source /local/env/envnextflow-19.07.0.sh
