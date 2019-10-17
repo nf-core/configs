@@ -91,6 +91,7 @@ Currently documentation is available for the following clusters:
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
+* [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
 * [HEBBE](docs/hebbe.md)
 * [KRAKEN](docs/kraken.md)
