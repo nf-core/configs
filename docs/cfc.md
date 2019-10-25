@@ -10,7 +10,7 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 ## Load Nextflow and Singularity environment modules
 module purge
 module load devel/java_jdk/1.8.0u121
-module load qbic/singularity_slurm/3.0.1
+module load qbic/singularity_slurm/3.0.3
 ```
 
 
