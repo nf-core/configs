@@ -26,7 +26,7 @@ If running on Bianca, you will have no internet connection and these configs wil
 Please use the nf-core helper tool on a different system to download the required pipeline files, and transfer them to bianca.
 This helper tool bundles the config files in this repo together with the pipeline files, so the profile will still be available.
 
-Please note that Bianca only allocates 7 GB memory per core so max memory needs to be configured:
+Note that Bianca only allocates 7 GB memory per core so the max memory needs to be limited:
 
 ```bash
 --max_memory "112GB"
