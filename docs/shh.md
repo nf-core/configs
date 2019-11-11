@@ -10,7 +10,8 @@ To use, run the pipeline with `-profile shh`. This will download and launch the 
 
 however this will likely change to a read-only directory in the future that will be managed by IT.
 
-Note that **the configuration file is currently optimised for `nf-core/eager`**. It will submit to the short queue but with a walltime of 2 hours.
+This configuration will automatically choose the correct SLURM queue (`short`,`medium`,`long`,`supercruncher`) depending on the time and memory required by each process.  
+Please note that there is no `supercruncher` queue on CDAG.
 
 >NB: You will need an account and VPN access to use the cluster at MPI-SHH in order to run the pipeline. If in doubt contact IT.
 
