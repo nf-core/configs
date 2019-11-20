@@ -10,12 +10,13 @@ This will download and launch the [`munin.config`](../conf/pipeline/sarek/munin.
 
 Example: `nextflow run nf-core/sarek -profile munin`
 
-## Sarek specific configurations for Munin
+## Sarek specific configurations for MUNIN
 
-Specific configurations for Munin has been made for sarek.
+Specific configurations for MUNIN has been made for sarek.
 
+* Params `annotation_cache` set to `true`
 * Path to `snpEff_cache`: `/data1/cache/snpEff/`
 * Path to `vep_cache`: `/data1/cache/VEP/`
 * Path to `pon`: `/data1/PON/vcfs/BTB.PON.vcf.gz`
 * Path to `pon_index`: `/data1/PON/vcfs/BTB.PON.vcf.gz.tbi`
-* Load module `Sentieon` for Process with `sentieon` labels 
+* Load module `Sentieon` for Processes with `sentieon` labels

@@ -12,6 +12,10 @@ A repository for hosting nextflow config files containing custom parameters requ
     * [Testing](#testing)
     * [Documentation](#documentation)
     * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+* [Adding a new pipeline specific config](#adding-a-new-pipeline-specific-config)
+    * [Pipeline Specific Documentation](#pipeline-specific-documentation)
+    * [Enabling the specific configs within a specific pipeline](#enabling-the-specific-configs-within-a-specific-pipeline)
+    * [Create the specific `nf-core/configs` for the pipeline](#create-the-specific-nf-coreconfigs-for-the-pipeline)
 * [Help](#help)
 
 ## Using an existing config
@@ -128,7 +132,7 @@ Currently documentation is available for the following pipelines within the spec
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
 
-### Enabling the specific configs within a specific PIPELINE
+### Enabling the specific configs within a specific pipeline
 
 > This has to be done on a fork of the `nf-core/<PIPELINE>` repository.
 
