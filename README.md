@@ -115,6 +115,50 @@ Commit and push these changes to your local clone on GitHub, and then [create a 
 
 We will be notified automatically when you have created your pull request, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 
+## Adding a new pipeline specific config
+
+Follow the previous guidelines to create a nf-core/configs, update the pipeline specific documentation, and create the necessary files.
+Replace `<PIPELINE>` with the pipeline name for all the instructions in this guidelines.
+In a similar manner, replace `<PROFILE>` by the name of the profile.
+
+### Pipeline specific documentation
+
+Currently documentation is available for the following pipelines within the specific profile:
+
+* sarek
+  * [MUNIN](docs/pipeline/sarek/munin.md)
+
+### Enabling the specific configs within a specific PIPELINE
+
+> This has to be done on a fork of the `nf-core/<PIPELINE>` repository.
+
+If not already present, add to `nextflow.config`
+
+```Groovy
+// Load nf-core/<PIPELINE> custom profiles from different Institutions
+try {
+  includeConfig "${params.custom_config_base}/pipeline/<PIPELINE>.config"
+} catch (Exception e) {
+  System.err.println("WARNING: Could not load nf-core/config/<PIPELINE> profiles: ${params.custom_config_base}/pipeline/<PIPELINE>.config")
+}
+```
+
+### Create the specific nf-core/configs for the pipeline
+
+> This has to be done on a fork of the `nf-core/configs` repository.
+
+If not already created, add the `pipeline/<PIPELINE>.config` file, and add the profile <PROFILE> to the profile scope
+
+```Groovy
+profiles {
+  <PROFILE> { includeConfig "${params.custom_config_base}/conf/pipeline/<PIPELINE>/<PROFILE>.config" }
+}
+```
+
+Add the `conf/pipeline/<PIPELINE>/<PROFILE>.config` file with all pipeline specific params, `withLabel` or any other configuration profile.
+
+Add the `docs/pipeline/<PIPELINE>/<PROFILE>.md` file with documentation on what are the specificity of this configs.
+
 ## Help
 
 If you have any questions or issues please send us a message on [Slack](https://nf-co.re/join/slack).
