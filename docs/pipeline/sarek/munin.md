@@ -19,8 +19,4 @@ Specific configurations for MUNIN has been made for sarek.
 * Path to `vep_cache`: `/data1/cache/VEP/`
 * Path to `pon`: `/data1/PON/vcfs/BTB.PON.vcf.gz`
 * Path to `pon_index`: `/data1/PON/vcfs/BTB.PON.vcf.gz.tbi`
-<<<<<<< HEAD
 * Load module `Sentieon` for Processes with `sentieon` labels
-=======
-* Load module `Sentieon` for Processes with `sentieon` labels
->>>>>>> 5dc5555... update docs
