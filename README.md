@@ -134,7 +134,7 @@ Currently documentation is available for the following pipelines within the spec
 
 ### Enabling the specific configs within a specific pipeline
 
-> This has to be done on a fork of the `nf-core/<PIPELINE>` repository.
+:warning:  **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
 
 If not already present, add to `nextflow.config`
 
@@ -149,7 +149,7 @@ try {
 
 ### Create the specific nf-core/configs for the pipeline
 
-> This has to be done on a fork of the `nf-core/configs` repository.
+:warning: This has to be done on a fork of the `nf-core/configs` repository.
 
 If not already created, add the `pipeline/<PIPELINE>.config` file, and add the profile <PROFILE> to the profile scope
 
