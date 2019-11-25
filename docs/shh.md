@@ -14,5 +14,4 @@ This configuration will automatically choose the correct SLURM queue (`short`,`m
 Please note that there is no `supercruncher` queue on CDAG.
 
 >NB: You will need an account and VPN access to use the cluster at MPI-SHH in order to run the pipeline. If in doubt contact IT.
-
 >NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. If in doubt contact IT.
