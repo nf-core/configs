@@ -14,10 +14,10 @@ jobs:
         matrix:
             profile: ['awsbatch, bigpurple, binac, cbe, ccga_dx, ccga, cfc, crick, czbiohub_aws_highpriority, czbiohub_aws, denbi_qbic, genouest, gis, hebbe, kraken, munin, pasteur, phoenix, prince, shh, uct_hex, uppmax_devel, uppmax, uzh']
     steps:
-        - uses: actions/checkout@v1
-        - name: Install Nextflow
-          run: |
+      - uses: actions/checkout@v1
+      - name: Install Nextflow
+        run: |
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
-        - name: "Check profile"
-          run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
+      - name: "Check profile"
+        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
