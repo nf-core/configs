@@ -1,12 +1,14 @@
 name: nfcore configs tests
 
 ## Check whether users added their config to the matrix
-on: [push, pull_request]
-  paths:
-    - '.github/main.workflow'
+on: 
+  push: 
+   paths:
+    - '.github/main.yml'
 
 jobs:
-  job_1:
+  profile_test:
+    runs-on: ubuntu-latest
     name: Run individual profiles
     strategy:
         matrix:
@@ -14,9 +16,8 @@ jobs:
     steps:
         - uses: actions/checkout@v1
         - name: Install Nextflow
-        run: |
+          run: |
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
-        - name: Check ${{ matrix.profile }} profile
+        - name: "Check profile"
           run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
-
