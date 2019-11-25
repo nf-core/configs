@@ -1,4 +1,4 @@
-name: nfcore configs tests
+name: Configs tests
 
 ## Check whether users added their config to the matrix
 on: 
