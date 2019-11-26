@@ -1,5 +1,6 @@
 name: Configs tests
 
+on: [pull_request, push]
 jobs:
   profile_test:
     runs-on: ubuntu-latest
