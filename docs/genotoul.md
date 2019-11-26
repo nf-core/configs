@@ -71,7 +71,7 @@ By default, available mount points are :
 - /work2  
 
 To have access to specific other mount point (such as nosave or project)
-you can add a config profile file with option `-profile` and wich contain:
+you can add a config profile file with option `-profile` and which contain:
 
 ```bash
 singularity.runOptions = '-B /diretory/to/mount'
