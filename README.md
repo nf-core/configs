@@ -1,22 +1,21 @@
-# [![nf-core/configs](docs/images/nfcore-configs_logo.png)](https://github.com/nf-core/configs)
+# [![nf-core/configs](docs/images/nfcore-configs_logo.png "nf-core/configs")](https://github.com/nf-core/configs)
 
-[![Lint Status](https://github.com/nf-core/configs/workflows/nfcore%20configs%20tests/badge.svg)](https://github.com/nf-core/configs/workflows/nfcore%20configs%20tests/badge.svg)
+[![Lint Status](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)
 
 A repository for hosting nextflow config files containing custom parameters required to run nf-core pipelines at different Institutions.
 
 ## Table of contents
 
-* [![nf-core/configs](https://github.com/nf-core/configs)](#nf-coreconfigshttpsgithubcomnf-coreconfigs)
-  * [Table of contents](#table-of-contents)
-  * [Using an existing config](#using-an-existing-config)
-    * [Configuration and parameters](#configuration-and-parameters)
-    * [Offline usage](#offline-usage)
-  * [Adding a new config](#adding-a-new-config)
-  * [Checking user hostnames](#checking-user-hostnames)
-    * [Testing](#testing)
-    * [Documentation](#documentation)
-    * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-  * [Help](#help)
+* [Table of contents](#table-of-contents)
+* [Using an existing config](#using-an-existing-config)
+  * [Configuration and parameters](#configuration-and-parameters)
+  * [Offline usage](#offline-usage)
+* [Adding a new config](#adding-a-new-config)
+* [Checking user hostnames](#checking-user-hostnames)
+  * [Testing](#testing)
+  * [Documentation](#documentation)
+  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+* [Help](#help)
 
 ## Using an existing config
 
@@ -116,7 +115,7 @@ Currently documentation is available for the following systems:
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/configs` repository to your own GitHub account. Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory. You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
 
-Afterwards, make sure to edit the `.github/main.yml` file and add your profile name to alphabetically sorted `profile:` scope. This way, it will be tested automatically using GitHub Actions.
+Afterwards, make sure to edit the `.github/main.yml` file and add your profile name to the alphabetically sorted `profile:` scope. This way, it will be tested automatically using GitHub Actions. If you forget to do this, tests will fail and complain about that.
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
