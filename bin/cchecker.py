@@ -48,6 +48,9 @@ def check_config(Config, Github):
     
     ###Check Github Config now
     tests = set()
+    ###Ignore these profiles
+    ignore_me = ['czbiohub_aws_highpriority', 'czbiohub_aws']
+    tests.update(ignore_me)
     with open(Github, 'r') as ghfile:
         for line in ghfile:
             if re.search('profile: ', line):
@@ -61,7 +64,7 @@ def check_config(Config, Github):
         sys.exit(0)
     else: 
         #Maybe report what is missing here too
-        print("Tests don't seem to test these profiles properly!\n")
+        print("Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.\n")
         print(config_profiles.symmetric_difference(tests))
         sys.exit(1)
 
