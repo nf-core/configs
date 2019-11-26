@@ -1,22 +1,21 @@
-# [![nf-core/configs](docs/images/nfcore-configs_logo.png)](https://github.com/nf-core/configs)
+# [![nf-core/configs](docs/images/nfcore-configs_logo.png "nf-core/configs")](https://github.com/nf-core/configs)
 
-[![Lint Status](https://github.com/nf-core/configs/workflows/nfcore%20configs%20tests/badge.svg)](https://github.com/nf-core/configs/workflows/nfcore%20configs%20tests/badge.svg)
+[![Lint Status](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)
 
 A repository for hosting nextflow config files containing custom parameters required to run nf-core pipelines at different Institutions.
 
 ## Table of contents
 
-* [![nf-core/configs](https://github.com/nf-core/configs)](#nf-coreconfigshttpsgithubcomnf-coreconfigs)
-  * [Table of contents](#table-of-contents)
-  * [Using an existing config](#using-an-existing-config)
-    * [Configuration and parameters](#configuration-and-parameters)
-    * [Offline usage](#offline-usage)
-  * [Adding a new config](#adding-a-new-config)
-  * [Checking user hostnames](#checking-user-hostnames)
-    * [Testing](#testing)
-    * [Documentation](#documentation)
-    * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-  * [Help](#help)
+* [Table of contents](#table-of-contents)
+* [Using an existing config](#using-an-existing-config)
+  * [Configuration and parameters](#configuration-and-parameters)
+  * [Offline usage](#offline-usage)
+* [Adding a new config](#adding-a-new-config)
+* [Checking user hostnames](#checking-user-hostnames)
+  * [Testing](#testing)
+  * [Documentation](#documentation)
+  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+* [Help](#help)
 
 ## Using an existing config
 
