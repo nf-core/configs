@@ -1,20 +1,22 @@
-<img src="docs/images/nf-core-logo.png" width="400">
+# [![nf-core/configs](docs/images/nfcore-configs_logo.png)](https://github.com/nf-core/configs)
 
-# [nf-core/configs](https://github.com/nf-core/configs)
-
-[![Build Status](https://travis-ci.org/nf-core/configs.svg?branch=master)](https://travis-ci.org/nf-core/configs)
+[![Lint Status](https://github.com/nf-core/configs/workflows/nfcore%20configs%20tests/badge.svg)](https://github.com/nf-core/configs/workflows/nfcore%20configs%20tests/badge.svg)
 
 A repository for hosting nextflow config files containing custom parameters required to run nf-core pipelines at different Institutions.
 
 ## Table of contents
-* [Using an existing config](#using-an-existing-config)
+
+* [![nf-core/configs](https://github.com/nf-core/configs)](#nf-coreconfigshttpsgithubcomnf-coreconfigs)
+  * [Table of contents](#table-of-contents)
+  * [Using an existing config](#using-an-existing-config)
     * [Configuration and parameters](#configuration-and-parameters)
     * [Offline usage](#offline-usage)
-* [Adding a new config](#adding-a-new-config)
+  * [Adding a new config](#adding-a-new-config)
+  * [Checking user hostnames](#checking-user-hostnames)
     * [Testing](#testing)
     * [Documentation](#documentation)
     * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-* [Help](#help)
+  * [Help](#help)
 
 ## Using an existing config
 
@@ -24,7 +26,7 @@ The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter c
 
 The config files hosted in this repository define a set of parameters which are specific to compute environments at different Institutions but generic enough to be used with all nf-core pipelines.
 
-All nf-core pipelines inherit the functionality provided by Nextflow, and as such custom config files can contain parameters/definitions that are available to both. For example, if you have the ability to use [Singularity](https://singularity.lbl.gov/) on your HPC you can add and customise the Nextflow [`singularity`](https://www.nextflow.io/docs/latest/config.html#scope-singularity) scope in your config file. Similarly, you can define a Nextflow [`executor`](https://www.nextflow.io/docs/latest/executor.html) depending on the job submission process available on your cluster. In contrast, the `params` section in your custom config file will typically define parameters that are specific to nf-core pipelines.
+All nf-core pipelines inherit the functionality provided by Nextflow, and as such custom config files can contain parameters/definitions that are available to both. For example, if you have the ability to use [Singularity](https://singularity.lbl.gov/) on your HPC you can add and customize the Nextflow [`singularity`](https://www.nextflow.io/docs/latest/config.html#scope-singularity) scope in your config file. Similarly, you can define a Nextflow [`executor`](https://www.nextflow.io/docs/latest/executor.html) depending on the job submission process available on your cluster. In contrast, the `params` section in your custom config file will typically define parameters that are specific to nf-core pipelines.
 
 You should be able to get a good idea as to how other people are customising the execution of their nf-core pipelines by looking at some of the config files in [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf).
 
@@ -82,26 +84,38 @@ You will have to create a [Markdown document](https://www.markdownguide.org/gett
 
 See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs) for examples.
 
-Currently documentation is available for the following clusters:
+Currently documentation is available for the following systems:
 
+* [AWSBATCH](docs/awsbatch.md)
+* [BIGPURPLE](docs/bigpurple.md)
 * [BINAC](docs/binac.md)
+* [CBE](docs/cbe.md)
 * [CCGA](docs/ccga.md)
+* [CCGA_DX](/docs/ccga_dx.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
+* [CZBIOHUB_AWS](docs/czbiohub.md)
+* [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
+* [DENBI_QBIC](docs/denbi_qbic.md)
+* [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
 * [HEBBE](docs/hebbe.md)
-* [MENDEL](docs/mendel.md)
+* [KRAKEN](docs/kraken.md)
 * [MUNIN](docs/munin.md)
+* [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
+* [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
-* [UPPMAX-DEVEL](docs/uppmax-devel.md)
 * [UPPMAX](docs/uppmax.md)
+* [UPPMAX_DEVEL](docs/uppmax.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/configs` repository to your own GitHub account. Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory. You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
+
+Afterwards, make sure to edit the `.github/main.yml` file and add your profile name to alphabetically sorted `profile:` scope. This way, it will be tested automatically using GitHub Actions.
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
@@ -109,4 +123,4 @@ We will be notified automatically when you have created your pull request, and p
 
 ## Help
 
-If you have any questions or issues please send us a message on [Slack](https://nf-core-invite.herokuapp.com/).
+If you have any questions or issues please send us a message on [Slack](https://nf-co.re/join/slack).
