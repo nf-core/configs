@@ -64,7 +64,7 @@ def check_config(Config, Github):
         sys.exit(0)
     else: 
         #Maybe report what is missing here too
-        print("Tests don't seem to test these profiles properly!\n")
+        print("Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.\n")
         print(config_profiles.symmetric_difference(tests))
         sys.exit(1)
 
