@@ -130,19 +130,22 @@ We will be notified automatically when you have created your pull request, and p
 
 ## Adding a new pipeline-specific config
 
-Here we will be adding an institutional pipeline-specific config.
+Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline. 
+Such options should not be added to the main institutional config, as this will be applied to all pipelines.
+Instead, we can create a pipeline-specific institutional config file.
 
-:warning: Replace `<PIPELINE>` with the pipeline name for all the instructions in this guidelines.
-:warning: In a similar manner, replace `<PROFILE>` by the name of the profile.
+:warning: Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
 
-Currently the `nextflow.config` file from any pipeline, load the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config), which load the institutional configuration file based on the profile `<PROFILE>`.
+Institutional configs work because the pipeline `nextflow.config` file loads the [`nf-core/configs/nfcore_custom.config` config file](https://github.com/nf-core/configs/blob/master/nfcore_custom.config), which in turn loads the institutional configuration file based on the profile `<PROFILE>` supplied on the command line.
 
-We're adding within the `nextflow.config` from the pipeline `<PIPELINE>`, the loading of the `pipeline/<PIPELINE>.config` from the [`nf-core/configs`](https://github.com/nf-core/configs) repo, which load the `<PIPELINE>` specific institution configuration file based on the profile `<PROFILE>`.
+To add in pipeline-specific institutional configs, we add a second `includeConfig` call in the pipeline `nextflow.config` file, which loads the `pipeline/<PIPELINE>.config` file from the [`nf-core/configs`](https://github.com/nf-core/configs) repo. This file has `<PIPELINE>` specific institution configuration again with different profiles `<PROFILE>`.
 
-`nextflow.config` from pipeline will load first institutional configuration file and then the pipeline-specific institutional configuration file.
+The pipeline `nextflow.config` file should first load the generic institutional configuration file and then the pipeline-specific institutional configuration file.
 Each configuration file will add new params and overwrite the params already existing.
 
-Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` set to reasonable values.
+Note that pipeline-specific configs are not required and should only be added if needed.
+
+Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` to the top of `pipeline/<PIPELINE>.config` and set to reasonable values.
 Users will get information on who wrote the pipeline-specific configuration profile then when executing the nf-core pipeline and can report back if there are things missing for example.
 
 ### Pipeline specific documentation
@@ -157,9 +160,9 @@ Currently documentation is available for the following pipeline within the speci
 :warning:  **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/<PIPELINE>` repository to your own GitHub account.
-Within the local clone of your fork, if not already present, add to `nextflow.config`
+Within the local clone of your fork, if not already present, add the following to `nextflow.config` **after** the code that loads the generic nf-core/configs config file:
 
-```Groovy
+```nextflow
 // Load nf-core/<PIPELINE> custom profiles from different Institutions
 try {
   includeConfig "${params.custom_config_base}/pipeline/<PIPELINE>.config"
@@ -190,6 +193,7 @@ Add the documentation file to the `docs/pipeline/<PIPELINE>/` directory.
 You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
+In the pull-request description, add a link to the repository specific pull-request(s) that use this new code. Both PRs will need to be merged at the approximately the same time.
 
 ## Help
 
