@@ -63,12 +63,13 @@ sbatch nfcore-rnaseq.sh
 
 ## Mounted directory
 
-By default, available mount points are :
-- /bank
-- /home
-- /save
-- /work  
-- /work2  
+By default, available mount points are:
+
+* /bank
+* /home
+* /save
+* /work  
+* /work2  
 
 To have access to specific other mount point (such as nosave or project)
 you can add a config profile file with option `-profile` and which contain:
