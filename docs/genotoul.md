@@ -54,6 +54,7 @@ Create launch script `nfcore-rnaseq.sh` :
 module load bioinfo/nfcore-Nextflow-v19.04.0
 nextflow run nf-core/methylseq -profile genotoul,test
 ```
+
 Launch on the cluster with sbatch:
 
 ```bash
@@ -63,14 +64,15 @@ sbatch nfcore-rnaseq.sh
 ## Mounted directory
 
 By default, available mount points are :
- - /bank
- - /home
- - /save
- - /work  
- - /work2  
+- /bank
+- /home
+- /save
+- /work  
+- /work2  
 
 To have access to specific other mount point (such as nosave or project)
 you can add a config profile file with option `-profile` and wich contain:
+
 ```bash
 singularity.runOptions = '-B /diretory/to/mount'
 ```
