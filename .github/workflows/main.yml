@@ -16,7 +16,8 @@ jobs:
     needs: test_all_profiles
     strategy:
         matrix:
-            profile: ['awsbatch', 'bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga', 'cfc', 'crick', 'denbi_qbic', 'genotoul', 'genouest', 'gis', 'hebbe', 'kraken', 'munin', 'pasteur', 'phoenix', 'prince', 'shh', 'uct_hex', 'uppmax_devel', 'uppmax', 'uzh']
+          profile: ['awsbatch', 'bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga', 'cfc', 'crick', 'denbi_qbic', 'genotoul', 'genouest', 'gis', 'hebbe', 'kraken', 'munin', 'pasteur', 'phoenix', 'prince', 'shh', 'uct_hex', 'uppmax_devel', 'uppmax', 'uzh']
+
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
