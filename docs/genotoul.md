@@ -1,6 +1,3 @@
-
-
-
 # nf-core/configs: Bioinfo Genotoul Configuration
 
 All nf-core pipelines have been successfully configured for use on the Bioinfo Genotoul cluster at the INRA toulouse.
