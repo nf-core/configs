@@ -74,7 +74,7 @@ To have access to specific other mount point (such as nosave or project)
 you can add a config profile file with option `-profile` and which contain:
 
 ```bash
-singularity.runOptions = '-B /diretory/to/mount'
+singularity.runOptions = '-B /directory/to/mount'
 ```
 
 ## Databanks
