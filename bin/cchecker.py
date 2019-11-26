@@ -44,28 +44,25 @@ def check_config(Config, Github):
         for line in cfg:
             if re.search(regex, line):
                 hit = line.split('/')[2].split('.')[0]
-                config_profiles.add(hit)
+                config_profiles.add(hit.strip())
     
     ###Check Github Config now
     tests = set()
     with open(Github, 'r') as ghfile:
         for line in ghfile:
             if re.search('profile: ', line):
-                line = line.replace('\'','').replace('[','').replace(']','')
+                line = line.replace('\'','').replace('[','').replace(']','').replace('\n','')
                 profiles = line.split(':')[1].split(',')
                 for p in profiles:
-                    tests.add(p)
-
-    print(len(tests))
-    print(len(config_profiles))
-    
+                    tests.add(p.strip())
+   
     ###Check if sets are equal
     if tests == config_profiles:
         sys.exit(0)
     else: 
         #Maybe report what is missing here too
-        #print("Tests don't seem to test these profiles properly!\n")
-       # print(config_profiles.difference(tests))
+        print("Tests don't seem to test these profiles properly!\n")
+        print(config_profiles.symmetric_difference(tests))
         sys.exit(1)
 
 check_config(Config=args.CUSTOM_CONFIG,Github=args.GITHUB_CONFIG)
