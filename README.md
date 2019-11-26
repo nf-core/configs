@@ -130,7 +130,9 @@ We will be notified automatically when you have created your pull request, and p
 
 ## Adding a new pipeline-specific config
 
-Here we will be adding an institutional pipeline-specific config.
+Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline. 
+Such options should not be added to the main institutional config, as this will be applied to all pipelines.
+Instead, we can create a pipeline-specific institutional config file.
 
 :warning: Replace `<PIPELINE>` with the pipeline name for all the instructions in this guidelines.
 :warning: In a similar manner, replace `<PROFILE>` by the name of the profile.
