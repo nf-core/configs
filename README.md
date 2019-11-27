@@ -13,10 +13,10 @@ A repository for hosting Nextflow configuration files containing custom paramete
   * [Testing](#testing)
   * [Documentation](#documentation)
   * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-* [Adding a new pipeline specific config](#adding-a-new-pipeline-specific-config)
-  * [Pipeline Specific Documentation](#pipeline-specific-documentation)
-  * [Enabling the specific configs within a specific pipeline](#enabling-the-specific-configs-within-a-specific-pipeline)
-  * [Create the specific `nf-core/configs` for the pipeline](#create-the-specific-nf-coreconfigs-for-the-pipeline)
+* [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+  * [Pipeline-specific documentation](#pipeline-specific-documentation)
+  * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
+  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
 * [Help](#help)
 
 ## Using an existing config
