@@ -1,0 +1,29 @@
+name: Configs tests
+
+on: [pull_request, push]
+jobs:
+  test_all_profiles:
+    runs-on: ubuntu-latest
+    name: Check if all profiles are tested
+    steps:
+      - uses: actions/checkout@v1
+      - name: Check whether profiles are all tested
+        run: | 
+          python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
+  profile_test:
+    runs-on: ubuntu-latest
+    name: Run ${{ matrix.profile }} profile
+    needs: test_all_profiles
+    strategy:
+        matrix:
+          profile: ['awsbatch', 'bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga', 'cfc', 'crick', 'denbi_qbic', 'genotoul', 'genouest', 'gis', 'hebbe', 'kraken', 'munin', 'pasteur', 'phoenix', 'prince', 'shh_sdag', 'shh_cdag', 'uct_hex', 'uppmax_devel', 'uppmax', 'uzh']
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Nextflow
+        run: |
+          wget -qO- get.nextflow.io | bash
+          sudo mv nextflow /usr/local/bin/
+      - name: Check ${{ matrix.profile }} profile
+        env: 
+          SCRATCH: '~'
+        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
