@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/nf-core/configs.svg?branch=master)](https://travis-ci.org/nf-core/configs)
 
-A repository for hosting nextflow config files containing custom parameters required to run nf-core pipelines at different Institutions.
+A repository for hosting Nextflow configuration files containing custom parameters required to run nf-core pipelines at different Institutions.
 
 ## Table of contents
 
@@ -80,7 +80,7 @@ If you want to add a new custom config file to `nf-core/configs` please test tha
 
 ```bash
 ## Example command for nf-core/rnaseq
-nextflow run nf-core/rnaseq --reads '*_R{1,2}.fastq.gz' --genome GRCh37 -c '[path to custom config]'
+nextflow run nf-core/rnaseq --reads '*_R{1,2}.fastq.gz' --genome GRCh37 -c '/path/to/custom.config'
 ```
 
 ### Documentation
@@ -119,7 +119,7 @@ Currently documentation is available for the following systems:
 
 ### Uploading to `nf-core/configs`
 
-[Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/configs` repository to your own GitHub account.
+[Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory.
 You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
 You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
@@ -130,7 +130,7 @@ We will be notified automatically when you have created your pull request, and p
 
 ## Adding a new pipeline-specific config
 
-Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline. 
+Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline.
 Such options should not be added to the main institutional config, as this will be applied to all pipelines.
 Instead, we can create a pipeline-specific institutional config file.
 
@@ -138,26 +138,24 @@ Instead, we can create a pipeline-specific institutional config file.
 
 Institutional configs work because the pipeline `nextflow.config` file loads the [`nf-core/configs/nfcore_custom.config` config file](https://github.com/nf-core/configs/blob/master/nfcore_custom.config), which in turn loads the institutional configuration file based on the profile `<PROFILE>` supplied on the command line.
 
-To add in pipeline-specific institutional configs, we add a second `includeConfig` call in the pipeline `nextflow.config` file, which loads the `pipeline/<PIPELINE>.config` file from the [`nf-core/configs`](https://github.com/nf-core/configs) repo. This file has `<PIPELINE>` specific institution configuration again with different profiles `<PROFILE>`.
+To add in pipeline-specific institutional configs, we add a second `includeConfig` call in the pipeline `nextflow.config` file, which loads the `pipeline/<PIPELINE>.config` file from the [`nf-core/configs`](https://github.com/nf-core/configs) repo.
+This file has `<PIPELINE>` specific institution configuration again with different profiles `<PROFILE>`.
 
 The pipeline `nextflow.config` file should first load the generic institutional configuration file and then the pipeline-specific institutional configuration file.
 Each configuration file will add new params and overwrite the params already existing.
 
 Note that pipeline-specific configs are not required and should only be added if needed.
 
-Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` to the top of `pipeline/<PIPELINE>.config` and set to reasonable values.
-Users will get information on who wrote the pipeline-specific configuration profile then when executing the nf-core pipeline and can report back if there are things missing for example.
-
-### Pipeline specific documentation
+### Pipeline-specific documentation
 
 Currently documentation is available for the following pipeline within the specific profile:
 
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
 
-### Enabling the specific configs within a specific pipeline
+### Enabling pipeline-specific configs within a pipeline
 
-:warning:  **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
+:warning: **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/<PIPELINE>` repository to your own GitHub account.
 Within the local clone of your fork, if not already present, add the following to `nextflow.config` **after** the code that loads the generic nf-core/configs config file:
@@ -175,12 +173,16 @@ Commit and push these changes to your local clone on GitHub, and then [create a 
 
 We will be notified automatically when you have created your pull request, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 
-### Create the specific nf-core/configs for the pipeline
+### Create the pipeline-specific `nf-core/configs` files
 
-:warning: This has to be done on a fork of the `nf-core/configs` repository.
+:warning: This has to be done on a fork of the [`nf-core/configs`](https://github.com/nf-core/configs/) repository.
 
-[Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/configs` repository to your own GitHub account.
-Within the local clone of your fork, if not already created, create the `pipeline/<PIPELINE>.config` file, and add your custom profile to the profile scope
+[Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
+And add or edit the following files in the local clone of your fork.
+
+* `pipeline/<PIPELINE>.config`
+
+If not already created, create the `pipeline/<PIPELINE>.config` file, and add your custom profile to the profile scope
 
 ```Groovy
 profiles {
@@ -188,12 +190,24 @@ profiles {
 }
 ```
 
+* `conf/pipeline/<PIPELINE>/<PROFILE>.config`
+
 Add the custom configuration file to the `conf/pipeline/<PIPELINE>/` directory.
+Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` to the top of `pipeline/<PIPELINE>.config` and set to reasonable values.
+Users will get information on who wrote the pipeline-specific configuration profile then when executing the nf-core pipeline and can report back if there are things missing for example.
+
+* `docs/pipeline/<PIPELINE>/<PROFILE>.md`
+
 Add the documentation file to the `docs/pipeline/<PIPELINE>/` directory.
 You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
 
+* `README.md`
+
+Edit this file, and add the new pipeline-specific institutional profile to the list in the section Pipeline specific documentation
+
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
-In the pull-request description, add a link to the repository specific pull-request(s) that use this new code. Both PRs will need to be merged at the approximately the same time.
+In the pull-request description, add a link to the repository specific pull-request(s) that use this new code.
+Both PRs will need to be merged at the approximately the same time.
 
 ## Help
 
