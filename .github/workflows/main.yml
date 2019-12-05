@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Check whether profiles are all tested
-        run: | 
+        run: |
           python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
   profile_test:
     runs-on: ubuntu-latest
@@ -16,8 +16,7 @@ jobs:
     needs: test_all_profiles
     strategy:
         matrix:
-          profile: ['awsbatch', 'bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga', 'cfc', 'crick', 'denbi_qbic', 'genotoul', 'genouest', 'gis', 'hebbe', 'kraken', 'munin', 'pasteur', 'phoenix', 'prince', 
-'shh', 'uct_hex', 'uppmax_devel', 'uppmax', 'uzh']
+          profile: ['awsbatch', 'bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga', 'cfc', 'crick', 'denbi_qbic', 'genotoul', 'genouest', 'gis', 'hebbe', 'kraken', 'munin', 'pasteur', 'phoenix', 'prince', 'shh', 'uct_hex', 'uppmax_devel', 'uppmax', 'uzh']
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
