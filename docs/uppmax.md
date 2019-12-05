@@ -50,7 +50,7 @@ Note that each job will still start with the same request as normal, but restart
 
 All jobs will be submitted to fat nodes using this method, so it's only for use in extreme circumstances.
 
-## Uppmax-devel config
+## devel config
 
 If doing pipeline development work on Uppmax, this profile allows for faster testing.
 
@@ -59,4 +59,4 @@ Applied after main UPPMAX config, it overwrites certain parts of the config and 
 All jobs are limited to 1 hour to be eligible for this queue and only one job allowed at a time.
 It is not suitable for use with real data.
 
-To use it, submit with `-profile uppmax-devel`.
+To use it, submit with `-profile uppmax,devel`.
