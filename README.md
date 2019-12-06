@@ -117,7 +117,6 @@ Currently documentation is available for the following systems:
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
 * [UPPMAX](docs/uppmax.md)
-* [UPPMAX_DEVEL](docs/uppmax.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
