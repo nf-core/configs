@@ -42,7 +42,7 @@ All jobs will be submitted to fat nodes using this method, so it's only for use 
 
 ## How to specify a UPPMAX cluster
 
-You actually do not need to, based on `hostnames`, configuration will be automatically applied for the cluster you are on following these specifications:
+The UPPMAX nf-core configuration profile uses the `hostname` of the active environment to automatically apply the following resource limits:
 
 * `bianca`
   * cpus available: 16 cpus
