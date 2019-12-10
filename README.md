@@ -156,6 +156,8 @@ Currently documentation is available for the following pipeline within the speci
 
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
+* eager
+  * [SHH](docs/pipeline/eager/shh.md)
 
 ### Enabling pipeline-specific configs within a pipeline
 
