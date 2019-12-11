@@ -6,20 +6,21 @@ A repository for hosting Nextflow configuration files containing custom paramete
 
 ## Table of contents
 
-* [Table of contents](#table-of-contents)
-* [Using an existing config](#using-an-existing-config)
-  * [Configuration and parameters](#configuration-and-parameters)
-  * [Offline usage](#offline-usage)
-* [Adding a new config](#adding-a-new-config)
-  * [Checking user hostnames](#checking-user-hostnames)
-  * [Testing](#testing)
-  * [Documentation](#documentation)
-  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-* [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
-  * [Pipeline-specific documentation](#pipeline-specific-documentation)
-  * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
-  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
-* [Help](#help)
+* [<img src="docs/images/nfcore-configs_logo.png" alt="nf-core/configs" title="nf-core/configs">](#img-srcdocsimagesnfcore-configs_logopng-altnf-coreconfigs-titlenf-coreconfigs)
+  * [Table of contents](#table-of-contents)
+  * [Using an existing config](#using-an-existing-config)
+    * [Configuration and parameters](#configuration-and-parameters)
+    * [Offline usage](#offline-usage)
+  * [Adding a new config](#adding-a-new-config)
+    * [Checking user hostnames](#checking-user-hostnames)
+    * [Testing](#testing)
+    * [Documentation](#documentation)
+    * [Uploading to nf-core/configs](#uploading-to-nf-coreconfigs)
+  * [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+    * [Pipeline-specific documentation](#pipeline-specific-documentation)
+    * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
+    * [Create the pipeline-specific nf-core/configs files](#create-the-pipeline-specific-nf-coreconfigs-files)
+  * [Help](#help)
 
 ## Using an existing config
 
@@ -154,6 +155,8 @@ Note that pipeline-specific configs are not required and should only be added if
 
 Currently documentation is available for the following pipeline within the specific profile:
 
+* ampliseq
+  * [BINAC](docs/pipeline/ampliseq/binac.md)
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
 * eager
