@@ -1,4 +1,4 @@
 # nf-core/configs: awsbatch Configuration
 
 To be used with `awsbatch`.
-Custom queue and region can be entered with `params.awsqueue` and `params.region` respectively.
+Custom queue, region and CLI path can be supplied with `params.awsqueue`, `params.awsregion`, `params.awscli`, respectively.
