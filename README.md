@@ -1,4 +1,4 @@
-# [![nf-core/configs](docs/images/nfcore-configs_logo.png "nf-core/configs")](https://github.com/nf-core/configs)
+# [![nf-core/configs](docs/images/nfcore-configs_logo.png "nf-core/configs")](https://github.com/nf-core/configs) <!-- omit in toc -->
 
 [![Lint Status](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)
 
@@ -14,11 +14,11 @@ A repository for hosting Nextflow configuration files containing custom paramete
   * [Checking user hostnames](#checking-user-hostnames)
   * [Testing](#testing)
   * [Documentation](#documentation)
-  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+  * [Uploading to nf-core/configs](#uploading-to-nf-coreconfigs)
 * [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
   * [Pipeline-specific documentation](#pipeline-specific-documentation)
   * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
-  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
+  * [Create the pipeline-specific nf-core/configs files](#create-the-pipeline-specific-nf-coreconfigs-files)
 * [Help](#help)
 
 ## Using an existing config
@@ -154,6 +154,8 @@ Note that pipeline-specific configs are not required and should only be added if
 
 Currently documentation is available for the following pipeline within the specific profile:
 
+* ampliseq
+  * [BINAC](docs/pipeline/ampliseq/binac.md)
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
 * eager
