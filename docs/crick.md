@@ -9,13 +9,13 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 ```bash
 ## Load Nextflow and Singularity environment modules
 module purge
-module load Nextflow/0.32.0
+module load Nextflow/19.10.0
 module load Singularity/2.6.0-foss-2016b
 ```
 
-A local copy of the iGenomes resource has been made available on CAMP so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto CAMP so have a look in the `igenomes_base` path specified in [`crick.config`](../conf/crick.config), and if your genome of interest isnt present please contact [BABS](mailto:bioinformatics@crick.ac.uk).
+A local copy of the [AWS-iGenomes](https://github.com/ewels/AWS-iGenomes) resource has been made available on CAMP so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto CAMP so have a look in the `igenomes_base` path specified in [`crick.config`](../conf/crick.config), and if your genome of interest isnt present please contact [BABS](mailto:bioinformatics@crick.ac.uk).
 
-Alternatively, if you are running the pipeline regularly for genomes that arent available in the iGenomes resource, we recommend creating a config file with paths to your reference genome indices (see [`reference genomes documentation`](https://github.com/nf-core/atacseq/blob/master/docs/configuration/reference_genomes.md) for instructions).
+Alternatively, if you are running the pipeline regularly for genomes that arent available in the iGenomes resource, we recommend creating a config file with paths to your reference genome indices (see [`reference genomes documentation`](https://nf-co.re/usage/reference_genomes) for instructions).
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
 
