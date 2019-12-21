@@ -14,4 +14,4 @@ Example: `nextflow run nf-core/eager -profile shh`
 
 Specific configurations for shh has been made for eager.
 
-* If running with the MALT module turned on, the MALT process by default will be sent either to the long queues with a resource requirement minimum of 725GB and 64 cores. If this fails, the process will be tried once more only and sent to the supercruncher queue. The module will not retry after this, and pipeline will fail.
+* If running with the MALT module turned on, the MALT process by default will be sent  to the long queue with a resource requirement minimum of 725GB and 64 cores. If this fails, the process will be tried once more only and sent to the supercruncher queue. The module will not retry after this, and pipeline will fail.
