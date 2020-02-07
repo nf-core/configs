@@ -86,6 +86,7 @@ Currently documentation is available for the following clusters:
 * [BINAC](docs/binac.md)
 * [CCGA](docs/ccga.md)
 * [CCGA_DX](/docs/ccga_dx.md)
+* [CCGA_MED](/docs/ccga_med.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
