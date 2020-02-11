@@ -99,7 +99,8 @@ Currently documentation is available for the following systems:
 * [BINAC](docs/binac.md)
 * [CBE](docs/cbe.md)
 * [CCGA](docs/ccga.md)
-* [CCGA_DX](/docs/ccga_dx.md)
+* [CCGA_DX](docs/ccga_dx.md)
+* [CCGA_MED](docs/ccga_med.md)
 * [CFC](docs/binac.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
@@ -126,7 +127,14 @@ Within the local clone of your fork add the custom config file to the [`conf/`](
 You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
 You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
 
-Afterwards, make sure to edit the `.github/main.yml` file and add your profile name to the alphabetically sorted `profile:` scope. This way, it will be tested automatically using GitHub Actions. If you forget to do this, tests will fail and complain about that.
+In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
+
+```bash
+Run python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
+Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.
+set(['<profile_name>'])
+##[error]Process completed with exit code 1.
+```
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
