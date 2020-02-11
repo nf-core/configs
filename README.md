@@ -128,6 +128,7 @@ You will also need to edit and add your custom profile to the [`nfcore_custom.co
 You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
 
 In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
+
 ```bash
 Run python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
 Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.
