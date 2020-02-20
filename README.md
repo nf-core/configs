@@ -196,7 +196,7 @@ We will be notified automatically when you have created your pull request, and p
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 And add or edit the following files in the local clone of your fork.
 
-- `pipeline/<PIPELINE>.config`
+* `pipeline/<PIPELINE>.config`
 
 If not already created, create the `pipeline/<PIPELINE>.config` file, and add your custom profile to the profile scope
 
