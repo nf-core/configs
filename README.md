@@ -4,9 +4,8 @@
 
 A repository for hosting Nextflow configuration files containing custom parameters required to run nf-core pipelines at different Institutions.
 
-## Table of contents
+## Table of contents <!-- omit in toc -->
 
-* [Table of contents](#table-of-contents)
 * [Using an existing config](#using-an-existing-config)
   * [Configuration and parameters](#configuration-and-parameters)
   * [Offline usage](#offline-usage)
@@ -14,11 +13,11 @@ A repository for hosting Nextflow configuration files containing custom paramete
   * [Checking user hostnames](#checking-user-hostnames)
   * [Testing](#testing)
   * [Documentation](#documentation)
-  * [Uploading to nf-core/configs](#uploading-to-nf-coreconfigs)
+  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
 * [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
   * [Pipeline-specific documentation](#pipeline-specific-documentation)
   * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
-  * [Create the pipeline-specific nf-core/configs files](#create-the-pipeline-specific-nf-coreconfigs-files)
+  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
 * [Help](#help)
 
 ## Using an existing config
@@ -164,10 +163,11 @@ Currently documentation is available for the following pipeline within the speci
 
 * ampliseq
   * [BINAC](docs/pipeline/ampliseq/binac.md)
-* sarek
-  * [MUNIN](docs/pipeline/sarek/munin.md)
 * eager
   * [SHH](docs/pipeline/eager/shh.md)
+* sarek
+  * [MUNIN](docs/pipeline/sarek/munin.md)
+  * [UPPMAX](docs/pipeline/sarek/uppmax.md)
 
 ### Enabling pipeline-specific configs within a pipeline
 
