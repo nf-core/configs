@@ -97,7 +97,6 @@ Currently documentation is available for the following systems:
 * [BIGPURPLE](docs/bigpurple.md)
 * [BINAC](docs/binac.md)
 * [CBE](docs/cbe.md)
-* [CCGA](docs/ccga.md)
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
 * [CFC](docs/cfc.md)
