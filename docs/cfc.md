@@ -10,8 +10,11 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 ## Load Nextflow and Singularity environment modules
 module purge
 module load devel/java_jdk/1.8.0u121
-module load qbic/singularity_slurm/3.0.3
+module load devel/singularity/3.4.2
 ```
 
 >NB: You will need an account to use the HPC cluster CFC in order to run the pipeline. If in doubt contact IT.
 >NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
+New  HighMem nodes are available on the cfc, Partition/queue name is qbic, each node has 128Cores and 2TB of RAM.
+The old queue (Name compute) is set to default by slurm.
+Each process over 60GB of RAM or over 20cpus should run on those new nodes.
