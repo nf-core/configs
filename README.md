@@ -107,6 +107,7 @@ Currently documentation is available for the following systems:
 * [GENOTOUL](docs/genotoul.md)
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
+* [GOOGLE](docs/google.md)
 * [HEBBE](docs/hebbe.md)
 * [KRAKEN](docs/kraken.md)
 * [MUNIN](docs/munin.md)
