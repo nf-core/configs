@@ -9,7 +9,7 @@ To be used with the `google` profile by specifying the `-profile google` when ru
 ```bash
 GOOGLE_APPLICATION_CREDENTIALS=<your_key>.json
 NXF_MODE=google
-nextflow run nf-core/rnaseq -profile google,test --google_bucket <gs://your_bucket/work>
+nextflow run nf-core/rnaseq -profile test,google --google_bucket <gs://your_bucket/work>
 ```
 
 ### Required Parameters
