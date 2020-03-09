@@ -1,4 +1,5 @@
 # nf-core/configs: EBC Configuration
+
 All nf-core pipelines have been successfully configured for use on the [Estonian Biocentre (EBC)](https://genomics.ut.ee/en/about-us/estonian-biocentre) cluster at the [High Performance Computing Center](https://hpc.ut.ee/en) of the the University of Tartu.
 To use, run the pipeline with `-profile ebc`. This will download and launch the [`ebc.config`](../conf/ebc.config) which has been pre-configured with a setup suitable for the EBC cluster. Using this profile, currently, a conda environment containing all of the required software will be downloaded and stored in a central location.
 
