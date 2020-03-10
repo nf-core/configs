@@ -117,6 +117,7 @@ Currently documentation is available for the following systems:
 * [SHH](docs/shh.md)
 * [UCT_HEX](docs/uct_hex.md)
 * [UPPMAX](docs/uppmax.md)
+* [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
