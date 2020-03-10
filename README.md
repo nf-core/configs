@@ -103,6 +103,7 @@ Currently documentation is available for the following systems:
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
+* [EBC](docs/ebc.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [GENOTOUL](docs/genotoul.md)
 * [GENOUEST](docs/genouest.md)
