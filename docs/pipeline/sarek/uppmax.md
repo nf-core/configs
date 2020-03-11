@@ -6,7 +6,7 @@ Extra specific configuration for sarek pipeline
 
 To use, run the pipeline with `-profile uppmax`.
 
-This will download and launch the sarek specific [`uppmax.config`](../conf/pipeline/sarek/uppmax.config) which has been pre-configured with a setup suitable for uppmax clusters.
+This will download and launch the sarek specific [`uppmax.config`](../../../conf/pipeline/sarek/uppmax.config) which has been pre-configured with a setup suitable for uppmax clusters.
 
 Example: `nextflow run nf-core/sarek -profile uppmax`
 

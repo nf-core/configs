@@ -6,7 +6,7 @@ Extra specific configuration for sarek pipeline
 
 To use, run the pipeline with `-profile munin`.
 
-This will download and launch the sarek specific [`munin.config`](../conf/pipeline/sarek/munin.config) which has been pre-configured with a setup suitable for the MUNIN cluster.
+This will download and launch the sarek specific [`munin.config`](../../../conf/pipeline/sarek/munin.config) which has been pre-configured with a setup suitable for the MUNIN cluster.
 
 Example: `nextflow run nf-core/sarek -profile munin`
 
