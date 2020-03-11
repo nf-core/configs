@@ -6,19 +6,19 @@ A repository for hosting Nextflow configuration files containing custom paramete
 
 ## Table of contents <!-- omit in toc -->
 
-* [Using an existing config](#using-an-existing-config)
-  * [Configuration and parameters](#configuration-and-parameters)
-  * [Offline usage](#offline-usage)
-* [Adding a new config](#adding-a-new-config)
-  * [Checking user hostnames](#checking-user-hostnames)
-  * [Testing](#testing)
-  * [Documentation](#documentation)
-  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-* [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
-  * [Pipeline-specific documentation](#pipeline-specific-documentation)
-  * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
-  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
-* [Help](#help)
+- [Using an existing config](#using-an-existing-config)
+  - [Configuration and parameters](#configuration-and-parameters)
+  - [Offline usage](#offline-usage)
+- [Adding a new config](#adding-a-new-config)
+  - [Checking user hostnames](#checking-user-hostnames)
+  - [Testing](#testing)
+  - [Documentation](#documentation)
+  - [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+- [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+  - [Pipeline-specific documentation](#pipeline-specific-documentation)
+  - [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
+  - [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
+- [Help](#help)
 
 ## Using an existing config
 
@@ -93,33 +93,33 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Currently documentation is available for the following systems:
 
-* [AWSBATCH](docs/awsbatch.md)
-* [BIGPURPLE](docs/bigpurple.md)
-* [BINAC](docs/binac.md)
-* [CBE](docs/cbe.md)
-* [CCGA_DX](docs/ccga_dx.md)
-* [CCGA_MED](docs/ccga_med.md)
-* [CFC](docs/cfc.md)
-* [CRICK](docs/crick.md)
-* [CZBIOHUB_AWS](docs/czbiohub.md)
-* [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
-* [DENBI_QBIC](docs/denbi_qbic.md)
-* [EBC](docs/ebc.md)
-* [GENOTOUL](docs/genotoul.md)
-* [GENOUEST](docs/genouest.md)
-* [GIS](docs/gis.md)
-* [GOOGLE](docs/google.md)
-* [HEBBE](docs/hebbe.md)
-* [KRAKEN](docs/kraken.md)
-* [MUNIN](docs/munin.md)
-* [PASTEUR](docs/pasteur.md)
-* [PHOENIX](docs/phoenix.md)
-* [PRINCE](docs/prince.md)
-* [SHH](docs/shh.md)
-* [UCT_HEX](docs/uct_hex.md)
-* [UPPMAX](docs/uppmax.md)
-* [UTD_GANYMEDE](docs/utd_ganymede.md)
-* [UZH](docs/uzh.md)
+- [AWSBATCH](docs/awsbatch.md)
+- [BIGPURPLE](docs/bigpurple.md)
+- [BINAC](docs/binac.md)
+- [CBE](docs/cbe.md)
+- [CCGA_DX](docs/ccga_dx.md)
+- [CCGA_MED](docs/ccga_med.md)
+- [CFC](docs/cfc.md)
+- [CRICK](docs/crick.md)
+- [CZBIOHUB_AWS](docs/czbiohub.md)
+- [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
+- [DENBI_QBIC](docs/denbi_qbic.md)
+- [EBC](docs/ebc.md)
+- [GENOTOUL](docs/genotoul.md)
+- [GENOUEST](docs/genouest.md)
+- [GIS](docs/gis.md)
+- [GOOGLE](docs/google.md)
+- [HEBBE](docs/hebbe.md)
+- [KRAKEN](docs/kraken.md)
+- [MUNIN](docs/munin.md)
+- [PASTEUR](docs/pasteur.md)
+- [PHOENIX](docs/phoenix.md)
+- [PRINCE](docs/prince.md)
+- [SHH](docs/shh.md)
+- [UCT_HEX](docs/uct_hex.md)
+- [UPPMAX](docs/uppmax.md)
+- [UTD_GANYMEDE](docs/utd_ganymede.md)
+- [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
 
@@ -163,13 +163,15 @@ Note that pipeline-specific configs are not required and should only be added if
 
 Currently documentation is available for the following pipeline within the specific profile:
 
-* ampliseq
-  * [BINAC](docs/pipeline/ampliseq/binac.md)
-* eager
-  * [SHH](docs/pipeline/eager/shh.md)
-* sarek
-  * [MUNIN](docs/pipeline/sarek/munin.md)
-  * [UPPMAX](docs/pipeline/sarek/uppmax.md)
+- ampliseq
+  - [BINAC](docs/pipeline/ampliseq/binac.md)
+- eager
+  - [SHH](docs/pipeline/eager/shh.md)
+- rnafusion
+  - [MUNIN](docs/pipeline/rnafusion/munin.md)
+- sarek
+  - [MUNIN](docs/pipeline/sarek/munin.md)
+  - [UPPMAX](docs/pipeline/sarek/uppmax.md)
 
 ### Enabling pipeline-specific configs within a pipeline
 
@@ -198,7 +200,7 @@ We will be notified automatically when you have created your pull request, and p
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 And add or edit the following files in the local clone of your fork.
 
-* `pipeline/<PIPELINE>.config`
+- `pipeline/<PIPELINE>.config`
 
 If not already created, create the `pipeline/<PIPELINE>.config` file, and add your custom profile to the profile scope
 
@@ -208,18 +210,18 @@ profiles {
 }
 ```
 
-* `conf/pipeline/<PIPELINE>/<PROFILE>.config`
+- `conf/pipeline/<PIPELINE>/<PROFILE>.config`
 
 Add the custom configuration file to the `conf/pipeline/<PIPELINE>/` directory.
 Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` to the top of `pipeline/<PIPELINE>.config` and set to reasonable values.
 Users will get information on who wrote the pipeline-specific configuration profile then when executing the nf-core pipeline and can report back if there are things missing for example.
 
-* `docs/pipeline/<PIPELINE>/<PROFILE>.md`
+- `docs/pipeline/<PIPELINE>/<PROFILE>.md`
 
 Add the documentation file to the `docs/pipeline/<PIPELINE>/` directory.
 You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
 
-* `README.md`
+- `README.md`
 
 Edit this file, and add the new pipeline-specific institutional profile to the list in the section Pipeline specific documentation
 
