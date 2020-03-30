@@ -167,6 +167,8 @@ Currently documentation is available for the following pipeline within the speci
   * [BINAC](docs/pipeline/ampliseq/binac.md)
 * eager
   * [SHH](docs/pipeline/eager/shh.md)
+* rnafusion
+  * [MUNIN](docs/pipeline/rnafusion/munin.md)
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
   * [UPPMAX](docs/pipeline/sarek/uppmax.md)
