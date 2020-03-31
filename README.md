@@ -165,6 +165,7 @@ Currently documentation is available for the following pipeline within the speci
 
 * ampliseq
   * [BINAC](docs/pipeline/ampliseq/binac.md)
+  * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
   * [SHH](docs/pipeline/eager/shh.md)
 * rnafusion
