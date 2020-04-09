@@ -15,6 +15,7 @@ A repository for hosting Nextflow configuration files containing custom paramete
   * [Documentation](#documentation)
   * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
 * [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+  * [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
   * [Pipeline-specific documentation](#pipeline-specific-documentation)
   * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
   * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
@@ -159,9 +160,9 @@ Each configuration file will add new params and overwrite the params already exi
 
 Note that pipeline-specific configs are not required and should only be added if needed.
 
-### Pipeline-specific documentation
+### Pipeline-specific institutional documentation
 
-Currently documentation is available for the following pipeline within the specific profile:
+Currently documentation is available for the following pipelines within specific profiles:
 
 * ampliseq
   * [BINAC](docs/pipeline/ampliseq/binac.md)
@@ -173,6 +174,13 @@ Currently documentation is available for the following pipeline within the speci
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
   * [UPPMAX](docs/pipeline/sarek/uppmax.md)
+
+### Pipeline-specific documentation
+
+Currently documentation is available for the following pipeline:
+
+* viralrecon
+  * [genomes](docs/pipeline/viralrecon/genomes.md)
 
 ### Enabling pipeline-specific configs within a pipeline
 
