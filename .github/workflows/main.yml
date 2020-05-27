@@ -23,7 +23,9 @@ jobs:
         run: |
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
+          touch /usr/local/bin/test.config
       - name: Check ${{ matrix.profile }} profile
         env: 
           SCRATCH: '~'
+          NXF_GLOBAL_CONFIG: /usr/local/bin/test.config
         run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
