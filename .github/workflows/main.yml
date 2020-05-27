@@ -28,7 +28,4 @@ jobs:
         env: 
           SCRATCH: '~'
           NXF_GLOBAL_CONFIG: /home/runner/dummy.config
-        run: |
-          echo $SCRATCH
-          echo $NXF_GLOBAL_CONFIG
-          nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
+        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
