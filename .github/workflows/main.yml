@@ -23,12 +23,11 @@ jobs:
         run: |
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
-          echo ~
-          touch ~/dummy.config
+          touch /home/runner/dummy.config
       - name: Check ${{ matrix.profile }} profile
         env: 
           SCRATCH: '~'
-          NXF_GLOBAL_CONFIG: ~/dummy.config
+          NXF_GLOBAL_CONFIG: /home/runner/dummy.config
         run: |
           echo $SCRATCH
           echo $NXF_GLOBAL_CONFIG
