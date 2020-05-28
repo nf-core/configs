@@ -96,6 +96,7 @@ Currently documentation is available for the following systems:
 
 * [AWSBATCH](docs/awsbatch.md)
 * [BIGPURPLE](docs/bigpurple.md)
+* [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
