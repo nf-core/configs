@@ -118,6 +118,7 @@ Currently documentation is available for the following systems:
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
+* [TACC_LS5](docs/tacc_ls5.md)
 * [UCT_HEX](docs/uct_hex.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
