@@ -2,56 +2,55 @@
 """
 Script to check correct setup for nf-core/config profiles
 """
-import os
-import sys
 import argparse
+import os
 import re
+import sys
+import yaml
 
 # PARSE ARGUMENTS
 argParser = argparse.ArgumentParser(description='Check the GitHub Actions CI tests all profiles')
 argParser.add_argument(
-    'nextflow_config',
+    '--nextflow_config',
     default='nfcore_custom.config',
     help="Input nfcore_custom.config"
 )
 argParser.add_argument(
-    'github_config',
+    '--github_config',
     default='.github/workflows/main.yml',
     help="Input Github Actions YAML"
 )
 args = argParser.parse_args()
 
 # MAIN FUNCTION
-def check_config(Config, Github):
+def check_config(nf_config, gh_workflow):
 
     # Pull profile names from nextflow config file
     config_profiles = set()
-    with open(Config, 'r') as cfg:
+    with open(nf_config, 'r') as cfg:
         for line in cfg:
-            if re.search('includeConfig*', line):
-                hit = line.split('/')[-1].split('.')[0]
-                config_profiles.add(hit.strip())
+            match = re.search('(\S+)\s*\{\s*includeConfig', line)
+            if match:
+                config_profiles.add(match.group(1))
 
     # Check GitHub Actions workflow file
-    tests = set()
-    ### Ignore these profiles
-    ignore_me = ['czbiohub_aws']
-    tests.update(ignore_me)
-    with open(Github, 'r') as ghfile:
-        for line in ghfile:
-            if re.search('profile: ', line):
-                line = line.replace('\'','').replace('[','').replace(']','').replace('\n','')
-                profiles = line.split(':')[1].split(',')
-                for p in profiles:
-                    tests.add(p.strip())
+    ci_tests = ['czbiohub_aws'] # Ignore these profiles
+    with open(gh_workflow, 'r') as ghfile:
+        gha_wf = yaml.safe_load(ghfile)
+        ci_tests.extend(gha_wf['jobs']['profile_test']['strategy']['matrix']['profile'])
 
-    ###Check if sets are equal
-    if tests == config_profiles:
-        sys.exit(0)
-    else:
-        #Maybe report what is missing here too
-        print("Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.\n")
-        print(config_profiles.symmetric_difference(tests))
-        sys.exit(1)
+    # Check for profiles missing in GitHub Actions
+    for p in config_profiles:
+        if p not in ci_tests:
+            sys.exit("Profile '{}' missing from GitHub Actions tests".format(p))
 
-check_config(Config=args.CUSTOM_CONFIG,Github=args.GITHUB_CONFIG)
+    # Check for profiles in GitHub Actions that shouldn't be there
+    for p in ci_tests:
+        if p not in config_profiles:
+            sys.exit("Unexpected profile '{}' found in GitHub Actions tests".format(p))
+
+    print("{} profiles found in Nextflow config and GitHub Actions linting matched".format(len(config_profiles)))
+
+# Run if the script is called on the command line only
+if __name__ == "__main__":
+    check_config(nf_config=args.nextflow_config, gh_workflow=args.github_config)
