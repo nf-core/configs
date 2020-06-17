@@ -1,52 +1,38 @@
 #!/usr/bin/env python
-
-#######################################################################
-#######################################################################
-## Created on November 26 to check pipeline configs for nf-core/configs
-#######################################################################
-#######################################################################
-
+"""
+Script to check correct setup for nf-core/config profiles
+"""
 import os
 import sys
 import argparse
 import re
 
-############################################
-############################################
-## PARSE ARGUMENTS
-############################################
-############################################
-
-Description = 'Double check custom config file and github actions file to test all cases'
-Epilog = """Example usage: python cchecker.py <nfcore_custom.config> <github_actions_file>"""
-
-argParser = argparse.ArgumentParser(description=Description, epilog=Epilog)
-## REQUIRED PARAMETERS
-argParser.add_argument('CUSTOM_CONFIG', help="Input nfcore_custom.config.")
-argParser.add_argument('GITHUB_CONFIG', help="Input Github Actions YAML")
-
+# PARSE ARGUMENTS
+argParser = argparse.ArgumentParser(description='Check the GitHub Actions CI tests all profiles')
+argParser.add_argument(
+    'nextflow_config',
+    default='nfcore_custom.config',
+    help="Input nfcore_custom.config"
+)
+argParser.add_argument(
+    'github_config',
+    default='.github/workflows/main.yml',
+    help="Input Github Actions YAML"
+)
 args = argParser.parse_args()
 
-############################################
-############################################
-## MAIN FUNCTION
-############################################
-############################################
-
+# MAIN FUNCTION
 def check_config(Config, Github):
 
-    regex = 'includeConfig*'
-    ERROR_STR = 'ERROR: Please check config file! Did you really update the profiles?'
-
-    ## CHECK Config First
+    # Pull profile names from nextflow config file
     config_profiles = set()
     with open(Config, 'r') as cfg:
         for line in cfg:
-            if re.search(regex, line):
-                hit = line.split('/')[2].split('.')[0]
+            if re.search('includeConfig*', line):
+                hit = line.split('/')[-1].split('.')[0]
                 config_profiles.add(hit.strip())
 
-    ### Check Github Config now
+    # Check GitHub Actions workflow file
     tests = set()
     ### Ignore these profiles
     ignore_me = ['czbiohub_aws']
