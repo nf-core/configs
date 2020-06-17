@@ -122,3 +122,11 @@ For Human and Mouse, we use [GENCODE](https://www.gencodegenes.org/) gene annota
 
 >NB: You will need an account to use the HPC cluster on PROFILE CLUSTER in order to run the pipeline. If in doubt contact IT.
 >NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
+
+## High Priority Queue
+
+If you would like to run with the _High Priority_ queue, specify the `highpriority` config profile after `czbiohub_aws`. When applied after the main `czbiohub_aws` config, it overwrites the process `queue` identifier.
+
+To use it, submit your run with with `-profile czbiohub_aws,highpriority`.
+
+**Note that the order of config profiles here is important.** For example, `-profile highpriority,czbiohub_aws` will not work.

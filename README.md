@@ -104,7 +104,6 @@ Currently documentation is available for the following systems:
 * [CFC](docs/cfc.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
-* [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [EBC](docs/ebc.md)
 * [GENOTOUL](docs/genotoul.md)
