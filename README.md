@@ -118,7 +118,7 @@ Currently documentation is available for the following systems:
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
 * [SHH](docs/shh.md)
-* [UCT_HEX](docs/uct_hex.md)
+* [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UZH](docs/uzh.md)
