@@ -1,6 +1,6 @@
 name: Markdown linting
 # This workflow is triggered on pushes and PRs to the repository.
-on: [push, pull_request]  
+on: [push, pull_request]
 
 jobs:
   Markdown:
@@ -16,5 +16,3 @@ jobs:
       - name: Run Markdownlint
         run: |
           markdownlint ${GITHUB_WORKSPACE} -c ${GITHUB_WORKSPACE}/.github/markdownlint.yml
-
- 
