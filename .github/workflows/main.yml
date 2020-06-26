@@ -1,7 +1,9 @@
 name: Configs tests
 
 on: [pull_request, push]
+
 jobs:
+
   test_all_profiles:
     runs-on: ubuntu-latest
     name: Check if all profiles are tested
@@ -9,7 +11,18 @@ jobs:
       - uses: actions/checkout@v1
       - name: Check whether profiles are all tested
         run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
-      - run: nextflow config -show-profiles .
+
+  check_nextflow_config:
+    runs-on: ubuntu-latest
+    name: Check if nextflow config runs in repository root
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Nextflow
+        run: |
+          wget -qO- get.nextflow.io | bash
+          sudo mv nextflow /usr/local/bin/
+      - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+
   profile_test:
     runs-on: ubuntu-latest
     name: Run ${{ matrix.profile }} profile
