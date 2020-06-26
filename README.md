@@ -111,6 +111,7 @@ Currently documentation is available for the following systems:
 * [GIS](docs/gis.md)
 * [GOOGLE](docs/google.md)
 * [HEBBE](docs/hebbe.md)
+* [ICR_DAVROS](docs/icr_davros.md)
 * [KRAKEN](docs/kraken.md)
 * [MUNIN](docs/munin.md)
 * [PASTEUR](docs/pasteur.md)
