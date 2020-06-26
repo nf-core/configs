@@ -8,8 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Check whether profiles are all tested
-        run: |
-          python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
+        run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
+      - run: nextflow config -show-profiles .
   profile_test:
     runs-on: ubuntu-latest
     name: Run ${{ matrix.profile }} profile
@@ -24,7 +24,4 @@ jobs:
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
       - name: Check ${{ matrix.profile }} profile
-        env:
-          SCRATCH: '~'
-          NXF_GLOBAL_CONFIG: awsbatch.config
         run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf -profile ${{ matrix.profile }}
