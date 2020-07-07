@@ -16,3 +16,4 @@ Specific configurations for shh has been made for eager.
 
 * If running with the MALT module turned on, the MALT process by default will be sent  to the long queue with a resource requirement minimum of 725GB and 64 cores. If this fails, the process will be tried once more only and sent to the supercruncher queue. The module will not retry after this, and pipeline will fail. Note, this will only work on SDAG.
 * Provides additional group specific profiles, which adapt the `bwa aln` mapping parameters to each context: `pathogens_loose` (`-l 0.01 -n 16`), `pathogens_strict` (`-l 32, -n 0.1`) and `human` (`-l 16500, -n 0.01`).
+* Provides a `hops` profile with default paths and parameters for the Pathogen group.
