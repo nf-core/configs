@@ -6,7 +6,7 @@ Extra specific configuration for eager pipeline
 
 To use, run the pipeline with `-profile shh`.
 
-This will download and launch the eager specific [`shh.config`](../conf/pipeline/eager/shh.config) which has been pre-configured with a setup suitable for the shh cluster.
+This will download and launch the eager specific [`shh.config`](../../../conf/pipeline/eager/shh.config) which has been pre-configured with a setup suitable for the shh cluster.
 
 Example: `nextflow run nf-core/eager -profile shh`
 

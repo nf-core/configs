@@ -45,11 +45,11 @@ def check_config(Config, Github):
             if re.search(regex, line):
                 hit = line.split('/')[2].split('.')[0]
                 config_profiles.add(hit.strip())
-    
-    ###Check Github Config now
+
+    ### Check Github Config now
     tests = set()
-    ###Ignore these profiles
-    ignore_me = ['czbiohub_aws_highpriority', 'czbiohub_aws']
+    ### Ignore these profiles
+    ignore_me = ['czbiohub_aws']
     tests.update(ignore_me)
     with open(Github, 'r') as ghfile:
         for line in ghfile:
@@ -58,11 +58,11 @@ def check_config(Config, Github):
                 profiles = line.split(':')[1].split(',')
                 for p in profiles:
                     tests.add(p.strip())
-   
+
     ###Check if sets are equal
     if tests == config_profiles:
         sys.exit(0)
-    else: 
+    else:
         #Maybe report what is missing here too
         print("Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.\n")
         print(config_profiles.symmetric_difference(tests))
