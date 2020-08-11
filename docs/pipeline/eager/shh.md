@@ -20,6 +20,10 @@ Specific configurations for shh has been made for eager.
 
 ### Contextual profiles
 
+#### Microbiome Sciences
+
+* `microbiome_screening` runs MALT straight to supercruncher (with no retries!) and full resources requested due to microbiome screening databases often easily reach this size
+
 #### Human Pop-Gen
 
 * `human`: optimised for mapping of human aDNA reads (i.e. bwa aln defaults as `-l 16500, -n 0.01`)
