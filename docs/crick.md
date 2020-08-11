@@ -10,7 +10,7 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 ## Load Nextflow and Singularity environment modules
 module purge
 module load Nextflow/19.10.0
-module load Singularity/2.6.0-foss-2016b
+module load Singularity
 ```
 
 A local copy of the [AWS-iGenomes](https://github.com/ewels/AWS-iGenomes) resource has been made available on CAMP so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto CAMP so have a look in the `igenomes_base` path specified in [`crick.config`](../conf/crick.config), and if your genome of interest isnt present please contact [BABS](mailto:bioinformatics@crick.ac.uk).
