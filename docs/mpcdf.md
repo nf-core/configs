@@ -26,3 +26,20 @@ Max. CPUs: 80
 Max. walltime: 24.h
 
 ## draco
+
+:hammer_and_wrench: under testing.
+
+## raven
+
+Raven does not currently support singularity, therefore the anaconda/module is loaded for each process.
+
+Due to this, we also recommend setting the `$NXF_CONDA_CACHEDIR` to a location of your choice to store all environments (so to prevent nextflow building the environment on every run).
+
+To use: `-profile raven,mpcdf`
+
+Sets the following parameters:
+
+Maximum parallel running jobs: 8
+Max. memory: 368.GB
+Max. CPUs: 192
+Max. walltime: 24.h
