@@ -5,6 +5,7 @@ All nf-core pipelines have been successfully configured for use on the ABiMS clu
 To use, run the pipeline with `-profile abims`. This will download and launch the [`abims.config`](../conf/abims.config) which has been pre-configured with a setup suitable for the ABiMS cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 ## Request an account
+
 You will need an account to use the HPC cluster on ABiMS in order
 to run the pipeline. If in doubt see [http://abims.sb-roscoff.fr/account](http://abims.sb-roscoff.fr/account).
 
