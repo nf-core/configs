@@ -16,7 +16,7 @@ Nextflow is installed on the ABiMS cluster. Some documentation is available on t
 You need to activate it like this:
 
 ```bash
-module load nextflow/20.04.1 slurm-drmaa/1.0.8
+module load nextflow slurm-drmaa graphviz
 ```
 
 Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command.
@@ -27,7 +27,7 @@ Nextflow shouldn't run directly on the submission node but on a compute node. Ru
 srun --pty bash
 
 # Load the dependencies if not done before
-module load nextflow/20.04.1 slurm-drmaa/1.0.8
+module load nextflow slurm-drmaa graphviz
 
 # Run a downloaded/git-cloned nextflow workflow from
 nextflow run \\
@@ -42,6 +42,12 @@ nextflow run \\
 nextflow run nf-core/rnaseq ...
 ```
 
+## Singularity images mutualized directory
+
+To reduce the disk usage, nf-core images can be stored in a mutualized directory: `/shared/software/singularity/images/nf-core/`
+
+The environment variable `NXF_SINGULARITY_CACHEDIR: /shared/data/cache/nextflow` will indicate this directory to nextflow.
+
 ## Databanks
 
-A local copy of several genomes are available in `/shared/bank` directory.
+A local copy of several genomes are available in `/shared/bank/` directory.
