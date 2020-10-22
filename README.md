@@ -94,6 +94,7 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Currently documentation is available for the following systems:
 
+* [ABIMS](docs/abims.md)
 * [AWSBATCH](docs/awsbatch.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
