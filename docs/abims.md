@@ -11,7 +11,7 @@ to run the pipeline. If in doubt see [http://abims.sb-roscoff.fr/account](http:/
 
 ## Running the workflow on the ABiMS cluster
 
-Nextflow is installed on the ABiMS cluster. Some documentation is available on the [ABiMS website](http://abims.sb-roscoff.fr/resources/cluster/howto#nextflow).
+Nextflow is installed on the ABiMS cluster.
 
 You need to activate it like this:
 
