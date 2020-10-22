@@ -113,6 +113,7 @@ Currently documentation is available for the following systems:
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
 * [KRAKEN](docs/kraken.md)
+* [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
