@@ -60,7 +60,7 @@ Launch on the cluster with sbatch:
 sbatch nfcore-rnaseq.sh
 ```
 
-### Hello, world!
+### Hello, world
 
 nf-core provides some test for each workflow:
 
