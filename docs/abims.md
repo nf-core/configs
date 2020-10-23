@@ -23,23 +23,50 @@ Nextflow manages each process as a separate job that is submitted to the cluster
 Nextflow shouldn't run directly on the submission node but on a compute node. Run nextflow from a compute node:
 
 ```bash
-# Login to a compute node
-srun --pty bash
-
 # Load the dependencies if not done before
 module load nextflow slurm-drmaa graphviz
 
 # Run a downloaded/git-cloned nextflow workflow from
-nextflow run \\
-/path/to/nf-core/workflow \\
--resume
--profile abims \\
---email my-email@example.org  \\
+srun nextflow run \
+/path/to/nf-core/workflow \
+-profile abims \
+--email my-email@example.org  \
 -c my-specific.config
 ...
 
-# Or use the nf-core client
-nextflow run nf-core/rnaseq ...
+# Or use let nf-core client download the workflow
+srun nextflow run nf-core/rnaseq -profile abims ...
+
+# To launch in background
+sbatch --wrap "nextflow run nf-core/rnaseq -profile abims ..."
+```
+
+Or write a sbatch script
+
+> nfcore-rnaseq.sh
+
+```bash
+#!/bin/bash
+#SBATCH -p fast
+#SBATCH --mem=4G
+
+module load nextflow slurm-drmaa graphviz
+nextflow run nf-core/rnaseq -profile abims ...
+```
+
+Launch on the cluster with sbatch:
+
+```bash
+sbatch nfcore-rnaseq.sh
+```
+
+### Hello, world!
+
+nf-core provides some test for each workflow:
+
+```bash
+module load nextflow slurm-drmaa graphviz
+nextflow run nf-core/rnaseq -profile abims,test
 ```
 
 ## Singularity images mutualized directory
