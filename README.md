@@ -122,6 +122,7 @@ Currently documentation is available for the following systems:
 * [SHH](docs/shh.md)
 * [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
+* [UTD_EUROPA](docs/utd_europa.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UZH](docs/uzh.md)
 
