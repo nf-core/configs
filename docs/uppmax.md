@@ -77,7 +77,7 @@ To use it, submit with `-profile uppmax,devel`.
 
 ## Running on Bianca
 
-For security reasons, there is no internet access on Bianca so you can't download from or upload files to the cluster directly. Before running a nf-core pipeline on bianca you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the wharf area to your bianca project. 
+For security reasons, there is no internet access on Bianca so you can't download from or upload files to the cluster directly. Before running a nf-core pipeline on Bianca you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the wharf area to your Bianca project. 
 
 You can follow the guide for downloading pipelines [for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use). Note that you will have to download the singularity images as well. 
 
