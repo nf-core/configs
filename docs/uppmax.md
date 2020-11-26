@@ -79,7 +79,7 @@ To use it, submit with `-profile uppmax,devel`.
 
 For security reasons, there is no internet access on Bianca so you can't download from or upload files to the cluster directly. Before running a nf-core pipeline on bianca you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the wharf area to your bianca project. 
 
-You can follow the guide for downloading pipelines [for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use) Note that you will have to download the singularity images as well. 
+You can follow the guide for downloading pipelines [for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use). Note that you will have to download the singularity images as well. 
 
 
 After transffering the pipeline and the singularity images to your project. Before running the pipeline you will have to indicate to nextflow where the singularity images are located by setting `NXF_SINGULARITY_CACHEDIR` :
