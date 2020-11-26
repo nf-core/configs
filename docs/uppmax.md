@@ -16,7 +16,7 @@ In addition to this config profile, you will also need to specify an UPPMAX proj
 You can do this with the `--project` flag (two hyphens) when launching nextflow. For example:
 
 ```bash
-nextflow run nf-core/PIPELINE -profile uppmax --project "snic2018-1-234" # ..rest of pipeline flags
+nextflow run nf-core/PIPELINE -profile uppmax --project snic2018-1-234 # ..rest of pipeline flags
 ```
 
 > NB: If you're not sure what your UPPMAX project ID is, try running `groups` or checking SUPR.
