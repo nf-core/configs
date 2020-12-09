@@ -73,3 +73,15 @@ All jobs are limited to 1 hour to be eligible for this queue and only one job al
 It is not suitable for use with real data.
 
 To use it, submit with `-profile uppmax,devel`.
+
+## Running on Bianca
+
+For security reasons, there is no internet access on Bianca so you can't download from or upload files to the cluster directly. Before running a nf-core pipeline on Bianca you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the wharf area to your Bianca project.
+
+You can follow the guide for downloading pipelines [for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use). Note that you will have to download the singularity images as well.
+
+Next transfer the pipeline and the singularity images to your project. Before running the pipeline you will have to indicate to nextflow where the singularity images are located by setting `NXF_SINGULARITY_CACHEDIR` :
+
+`export NXF_SINGULARITY_CACHEDIR=Your_Location_For_The_Singularity_directory/.`
+
+You should now be able to run your nf-core pipeline on bianca.
