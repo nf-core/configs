@@ -102,7 +102,7 @@ Currently documentation is available for the following systems:
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
-* [CEH] (docs/ceh.md)
+* [CEH](docs/ceh.md)
 * [CFC](docs/cfc.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
