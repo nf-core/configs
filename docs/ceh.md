@@ -1,4 +1,4 @@
-# nf-core/configs: Centre for Evolutionary Hologenomics / EvoGenomics (hologenomics partition on HPC) Configuration
+# nf-core/configs: Center for Evolutionary Hologenomics & Section for Evolutionary Genomics (hologenomics partition on HPC) Configuration
 
 The profile is configured to run with Singularity version 3.6.3-1.el7 which is part of the OS installtion and does not need to be loaded as a module. 
 
