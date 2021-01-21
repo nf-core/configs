@@ -1,6 +1,8 @@
 # nf-core/configs: Center for Evolutionary Hologenomics & Section for Evolutionary Genomics (hologenomics partition on HPC) Configuration
 
-The profile is configured to run with Singularity version 3.6.3-1.el7 which is part of the OS installtion and does not need to be loaded as a module. 
+> **NB:** You will need an account to use the HPC cluster to run the pipeline. If in doubt contact IT.
+
+The profile is configured to run with Singularity version 3.6.3-1.el7 which is part of the OS installtion and does not need to be loaded as a module.
 
 Before running the pipeline you will need to load Java, Miniconda and Nextflow. You can do this by including the commands below in your SLURM/sbatch script:
 
@@ -16,6 +18,4 @@ The config contains a `cleanup` command that removes the `work/` directory autom
 
 This configuration will automatically choose the correct SLURM queue (short,medium,long) depending on the time and memory required by each process.
 
->NB: You will need an account to use the HPC cluster to run the pipeline. If in doubt contact IT.
-
->NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be submitted from one of the login nodes. 
+> **NB:** Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be submitted from one of the login nodes.
