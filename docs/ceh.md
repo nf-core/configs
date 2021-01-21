@@ -4,7 +4,7 @@
 
 The profile is configured to run with Singularity version 3.6.3-1.el7 which is part of the OS installtion and does not need to be loaded as a module.
 
-Before running the pipeline you will need to load Java, Miniconda and Nextflow. You can do this by including the commands below in your SLURM/sbatch script:
+Before running the pipeline you will need to load Java, and Nextflow. You can do this by including the commands below in your SLURM/sbatch script:
 
 ```bash
 ## Load Java, Miniconda and Nextflow environment modules
