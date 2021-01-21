@@ -119,6 +119,7 @@ Currently documentation is available for the following systems:
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
+* [SEG_GLOBE](docs/seg_globe.md)
 * [SHH](docs/shh.md)
 * [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
