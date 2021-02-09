@@ -2,6 +2,10 @@
 
 All nf-core pipelines have been successfully configured for use on the Swedish UPPMAX clusters.
 
+## Getting help
+
+We have a Slack channel dedicated to UPPMAX users on the nf-core Slack: [https://nfcore.slack.com/channels/uppmax](https://nfcore.slack.com/channels/uppmax)
+
 ## Using the UPPMAX config profile
 
 To use, run the pipeline with `-profile uppmax` (one hyphen).
@@ -12,13 +16,18 @@ In addition to this config profile, you will also need to specify an UPPMAX proj
 You can do this with the `--project` flag (two hyphens) when launching nextflow. For example:
 
 ```bash
-nextflow run nf-core/PIPELINE -profile uppmax --project SNIC 2018/1-234 # ..rest of pipeline flags
+nextflow run nf-core/PIPELINE -profile uppmax --project snic2018-1-234 # ..rest of pipeline flags
 ```
+
+> NB: If you're not sure what your UPPMAX project ID is, try running `groups` or checking SUPR.
 
 Before running the pipeline you will need to either install Nextflow or load it using the environment module system.
 
-This config enables Nextflow to manage the pipeline jobs via the Slurm job scheduler.
+This config enables Nextflow to manage the pipeline jobs via the Slurm job scheduler and using Singularity for software management.
+
 Just run Nextflow on a login node and it will handle everything else.
+
+Remember to use `-bg` to launch Nextflow in the background, so that the pipeline doesn't exit if you leave your terminal session.
 
 ## Using iGenomes references
 
@@ -40,7 +49,7 @@ Note that each job will still start with the same request as normal, but restart
 
 All jobs will be submitted to fat nodes using this method, so it's only for use in extreme circumstances.
 
-## How to specify a UPPMAX cluster
+## Different UPPMAX clusters
 
 The UPPMAX nf-core configuration profile uses the `hostname` of the active environment to automatically apply the following resource limits:
 
@@ -64,3 +73,15 @@ All jobs are limited to 1 hour to be eligible for this queue and only one job al
 It is not suitable for use with real data.
 
 To use it, submit with `-profile uppmax,devel`.
+
+## Running on Bianca
+
+For security reasons, there is no internet access on Bianca so you can't download from or upload files to the cluster directly. Before running a nf-core pipeline on Bianca you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the wharf area to your Bianca project.
+
+You can follow the guide for downloading pipelines [for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use). Note that you will have to download the singularity images as well.
+
+Next transfer the pipeline and the singularity images to your project. Before running the pipeline you will have to indicate to nextflow where the singularity images are located by setting `NXF_SINGULARITY_CACHEDIR` :
+
+`export NXF_SINGULARITY_CACHEDIR=Your_Location_For_The_Singularity_directory/.`
+
+You should now be able to run your nf-core pipeline on bianca.

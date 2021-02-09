@@ -16,7 +16,7 @@ jobs:
     needs: test_all_profiles
     strategy:
         matrix:
-          profile: ['awsbatch', 'bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga_med', 'cfc', 'cfc_dev', 'crick', 'denbi_qbic', 'ebc', 'genotoul', 'genouest', 'gis', 'google', 'hebbe', 'kraken', 'munin', 'pasteur', 'phoenix', 'prince', 'shh', 'uct_hex', 'uppmax', 'utd_ganymede', 'uzh']
+          profile: ['abims', 'awsbatch', 'bi','bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga_med', 'cfc', 'cfc_dev', 'crick', 'denbi_qbic', 'ebc', 'genotoul', 'genouest', 'gis', 'google', 'hebbe', 'icr_davros', 'imperial', 'imperial_mb', 'kraken', 'mpcdf', 'munin', 'oist', 'pasteur', 'phoenix', 'prince', 'seg_globe', 'shh', 'uct_hpc', 'uppmax', 'utd_ganymede', 'uzh']
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
@@ -24,6 +24,7 @@ jobs:
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
       - name: Check ${{ matrix.profile }} profile
-        env: 
+        env:
           SCRATCH: '~'
+          NXF_GLOBAL_CONFIG: awsbatch.config
         run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}

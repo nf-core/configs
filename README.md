@@ -15,6 +15,7 @@ A repository for hosting Nextflow configuration files containing custom paramete
   * [Documentation](#documentation)
   * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
 * [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+  * [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
   * [Pipeline-specific documentation](#pipeline-specific-documentation)
   * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
   * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
@@ -93,8 +94,10 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Currently documentation is available for the following systems:
 
+* [ABIMS](docs/abims.md)
 * [AWSBATCH](docs/awsbatch.md)
 * [BIGPURPLE](docs/bigpurple.md)
+* [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
@@ -102,7 +105,6 @@ Currently documentation is available for the following systems:
 * [CFC](docs/cfc.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
-* [CZBIOHUB_AWS_HIGHPRIORITY](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [EBC](docs/ebc.md)
 * [GENOTOUL](docs/genotoul.md)
@@ -110,13 +112,17 @@ Currently documentation is available for the following systems:
 * [GIS](docs/gis.md)
 * [GOOGLE](docs/google.md)
 * [HEBBE](docs/hebbe.md)
+* [ICR_DAVROS](docs/icr_davros.md)
 * [KRAKEN](docs/kraken.md)
+* [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
+* [OIST](docs/oist.md)
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
+* [SEG_GLOBE](docs/seg_globe.md)
 * [SHH](docs/shh.md)
-* [UCT_HEX](docs/uct_hex.md)
+* [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UZH](docs/uzh.md)
@@ -159,12 +165,13 @@ Each configuration file will add new params and overwrite the params already exi
 
 Note that pipeline-specific configs are not required and should only be added if needed.
 
-### Pipeline-specific documentation
+### Pipeline-specific institutional documentation
 
-Currently documentation is available for the following pipeline within the specific profile:
+Currently documentation is available for the following pipelines within specific profiles:
 
 * ampliseq
   * [BINAC](docs/pipeline/ampliseq/binac.md)
+  * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
   * [SHH](docs/pipeline/eager/shh.md)
 * rnafusion
@@ -172,6 +179,13 @@ Currently documentation is available for the following pipeline within the speci
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
   * [UPPMAX](docs/pipeline/sarek/uppmax.md)
+
+### Pipeline-specific documentation
+
+Currently documentation is available for the following pipeline:
+
+* viralrecon
+  * [genomes](docs/pipeline/viralrecon/genomes.md)
 
 ### Enabling pipeline-specific configs within a pipeline
 

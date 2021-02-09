@@ -14,21 +14,21 @@ nextflow run nf-core/rnaseq -profile test,google --google_bucket <gs://your_buck
 
 ### Required Parameters
 
-#### `--google-bucket`
+#### `--google_bucket`
 
 The Google Cloud Storage bucket location to be used as a Nextflow work directory. Can also be specified with (`-w gs://your_bucket/work`).
 
 ### Optional Parameters
 
-#### `--google-zone`
+#### `--google_zone`
 
 The Google zone where the computation is executed in Compute Engine VMs. Multiple zones can be provided separating them by a comma. Default (`europe-west2-c`).
 
-#### `--google-preemptible`
+#### `--google_preemptible`
 
 Enables the usage of preemptible virtual machines with a retry error statergy for up to 5 retries. Default (`true`).
 
-#### `--google-debug`
+#### `--google_debug`
 
 Copies the /google debug directory from the VM to the task bucket directory. Useful for debugging. Default (`false`).
 
