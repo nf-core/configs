@@ -26,9 +26,9 @@ Specific configurations for eva has been made for eager.
 
 #### Human Pop-Gen
 
-* `human`: optimised for mapping of human aDNA reads (i.e. bwa aln defaults as `-l 16500, -n 0.01`)
+- `human`: optimised for mapping of human aDNA reads (i.e. bwa aln defaults as `-l 16500, -n 0.01`)
 
 #### Pathogen
 
-* `pathogen_loose`: optimised for mapping of human aDNA reads (i.e. bwa aln defaults as `-l 16 -n 0.01`)
-* `pathogen_strict`: optimised for mapping of human aDNA reads (i.e. bwa aln defaults as `-l 32, -n 0.1`)
+- `pathogen_loose`: optimised for mapping of human aDNA reads (i.e. bwa aln defaults as `-l 16 -n 0.01`)
+- `pathogen_strict`: optimised for mapping of human aDNA reads (i.e. bwa aln defaults as `-l 32, -n 0.1`)

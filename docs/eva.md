@@ -2,7 +2,7 @@
 
 All nf-core pipelines have been successfully configured for use on the Department of Genetics and Archaeogenetic's clusters at the [Max Planck Institute for Evolutionary Anthropology (MPI-EVA)](http://eva.mpg.de).
 
-To use, run the pipeline with `-profile eva`. You can further with optimise submissions by specifying which cluster queue you are using e,g, `-profile eva,archgen`. This will download and launch the [`eva.config`](../conf/eva.config) which has been pre-configured with a setup suitable for the `all.q` queue. The number of parallel jobs that run is currently limited to 8. 
+To use, run the pipeline with `-profile eva`. You can further with optimise submissions by specifying which cluster queue you are using e,g, `-profile eva,archgen`. This will download and launch the [`eva.config`](../conf/eva.config) which has been pre-configured with a setup suitable for the `all.q` queue. The number of parallel jobs that run is currently limited to 8.
 
 Using this profile, a docker image containing all of the required software will be downloaded, and converted to a `singularity` image before execution of the pipeline. The image will currently be centrally stored here:
 
@@ -26,4 +26,3 @@ Note the following characteristics of this profile:
 ### debug
 
 This simple profile just turns off automatic clean up of intermediate files. This can be useful for debugging. Specify e.g. with `-profile eva,archgen`
-
