@@ -6,20 +6,20 @@ A repository for hosting Nextflow configuration files containing custom paramete
 
 ## Table of contents <!-- omit in toc -->
 
-* [Using an existing config](#using-an-existing-config)
-  * [Configuration and parameters](#configuration-and-parameters)
-  * [Offline usage](#offline-usage)
-* [Adding a new config](#adding-a-new-config)
-  * [Checking user hostnames](#checking-user-hostnames)
-  * [Testing](#testing)
-  * [Documentation](#documentation)
-  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-* [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
-  * [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
-  * [Pipeline-specific documentation](#pipeline-specific-documentation)
-  * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
-  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
-* [Help](#help)
+- [Using an existing config](#using-an-existing-config)
+  - [Configuration and parameters](#configuration-and-parameters)
+  - [Offline usage](#offline-usage)
+- [Adding a new config](#adding-a-new-config)
+  - [Checking user hostnames](#checking-user-hostnames)
+  - [Testing](#testing)
+  - [Documentation](#documentation)
+  - [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+- [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+  - [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
+  - [Pipeline-specific documentation](#pipeline-specific-documentation)
+  - [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
+  - [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
+- [Help](#help)
 
 ## Using an existing config
 
@@ -107,6 +107,7 @@ Currently documentation is available for the following systems:
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [EBC](docs/ebc.md)
+* [EVA](docs/eva.md)
 * [GENOTOUL](docs/genotoul.md)
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
@@ -174,6 +175,7 @@ Currently documentation is available for the following pipelines within specific
   * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
   * [SHH](docs/pipeline/eager/shh.md)
+  * [EVA](docs/pipeline/eager/eva.md)
 * rnafusion
   * [MUNIN](docs/pipeline/rnafusion/munin.md)
 * sarek
