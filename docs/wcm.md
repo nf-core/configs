@@ -2,7 +2,7 @@
 
 All nf-core pipelines have been successfully configured for use on the panda cluster at the WCM.
 
-To use, run the pipeline with `-profile wcm`. This will download and launch the [`wcm.config`](../conf/wcm.config) which has been pre-configured with a setup suitable for the Pasteur cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile wcm`. This will download and launch the [`wcm.config`](../conf/wcm.config) which has been pre-configured with a setup suitable for the WCM slurm cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 ## Running the workflow on the Pasteur cluster
 
