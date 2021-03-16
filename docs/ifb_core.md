@@ -1,6 +1,6 @@
 # nf-core/configs: IFB core Configuration
 
-All nf-core pipelines have been successfully configured for use on the IFB core at the insert institution here.
+All nf-core pipelines have been successfully configured for use on the cluster of the IFB (Institut Francais de Bioinformatique).
 
 To use, run the pipeline with `-profile ifb_core`. This will download and launch the [`ifb_core.config`](../conf/ifb_core.config) which has been pre-configured with a setup suitable for the IFB core cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
