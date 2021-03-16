@@ -6,7 +6,7 @@ To use, run the pipeline with `-profile ifb_core`. This will download and launch
 
 ## How to use on IFB core
 
-Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on IFB core. You can do this by issuing the commands below:
+Before running the pipeline you will need to load Nextflow using the environment module system on IFB core. You can do this by issuing the commands below:
 
 ```bash
 # Login to a compute node
