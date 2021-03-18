@@ -14,7 +14,7 @@ This will download and launch the [`eddie.config`](../conf/eddie.config) which h
 The configuration file supports running nf-core pipelines with Docker containers running under Singularity by default. Conda is not currently supported.
 
 ```bash
-nextflow run nf-core/PIPELINE -profile eddie  # ..rest of pipeline flags
+nextflow run nf-core/PIPELINE -profile eddie  # ...rest of pipeline flags
 ```
 
 Before running the pipeline you will need to install Nextflow or load it from the module system. Generally the most recent version will be the one you want. 
@@ -32,6 +32,14 @@ module load igmm/apps/nextflow
 ```
 
 This config enables Nextflow to manage the pipeline jobs via the SGE job scheduler and using Singularity for software management.
+
+### Pipeline-specific config files
+
+In addition to the generic nf-core configuration accessed via `-profile eddie`, there are pipeline-specific configuration files in the NextGenResources fileset to handle processes that are known to require specific custom configuration on the eddie system, in particular Java processes which require an extra memory overhead. For example:
+
+```bash
+nextflow run nf-core/rnaseq -profile eddie -c /exports/igmm/eddie/NextGenResources/nextflow/conf/eddie.rnaseq.config # ...rest of pipeline flags
+```
 
 ## Singularity set-up
 
