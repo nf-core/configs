@@ -33,14 +33,6 @@ module load igmm/apps/nextflow
 
 This config enables Nextflow to manage the pipeline jobs via the SGE job scheduler and using Singularity for software management.
 
-### Pipeline-specific config files
-
-In addition to the generic nf-core configuration accessed via `-profile eddie`, there are pipeline-specific configuration files in the NextGenResources fileset to handle processes that are known to require specific custom configuration on the eddie system, in particular Java processes which require an extra memory overhead. For example:
-
-```bash
-nextflow run nf-core/rnaseq -profile eddie -c /exports/igmm/eddie/NextGenResources/nextflow/conf/eddie.rnaseq.config # ...rest of pipeline flags
-```
-
 ## Singularity set-up
 
 Load Singularity from the module system and set the Singularity cache directory to the NextGenResources path for the pipeline and version you want to run. If this does not exist, please contact the [IGMM Data Manager](data.manager@igmm.ed.ac.uk) to have it added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
