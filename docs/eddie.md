@@ -35,7 +35,9 @@ This config enables Nextflow to manage the pipeline jobs via the SGE job schedul
 
 ## Singularity set-up
 
-Load Singularity from the module system and set the Singularity cache directory to the NextGenResources path for the pipeline and version you want to run. If this does not exist, please contact the [IGMM Data Manager](data.manager@igmm.ed.ac.uk) to have it added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
+Load Singularity from the module system and, if you have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to the NextGenResources path for the pipeline and version you want to run. If this does not exist, please contact the [IGMM Data Manager](data.manager@igmm.ed.ac.uk) to have it added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
+
+If you do not have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to somewhere sensible that is not in your `$HOME` area which has limited space. It will take time to download all the Singularity containers, but you can use this again.
 
 ```bash
 module load singularity
@@ -66,7 +68,7 @@ If your eddie terminal disconnects your Nextflow job will stop. You can run Next
 nohup ./nextflow_run.sh &
 ```
 
-### On a wild west node
+### On a wild west node - IGMM only
 
 Wild west nodes on eddie can be accessed via ssh (node2c15, node2c16, node3g22). To run Nextflow on one of these nodes, do it within a [screen session](https://linuxize.com/post/how-to-use-linux-screen/).
 
@@ -87,7 +89,7 @@ screen -r <session_name>
 
 ## Using iGenomes references
 
-A local copy of the iGenomes resource has been made available on the Eddie HPC so you should be able to run the pipeline against any reference available in the `igenomes.config`.
+A local copy of the iGenomes resource has been made available on the Eddie HPC for those with access to `/exports/igmm/eddie/NextGenResources` so you should be able to run the pipeline against any reference available in the `igenomes.config`.
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
 ## Adjusting maximum resources
