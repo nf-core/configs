@@ -37,7 +37,7 @@ This config enables Nextflow to manage the pipeline jobs via the SGE job schedul
 
 Load Singularity from the module system and, if you have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to the NextGenResources path for the pipeline and version you want to run. If this does not exist, please contact the [IGMM Data Manager](data.manager@igmm.ed.ac.uk) to have it added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
 
-If you do not have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to somewhere sensible that is not in your `$HOME` area which has limited space. It will take time to download all the Singularity containers, but you can use this again.
+If you do not have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to somewhere sensible that is not in your `$HOME` area (which has limited space). It will take time to download all the Singularity containers, but you can use this again.
 
 ```bash
 module load singularity
