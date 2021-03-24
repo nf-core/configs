@@ -17,8 +17,7 @@ The configuration file supports running nf-core pipelines with Docker containers
 nextflow run nf-core/PIPELINE -profile eddie  # ...rest of pipeline flags
 ```
 
-Before running the pipeline you will need to install Nextflow or load it from the module system. Generally the most recent version will be the one you want. 
-If you want to run a Nextflow pipeline that is based on [DSL2](https://www.nextflow.io/docs/latest/dsl2.html), you will need a version that ends with '-edge'.
+Before running the pipeline you will need to install Nextflow or load it from the module system. Generally the most recent version will be the one you want. If you want to run a Nextflow pipeline that is based on [DSL2](https://www.nextflow.io/docs/latest/dsl2.html), you will need a version that ends with '-edge'.
 
 To list versions:
 
