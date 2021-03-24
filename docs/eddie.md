@@ -27,6 +27,7 @@ module avail igmm/apps/nextflow
 ```
 
 To load the most recent version:
+
 ```bash
 module load igmm/apps/nextflow
 ```
@@ -64,7 +65,7 @@ qlogin -l h_vmem=8G
 
 If your eddie terminal disconnects your Nextflow job will stop. You can run Nextflow as a bash script on the command line using `nohup` to prevent this.
 
-```
+```bash
 nohup ./nextflow_run.sh &
 ```
 
@@ -73,16 +74,19 @@ nohup ./nextflow_run.sh &
 Wild west nodes on eddie can be accessed via ssh (node2c15, node2c16, node3g22). To run Nextflow on one of these nodes, do it within a [screen session](https://linuxize.com/post/how-to-use-linux-screen/).
 
 Start a new screen session.
+
 ```bash
 screen -S <session_name>
 ```
 
 List existing screen sessions
+
 ```bash
 screen -ls
 ```
 
 Reconnect to an existing screen session
+
 ```bash
 screen -r <session_name>
 ```
