@@ -35,13 +35,13 @@ This config enables Nextflow to manage the pipeline jobs via the SGE job schedul
 
 ## Singularity set-up
 
-Load Singularity from the module system and, if you have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to the NextGenResources path for the pipeline and version you want to run. If this does not exist, please contact the [IGMM Data Manager](data.manager@igmm.ed.ac.uk) to have it added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
+Load Singularity from the module system and, if you have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to the NextGenResources path below. If some containers for your pipeline run are not present, please contact the [IGMM Data Manager](data.manager@igmm.ed.ac.uk) to have them added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
 
 If you do not have access to `/exports/igmm/eddie/NextGenResources`, set the Singularity cache directory to somewhere sensible that is not in your `$HOME` area (which has limited space). It will take time to download all the Singularity containers, but you can use this again.
 
 ```bash
 module load singularity
-export NXF_SINGULARITY_CACHEDIR="/exports/igmm/eddie/NextGenResources/nextflow/singularity/nf-core-rnaseq_v3.0"
+export NXF_SINGULARITY_CACHEDIR="/exports/igmm/eddie/NextGenResources/nextflow/singularity"
 ```
 
 Singularity will create a directory `.singularity` in your `$HOME` directory on eddie. Space on `$HOME` is very limited, so it is a good idea to create a directory somewhere else with more room and link the locations.
