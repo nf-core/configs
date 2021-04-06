@@ -6,20 +6,20 @@ A repository for hosting Nextflow configuration files containing custom paramete
 
 ## Table of contents <!-- omit in toc -->
 
-- [Using an existing config](#using-an-existing-config)
-  - [Configuration and parameters](#configuration-and-parameters)
-  - [Offline usage](#offline-usage)
-- [Adding a new config](#adding-a-new-config)
-  - [Checking user hostnames](#checking-user-hostnames)
-  - [Testing](#testing)
-  - [Documentation](#documentation)
-  - [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-- [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
-  - [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
-  - [Pipeline-specific documentation](#pipeline-specific-documentation)
-  - [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
-  - [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
-- [Help](#help)
+* [Using an existing config](#using-an-existing-config)
+  * [Configuration and parameters](#configuration-and-parameters)
+  * [Offline usage](#offline-usage)
+* [Adding a new config](#adding-a-new-config)
+  * [Checking user hostnames](#checking-user-hostnames)
+  * [Testing](#testing)
+  * [Documentation](#documentation)
+  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+* [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+  * [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
+  * [Pipeline-specific documentation](#pipeline-specific-documentation)
+  * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
+  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
+* [Help](#help)
 
 ## Using an existing config
 
@@ -114,6 +114,7 @@ Currently documentation is available for the following systems:
 * [GOOGLE](docs/google.md)
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
+* [JAX](docs/jax.md)
 * [KRAKEN](docs/kraken.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
