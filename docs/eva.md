@@ -25,4 +25,4 @@ Note the following characteristics of this profile:
 
 ### debug
 
-This simple profile just turns off automatic clean up of intermediate files. This can be useful for debugging. Specify e.g. with `-profile eva,archgen`
+This simple profile just turns off automatic clean up of intermediate files. This can be useful for debugging. Specify e.g. with `-profile eva,archgen`.
