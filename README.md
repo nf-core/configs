@@ -67,7 +67,15 @@ If you decide to upload your custom config file to `nf-core/configs` then this w
 You will simply have to specify `-profile <config_name>` in the command used to run the pipeline.
 See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
-Please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
+When adding a new config you will need to either add and/or update the following files:
+
+* **Add** your institutional config itself under the `conf/` directory accordingly
+* **Add** documentation for your institutional config under the `docs/` directory
+* **Update** the file `nfcore_custom.config` to include your config in list of nf-core institutional configs
+* **Update** the file `README.md` to include your config documentation within the list of configs docs
+* **Update** the `.github/workflows/main/yml` to include your config in the profile strategy matrix for the GitHub actions CI tests
+
+N.B. In your config file under `confg/`, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
 Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
 
 ### Checking user hostnames
@@ -155,6 +163,8 @@ We will be notified automatically when you have created your pull request, and p
 Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline.
 Such options should not be added to the main institutional config, as this will be applied to all pipelines.
 Instead, we can create a pipeline-specific institutional config file.
+
+> The following steps are similar to the instructions for standard institutional profilers, however using `pipeline` variants of folders e.g., `conf/pipeline/` or under `pipeline/`
 
 :warning: Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
 
