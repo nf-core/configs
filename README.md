@@ -67,15 +67,9 @@ If you decide to upload your custom config file to `nf-core/configs` then this w
 You will simply have to specify `-profile <config_name>` in the command used to run the pipeline.
 See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
-When adding a new config you will need to either add and/or update the following files:
+Before adding your config file to nf-core/configs, we highly recommend writing and testing your own custom config file (as described [above](Using an existing config)), and then continuing with the next steps.
 
-* **Add** your institutional config itself under the `conf/` directory accordingly
-* **Add** documentation for your institutional config under the `docs/` directory
-* **Update** the file `nfcore_custom.config` to include your config in list of nf-core institutional configs
-* **Update** the file `README.md` to include your config documentation within the list of configs docs
-* **Update** the `.github/workflows/main/yml` to include your config in the profile strategy matrix for the GitHub actions CI tests
-
-N.B. In your config file under `confg/`, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
+N.B. In your config file, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
 Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
 
 ### Checking user hostnames
@@ -141,11 +135,14 @@ Currently documentation is available for the following systems:
 ### Uploading to `nf-core/configs`
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
-Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory.
-You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
-You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
+Within the local clone of your fork:
 
-In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
+* **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, 
+* **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory.
+* **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
+* **edit** and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
+
+In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
 
 ```bash
 Run python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
@@ -164,7 +161,7 @@ Sometimes it may be desirable to have configuration options for an institute tha
 Such options should not be added to the main institutional config, as this will be applied to all pipelines.
 Instead, we can create a pipeline-specific institutional config file.
 
-> The following steps are similar to the instructions for standard institutional profilers, however using `pipeline` variants of folders e.g., `conf/pipeline/` or under `pipeline/`
+> The following steps are similar to the instructions for standard institutional config, however using `pipeline` variants of folders e.g., `conf/pipeline/` or under `pipeline/`
 
 :warning: Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
 
