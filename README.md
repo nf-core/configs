@@ -137,10 +137,10 @@ Currently documentation is available for the following systems:
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 Within the local clone of your fork:
 
-* **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, 
-* **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory.
-* **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
-* **edit** and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
+* **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory
+* **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory
+* **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone
+* **edit** and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone
 
 In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
 
