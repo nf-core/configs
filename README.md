@@ -39,27 +39,22 @@ You should be able to get a good idea as to how other people are customising the
 
 ### Offline usage
 
-If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline.
-Then run the pipeline with `--custom_config_base` or `params.custom_config_base` set to the location of the directory containing the repository files:
+To use nf-core pipelines offline, we recommend using the `nf-core download` helper tool. This will download both the pipeline files and also the config profiles from `nf-core/configs`. The pipeline files are then edited to load the configs from their relative file path correctly.
 
 ```bash
-## Download and unzip the config files
-cd /path/to/my/configs
-wget https://github.com/nf-core/configs/archive/master.zip
-unzip master.zip
-
-## Run the pipeline
-cd /path/to/my/data
-nextflow run /path/to/pipeline/ --custom_config_base /path/to/my/configs/configs-master/
+# Download the workflow + transfer to offline cluster
+nf-core download rnaseq
+scp nf-core-rnaseq-3.0.tar.gz me@myserver.com:/path/to/workflows   # or however you prefer to transfer files to your offline cluster
+ssh me@myserver.com
+# Extract workflow files
+cd /path/to/workflows
+tar -xzf nf-core-rnaseq-3.0.tar.gz
+# Run workflow
+cd /path/to/data
+nextflow run /path/to/workflows/nf-core-rnaseq-3.0/workflow -profile mycluster
 ```
 
-Alternatively, instead of using the configuration profiles from this repository, you can run your pipeline directly calling the single institutional config file that you need with the `-c` parameter.
-
-```bash
-nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config
-```
-
-> Note that the nf-core/tools helper package has a `download` command to download all required pipeline files + singularity containers + institutional configs in one go for you, to make this process easier.
+If you prefer, you can download these config profiles yourself and customise the `--custom_config_base` / `params.custom_config_base` parameter in each pipeline to to set to the location of the configs directory.
 
 ## Adding a new config
 
