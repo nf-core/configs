@@ -45,6 +45,7 @@ To use nf-core pipelines offline, we recommend using the `nf-core download` help
 # Download the workflow + transfer to offline cluster
 nf-core download rnaseq
 scp nf-core-rnaseq-3.0.tar.gz me@myserver.com:/path/to/workflows   # or however you prefer to transfer files to your offline cluster
+# Connect to offline cluster
 ssh me@myserver.com
 # Extract workflow files
 cd /path/to/workflows
