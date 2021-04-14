@@ -55,7 +55,7 @@ cd /path/to/data
 nextflow run /path/to/workflows/nf-core-rnaseq-3.0/workflow -profile mycluster
 ```
 
-If you prefer, you can download these config profiles yourself and customise the `--custom_config_base` / `params.custom_config_base` parameter in each pipeline to to set to the location of the configs directory.
+If required, you can instead download the nf-core/configs files yourself and customise the `--custom_config_base` / `params.custom_config_base` parameter in each pipeline to to set to the location of the configs directory.
 
 ## Adding a new config
 
