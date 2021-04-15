@@ -4,17 +4,16 @@ All nf-core pipelines have been successfully configured for use on the HPCs at [
 
 > :warning: these profiles are not officially supported by the MPCDF.
 
-To run Nextflow, the `jdk` module must be loaded. To use the nf-core profile(s), run the pipeline with `-profile <cluster>,mpcdf`.
+To run Nextflow, the `jdk` module must be loaded. To use the nf-core profile(s), run the pipeline with `-profile mpcdf,<cluster>`.
 
-Currently the following clusters are supported: cobra, raven
+Currently profiles for the following clusters are supported: `cobra`, `raven`
+
+All profiles use `singularity` as the corresponding containerEngine. To prevent repeatedly downloading the same singularity image for every pipeline run, for all profiles we recommend specifying a cache location in your `~/.bash_profile` with the `$NXF_SINGULARITY_CACHEDIR` bash variable.
+
 
 >NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. Check the [MPCDF documentation](https://www.mpcdf.mpg.de/services/computing).
 
 ## cobra
-
-Cobra does not currently support singularity, therefore the anaconda/module is loaded for each process.
-
-Due to this, we also recommend setting the `$NXF_CONDA_CACHEDIR` to a location of your choice to store all environments (so to prevent nextflow building the environment on every run).
 
 To use: `-profile cobra,mpcdf`
 
@@ -30,10 +29,6 @@ Sets the following parameters:
 :hammer_and_wrench: under testing.
 
 ## raven
-
-Raven does not currently support singularity, therefore `module load anaconda/3/2020.02` is loaded for each process.
-
-Due to this, we also recommend setting the `$NXF_CONDA_CACHEDIR` to a location of your choice to store all environments (so to prevent nextflow building the environment on every run).
 
 To use: `-profile raven,mpcdf`
 
