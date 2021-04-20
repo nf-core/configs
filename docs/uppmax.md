@@ -8,7 +8,7 @@ We have a Slack channel dedicated to UPPMAX users on the nf-core Slack: [https:/
 
 ## Using the UPPMAX config profile
 
-Before running the pipeline you will need to either install Nextflow or load it using the environment module system.
+Before running the pipeline you will need to either install Nextflow or load it using the environment module system (this can be done with e.g. `module load bioinfo-tools Nextflow/<VERSION>` where `VERSION` is e.g. `20.10`).
 
 To use, run the pipeline with `-profile uppmax` (one hyphen).
 This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers.
