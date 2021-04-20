@@ -189,7 +189,7 @@ $ ssh -A <USER>-<BIANCA_PROJECT>@bianca.uppmax.uu.se
 $ cd /castor/project/proj_nobackup
 
 # Make and go into a nf-core directory (where you will store all nf-core pipelines')
-$ mkdir f-core
+$ mkdir nf-core
 $ cd nf-core
 
 # Move the folder from the wharf area to the project
