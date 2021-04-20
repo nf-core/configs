@@ -78,9 +78,12 @@ To use it, submit with `-profile uppmax,devel`.
 
 ## Running on bianca
 
-> :warning: For more information about `bianca`, follow the [UPPMAX `bianca` user guide](http://uppmax.uu.se/support/user-guides/bianca-user-guide/).
-> :warning: For more information, follow the [nf-core guide for running offline](https://nf-co.re/usage/offline) and the [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use).
-> :warning: For more information about using `Singularity` with UPPMAX, follow the [UPPMAX `Singularity` guide](https://www.uppmax.uu.se/support-sv/user-guides/singularity-user-guide/).
+> :warning: For more information, please follow the following guides:
+>
+> * [UPPMAX `bianca` user guide](http://uppmax.uu.se/support/user-guides/bianca-user-guide/).
+> * [nf-core guide for running offline](https://nf-co.re/usage/offline)
+> * [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use).
+> * [UPPMAX `Singularity` guide](https://www.uppmax.uu.se/support-sv/user-guides/singularity-user-guide/).
 
 For security reasons, there is no internet access on `bianca` so you can't download from or upload files to the cluster directly.
 Before running a nf-core pipeline on `bianca` you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the `wharf` area to your own `bianca` project.
