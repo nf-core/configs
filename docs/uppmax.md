@@ -233,8 +233,8 @@ $ chown -R .<BIANCA_PROJECT> nf-core-<PIPELINE>-<PIPELINE_VERSION>
 $ ln -s nf-core-<PIPELINE>-<PIPELINE_VERSION> nf-core-<PIPELINE>-default
 ```
 
-The principle is to have every member of your project to be able to use the same nf-core/<PIPELINE> version at the same time.
-So every member of the project who wants to use nf-core/<PIPELINE> will need to do:
+The principle is to have every member of your project to be able to use the same `nf-core/<PIPELINE>` version at the same time.
+So every member of the project who wants to use `nf-core/<PIPELINE>` will need to do:
 
 ```bash
 # Connect to bianca
@@ -247,7 +247,7 @@ $ cd /home/<USER>
 $ ln -s /castor/project/proj_nobackup/nf-core/nf-core-<PIPELINE>-default nf-core-<PIPELINE>
 ```
 
-And then nf-core/<PIPELINE> can be used with:
+And then `nf-core/<PIPELINE>` can be used with:
 
 ```bash
 # run <PIPELINE> on bianca
