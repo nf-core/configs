@@ -13,7 +13,9 @@ Before running the pipeline you will need to either install Nextflow or load it 
 To use, run the pipeline with `-profile uppmax` (one hyphen).
 This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers.
 It will enable Nextflow to manage the pipeline jobs via the Slurm job scheduler.
-Using this profile, Docker image(s) containing required software(s) will be downloaded, and converted to Singularity image(s) before execution of the pipeline.
+Using this profile, Docker image(s) containing required software(s) will be downloaded, and converted to Singularity image(s) if needed before execution of the pipeline. 
+
+Recent version of Nextflow also support the environment variable `NXF_SINGULARITY_CACHEDIR` which can be used to supply images. Images for some nf-core pipelines are available under `/sw/data/ToolBox/nf-core/` and those can be used by `NXF_SINGULARITY_CACHEDIR=/sw/data/ToolBox/nf-core/; export NXF_SINGULARITY_CACHEDIR`.
 
 In addition to this config profile, you will also need to specify an UPPMAX project id.
 You can do this with the `--project` flag (two hyphens) when launching nextflow.
