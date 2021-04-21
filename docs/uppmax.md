@@ -44,7 +44,7 @@ You can do this by simply using the `--genome <GENOME_ID>` parameter.
 If your `nf-core` pipeline run is running out of memory, you can run on a fat node with more memory using the following `Nextflow` flags:
 
 ```bash
---clusterOptions "-C mem256GB" --max_memory "256GB"
+--clusterOptions "-C mem256GB -p node" --max_memory "256GB"
 ```
 
 This raises the ceiling of available memory from the default of `128.GB` to `256.GB`.
