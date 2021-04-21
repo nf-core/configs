@@ -2,7 +2,7 @@
 
 To use, run the pipeline with `-profile sanger`. This will download and launch the [`sanger.config`](../conf/sanger.config) which has been
 pre-configured with a setup suitable for the Wellcome Sanger Institute LSF cluster.
-Using this profile, either a docker image containing all of the required software will be downloaded, and converted to a Singularity image or 
+Using this profile, either a docker image containing all of the required software will be downloaded, and converted to a Singularity image or
 a Singularity image downloaded directly before execution of the pipeline.
 
 ## Running the workflow on the Wellcome Sanger Institute cluster
