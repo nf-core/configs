@@ -99,6 +99,9 @@ If you use `rackham` to download the pipeline and the singularity containers, we
 You can use the `Nextflow` UPPMAX provided `module`, but if necessary, you can also download a more recent version.
 
 ```bash
+# Connect to bianca
+$ ssh -A <USER>-<BIANCA_PROJECT>@bianca.uppmax.uu.se
+
 # See the available versions for the module
 module spider Nextflow
 
