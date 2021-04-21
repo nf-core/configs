@@ -168,8 +168,8 @@ $ ssh -X <USER>@rackham.uppmax.uu.se
 # Open an interactive session (if you are on rackham)
 $ interactive <rackham_project>
 
-# Download a pipeline (nf-core/rnaseq 3.0) with the singularity images
-$ nf-core download rnaseq -r 3.0 -s --compress none
+# Download a pipeline with the singularity images
+$ nf-core download <PIPELINE> -r <PIPELINE_VERSION> -s --compress none
 
 # If necessary, extra singularity images can be download separately
 # For example, if you downloaded nf-core/sarek, you will need extra images for annotation
@@ -183,8 +183,8 @@ $ mv *.img nf-core-sarek-2.7/singularity-images/.
 # Connect to the wharf area using sftp
 $ sftp <USER>-<BIANCA_PROJECT>@bianca-sftp.uppmax.uu.se:<USER>-<BIANCA_PROJECT>
 
-# Transfer rnaseq folder from rackham to the wharf area
-sftp> put -r nf-core-rnaseq-3.0 .
+# Transfer <PIPELINE> folder from rackham to the wharf area
+sftp> put -r nf-core-<PIPELINE>-<PIPELINE_VERSION> .
 
 # The archives will be in the wharf folder in your user home on your bianca project
 
@@ -199,18 +199,18 @@ $ mkdir nf-core
 $ cd nf-core
 
 # Move the folder from the wharf area to the project
-$ cp /castor/project/proj_nobackup/wharf/<USER>/<USER>-<BIANCA_PROJECT>/nf-core-rnaseq-3.0 .
+$ cp /castor/project/proj_nobackup/wharf/<USER>/<USER>-<BIANCA_PROJECT>/nf-core-<PIPELINE>-<PIPELINE_VERSION> .
 
 # If you want other people to use it,
 # Be sure that your group has rights to the directory as well
-$ chown -R .<BIANCA_PROJECT> nf-core-rnaseq-3.0
+$ chown -R .<BIANCA_PROJECT> nf-core-<PIPELINE>-<PIPELINE_VERSION>
 
 # Make a symbolic link to the extracted repository
-$ ln -s nf-core-rnaseq-3.0 nf-core-rnaseq-default
+$ ln -s nf-core-<PIPELINE>-<PIPELINE_VERSION> nf-core-<PIPELINE>-default
 ```
 
-The principle is to have every member of your project to be able to use the same nf-core/rnaseq version at the same time.
-So every member of the project who wants to use nf-core/rnaseq will need to do:
+The principle is to have every member of your project to be able to use the same nf-core/<PIPELINE> version at the same time.
+So every member of the project who wants to use nf-core/<PIPELINE> will need to do:
 
 ```bash
 # Connect to bianca
@@ -219,15 +219,15 @@ $ ssh -A <USER>-<BIANCA_PROJECT>@bianca.uppmax.uu.se
 # Go to your user directory
 $ cd /home/<USER>
 
-# Make a symbolic link to the default nf-core/rnaseq
-$ ln -s /castor/project/proj_nobackup/nf-core/nf-core-rnaseq-default nf-core-rnaseq
+# Make a symbolic link to the default nf-core/<PIPELINE>
+$ ln -s /castor/project/proj_nobackup/nf-core/nf-core-<PIPELINE>-default nf-core-<PIPELINE>
 ```
 
-And then nf-core/rnaseq can be used with:
+And then nf-core/<PIPELINE> can be used with:
 
 ```bash
-# run rnaseq on bianca
-$ nextflow run ~/rnaseq -profile uppmax --project <BIANCA_PROJECT> --genome [GENOME ASSEMBLY] ...
+# run <PIPELINE> on bianca
+$ nextflow run ~/<PIPELINE> -profile uppmax --project <BIANCA_PROJECT> --genome <GENOME_ASSEMBLY> ...
 ```
 
 ## Update a pipeline
@@ -238,14 +238,14 @@ To update, repeat the same steps as for installing and update the link.
 # Connect to bianca (Connect to rackham first if needed)
 $ ssh -A <USER>-<BIANCA_PROJECT>@bianca.uppmax.uu.se
 
-# Go to the rnaseq directory in your project
+# Go to the nf-core directory in your project
 $ cd /castor/project/proj_nobackup/nf-core
 
 # Remove link
-$ unlink nf-core-rnaseq-default
+$ unlink nf-core-<PIPELINE>-default
 
-# Link to new nf-core/rnaseq version
-$ ln -s nf-core-rnaseq-3.0 nf-core-rnaseq-default
+# Link to new nf-core/<PIPELINE> version
+$ ln -s nf-core-<PIPELINE>-<PIPELINE_VERSION> nf-core-<PIPELINE>-default
 ```
 
-You can for example keep a `nf-core-rnaseq-default` version that you are sure is working, an make a link for a `nf-core-rnaseq-testing` or `nf-core-rnaseq-development`.
+You can for example keep a `nf-core-<PIPELINE>-default` version that you are sure is working, an make a link for a `nf-core-<PIPELINE>-testing` or `nf-core-<PIPELINE>-development`.
