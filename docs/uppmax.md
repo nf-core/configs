@@ -8,18 +8,18 @@ We have a Slack channel dedicated to UPPMAX users on the nf-core Slack: [https:/
 
 ## Using the UPPMAX config profile
 
-Before running the pipeline you will need to either install Nextflow or load it using the environment module system (this can be done with e.g. `module load bioinfo-tools Nextflow/<VERSION>` where `VERSION` is e.g. `20.10`).
+Before running the pipeline you will need to either install `Nextflow` or load it using the environment module system (this can be done with e.g. `module load bioinfo-tools Nextflow/<VERSION>` where `VERSION` is e.g. `20.10`).
 
 To use, run the pipeline with `-profile uppmax` (one hyphen).
 This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers.
-It will enable Nextflow to manage the pipeline jobs via the Slurm job scheduler.
-Using this profile, Docker image(s) containing required software(s) will be downloaded, and converted to Singularity image(s) if needed before execution of the pipeline.
+It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job scheduler.
+Using this profile, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline.
 
-Recent version of Nextflow also support the environment variable `NXF_SINGULARITY_CACHEDIR` which can be used to supply images.
-Images for some nf-core pipelines are available under `/sw/data/ToolBox/nf-core/` and those can be used by `NXF_SINGULARITY_CACHEDIR=/sw/data/ToolBox/nf-core/; export NXF_SINGULARITY_CACHEDIR`.
+Recent version of `Nextflow` also support the environment variable `NXF_SINGULARITY_CACHEDIR` which can be used to supply images.
+Images for some `nf-core` pipelines are available under `/sw/data/ToolBox/nf-core/` and those can be used by `NXF_SINGULARITY_CACHEDIR=/sw/data/ToolBox/nf-core/; export NXF_SINGULARITY_CACHEDIR`.
 
 In addition to this config profile, you will also need to specify an UPPMAX project id.
-You can do this with the `--project` flag (two hyphens) when launching nextflow.
+You can do this with the `--project` flag (two hyphens) when launching `Nextflow`.
 For example:
 
 ```bash
@@ -29,19 +29,19 @@ $ nextflow run nf-core/<PIPELINE> -profile uppmax --project snic2018-1-234 [...]
 
 > NB: If you're not sure what your UPPMAX project ID is, try running `groups` or checking SUPR.
 
-Just run Nextflow on a login node and it will handle everything else.
+Just run `Nextflow` on a login node and it will handle everything else.
 
-Remember to use `-bg` to launch Nextflow in the background, so that the pipeline doesn't exit if you leave your terminal session.
-Alternatively, you can also launch Nextflow in a `screen` or a `tmux` session.
+Remember to use `-bg` to launch `Nextflow` in the background, so that the pipeline doesn't exit if you leave your terminal session.
+Alternatively, you can also launch `Nextflow` in a `screen` or a `tmux` session.
 
-## Using iGenomes references
+## Using AWS iGenomes references
 
-A local copy of the iGenomes resource has been made available on all UPPMAX clusters so you should be able to run the pipeline against any reference available in the `conf/igenomes.config`.
+A local copy of the `AWS iGenomes` resource has been made available on all UPPMAX clusters so you should be able to run the pipeline against any reference available in the `conf/igenomes.config`.
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
 ## Getting more memory
 
-If your nf-core pipeline run is running out of memory, you can run on a fat node with more memory using the following nextflow flags:
+If your `nf-core` pipeline run is running out of memory, you can run on a fat node with more memory using the following `Nextflow` flags:
 
 ```bash
 --clusterOptions "-C mem256GB" --max_memory "256GB"
@@ -96,7 +96,15 @@ If you use `rackham` to download the pipeline and the singularity containers, we
 
 ### Download and install Nextflow
 
-You can use the Nextflow UPPMAX provided `module`, but if necessary, you can also download a more recent version.
+You can use the `Nextflow` UPPMAX provided `module`, but if necessary, you can also download a more recent version.
+
+```bash
+# See the available versions for the module
+module spider Nextflow
+
+# Load a specific version of the Nextflow module
+module load bioinfo-tools Nextflow/<VERSION>`
+```
 
 ```bash
 # Connect to rackham
@@ -148,6 +156,19 @@ $ export NXF_SINGULARITY_CACHEDIR=/castor/project/proj_nobackup/singularity-imag
 ```
 
 ### Install nf-core tools
+
+You can use the `nf-core` UPPMAX provided `module`, but if necessary, you can also download a more recent version.
+
+```bash
+# Connect to rackham
+$ ssh -X <USER>@rackham.uppmax.uu.se
+
+# See the available versions for the module
+module spider nf-core
+
+# Load a specific version of the nf-core module
+module load bioinfo-tools nf-core/<VERSION>`
+```
 
 ```bash
 # Connect to rackham
