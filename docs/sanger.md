@@ -15,7 +15,7 @@ Nextflow manages each process as a separate job that is submitted to the cluster
 Nextflow shouldn't run directly on the submission node but on a compute node.
 To do so make a shell script with a similar structure to the following code and submit with `bsub < $PWD/my_script.sh`
 
-```
+```bash
 #!/bin/bash
 #BSUB -o /path/to/a/log/dir/%J.o
 #BSUB -e /path/to/a/log/dir//%J.e
@@ -44,4 +44,3 @@ if [[ $status -eq 0 ]]; then
   rm -r /path/to/some/dir/work
 fi
 ```
-
