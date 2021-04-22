@@ -11,9 +11,16 @@ The latest version of Nextflow is not installed by default on the cluster. You w
 
 - Install Nextflow : [here](https://www.nextflow.io/docs/latest/getstarted.html#)
 
-Recommendation place to move the `nextflow` executable is `~/bin` so that it's in the `PATH`.
+A recommended place to move the `nextflow` executable to is `~/bin` so that it's in the `PATH`.
+
 
 Nextflow manages each process as a separate job that is submitted to the cluster by using the `bsub` command.
+Since the Nextflow pipeline will submit individual jobs for each process to the cluster and dependencies will be provided bu Singularity images you shoudl make sure that your account has access to the Singularity binary by adding these lines to your `.bashrc` file
+
+```bash
+[[ -f  /software/pathogen/farm5 ]] && module load ISG/singularity
+```
+
 Nextflow shouldn't run directly on the submission node but on a compute node.
 To do so make a shell script with a similar structure to the following code and submit with `bsub < $PWD/my_script.sh`
 
