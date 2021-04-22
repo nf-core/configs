@@ -13,7 +13,6 @@ The latest version of Nextflow is not installed by default on the cluster. You w
 
 A recommended place to move the `nextflow` executable to is `~/bin` so that it's in the `PATH`.
 
-
 Nextflow manages each process as a separate job that is submitted to the cluster by using the `bsub` command.
 Since the Nextflow pipeline will submit individual jobs for each process to the cluster and dependencies will be provided bu Singularity images you shoudl make sure that your account has access to the Singularity binary by adding these lines to your `.bashrc` file
 
