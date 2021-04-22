@@ -11,6 +11,8 @@ The latest version of Nextflow is not installed by default on the cluster. You w
 
 - Install Nextflow : [here](https://www.nextflow.io/docs/latest/getstarted.html#)
 
+Recommendation place to move the `nextflow` executable is `~/bin` so that it's in the `PATH`.
+
 Nextflow manages each process as a separate job that is submitted to the cluster by using the `bsub` command.
 Nextflow shouldn't run directly on the submission node but on a compute node.
 To do so make a shell script with a similar structure to the following code and submit with `bsub < $PWD/my_script.sh`
@@ -27,10 +29,10 @@ export HTTP_PROXY='http://wwwcache.sanger.ac.uk:3128'
 export HTTPS_PROXY='http://wwwcache.sanger.ac.uk:3128'
 export NXF_ANSI_LOG=false
 export NXF_OPTS="-Xms8G -Xmx8G -Dnxf.pool.maxThreads=2000"
-export NXF_VER=21.03.0-edge
+export NXF_VER=21.04.0-edge
 
 
-/path/to/your/install/nextflow run \
+nextflow run \
 /path/to/nf-core/pipeline/main.nf \
 -w /path/to/some/dir/work \
 -profile sanger \
