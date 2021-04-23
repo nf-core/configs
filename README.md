@@ -99,6 +99,7 @@ Currently documentation is available for the following systems:
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
+* [BIOHPC_GEN](docs/biohpc_gen.md)
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
@@ -107,12 +108,14 @@ Currently documentation is available for the following systems:
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [EBC](docs/ebc.md)
+* [EVA](docs/eva.md)
 * [GENOTOUL](docs/genotoul.md)
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
 * [GOOGLE](docs/google.md)
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
+* [JAX](docs/jax.md)
 * [KRAKEN](docs/kraken.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
@@ -174,6 +177,7 @@ Currently documentation is available for the following pipelines within specific
   * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
   * [SHH](docs/pipeline/eager/shh.md)
+  * [EVA](docs/pipeline/eager/eva.md)
 * rnafusion
   * [MUNIN](docs/pipeline/rnafusion/munin.md)
 * sarek
