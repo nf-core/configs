@@ -100,6 +100,7 @@ Currently documentation is available for the following systems:
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
 * [BIOHPC_GEN](docs/biohpc_gen.md)
+* [CAMBRIDGE](docs/cambridge.md)
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
