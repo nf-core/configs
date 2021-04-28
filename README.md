@@ -120,6 +120,7 @@ Currently documentation is available for the following systems:
 * [KRAKEN](docs/kraken.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
+* [NUIG](docs/nuig.md)
 * [OIST](docs/oist.md)
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
