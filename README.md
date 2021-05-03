@@ -131,6 +131,7 @@ Currently documentation is available for the following systems:
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UZH](docs/uzh.md)
+* [WUSTL_HTCF](docs/wustl_htcf.md)
 
 ### Uploading to `nf-core/configs`
 
