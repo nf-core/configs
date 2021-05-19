@@ -128,6 +128,7 @@ Currently documentation is available for the following systems:
 * [SEG_GLOBE](docs/seg_globe.md)
 * [SHH](docs/shh.md)
 * [UCT_HPC](docs/uct_hpc.md)
+* [UNIBE_IBU](docs/unibe_ibu.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UZH](docs/uzh.md)
