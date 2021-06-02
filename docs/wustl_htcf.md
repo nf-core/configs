@@ -8,7 +8,7 @@ Note: you will need to install and maintain nextflow on your own HTCF profile. A
 
 If you need help installing nextflow, find a computational person in your lab, or your neighbor lab, and get their help. If you still need help with this, e-mail me.
 
-To use an nf-core pipeline: 
+To use an nf-core pipeline:  
 
 1. Find the pipeline you're interested in [here](https://nf-co.re/pipelines) and read the documentation thoroughly
 2. sign into htcf and cd into your lab's scratch space : `cd /scratch/<your-lab>/$USER`. If you don't know what your lab is called on HTCF, it should be the second word in this output: `id -G -n $USER`
