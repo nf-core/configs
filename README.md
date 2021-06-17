@@ -130,6 +130,7 @@ Currently documentation is available for the following systems:
 * [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
+* [UTD_SYSBIO](docs/utd_sysbio.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
