@@ -99,6 +99,8 @@ Currently documentation is available for the following systems:
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
+* [BIOHPC_GEN](docs/biohpc_gen.md)
+* [CAMBRIDGE](docs/cambridge.md)
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
@@ -107,6 +109,7 @@ Currently documentation is available for the following systems:
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [EBC](docs/ebc.md)
+* [EVA](docs/eva.md)
 * [GENOTOUL](docs/genotoul.md)
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
@@ -121,11 +124,13 @@ Currently documentation is available for the following systems:
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
+* [SANGER](docs/sanger.md)
 * [SEG_GLOBE](docs/seg_globe.md)
 * [SHH](docs/shh.md)
 * [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
+* [UTD_SYSBIO](docs/utd_sysbio.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
@@ -175,6 +180,7 @@ Currently documentation is available for the following pipelines within specific
   * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
   * [SHH](docs/pipeline/eager/shh.md)
+  * [EVA](docs/pipeline/eager/eva.md)
 * rnafusion
   * [MUNIN](docs/pipeline/rnafusion/munin.md)
 * sarek
