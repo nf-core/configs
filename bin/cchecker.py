@@ -10,6 +10,7 @@ import os
 import sys
 import argparse
 import re
+import yaml
 
 ############################################
 ############################################
@@ -51,13 +52,16 @@ def check_config(Config, Github):
     ### Ignore these profiles
     ignore_me = ['czbiohub_aws']
     tests.update(ignore_me)
-    with open(Github, 'r') as ghfile:
-        for line in ghfile:
-            if re.search('profile: ', line):
-                line = line.replace('\'','').replace('[','').replace(']','').replace('\n','')
-                profiles = line.split(':')[1].split(',')
-                for p in profiles:
-                    tests.add(p.strip())
+    # parse yaml GitHub actions file
+    try:
+        with open(Github, 'r') as ghfile:
+            wf = yaml.safe_load(ghfile)
+            profile_list = wf["profile_test"]["strategy"]["matrix"]["profile"]
+    except Exception as e:
+        return {"failed": ["Could not parse yaml file: {}, {}".format(Github, e)]}
+    # Add profiles to test
+    for profile in profile_list:
+        tests.add(profile.strip())
 
     ###Check if sets are equal
     if tests == config_profiles:
