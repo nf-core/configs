@@ -56,7 +56,7 @@ def check_config(Config, Github):
     try:
         with open(Github, 'r') as ghfile:
             wf = yaml.safe_load(ghfile)
-            profile_list = wf["profile_test"]["strategy"]["matrix"]["profile"]
+            profile_list = wf["jobs"]["profile_test"]["strategy"]["matrix"]["profile"]
     except Exception as e:
         print("Could not parse yaml file: {}, {}".format(Github, e))
         sys.exit(1)
