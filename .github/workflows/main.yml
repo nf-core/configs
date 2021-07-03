@@ -19,6 +19,7 @@ jobs:
           profile: 
             - 'abims'
             - 'awsbatch'
+            - 'aws_tower'
             - 'bi'
             - 'bigpurple'
             - 'binac'
