@@ -57,6 +57,7 @@ jobs:
             - 'uct_hpc'
             - 'uppmax'
             - 'utd_ganymede'
+            - 'utd_sysbio'
             - 'uzh'
     steps:
       - uses: actions/checkout@v1
