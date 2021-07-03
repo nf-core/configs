@@ -58,16 +58,16 @@ def check_config(Config, Github):
             wf = yaml.safe_load(ghfile)
             profile_list = wf["profile_test"]["strategy"]["matrix"]["profile"]
     except Exception as e:
-        return {"failed": ["Could not parse yaml file: {}, {}".format(Github, e)]}
+        print("Could not parse yaml file: {}, {}".format(Github, e))
+        sys.exit(1)
     # Add profiles to test
     for profile in profile_list:
         tests.add(profile.strip())
 
     ###Check if sets are equal
-    if tests == config_profiles:
-        sys.exit(0)
-    else:
-        #Maybe report what is missing here too
+    try:
+        assert tests == config_profiles
+    except (AssertionError):
         print("Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.\n")
         print(config_profiles.symmetric_difference(tests))
         sys.exit(1)
