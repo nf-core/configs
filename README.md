@@ -96,10 +96,12 @@ Currently documentation is available for the following systems:
 
 * [ABIMS](docs/abims.md)
 * [AWSBATCH](docs/awsbatch.md)
+* [AWS_TOWER](docs/aws_tower.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
 * [BIOHPC_GEN](docs/biohpc_gen.md)
+* [CAMBRIDGE](docs/cambridge.md)
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
@@ -122,11 +124,13 @@ Currently documentation is available for the following systems:
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
+* [SANGER](docs/sanger.md)
 * [SEG_GLOBE](docs/seg_globe.md)
 * [SHH](docs/shh.md)
 * [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
+* [UTD_SYSBIO](docs/utd_sysbio.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
