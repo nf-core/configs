@@ -44,7 +44,6 @@ jobs:
             - 'imperial'
             - 'imperial_mb'
             - 'jax'
-            - 'kraken'
             - 'mpcdf'
             - 'munin'
             - 'oist'
