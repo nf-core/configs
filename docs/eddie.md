@@ -41,7 +41,7 @@ Load Singularity from the module system.
 module load singularity
 ```
 
-The eddie profile is set to use `/exports/igmm/eddie/BioinformaticsResources/nf-core/singularity-images` as the Singularity cache directory. If some containers for your pipeline run are not present, please contact the [IGC Data Manager](data.manager@igc.ed.ac.uk) to have them added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
+The eddie profile is set to use `/exports/igmm/eddie/BioinformaticsResources/nfcore/singularity-images` as the Singularity cache directory. If some containers for your pipeline run are not present, please contact the [IGC Data Manager](data.manager@igc.ed.ac.uk) to have them added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
 
 If you do not have access to `/exports/igmm/eddie/BioinformaticsResources`, set the Singularity cache directory to somewhere sensible that is not in your `$HOME` area (which has limited space). It will take time to download all the Singularity containers, but you can use this again.
 
