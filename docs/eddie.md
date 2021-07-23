@@ -35,16 +35,17 @@ This config enables Nextflow to manage the pipeline jobs via the SGE job schedul
 
 ## Singularity set-up
 
-Load Singularity from the module system and, if you have access to `/exports/igmm/eddie/BioinformaticsResources`, set the Singularity cache directory to the BioinformaticsResources path below. If some containers for your pipeline run are not present, please contact the [IGC Data Manager](data.manager@igc.ed.ac.uk) to have them added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
-
-If you do not have access to `/exports/igmm/eddie/BioinformaticsResources`, set the Singularity cache directory to somewhere sensible that is not in your `$HOME` area (which has limited space). It will take time to download all the Singularity containers, but you can use this again.
+Load Singularity from the module system. 
 
 ```bash
 module load singularity
-export NXF_SINGULARITY_CACHEDIR="/exports/igmm/eddie/BioinformaticsResources/nf-core/singularity-images"
 ```
 
-Singularity will create a directory `.singularity` in your `$HOME` directory on eddie. Space on `$HOME` is very limited, so it is a good idea to create a directory somewhere else with more room and link the locations.
+The eddie profile is set to use `/exports/igmm/eddie/BioinformaticsResources/nf-core/singularity-images` as the Singularity cache directory. If some containers for your pipeline run are not present, please contact the [IGC Data Manager](data.manager@igc.ed.ac.uk) to have them added. You can add these lines to the file `$HOME/.bashrc`, or you can run these commands before you run an nf-core pipeline.
+
+If you do not have access to `/exports/igmm/eddie/BioinformaticsResources`, set the Singularity cache directory to somewhere sensible that is not in your `$HOME` area (which has limited space). It will take time to download all the Singularity containers, but you can use this again.
+
+Singularity will by default create a directory `.singularity` in your `$HOME` directory on eddie. Space on `$HOME` is very limited, so it is a good idea to create a directory somewhere else with more room and link the locations.
 
 ```bash
 cd $HOME
