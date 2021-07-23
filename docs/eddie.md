@@ -35,7 +35,7 @@ This config enables Nextflow to manage the pipeline jobs via the SGE job schedul
 
 ## Singularity set-up
 
-Load Singularity from the module system. 
+Load Singularity from the module system.
 
 ```bash
 module load singularity
