@@ -16,7 +16,52 @@ jobs:
     needs: test_all_profiles
     strategy:
         matrix:
+<<<<<<< HEAD
           profile: ['abims', 'awsbatch', 'bi','bigpurple', 'binac', 'biohpc_gen', 'cbe', 'ccga_dx', 'ccga_med', 'cfc', 'cfc_dev', 'crick', 'denbi_qbic', 'ebc', 'eddie', 'eva', 'genotoul', 'genouest', 'gis', 'google', 'hebbe', 'icr_davros', 'ifb_core', 'imperial', 'imperial_mb', 'jax', 'kraken', 'mpcdf', 'munin', 'oist', 'pasteur', 'phoenix', 'prince', 'sanger', 'seg_globe', 'shh', 'uct_hpc', 'uppmax', 'utd_ganymede', 'uzh', 'wustl_htcf']
+=======
+          profile: 
+            - 'abims'
+            - 'awsbatch'
+            - 'aws_tower'
+            - 'bi'
+            - 'bigpurple'
+            - 'binac'
+            - 'biohpc_gen'
+            - 'cbe'
+            - 'ccga_dx'
+            - 'ccga_med'
+            - 'cfc'
+            - 'cfc_dev'
+            - 'crick'
+            - 'denbi_qbic'
+            - 'ebc'
+            - 'eddie'
+            - 'eva'
+            - 'genotoul'
+            - 'genouest'
+            - 'gis'
+            - 'google'
+            - 'hebbe'
+            - 'icr_davros'
+            - 'ifb_core'
+            - 'imperial'
+            - 'imperial_mb'
+            - 'jax'
+            - 'mpcdf'
+            - 'munin'
+            - 'oist'
+            - 'pasteur'
+            - 'phoenix'
+            - 'prince'
+            - 'sanger'
+            - 'seg_globe'
+            - 'shh'
+            - 'uct_hpc'
+            - 'uppmax'
+            - 'utd_ganymede'
+            - 'utd_sysbio'
+            - 'uzh'
+>>>>>>> 6ede44b2215dea94645c8d3b1c7e2b98b8ccd04b
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
