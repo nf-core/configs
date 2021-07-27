@@ -96,6 +96,7 @@ Currently documentation is available for the following systems:
 
 * [ABIMS](docs/abims.md)
 * [AWSBATCH](docs/awsbatch.md)
+* [AWS_TOWER](docs/aws_tower.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
@@ -117,7 +118,6 @@ Currently documentation is available for the following systems:
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
 * [JAX](docs/jax.md)
-* [KRAKEN](docs/kraken.md)
 * [LUGH](docs/lugh.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
@@ -131,6 +131,7 @@ Currently documentation is available for the following systems:
 * [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
+* [UTD_SYSBIO](docs/utd_sysbio.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
