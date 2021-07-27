@@ -14,5 +14,6 @@ The configuration profile design is very simple. If your process exceeds 64GB me
 
 Whilst I (@BarryDigby) am happy to help people set up their nextflow pipelines, please note that I am not the system administrator.
 
-### Container Cache
-Your workflow containers will be downloaded and stored at `/data/containers` which is accessible to all users. 
+## Container Cache
+
+Your workflow containers will be downloaded and stored at `/data/containers` which is accessible to all users.
