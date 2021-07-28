@@ -1,6 +1,10 @@
 # nf-core/configs: LUGH configuration
 
-<div style="text-align: justify">Author: Barry Digby Contact Info: barry.digby@nuigalway.ie System Administrator: Chris Duke</div>
+Author: Barry Digby
+
+Contact Info: barry.digby@nuigalway.ie
+
+System Administrator: Chris Duke
 
 ## Quick Start
 
