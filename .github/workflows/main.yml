@@ -18,12 +18,13 @@ jobs:
         matrix:
           profile:
             - 'abims'
-            - 'awsbatch'
             - 'aws_tower'
+            - 'awsbatch'
             - 'bi'
             - 'bigpurple'
             - 'binac'
             - 'biohpc_gen'
+            - 'cambridge'
             - 'cbe'
             - 'ccga_dx'
             - 'ccga_med'
