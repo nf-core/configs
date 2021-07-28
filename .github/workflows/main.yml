@@ -16,7 +16,7 @@ jobs:
     needs: test_all_profiles
     strategy:
         matrix:
-          profile: 
+          profile:
             - 'abims'
             - 'aws_tower'
             - 'awsbatch'
@@ -45,6 +45,7 @@ jobs:
             - 'imperial'
             - 'imperial_mb'
             - 'jax'
+            - 'lugh'
             - 'mpcdf'
             - 'munin'
             - 'oist'

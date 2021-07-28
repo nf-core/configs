@@ -118,6 +118,7 @@ Currently documentation is available for the following systems:
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
 * [JAX](docs/jax.md)
+* [LUGH](docs/lugh.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
 * [OIST](docs/oist.md)
