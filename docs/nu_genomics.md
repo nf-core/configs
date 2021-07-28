@@ -1,6 +1,6 @@
 # nf-core/configs: NU_Genomics Configuration
 
-All nf-core pipelines have been successfully configured for use on the Quest Genomics Nodes at Northwestern University.
+All nf-core pipelines have been successfully configured for use on the Quest Genomics Nodes at Northwestern University. Note that, at present, this config has only been tested with nf-core/RNA-seq, but should function similarly for other nf-core pipelines. If you would like to test other pipelines and share on the genomics-rcs Slack, we would be very much obliged.
 
 To use, run the pipeline with `-profile nu_genomics`. This will download and launch the [`nu_genomics.config`](../conf/nu_genomics.config) which has been pre-configured with a setup suitable for the Quest Genomics Nodes. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
@@ -20,6 +20,14 @@ Note that you may need to install an "edge" version of Nextflow, depending on wh
 
 ```bash
 curl -s https://github.com/nextflow-io/nextflow/releases/download/v20.11.0-edge/nextflow-20.11.0-edge-all | bash
+```
+
+Note that while the config does explicitly load the necessary modules, you will often need to load them manually anyway. Please do so before each run as follows, or you may run into errors:
+
+```bash
+module purge
+module load singularity/latest
+module load graphviz/2.40.1
 ```
 
 ## Use of iGenomes
