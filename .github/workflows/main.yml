@@ -54,7 +54,6 @@ jobs:
             - 'prince'
             - 'sanger'
             - 'seg_globe'
-            - 'shh'
             - 'uct_hpc'
             - 'uppmax'
             - 'utd_ganymede'
