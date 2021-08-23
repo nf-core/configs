@@ -127,7 +127,6 @@ Currently documentation is available for the following systems:
 * [PRINCE](docs/prince.md)
 * [SANGER](docs/sanger.md)
 * [SEG_GLOBE](docs/seg_globe.md)
-* [SHH](docs/shh.md)
 * [UCT_HPC](docs/uct_hpc.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
@@ -180,7 +179,6 @@ Currently documentation is available for the following pipelines within specific
   * [BINAC](docs/pipeline/ampliseq/binac.md)
   * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
-  * [SHH](docs/pipeline/eager/shh.md)
   * [EVA](docs/pipeline/eager/eva.md)
 * rnafusion
   * [MUNIN](docs/pipeline/rnafusion/munin.md)
