@@ -52,6 +52,7 @@ jobs:
             - 'pasteur'
             - 'phoenix'
             - 'prince'
+            - 'rosalind'
             - 'sanger'
             - 'seg_globe'
             - 'shh'
