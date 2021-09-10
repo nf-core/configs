@@ -49,6 +49,7 @@ jobs:
             - 'lugh'
             - 'mpcdf'
             - 'munin'
+            - 'nu_genomics'
             - 'oist'
             - 'pasteur'
             - 'phoenix'

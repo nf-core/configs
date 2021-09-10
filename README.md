@@ -118,6 +118,7 @@ Currently documentation is available for the following systems:
 * [LUGH](docs/lugh.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
+* [NU_GENOMICS](docs/nu_genomics.md)
 * [OIST](docs/oist.md)
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
