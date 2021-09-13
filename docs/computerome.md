@@ -28,3 +28,13 @@ $ nextflow run nf-core/<PIPELINE> -profile computerome --project ab00002 [...]
 
 Remember to use `-bg` to launch `Nextflow` in the background, so that the pipeline doesn't exit if you leave your terminal session.
 Alternatively, you can also launch `Nextflow` in a `screen` or a `tmux` session.
+
+## About Computerome 2.0
+
+The Danish National Supercomputer for Life Sciences (a.k.a. Computerome) is installed at the DTU National Lifescience Center at Technical University of Denmark.
+
+The computer hardware is funded with grants from Technical University of Denmark (DTU), University of Copenhagen (KU) and Danish e-infrastructure Cooperation (DeiC) - also, it is the official Danish ELIXIR Node.
+
+Computerome 1.0 was opened in November 2014 at #121 on TOP500 Supercomputing Sites.
+
+The current setup, Computerome 2.0, was opened in 2019. It's compute resources consists of 31760 CPU cores with 210 TeraBytes of memory, connected to 17 PetaBytes of High-performance storage,
