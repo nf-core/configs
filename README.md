@@ -102,6 +102,7 @@ Currently documentation is available for the following systems:
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
 * [CFC](docs/cfc.md)
+* [Computerome](docs/computerome.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
