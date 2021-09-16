@@ -121,6 +121,8 @@ Currently documentation is available for the following systems:
 * [NU_GENOMICS](docs/nu_genomics.md)
 * [OIST](docs/oist.md)
 * [PASTEUR](docs/pasteur.md)
+* [PASTEURNORM](docs/pasteurMaestroNormal.md)
+* [PASTEURLONG](docs/pasteurMaestroLong.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
 * [SANGER](docs/sanger.md)

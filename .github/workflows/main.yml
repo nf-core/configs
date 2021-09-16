@@ -52,6 +52,8 @@ jobs:
             - 'nu_genomics'
             - 'oist'
             - 'pasteur'
+            - 'pasteurNorm'
+            - 'pasteurLong'
             - 'phoenix'
             - 'prince'
             - 'sanger'
