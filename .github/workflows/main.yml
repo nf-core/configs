@@ -54,6 +54,7 @@ jobs:
             - 'pasteur'
             - 'phoenix'
             - 'prince'
+            - 'rosalind'
             - 'sanger'
             - 'seg_globe'
             - 'uct_hpc'
