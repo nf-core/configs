@@ -18,6 +18,8 @@ chmod a+x nextflow-21.04.3-all
 mv nextflow-21.04.3-all ~/bin/nextflow
 ```
 
+By default, the shared partition is used for job submission. Other partitions can be specified using the `--partition <PARTITION NAME>` argument to the run.
+
 ## Additional information
 
 The default shared partition resource limits are defined as ten percent of the total available to the cluster at any one point in time. The limitations defined by this configuration are conservative and are projected to be increased as greater computational resources are introduced in the near future.
