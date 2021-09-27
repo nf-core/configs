@@ -15,51 +15,52 @@ jobs:
     name: Run ${{ matrix.profile }} profile
     needs: test_all_profiles
     strategy:
-        matrix:
-          profile:
-            - 'abims'
-            - 'aws_tower'
-            - 'awsbatch'
-            - 'bi'
-            - 'bigpurple'
-            - 'binac'
-            - 'biohpc_gen'
-            - 'cambridge'
-            - 'cbe'
-            - 'ccga_dx'
-            - 'ccga_med'
-            - 'cfc'
-            - 'cfc_dev'
-            - 'crick'
-            - 'denbi_qbic'
-            - 'ebc'
-            - 'eddie'
-            - 'eva'
-            - 'genotoul'
-            - 'genouest'
-            - 'gis'
-            - 'google'
-            - 'hebbe'
-            - 'icr_davros'
-            - 'ifb_core'
-            - 'imperial'
-            - 'imperial_mb'
-            - 'jax'
-            - 'lugh'
-            - 'mpcdf'
-            - 'munin'
-            - 'nu_genomics'
-            - 'oist'
-            - 'pasteur'
-            - 'phoenix'
-            - 'prince'
-            - 'sanger'
-            - 'seg_globe'
-            - 'uct_hpc'
-            - 'uppmax'
-            - 'utd_ganymede'
-            - 'utd_sysbio'
-            - 'uzh'
+      matrix:
+        profile:
+          - "abims"
+          - "aws_tower"
+          - "awsbatch"
+          - "bi"
+          - "bigpurple"
+          - "binac"
+          - "biohpc_gen"
+          - "cambridge"
+          - "cbe"
+          - "ccga_dx"
+          - "ccga_med"
+          - "cfc"
+          - "cfc_dev"
+          - "crick"
+          - "denbi_qbic"
+          - "ebc"
+          - "eddie"
+          - "eva"
+          - "genotoul"
+          - "genouest"
+          - "gis"
+          - "google"
+          - "hasta"
+          - "hebbe"
+          - "icr_davros"
+          - "ifb_core"
+          - "imperial"
+          - "imperial_mb"
+          - "jax"
+          - "lugh"
+          - "mpcdf"
+          - "munin"
+          - "nu_genomics"
+          - "oist"
+          - "pasteur"
+          - "phoenix"
+          - "prince"
+          - "sanger"
+          - "seg_globe"
+          - "uct_hpc"
+          - "uppmax"
+          - "utd_ganymede"
+          - "utd_sysbio"
+          - "uzh"
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
@@ -68,6 +69,6 @@ jobs:
           sudo mv nextflow /usr/local/bin/
       - name: Check ${{ matrix.profile }} profile
         env:
-          SCRATCH: '~'
+          SCRATCH: "~"
           NXF_GLOBAL_CONFIG: awsbatch.config
         run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
