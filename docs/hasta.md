@@ -1,6 +1,7 @@
 # nf-core/configs: Hasta Configuration
 
 ## Using the Hasta config profile
+
 Before running the pipeline `Nextflow` will need to be install in the conda environment being used.
 
 To use, run the pipeline with `-profile hasta` (one hyphen).
