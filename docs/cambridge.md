@@ -1,7 +1,7 @@
 # nf-core/configs: Cambridge HPC Configuration
 
 All nf-core pipelines have been successfully configured for use on the Cambridge HPC cluster at the [The University of Cambridge](https://www.cam.ac.uk/).  
-To use, run the pipeline with `-profile cambridge`. This will download and launch the [`cambridge.config`](../conf/cambridge.config) whichhas been pre-configured
+To use, run the pipeline with `-profile cambridge`. This will download and launch the [`cambridge.config`](../conf/cambridge.config) which has been pre-configured
 with a setup suitable for the Cambridge HPC cluster. Using this profile, either a docker image containing all of the required software will be downloaded,
 and converted to a Singularity image or a Singularity image downloaded directly before execution of the pipeline.  
 
