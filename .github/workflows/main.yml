@@ -18,6 +18,7 @@ jobs:
         matrix:
           profile:
             - 'abims'
+            - 'alice'
             - 'aws_tower'
             - 'awsbatch'
             - 'bi'
