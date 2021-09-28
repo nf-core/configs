@@ -18,7 +18,7 @@ We also highly recommend specifying a location of a cache directory to store sin
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
 The config contains a `cleanup` command that removes the `work/` directory automatically once the pipeline has completeed successfully. If the run does not complete successfully then the `work/` dir should be removed manually to save storage space.
 
-This configuration will automatically choose the correct SLURM queue (short,medium,long) depending on the time required by each process. If there are 
+This configuration will automatically choose the correct SLURM queue (short,medium,long) depending on the time required by each process. If there are
 high memory requirements (>240GB), e.g. using MALT, use the 'mem' profile:
 
 ```bash
