@@ -112,6 +112,7 @@ Currently documentation is available for the following systems:
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
 * [GOOGLE](docs/google.md)
+* [HASTA](docs/hasta.md)
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
 * [JAX](docs/jax.md)
