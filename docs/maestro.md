@@ -6,5 +6,5 @@ This is an intent for configuration of nf-core in Maestro cluster on the normal 
 
 I am not expert of nf-core so pelase refer to  docs/pasteur.md for installing and running nf-core 
 
-Run the pipeline with `-profile pasteur_maestro`
+Run the pipeline with `-profile maestro,<qos>` where qos is long or normal
 
