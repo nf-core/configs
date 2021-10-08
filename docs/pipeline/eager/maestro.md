@@ -1,10 +1,10 @@
-# nf-core/configs: maestro eager specific configuration
+# nf-core/configs maestro eager specific configuration
 
 Extra specific configuration for eager pipeline for human DNA data processing
 
 ## Usage
 
-To use, run the pipeline with `-profile maestro,<qos>,<type>`, where <qos> can be normal or long and <type> can be nuclear or mitochondrial
+To use, run the pipeline with `-profile maestro,<qos>,<type>`, where qos can be normal or long and type can be nuclear or mitochondrial
 
 This will download and launch the eager specific [`maestro.config`](../../../conf/pipeline/eager/maestro.config) which has been pre-configured with a setup suitable for the Maestro cluster.
 
@@ -21,12 +21,11 @@ We decided not to provide any tool parameters here, and focus the profile only f
 Increases the number of CPUs and the amount of memory for key processes
 
 
-##mitochondrial
+## mitochondrial
 
 More limited computational resources
 
-##unlimitedtime
+## unlimitedtime
 
 Every process has one year time limit. To be used only when some processes can not be completed for time reasons when using mitochondrial or nuclear profiles.  
 Expect slow processes when using this profile because only 5 CPUs are available at a time.
-
