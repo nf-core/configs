@@ -14,8 +14,7 @@ Example: `nextflow run nf-core/eager -profile maestro,normal,nuclear`
 
 Specific configurations for maestro has been made for eager.
 
-We decided not to provide any Tool parameter here and focus the profile only for ressource management: Maestro profiles runs with default nf-core/eager parameters, but with modifications concerning time (limit to 24h in normal qos so increasing the memnory and CPUs, specially for alignments).
-
+We decided not to provide any tool parameters here, and focus the profile only for resource management: Maestro profiles runs with default nf-core/eager parameters, but with modifications concerning time (limit to 24h in normal qos, so increasing the memory and CPUs, specially for alignments).
 
 ## nuclear
 
@@ -24,6 +23,10 @@ Increases the number of CPUs and the amount of memory for key processes
 
 ##mitochondrial
 
-more limited computational ressources
+More limited computational resources
 
+##unlimitedtime
+
+Every process has one year time limit. To be used only when some processes can not be completed for time reasons when using mitochondrial or nuclear profiles.  
+Expect slow processes when using this profile because only 5 CPUs are available at a time.
 
