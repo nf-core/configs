@@ -20,7 +20,6 @@ We decided not to provide any tool parameters here, and focus the profile only f
 
 Increases the number of CPUs and the amount of memory for key processes
 
-
 ## mitochondrial
 
 More limited computational resources
