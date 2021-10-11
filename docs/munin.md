@@ -1,14 +1,30 @@
 # nf-core/configs: MUNIN Configuration
 
-All nf-core pipelines have been successfully configured for use on the MUNIN cluster aka big iron.
+All nf-core pipelines have been successfully configured for use on the MUNIN cluster.
 
-To use, run the pipeline with `-profile munin`. This will download and launch the [`munin.config`](../conf/munin.config) which has been pre-configured with a setup suitable for the MUNIN cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+## Usage
+
+To use, run the pipeline with `-profile munin`.
+
+This will download and launch the [`munin.config`](../conf/munin.config) which has been pre-configured with a setup suitable for the MUNIN cluster.
 
 Example: `nextflow run -profile munin`
 
-## Docker
+### Singularity
+
+This is the default behavior of this configuration profile.
+
+Using this profile, if no singularity image are available, one will be downloaded from dockerhub, and converted to a Singularity image before execution of the pipeline.
+
+It is also possible to specify the singularity profile:
+
+Example: `nextflow run -profile munin,singularity`
+
+### Docker
 
 It is also possible to execute the pipeline using Docker.
+
+Using this profile, if no docker image are available, one will be downloaded from dockerhub before execution of the pipeline.
 
 Example: `nextflow run -profile munin,docker`
 
