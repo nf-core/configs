@@ -25,11 +25,10 @@ The Azure Blob Storage name. Example is currently [Illumina Platinum Genomes](ht
 
 The Azure Blob Storage shared access signature token.  Example is currently [Illumina Platinum Genomes](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-illumina-platinum-genomes?tabs=azure-storage). **This must be changed to your specific storage account.**
 
-## Optional Parameters
 
-### `--work_dir`
+### `-w`
 
-The Azure Blob container to be used as Nextflow work directory. Can also be specified with (`-w az://work`).
+The Azure Blob container to be used as Nextflow work directory (`-w az://work`).
 
 ## Azure Batch Setup
 
