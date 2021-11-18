@@ -39,27 +39,23 @@ You should be able to get a good idea as to how other people are customising the
 
 ### Offline usage
 
-If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline.
-Then run the pipeline with `--custom_config_base` or `params.custom_config_base` set to the location of the directory containing the repository files:
+To use nf-core pipelines offline, we recommend using the `nf-core download` helper tool. This will download both the pipeline files and also the config profiles from `nf-core/configs`. The pipeline files are then edited to load the configs from their relative file path correctly.
 
 ```bash
-## Download and unzip the config files
-cd /path/to/my/configs
-wget https://github.com/nf-core/configs/archive/master.zip
-unzip master.zip
-
-## Run the pipeline
-cd /path/to/my/data
-nextflow run /path/to/pipeline/ --custom_config_base /path/to/my/configs/configs-master/
+# Download the workflow + transfer to offline cluster
+nf-core download rnaseq
+scp nf-core-rnaseq-3.0.tar.gz me@myserver.com:/path/to/workflows   # or however you prefer to transfer files to your offline cluster
+# Connect to offline cluster
+ssh me@myserver.com
+# Extract workflow files
+cd /path/to/workflows
+tar -xzf nf-core-rnaseq-3.0.tar.gz
+# Run workflow
+cd /path/to/data
+nextflow run /path/to/workflows/nf-core-rnaseq-3.0/workflow -profile mycluster
 ```
 
-Alternatively, instead of using the configuration profiles from this repository, you can run your pipeline directly calling the single institutional config file that you need with the `-c` parameter.
-
-```bash
-nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config
-```
-
-> Note that the nf-core/tools helper package has a `download` command to download all required pipeline files + singularity containers + institutional configs in one go for you, to make this process easier.
+If required, you can instead download the nf-core/configs files yourself and customise the `--custom_config_base` / `params.custom_config_base` parameter in each pipeline to to set to the location of the configs directory.
 
 ## Adding a new config
 
@@ -69,12 +65,6 @@ See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for
 
 Please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
 Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
-
-### Checking user hostnames
-
-If your cluster has a set of consistent hostnames, nf-core pipelines can check that users are using your profile.
-Add one or more hostname substrings to `params.hostnames` under a key that matches the profile name.
-If the user's hostname contains this string at the start of a run or when a run fails and their profile does not contain the profile name, a warning message will be printed.
 
 ### Testing
 
@@ -95,7 +85,9 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 Currently documentation is available for the following systems:
 
 * [ABIMS](docs/abims.md)
+* [ALICE](docs/alice.md)
 * [AWSBATCH](docs/awsbatch.md)
+* [AWS_TOWER](docs/aws_tower.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
@@ -105,6 +97,7 @@ Currently documentation is available for the following systems:
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
 * [CFC](docs/cfc.md)
+* [Computerome](docs/computerome.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
@@ -114,23 +107,27 @@ Currently documentation is available for the following systems:
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
 * [GOOGLE](docs/google.md)
+* [HASTA](docs/hasta.md)
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
 * [JAX](docs/jax.md)
-* [KRAKEN](docs/kraken.md)
+* [LUGH](docs/lugh.md)
+* [MAESTRO](docs/maestro.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
+* [NU_GENOMICS](docs/nu_genomics.md)
 * [OIST](docs/oist.md)
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
+* [ROSALIND](docs/rosalind.md)
 * [SANGER](docs/sanger.md)
 * [SEG_GLOBE](docs/seg_globe.md)
-* [SHH](docs/shh.md)
 * [UCT_HPC](docs/uct_hpc.md)
 * [UNIBE_IBU](docs/unibe_ibu.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
+* [UTD_SYSBIO](docs/utd_sysbio.md)
 * [UZH](docs/uzh.md)
 
 ### Uploading to `nf-core/configs`
@@ -179,7 +176,6 @@ Currently documentation is available for the following pipelines within specific
   * [BINAC](docs/pipeline/ampliseq/binac.md)
   * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
-  * [SHH](docs/pipeline/eager/shh.md)
   * [EVA](docs/pipeline/eager/eva.md)
 * rnafusion
   * [MUNIN](docs/pipeline/rnafusion/munin.md)
