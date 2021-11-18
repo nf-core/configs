@@ -62,6 +62,7 @@ jobs:
             - 'sanger'
             - 'seg_globe'
             - 'uct_hpc'
+            - 'unibe_ibu'
             - 'uppmax'
             - 'utd_ganymede'
             - 'utd_sysbio'

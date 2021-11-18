@@ -125,6 +125,7 @@ Currently documentation is available for the following systems:
 * [SANGER](docs/sanger.md)
 * [SEG_GLOBE](docs/seg_globe.md)
 * [UCT_HPC](docs/uct_hpc.md)
+* [UNIBE_IBU](docs/unibe_ibu.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UTD_SYSBIO](docs/utd_sysbio.md)
