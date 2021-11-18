@@ -27,7 +27,7 @@ The Azure Blob Storage shared access signature token.  Example is currently [Ill
 
 ## Optional Parameters
 
-#### `--work_dir`
+### `--work_dir`
 
 The Azure Blob container to be used as Nextflow work directory. Can also be specified with (`-w az://work`).
 
