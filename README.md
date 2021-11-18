@@ -88,6 +88,7 @@ Currently documentation is available for the following systems:
 * [ALICE](docs/alice.md)
 * [AWSBATCH](docs/awsbatch.md)
 * [AWS_TOWER](docs/aws_tower.md)
+* [AZUREBATCH](docs/azurebatch.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
