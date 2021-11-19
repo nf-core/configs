@@ -19,11 +19,11 @@ The Azure Batch account key.
 
 ### `--storage_name`
 
-The Azure Blob Storage name. Example is currently [Illumina Platinum Genomes](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-illumina-platinum-genomes?tabs=azure-storage). **This must be changed to your specific storage account.**
+The Azure Blob Storage name.
 
 ### `--sas_token`
 
-The Azure Blob Storage shared access signature token.  Example is currently [Illumina Platinum Genomes](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-illumina-platinum-genomes?tabs=azure-storage). **This must be changed to your specific storage account.**
+The Azure Blob Storage shared access signature token.
 
 ### `-w`
 
