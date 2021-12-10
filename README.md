@@ -116,6 +116,7 @@ Currently documentation is available for the following systems:
 * [JAX](docs/jax.md)
 * [LUGH](docs/lugh.md)
 * [MAESTRO](docs/maestro.md)
+* [MARVIN](docs/marvin.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
 * [NU_GENOMICS](docs/nu_genomics.md)
