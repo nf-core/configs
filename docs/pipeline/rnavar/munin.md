@@ -16,21 +16,22 @@ Specific configurations for `MUNIN` has been made for rnavar.
 
 Genome references
 
-`fasta` set to `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa`
-`fasta_fai` set to `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa.fai`
-`gtf` set to `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_annot.gtf`
-`gene_bed` set to `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_annot.bed`
+* Path to `fasta`: `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa`
+* Path to `fasta_fai`: `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_genome.fa.fai`
+* Path to `gtf`: `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_annot.gtf`
+* Path to `gene_bed`: `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/ref_annot.bed`
 
 Known genome resources
 
-`dbsnp set to` `/data1/references/annotations/GATK_bundle/dbsnp_146.hg38.vcf.gz`
-`dbsnp_tbi set` to `/data1/references/annotations/GATK_bundle/dbsnp_146.hg38.vcf.gz.tbi`
-`known_indels set` to `/data1/references/annotations/GATK_bundle/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz`
-`known_indels_tbi` set to `/data1/references/annotations/GATK_bundle/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz.tbi`
+* Path to `dbsnp`: `/data1/references/annotations/GATK_bundle/dbsnp_146.hg38.vcf.gz`
+* Path to `dbsnp_tbi`: `/data1/references/annotations/GATK_bundle/dbsnp_146.hg38.vcf.gz.tbi`
+* Path to `known_indels`: `/data1/references/annotations/GATK_bundle/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz`
+* Path to `known_indels_tbi`: `/data1/references/annotations/GATK_bundle/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz.tbi`
 
 STAR index
 
-`star_index` set to `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/star150bp.idx/`
+* Path to `star_index`: `/data1/references/CTAT_GenomeLib_v37_Mar012021/GRCh38_gencode_v37_CTAT_lib_Mar012021.plug-n-play/ctat_genome_lib_build_dir/STAR.2.7.9a_2x151bp/`
+* Params `read_length` set to `151`
 
 Variant annotation configurations
 
