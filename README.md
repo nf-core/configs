@@ -190,6 +190,8 @@ Currently documentation is available for the following pipelines within specific
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
   * [UPPMAX](docs/pipeline/sarek/uppmax.md)
+* rnavar
+  * [MUNIN](docs/pipeline/rnavar/munin.md)  
 
 ### Pipeline-specific documentation
 
