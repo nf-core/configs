@@ -1,4 +1,5 @@
 # nf-core/configs: nihbiowulf Configuration
+
 nf-core pipelines have been configured for use on the Biowulf cluster at the NIH.
 
 To use, run the pipeline with `-profile nihbiowulf`. This will download and launch the [`profile.config`](../conf/profile.config) which has been pre-configured with a setup suitable for the Biowulf cluster at NIH. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
