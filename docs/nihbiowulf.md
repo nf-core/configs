@@ -17,7 +17,7 @@ module load singularity
 
 ## Below are non-mandatory information on iGenomes specific configuration
 
-A partial local copy of the iGenomes resource is available on Biowulf. This is a copy of the Illumina iGenomes resource from several years ago and is not up-to-date with the s3-hosted nf-core iGenomes. There are some structural differences of note. In particular, if using BWA, the igenomes.conf should be modified to specify the BWA version folder, otherwise the BWA module will fail to find an appropriate index. To date, this is the only issue, however functionality has not been extensively tested with iGenomes on Biowulf. Nonetheless, you should, in theory, be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. 
+A partial local copy of the iGenomes resource is available on Biowulf. This is a copy of the Illumina iGenomes resource from several years ago and is not up-to-date with the s3-hosted nf-core iGenomes. There are some structural differences of note. In particular, if using BWA, the igenomes.conf should be modified to specify the BWA version folder, otherwise the BWA module will fail to find an appropriate index. To date, this is the only issue, however functionality has not been extensively tested with iGenomes on Biowulf. Nonetheless, you should, in theory, be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline.
 
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
