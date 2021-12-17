@@ -54,6 +54,7 @@ jobs:
             - 'mpcdf'
             - 'munin'
             - 'nu_genomics'
+            - 'nihbiowulf'
             - 'oist'
             - 'pasteur'
             - 'phoenix'
