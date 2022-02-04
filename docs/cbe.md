@@ -2,7 +2,7 @@
 
 All nf-core pipelines have been successfully configured for use on the CLIP BATCH ENVIRONMENT (CBE) cluster at the Vienna BioCenter (VBC).
 
-To use, run the pipeline with `-profile cbe`. This will download and launch the [`cbe.config`](../conf/cbe.config) which has been pre-configured with a setup suitable for the CBE cluster. This profile sets needed slurm environment. Additionally you need to add `sigularity`, `docker` or `conda` to the profile to be able to run the pipeline. If `-profile cbe,singularity` is given, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile cbe`. This will download and launch the [`cbe.config`](../conf/cbe.config) which has been pre-configured with a setup suitable for the CBE cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 Before running the pipeline you will need to load Nextflow using the environment module system on CBE. You can do this by issuing the commands below:
 
