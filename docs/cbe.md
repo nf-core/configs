@@ -9,7 +9,7 @@ Before running the pipeline you will need to load Nextflow using the environment
 ```bash
 ## Load Nextflow environment module
 module purge
-module load nextflow/19.04.0
+module load nextflow/21.10.6
 ```
 
 A local copy of the [AWS-iGenomes](https://registry.opendata.aws/aws-igenomes/) resource has been made available on CBE so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter.
