@@ -8,9 +8,11 @@ Before running the pipeline you will need to load Nextflow using the environment
 
 ```bash
 ## Load Nextflow and Singularity environment modules
-module load Nextflow
+module load anaconda3/personal
+conda install -c bioconda nextflow
 ```
 
 >NB: You will need an account to use the HPC cluster CX1 in order to run the pipeline. If in doubt contact IT.
 >NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
 >NB: To submit jobs to the Imperial College MEDBIO cluster, use `-profile imperial_mb` instead.
+>NB: You will need a restricted access account to use the HPC cluster MEDBIO.
