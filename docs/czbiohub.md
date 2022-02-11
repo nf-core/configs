@@ -125,7 +125,7 @@ For Human and Mouse, we use [GENCODE](https://www.gencodegenes.org/) gene annota
 
 ## High Priority Queue
 
-If you would like to run with the _High Priority_ queue, specify the `highpriority` config profile after `czbiohub_aws`. When applied after the main `czbiohub_aws` config, it overwrites the process `queue` identifier.
+If you would like to run with the *High Priority* queue, specify the `highpriority` config profile after `czbiohub_aws`. When applied after the main `czbiohub_aws` config, it overwrites the process `queue` identifier.
 
 To use it, submit your run with with `-profile czbiohub_aws,highpriority`.
 
