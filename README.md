@@ -113,6 +113,7 @@ Currently documentation is available for the following systems:
 * [HASTA](docs/hasta.md)
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
+* [IMPERIAL](docs/imperial.md)
 * [JAX](docs/jax.md)
 * [LUGH](docs/lugh.md)
 * [MAESTRO](docs/maestro.md)

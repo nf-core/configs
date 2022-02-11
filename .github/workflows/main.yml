@@ -47,7 +47,6 @@ jobs:
             - 'icr_davros'
             - 'ifb_core'
             - 'imperial'
-            - 'imperial_mb'
             - 'jax'
             - 'lugh'
             - 'maestro'
