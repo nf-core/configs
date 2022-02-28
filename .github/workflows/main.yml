@@ -49,6 +49,7 @@ jobs:
             - 'imperial'
             - 'jax'
             - 'lugh'
+            - 'marvin'
             - 'maestro'
             - 'mpcdf'
             - 'munin'
