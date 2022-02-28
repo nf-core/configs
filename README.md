@@ -113,12 +113,14 @@ Currently documentation is available for the following systems:
 * [HASTA](docs/hasta.md)
 * [HEBBE](docs/hebbe.md)
 * [ICR_DAVROS](docs/icr_davros.md)
+* [IMPERIAL](docs/imperial.md)
 * [JAX](docs/jax.md)
 * [LUGH](docs/lugh.md)
 * [MAESTRO](docs/maestro.md)
 * [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
 * [NU_GENOMICS](docs/nu_genomics.md)
+* [NIHBIOWULF](docs/nihbiowulf.md)
 * [OIST](docs/oist.md)
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
@@ -190,6 +192,8 @@ Currently documentation is available for the following pipelines within specific
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
   * [UPPMAX](docs/pipeline/sarek/uppmax.md)
+* rnavar
+  * [MUNIN](docs/pipeline/rnavar/munin.md)  
 
 ### Pipeline-specific documentation
 
