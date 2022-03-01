@@ -32,6 +32,7 @@ jobs:
             - 'ccga_med'
             - 'cfc'
             - 'cfc_dev'
+            - 'cheaha'
             - 'computerome'
             - 'crick'
             - 'denbi_qbic'
