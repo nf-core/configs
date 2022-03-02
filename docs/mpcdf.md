@@ -30,6 +30,6 @@ To use: `-profile raven,mpcdf`
 Sets the following parameters:
 
 - Maximum parallel running jobs: 8
-- Max. memory: 368.GB
-- Max. CPUs: 192
+- Max. memory: 120.GB
+- Max. CPUs: 72
 - Max. walltime: 24.h
