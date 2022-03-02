@@ -23,10 +23,6 @@ Sets the following parameters:
 - Max. CPUs: 80
 - Max. walltime: 24.h
 
-## draco
-
-:hammer_and_wrench: under testing.
-
 ## raven
 
 To use: `-profile raven,mpcdf`
