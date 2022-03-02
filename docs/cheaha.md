@@ -15,10 +15,8 @@ module load Nextflow
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
 
->NB: You will need an account to use the HPC cluster on Cheaha in order to run the pipeline. If in doubt contact UAB IT Research Computing.
-
->NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be executed on one of the login nodes (or alternatively in an interactive partition, but be aware of time limit). If in doubt contact UAB IT Research Computing.
-
+>NB: You will need an account to use the HPC cluster on Cheaha in order to run the pipeline. If in doubt contact UAB IT Research Computing.</br></br>
+>NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be executed on one of the login nodes (or alternatively in an interactive partition, but be aware of time limit). If in doubt contact UAB IT Research Computing.</br></br>
 >NB: Instead of using `module load Nextflow`, you may instead create a conda environment (e.g: `conda create -p $USER_DATA/nf-core_nextflow_env nf-core nextflow`) if you would like to have a more personalized environment of Nextflow (versions which may not be modules yet) and nf-core tools. This __requires__ you to instead do the following:
 
 ```bash
