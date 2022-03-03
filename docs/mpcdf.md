@@ -42,6 +42,8 @@ Sets the following parameters:
 
 We offer a pipeline specific profile optimised for [nf-core/eager](https://nf-co.re/eager)
 
+- Maximum parallel running jobs: 30
+
 ### nf-core/rnaseq
 
 We offer a pipeline specific profile optimised for [nf-core/rnaseq](https://nf-co.re/rnaseq)
