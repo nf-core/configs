@@ -13,6 +13,7 @@ All profiles use `singularity` as the corresponding containerEngine. To prevent 
 >NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. Check the [MPCDF documentation](https://www.mpcdf.mpg.de/services/computing).
 
 ## Global Profiles
+
 ### cobra
 
 To use: `-profile cobra,mpcdf`
