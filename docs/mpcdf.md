@@ -16,24 +16,24 @@ All profiles use `singularity` as the corresponding containerEngine. To prevent 
 
 ### cobra
 
-To use: `-profile cobra,mpcdf`
+To use: `-profile mpcdf,cobra`
 
 Sets the following parameters:
 
 - Maximum parallel running jobs: 8
-- Max. memory: 750.GB
-- Max. CPUs: 80
+- Max. memory: 725.GB
+- Max. CPUs: 40
 - Max. walltime: 24.h
 
 ### raven
 
-To use: `-profile raven,mpcdf`
+To use: `-profile mpcdf,raven`
 
 Sets the following parameters:
 
 - Maximum parallel running jobs: 8
-- Max. memory: 368.GB
-- Max. CPUs: 192
+- Max. memory: 200000.MB (2.TB)
+- Max. CPUs: 72
 - Max. walltime: 24.h
 
 ## Pipeline Profiles
