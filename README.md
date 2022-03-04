@@ -107,6 +107,7 @@ Currently documentation is available for the following systems:
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [EBC](docs/ebc.md)
 * [EVA](docs/eva.md)
+* [FGCZ](docs/fgcz.md)
 * [GENOTOUL](docs/genotoul.md)
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
