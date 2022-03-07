@@ -137,6 +137,7 @@ Currently documentation is available for the following systems:
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
 * [UTD_SYSBIO](docs/utd_sysbio.md)
 * [UZH](docs/uzh.md)
+* [VAI](docs/vai.md)
 
 ### Uploading to `nf-core/configs`
 
