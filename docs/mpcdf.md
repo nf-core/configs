@@ -12,24 +12,38 @@ All profiles use `singularity` as the corresponding containerEngine. To prevent 
 
 >NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. Check the [MPCDF documentation](https://www.mpcdf.mpg.de/services/computing).
 
-## cobra
+## Global Profiles
 
-To use: `-profile cobra,mpcdf`
+### cobra
 
-Sets the following parameters:
-
-- Maximum parallel running jobs: 8
-- Max. memory: 750.GB
-- Max. CPUs: 80
-- Max. walltime: 24.h
-
-## raven
-
-To use: `-profile raven,mpcdf`
+To use: `-profile mpcdf,cobra`
 
 Sets the following parameters:
 
 - Maximum parallel running jobs: 8
-- Max. memory: 368.GB
-- Max. CPUs: 192
+- Max. memory: 725.GB
+- Max. CPUs: 40
 - Max. walltime: 24.h
+
+### raven
+
+To use: `-profile mpcdf,raven`
+
+Sets the following parameters:
+
+- Maximum parallel running jobs: 8
+- Max. memory: 2000000.MB (2.TB)
+- Max. CPUs: 72
+- Max. walltime: 24.h
+
+## Pipeline Profiles
+
+### nf-core/eager
+
+We offer a pipeline specific profile optimised for [nf-core/eager](https://nf-co.re/eager)
+
+- Maximum parallel running jobs: 30
+
+### nf-core/rnaseq
+
+We offer a pipeline specific profile optimised for [nf-core/rnaseq](https://nf-co.re/rnaseq)
