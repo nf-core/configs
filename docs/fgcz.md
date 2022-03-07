@@ -5,7 +5,7 @@ Configuration file to run nf-core pipelines on the cluster of the [Functional Ge
 Note that, at present, this config has only been tested with nf-core/viralrecon, but should function similarly for other nf-core pipelines.
 
 To use, run the pipeline with `-profile fgcz`. This will download and launch the profile.config which has been pre-configured with a setup suitable for the FGCZ cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline. **This requires a local installation of singularity**. It is easiest to submit the pipeline from a compute node. Once the image is cached, you can also submit from the login node.
-The config places your singularity cashe in your home directory for access by other projects your run in other working directories.
+The config places the singularity cache in your /srv/GT/ directory for access by all projects.
 
 Example: /usr/local/ngseq/src/nextflow/nextflow run -profile fgcz
 
