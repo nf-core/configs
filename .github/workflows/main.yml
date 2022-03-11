@@ -27,6 +27,7 @@ jobs:
             - 'binac'
             - 'biohpc_gen'
             - 'cambridge'
+            - 'leicester'
             - 'cbe'
             - 'ccga_dx'
             - 'ccga_med'
