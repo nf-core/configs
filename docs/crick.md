@@ -4,16 +4,16 @@ All nf-core pipelines have been successfully configured for use on the CAMP HPC 
 
 To use, run the pipeline with `-profile crick`. This will download and launch the [`crick.config`](../conf/crick.config) which has been pre-configured with a setup suitable for the CAMP HPC cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
-Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on CAMP. You can do this by issuing the commands below:
+Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on CAMP. Please check the main README of the pipeline to make sure that the version of Nextflow is compatible with that required to run the pipeline. You can do this by issuing the commands below:
 
 ```bash
 ## Load Nextflow and Singularity environment modules
 module purge
-module load Nextflow/19.10.0
-module load Singularity/2.6.0-foss-2016b
+module load Nextflow/21.04.0
+module load Singularity/3.4.2
 ```
 
-A local copy of the [AWS-iGenomes](https://github.com/ewels/AWS-iGenomes) resource has been made available on CAMP so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto CAMP so have a look in the `igenomes_base` path specified in [`crick.config`](../conf/crick.config), and if your genome of interest isnt present please contact [BABS](mailto:bioinformatics@crick.ac.uk).
+A local copy of the [AWS-iGenomes](https://github.com/ewels/AWS-iGenomes) resource has been made available on CAMP so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto CAMP so have a look in the `igenomes_base` path specified in [`crick.config`](../conf/crick.config), and if your genome of interest is not present please contact [BABS](mailto:bioinformatics@crick.ac.uk).
 
 Alternatively, if you are running the pipeline regularly for genomes that arent available in the iGenomes resource, we recommend creating a config file with paths to your reference genome indices (see [`reference genomes documentation`](https://nf-co.re/usage/reference_genomes) for instructions).
 

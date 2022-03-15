@@ -39,27 +39,23 @@ You should be able to get a good idea as to how other people are customising the
 
 ### Offline usage
 
-If you want to use an existing config available in `nf-core/configs`, and you're running on a system that has no internet connection, you'll need to download the config file and place it in a location that is visible to the file system on which you are running the pipeline.
-Then run the pipeline with `--custom_config_base` or `params.custom_config_base` set to the location of the directory containing the repository files:
+To use nf-core pipelines offline, we recommend using the `nf-core download` helper tool. This will download both the pipeline files and also the config profiles from `nf-core/configs`. The pipeline files are then edited to load the configs from their relative file path correctly.
 
 ```bash
-## Download and unzip the config files
-cd /path/to/my/configs
-wget https://github.com/nf-core/configs/archive/master.zip
-unzip master.zip
-
-## Run the pipeline
-cd /path/to/my/data
-nextflow run /path/to/pipeline/ --custom_config_base /path/to/my/configs/configs-master/
+# Download the workflow + transfer to offline cluster
+nf-core download rnaseq
+scp nf-core-rnaseq-3.0.tar.gz me@myserver.com:/path/to/workflows   # or however you prefer to transfer files to your offline cluster
+# Connect to offline cluster
+ssh me@myserver.com
+# Extract workflow files
+cd /path/to/workflows
+tar -xzf nf-core-rnaseq-3.0.tar.gz
+# Run workflow
+cd /path/to/data
+nextflow run /path/to/workflows/nf-core-rnaseq-3.0/workflow -profile mycluster
 ```
 
-Alternatively, instead of using the configuration profiles from this repository, you can run your pipeline directly calling the single institutional config file that you need with the `-c` parameter.
-
-```bash
-nextflow run /path/to/pipeline/ -c /path/to/my/configs/configs-master/conf/my_config.config
-```
-
-> Note that the nf-core/tools helper package has a `download` command to download all required pipeline files + singularity containers + institutional configs in one go for you, to make this process easier.
+If required, you can instead download the nf-core/configs files yourself and customise the `--custom_config_base` / `params.custom_config_base` parameter in each pipeline to to set to the location of the configs directory.
 
 ## Adding a new config
 
@@ -67,14 +63,10 @@ If you decide to upload your custom config file to `nf-core/configs` then this w
 You will simply have to specify `-profile <config_name>` in the command used to run the pipeline.
 See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
-Please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
+Before adding your config file to nf-core/configs, we highly recommend writing and testing your own custom config file (as described [above](Using an existing config)), and then continuing with the next steps.
+
+N.B. In your config file, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
 Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
-
-### Checking user hostnames
-
-If your cluster has a set of consistent hostnames, nf-core pipelines can check that users are using your profile.
-Add one or more hostname substrings to `params.hostnames` under a key that matches the profile name.
-If the user's hostname contains this string at the start of a run or when a run fails and their profile does not contain the profile name, a warning message will be printed.
 
 ### Testing
 
@@ -94,42 +86,70 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Currently documentation is available for the following systems:
 
+* [ABIMS](docs/abims.md)
+* [ALICE](docs/alice.md)
 * [AWSBATCH](docs/awsbatch.md)
+* [AWS_TOWER](docs/aws_tower.md)
+* [AZUREBATCH](docs/azurebatch.md)
 * [BIGPURPLE](docs/bigpurple.md)
 * [BI](docs/bi.md)
 * [BINAC](docs/binac.md)
+* [BIOHPC_GEN](docs/biohpc_gen.md)
+* [CAMBRIDGE](docs/cambridge.md)
 * [CBE](docs/cbe.md)
 * [CCGA_DX](docs/ccga_dx.md)
 * [CCGA_MED](docs/ccga_med.md)
 * [CFC](docs/cfc.md)
+* [CHEAHA](docs/cheaha.md)
+* [Computerome](docs/computerome.md)
 * [CRICK](docs/crick.md)
 * [CZBIOHUB_AWS](docs/czbiohub.md)
 * [DENBI_QBIC](docs/denbi_qbic.md)
 * [EBC](docs/ebc.md)
+* [EVA](docs/eva.md)
+* [FGCZ](docs/fgcz.md)
 * [GENOTOUL](docs/genotoul.md)
 * [GENOUEST](docs/genouest.md)
 * [GIS](docs/gis.md)
 * [GOOGLE](docs/google.md)
+* [HASTA](docs/hasta.md)
 * [HEBBE](docs/hebbe.md)
-* [KRAKEN](docs/kraken.md)
+* [ICR_DAVROS](docs/icr_davros.md)
+* [IMPERIAL](docs/imperial.md)
+* [JAX](docs/jax.md)
+* [LUGH](docs/lugh.md)
+* [MAESTRO](docs/maestro.md)
+* [MARVIN](docs/marvin.md)
+* [MPCDF](docs/mpcdf.md)
 * [MUNIN](docs/munin.md)
+* [NU_GENOMICS](docs/nu_genomics.md)
+* [NIHBIOWULF](docs/nihbiowulf.md)
+* [OIST](docs/oist.md)
 * [PASTEUR](docs/pasteur.md)
 * [PHOENIX](docs/phoenix.md)
 * [PRINCE](docs/prince.md)
-* [SHH](docs/shh.md)
+* [ROSALIND](docs/rosalind.md)
+* [SANGER](docs/sanger.md)
+* [SEG_GLOBE](docs/seg_globe.md)
 * [UCT_HPC](docs/uct_hpc.md)
+* [UNIBE_IBU](docs/unibe_ibu.md)
 * [UPPMAX](docs/uppmax.md)
 * [UTD_GANYMEDE](docs/utd_ganymede.md)
+* [UTD_SYSBIO](docs/utd_sysbio.md)
 * [UZH](docs/uzh.md)
+* [VAI](docs/vai.md)
 
 ### Uploading to `nf-core/configs`
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
-Within the local clone of your fork add the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory, and the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory.
-You will also need to edit and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone.
-You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
+Within the local clone of your fork:
 
-In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
+* **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory
+* **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory
+* **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone
+* **edit** and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone
+
+In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
 
 ```bash
 Run python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
@@ -147,6 +167,8 @@ We will be notified automatically when you have created your pull request, and p
 Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline.
 Such options should not be added to the main institutional config, as this will be applied to all pipelines.
 Instead, we can create a pipeline-specific institutional config file.
+
+> The following steps are similar to the instructions for standard institutional config, however using `pipeline` variants of folders e.g., `conf/pipeline/` or under `pipeline/`
 
 :warning: Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
 
@@ -168,12 +190,14 @@ Currently documentation is available for the following pipelines within specific
   * [BINAC](docs/pipeline/ampliseq/binac.md)
   * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 * eager
-  * [SHH](docs/pipeline/eager/shh.md)
+  * [EVA](docs/pipeline/eager/eva.md)
 * rnafusion
   * [MUNIN](docs/pipeline/rnafusion/munin.md)
 * sarek
   * [MUNIN](docs/pipeline/sarek/munin.md)
   * [UPPMAX](docs/pipeline/sarek/uppmax.md)
+* rnavar
+  * [MUNIN](docs/pipeline/rnavar/munin.md)  
 
 ### Pipeline-specific documentation
 

@@ -29,7 +29,62 @@ jobs:
     needs: test_all_profiles
     strategy:
         matrix:
-          profile: ['awsbatch', 'bi','bigpurple', 'binac', 'cbe', 'ccga_dx', 'ccga_med', 'cfc', 'cfc_dev', 'crick', 'denbi_qbic', 'ebc', 'genotoul', 'genouest', 'gis', 'google', 'hebbe', 'icr_davros', 'kraken', 'munin', 'pasteur', 'phoenix', 'prince', 'shh', 'uct_hpc', 'uppmax', 'utd_ganymede', 'uzh']
+          profile:
+            - 'abims'
+            - 'alice'
+            - 'aws_tower'
+            - 'awsbatch'
+            - 'azurebatch'
+            - 'bi'
+            - 'bigpurple'
+            - 'binac'
+            - 'biohpc_gen'
+            - 'cambridge'
+            - 'leicester'
+            - 'cbe'
+            - 'ccga_dx'
+            - 'ccga_med'
+            - 'cfc'
+            - 'cfc_dev'
+            - 'cheaha'
+            - 'computerome'
+            - 'crick'
+            - 'denbi_qbic'
+            - 'ebc'
+            - 'eddie'
+            - 'eva'
+            - 'fgcz'
+            - 'genotoul'
+            - 'genouest'
+            - 'gis'
+            - 'google'
+            - 'hasta'
+            - 'hebbe'
+            - 'icr_davros'
+            - 'ifb_core'
+            - 'imperial'
+            - 'jax'
+            - 'lugh'
+            - 'marvin'
+            - 'maestro'
+            - 'mpcdf'
+            - 'munin'
+            - 'nu_genomics'
+            - 'nihbiowulf'
+            - 'oist'
+            - 'pasteur'
+            - 'phoenix'
+            - 'prince'
+            - 'rosalind'
+            - 'sanger'
+            - 'seg_globe'
+            - 'uct_hpc'
+            - 'unibe_ibu'
+            - 'uppmax'
+            - 'utd_ganymede'
+            - 'utd_sysbio'
+            - 'uzh'
+            - 'vai'
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
@@ -37,4 +92,7 @@ jobs:
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
       - name: Check ${{ matrix.profile }} profile
+        env:
+          SCRATCH: "~"
+          NXF_GLOBAL_CONFIG: awsbatch.config
         run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf -profile ${{ matrix.profile }}
