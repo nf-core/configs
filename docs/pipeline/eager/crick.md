@@ -11,14 +11,14 @@ processed on the Crick's HPC.
 
 Example: `nextflow run nf-core/eager -profile crick`
 
-#### screening
+### screening
 
 - Low coverage data.
 
-#### production
+### production
 
 - High coverage data.
 
-#### external
+### external
 
 - External higher coverage data.
