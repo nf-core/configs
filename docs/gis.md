@@ -26,7 +26,7 @@ set -u
 # Run a downloaded/git-cloned nextflow workflow from
 nextflow run \\
 nf-core/workflow \\
--resume
+-resume \\
 -profile gis \\
 --email my-email@example.org  \\
 -c my-specific.config
@@ -40,6 +40,6 @@ nextflow run nf-core/rnaseq ...
 
 ## Databanks
 
-A local copy of several genomes are available in `/mnt/projects/rpd/genomes.testing/S3_igenomes/` directory. 
+A local copy of several genomes are available in `/mnt/projects/rpd/genomes.testing/S3_igenomes/` directory.
 
 >NB: You will need an account to use the HPC cluster on GIS in order to run the pipeline. If in doubt contact IT or go to [Andreas Wilm](https://github.com/andreas-wilm)
