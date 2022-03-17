@@ -37,4 +37,4 @@ A local copy of several genomes are available in `/shared/bank` directory. See
 our [databank page](https://ifb-elixirfr.gitlab.io/cluster/doc/banks/)
 to search for your favorite genome.
 
->NB: You will need an account to use the HPC cluster on IFB core in order to run the pipeline. If in doubt contact IT or go to [account page](https://my.cluster.france-bioinformatique.fr/manager2/login).
+> NB: You will need an account to use the HPC cluster on IFB core in order to run the pipeline. If in doubt contact IT or go to [account page](https://my.cluster.france-bioinformatique.fr/manager2/login).

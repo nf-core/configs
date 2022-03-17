@@ -3,7 +3,6 @@ name: Configs tests
 on: [pull_request, push]
 
 jobs:
-
   test_all_profiles:
     runs-on: ubuntu-latest
     name: Check if all profiles are tested
@@ -28,64 +27,64 @@ jobs:
     name: Run ${{ matrix.profile }} profile
     needs: test_all_profiles
     strategy:
-        matrix:
-          profile:
-            - 'abims'
-            - 'alice'
-            - 'aws_tower'
-            - 'awsbatch'
-            - 'azurebatch'
-            - 'bi'
-            - 'bigpurple'
-            - 'binac'
-            - 'biohpc_gen'
-            - 'cambridge'
-            - 'leicester'
-            - 'cbe'
-            - 'ccga_dx'
-            - 'ccga_med'
-            - 'cfc'
-            - 'cfc_dev'
-            - 'cheaha'
-            - 'computerome'
-            - 'crick'
-            - 'denbi_qbic'
-            - 'ebc'
-            - 'eddie'
-            - 'eva'
-            - 'fgcz'
-            - 'genotoul'
-            - 'genouest'
-            - 'gis'
-            - 'google'
-            - 'hasta'
-            - 'hebbe'
-            - 'icr_davros'
-            - 'ifb_core'
-            - 'imperial'
-            - 'jax'
-            - 'lugh'
-            - 'marvin'
-            - 'maestro'
-            - 'mpcdf'
-            - 'munin'
-            - 'nu_genomics'
-            - 'nihbiowulf'
-            - 'oist'
-            - 'pasteur'
-            - 'phoenix'
-            - 'prince'
-            - 'rosalind'
-            - 'sahmri'
-            - 'sanger'
-            - 'seg_globe'
-            - 'uct_hpc'
-            - 'unibe_ibu'
-            - 'uppmax'
-            - 'utd_ganymede'
-            - 'utd_sysbio'
-            - 'uzh'
-            - 'vai'
+      matrix:
+        profile:
+          - "abims"
+          - "alice"
+          - "aws_tower"
+          - "awsbatch"
+          - "azurebatch"
+          - "bi"
+          - "bigpurple"
+          - "binac"
+          - "biohpc_gen"
+          - "cambridge"
+          - "leicester"
+          - "cbe"
+          - "ccga_dx"
+          - "ccga_med"
+          - "cfc"
+          - "cfc_dev"
+          - "cheaha"
+          - "computerome"
+          - "crick"
+          - "denbi_qbic"
+          - "ebc"
+          - "eddie"
+          - "eva"
+          - "fgcz"
+          - "genotoul"
+          - "genouest"
+          - "gis"
+          - "google"
+          - "hasta"
+          - "hebbe"
+          - "icr_davros"
+          - "ifb_core"
+          - "imperial"
+          - "jax"
+          - "lugh"
+          - "marvin"
+          - "maestro"
+          - "mpcdf"
+          - "munin"
+          - "nu_genomics"
+          - "nihbiowulf"
+          - "oist"
+          - "pasteur"
+          - "phoenix"
+          - "prince"
+          - "rosalind"
+          - "sahmri"
+          - "sanger"
+          - "seg_globe"
+          - "uct_hpc"
+          - "unibe_ibu"
+          - "uppmax"
+          - "utd_ganymede"
+          - "utd_sysbio"
+          - "uzh"
+          - "vai"
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
