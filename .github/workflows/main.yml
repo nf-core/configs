@@ -76,6 +76,7 @@ jobs:
             - 'phoenix'
             - 'prince'
             - 'rosalind'
+            - 'sahmri'
             - 'sanger'
             - 'seg_globe'
             - 'uct_hpc'
