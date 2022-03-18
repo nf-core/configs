@@ -2,6 +2,12 @@
 
 Extra specific configuration for eager pipeline
 
+## Pipeline specific profiles
+
+Specific-pipeline profiles exist for the following pipelines, and will be automatically loaded when supplying `-profile crick` to your command:
+
+- eager
+
 ## Usage
 
 To use, run the pipeline with `-profile crick`.
