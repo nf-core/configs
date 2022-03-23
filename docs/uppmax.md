@@ -64,9 +64,9 @@ The UPPMAX nf-core configuration profile uses the `hostname` of the active envir
 - `bianca`
   - cpus available: 16 cpus
   - memory available: 109 GB
-- `irma`
-  - cpus available: 16 cpus
-  - memory available: 250 GB
+- `miarka`
+  - cpus available: 48 cpus
+  - memory available: 357 GB
 
 ## Development config
 
