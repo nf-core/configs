@@ -20,8 +20,8 @@ Note the following characteristics of this profile:
 - Using this profile will currently store singularity images in a cache under `/mnt/archgen/users/singularity_scratch/cache/`. All archgen users currently have read/write access to this directory, however this will likely change to a read-only directory in the future that will be managed by the IT team.
 - Intermediate files will be _automatically_ cleaned up (see `debug` below if you don't want this to happen) on successful run completion.
 
->NB: You will need an account and VPN access to use the cluster at MPI-EVA in order to run the pipeline. If in doubt contact the IT team.
->NB: Nextflow will need to submit the jobs via SGE to the clusters and as such the commands above will have to be executed on one of the head nodes. If in doubt contact IT.
+> NB: You will need an account and VPN access to use the cluster at MPI-EVA in order to run the pipeline. If in doubt contact the IT team.
+> NB: Nextflow will need to submit the jobs via SGE to the clusters and as such the commands above will have to be executed on one of the head nodes. If in doubt contact IT.
 
 ### debug
 

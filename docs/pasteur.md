@@ -18,15 +18,15 @@ To do that:
 
 1. Create a virtualenv to install nf-core
 
-    ```bash
-    module purge
-    module load Python/3.6.0
-    module load java
-    module load singularity
-    cd /path/to/nf-core/workflows
-    virtualenv .venv -p python3
-    . .venv/bin/activate
-    ```
+   ```bash
+   module purge
+   module load Python/3.6.0
+   module load java
+   module load singularity
+   cd /path/to/nf-core/workflows
+   virtualenv .venv -p python3
+   . .venv/bin/activate
+   ```
 
 2. Install nf-core: [here](https://nf-co.re/tools#installation)
 3. Get nf-core pipeline and container: [here](https://nf-co.re/tools#downloading-pipelines-for-offline-use)

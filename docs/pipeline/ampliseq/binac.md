@@ -14,4 +14,4 @@ Example: `nextflow run nf-core/ampliseq -profile binac`
 
 Specific configurations for BINAC has been made for ampliseq.
 
-* Specifies the `TZ` `ENV` variable to be `Europe/Berlin` to fix a QIIME2 issue
+- Specifies the `TZ` `ENV` variable to be `Europe/Berlin` to fix a QIIME2 issue
