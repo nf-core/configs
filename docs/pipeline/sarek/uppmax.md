@@ -15,4 +15,3 @@ Example: `nextflow run nf-core/sarek -profile uppmax`
 Specific configurations for uppmax clusters has been made for sarek.
 
 - Set paths to reference genomes
-- Override resource requirements for MapReads on `miarka`
