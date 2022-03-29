@@ -22,7 +22,7 @@ Now you can run pipelines with abandon!
 
 ### 2. Make a GitHub repo for your workflows (optional :)
 
-To make sharing your pipelines and commands easy between your teammates, it's best to share code in a GitHub repository. One way is to store the commands in a Makefile ([example](https://github.com/czbiohub/kh-workflows/blob/master/nf-kmer-similarity/Makefile)) which can contain multiple `nextflow run` commands so that you don't need to remember the S3 bucket or output directory for every single one. [Makefiles](https://kbroman.org/minimal_make/) are broadly used in the software community for running many complex commands. Makefiles can have a lot of dependencies and be confusing, so we're only going to write *simple* Makefiles.
+To make sharing your pipelines and commands easy between your teammates, it's best to share code in a GitHub repository. One way is to store the commands in a Makefile ([example](https://github.com/czbiohub/kh-workflows/blob/master/nf-kmer-similarity/Makefile)) which can contain multiple `nextflow run` commands so that you don't need to remember the S3 bucket or output directory for every single one. [Makefiles](https://kbroman.org/minimal_make/) are broadly used in the software community for running many complex commands. Makefiles can have a lot of dependencies and be confusing, so we're only going to write _simple_ Makefiles.
 
 ```bash
 rnaseq:
@@ -120,12 +120,12 @@ You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
 For Human and Mouse, we use [GENCODE](https://www.gencodegenes.org/) gene annotations. This doesn't change how you would specify the genome name, only that the pipelines run with the `czbiohub_aws` profile would be with GENCODE rather than iGenomes.
 
->NB: You will need an account to use the HPC cluster on PROFILE CLUSTER in order to run the pipeline. If in doubt contact IT.
->NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
+> NB: You will need an account to use the HPC cluster on PROFILE CLUSTER in order to run the pipeline. If in doubt contact IT.
+> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
 
 ## High Priority Queue
 
-If you would like to run with the *High Priority* queue, specify the `highpriority` config profile after `czbiohub_aws`. When applied after the main `czbiohub_aws` config, it overwrites the process `queue` identifier.
+If you would like to run with the _High Priority_ queue, specify the `highpriority` config profile after `czbiohub_aws`. When applied after the main `czbiohub_aws` config, it overwrites the process `queue` identifier.
 
 To use it, submit your run with with `-profile czbiohub_aws,highpriority`.
 

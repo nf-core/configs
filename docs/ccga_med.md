@@ -13,4 +13,4 @@ module load nextflow
 module load singularity
 ```
 
->NB: Access to the CCGA Med cluster is restricted to IKMB/CCGA employees. Please talk to Marc Hoeppner to get access (@marchoeppner).
+> NB: Access to the CCGA Med cluster is restricted to IKMB/CCGA employees. Please talk to Marc Hoeppner to get access (@marchoeppner).
