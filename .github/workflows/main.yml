@@ -43,6 +43,7 @@ jobs:
           - "cbe"
           - "ccga_dx"
           - "ccga_med"
+          - "cedars"
           - "cfc"
           - "cfc_dev"
           - "cheaha"
