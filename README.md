@@ -194,11 +194,13 @@ Currently documentation is available for the following pipelines within specific
   - [EVA](docs/pipeline/eager/eva.md)
 - rnafusion
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
+- rnavar
+  - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [MUNIN](docs/pipeline/sarek/munin.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
-- rnavar
-  - [MUNIN](docs/pipeline/rnavar/munin.md)
+- taxprofiler
+  - [EVA](docs/pipeline/taxprofiler/eva.md)
 
 ### Pipeline-specific documentation
 
