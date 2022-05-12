@@ -201,6 +201,7 @@ Currently documentation is available for the following pipelines within specific
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
+  - [hasta](docs/pipeline/taxprofiler/hasta.md)
 
 ### Pipeline-specific documentation
 
