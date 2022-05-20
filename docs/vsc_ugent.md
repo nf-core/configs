@@ -37,3 +37,5 @@ qsub <script name>.pbs
 ```
 
 > **NB:** The profile only works for the clusters `skitty`, `swalot`, `victini`, `kirlia` and `doduo`.
+
+> **NB:** The default directory where the `work/` and `singularity` (cache directory for images) is located in `$VSC_SCRATCH_VO_USER`.
