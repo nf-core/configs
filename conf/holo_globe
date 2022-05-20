@@ -8,6 +8,12 @@ params {
   max_time = 720.h
 }
 
+conda {
+   enabled=true
+   cacheDir = '/maps/projects/mjolnir1/people/prj558/cache/conda'
+}
+    
+
 //singularity {
 //  enabled = true
 //  autoMounts = true
