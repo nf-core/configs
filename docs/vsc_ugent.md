@@ -19,8 +19,6 @@ module load Nextflow
 nextflow run <pipeline> -profile vsc_ugent,<CLUSTER> <Add your other parameters>
 ```
 
-I also highly recommend specifying a location of a Singularity cache directory, by specifying the location with the `$SINGULARITY_CACHEDIR` bash environment variable in your `.bash_profile` or `.bashrc` or by adding it to your PBS script. If this cache directory is not specified,
-
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
 The config contains a `cleanup` command that removes the `work/` directory automatically once the pipeline has completed successfully. If the run does not complete successfully then the `work/` dir should be removed manually to save storage space. The default work directory is set to `$VSC_SCRATCH_VO_USER/work` per this configuration
 
