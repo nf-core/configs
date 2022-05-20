@@ -139,6 +139,7 @@ Currently documentation is available for the following systems:
 - [UTD_SYSBIO](docs/utd_sysbio.md)
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
+- [VSC_UGENT](docs/vsc_ugent.md)
 
 ### Uploading to `nf-core/configs`
 
