@@ -9,7 +9,7 @@ module purge
 module swap cluster/<CLUSTER>
 ```
 
-Before running the pipeline you will need to create a SLURM/PBS script to submit as a job.
+Before running the pipeline you will need to create a PBS script to submit as a job.
 
 ```bash
 #!/bin/bash
