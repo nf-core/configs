@@ -37,4 +37,3 @@ qsub <script name>.pbs
 ```
 
 > **NB:** The profile only works for the clusters `skitty`, `swalot`, `victini`, `kirlia` and `doduo`.
-
