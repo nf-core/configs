@@ -30,5 +30,5 @@ process {
 cleanup = true
        
 executor {
-  queueSize = 8
+  queueSize = 10
 }
