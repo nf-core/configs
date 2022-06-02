@@ -5,7 +5,7 @@
 Prior to running the pipeline for the first time with the `mjolnir_globe.config` (../conf/mjolnir_globe.config), users **must** create a hidden directory called `.tmp_eager` in their data/project directory on Mjolnir where the temp files from `nf-core/eager` will be re-directed by the `NXF_TEMP` command (see below).
 
 The contents of the `.tmp_eager` directory should be periodically deleted manually to save on space. 
-If the `NXF_TEMP` command is not used to properly re-direct temp files the `/tmp` directory on the compute nodes will be used and quickly filled up, which block anyone from working on these nodes until the offending user removes their files.
+If the `NXF_TEMP` command is not used to properly re-direct temp files the `/tmp` directory on the compute nodes will be used and quickly filled up, which blocks anyone from working on these nodes until the offending user removes their files.
 
 The following lines **must** be added by users to their `~/.bash_profile`:
 
