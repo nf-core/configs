@@ -2,7 +2,7 @@
 
 > **NB:** You will need an account on Mjolnir to run the pipeline. If in doubt contact IT.
 
-Prior to runing the pipeline for the first time, users must create a hidden directory called .tmp_eager in their user/work directory where the tmp files from nf-core/eager will be re-directed by the NXF_TEMP command (see below).
+Prior to runing the pipeline for the first time, users **must** create a hidden directory called .tmp_eager in their user/work directory where the tmp files from nf-core/eager will be re-directed by the NXF_TEMP command (see below).
 
 ```bash
 #navigate into correct directory
