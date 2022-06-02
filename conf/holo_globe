@@ -13,15 +13,6 @@ singularity {
         autoMounts = true
         cacheDir = '/maps/projects/mjolnir1/data/cache/nf-eager/singularity'
 }
-
-env {
- NXF_SINGULARITY_TMPDIR='/maps/projects/mjolnir1/people/$USER/eager_tmp/'
- SINGULARITY_TMPDIR='/maps/projects/mjolnir1/people/$USER/eager_tmp/'
- NXF_OPTS='-Djava.io.tmpdir=/maps/projects/mjolnir1/people/$USER/eager_tmp/ -Xms1g -Xmx4g'
- TMPDIR='/maps/projects/mjolnir1/people/$USER/eager_tmp/'
- NXF_TEMP='/maps/projects/mjolnir1/people/$USER/eager_tmp/'
- SINGULARITY_LOCALCACHEDIR='/maps/projects/mjolnir1/people/$USER/eager_tmp/'
-}
         
 process {
  executor = 'slurm'
