@@ -2,24 +2,24 @@
 
 > **NB:** You will need an account on Mjolnir to run the pipeline. If in doubt contact IT.
 
-Prior to running the pipeline for the first time with the `mjolnir_globe.config` (../conf/mjolnir_globe.config), users **must** create a hidden directory called `.tmp_eager` in their data/project directory on Mjolnir where the temp files from `nf-core/eager` will be re-directed by the `NXF_TEMP` command (see below).
+Prior to running the pipeline for the first time with the `mjolnir_globe.config` (../conf/mjolnir_globe.config), users **must** create a hidden directory called `.tmp_nfcore` in their data/project directory on Mjolnir where the temp files from nf-core pipelines will be re-directed by the `NXF_TEMP` command (see below).
 
-The contents of the `.tmp_eager` directory should be periodically deleted manually to save on space. 
+The contents of the `.tmp_nfcore` directory should be periodically deleted manually to save on space. 
 If the `NXF_TEMP` command is not used to properly re-direct temp files the `/tmp` directory on the compute nodes will be used and quickly filled up, which blocks anyone from working on these nodes until the offending user removes their files.
 
 The following lines **must** be added by users to their `~/.bash_profile`:
 
 ```bash
 #re-direct tmp files away from /tmp directories on compute nodes or the headnode
-export NXF_TEMP=/maps/projects/mjolnir1/people/$USER/.tmp_eager
+export NXF_TEMP=/maps/projects/mjolnir1/people/$USER/.tmp_nfcore
 
 # nextflow - limiting memory of virtual java machine
 NXF_OPTS='-Xms1g -Xmx4g'
 ```
 
-Once you have created the `.tmp_eager` directory and added the above lines of code to your `.bash_profile` you can run the pipeline.
+Once you have created the `.tmp_nfcore` directory and added the above lines of code to your `.bash_profile` you can run an nf-core pipeline.
 
-Before running the pipeline you will need to load Java, Miniconda, Singularity and Nextflow. You can do this by including the commands below in your SLURM/sbatch script:
+Before running a pipeline you will need to load Java, Miniconda, Singularity and Nextflow. You can do this by including the commands below in your SLURM/sbatch script:
 
 ```bash
 ## Load Java and Nextflow environment modules
