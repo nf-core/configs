@@ -1,8 +1,8 @@
 //Profile config names for nf-core/configs
 params {
-  config_profile_description = 'Section for Hologenomics @ Globe Institute, University of Copenhagen - holo_globe profile provided by nf-core/configs.'
+  config_profile_description = 'Section for Hologenomics @ Globe Institute, University of Copenhagen - mjolnir_globe profile provided by nf-core/configs.'
   config_profile_contact = 'Aashild Vaagene (@ashildv)'
-  config_profile_url = 'https://globe.ku.dk/research/evogenomics/'
+  config_profile_url = 'https://globe.ku.dk/research/hologenomics/'
   max_memory = 500.GB
   max_cpus = 50
   max_time = 720.h
