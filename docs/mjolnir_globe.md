@@ -1,4 +1,4 @@
-# nf-core/configs: Section for Hologenomics at GLOBE, Univeristy of Copenhagen (Mjolnir server) Configuration
+# nf-core/configs: Section for Hologenomics at GLOBE, University of Copenhagen (Mjolnir server) Configuration
 
 > **NB:** You will need an account on Mjolnir to run the pipeline. If in doubt contact IT.
 
