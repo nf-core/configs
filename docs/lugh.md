@@ -23,12 +23,12 @@ The configuration file will load prerequisite modules for users (`Java` & `Singu
 ## Queue Resources
 
 | Queue   | Hostnames      | Max Memory | Max CPUS | Max Time |
-|---------|----------------|------------|----------|----------|
+| ------- | -------------- | ---------- | -------- | -------- |
 | MSC     | compute[01-03] | 32GB       | 16       | 336.h    |
 | Normal  | compute[10-29] | 64GB       | 16       | 240.h    |
 | Highmem | compute[04-09] | 128GB      | 32       | 2880.h   |
 
-***
+---
 
 The configuration profile design is very simple. If your process exceeds 64GB memory or 16 cpus, it is sent to the `highmem` queue. If not, it is sent to the `normal` queue. Please do not use the `MSC` queue, this is reserved for Masters students.
 

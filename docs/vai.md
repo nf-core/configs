@@ -9,6 +9,6 @@ module load singularity
 NXF_OPTS="-Xmx500m" MALLOC_ARENA_MAX=4 nextflow run <pipeline>
 ```
 
->NB: You will need an account to use the HPC in order to run the pipeline. If in doubt contact IT.
->NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on the login node. If in doubt contact IT.
->NB: The submit node limits the amount of memory available to each user. The `NXF_OPTS` and `MALLOC_ARENA_MAX` parameters above prevent Nextflow from allocating more memory than the scheduler will allow.
+> NB: You will need an account to use the HPC in order to run the pipeline. If in doubt contact IT.
+> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on the login node. If in doubt contact IT.
+> NB: The submit node limits the amount of memory available to each user. The `NXF_OPTS` and `MALLOC_ARENA_MAX` parameters above prevent Nextflow from allocating more memory than the scheduler will allow.

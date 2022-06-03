@@ -10,7 +10,7 @@ Currently profiles for the following clusters are supported: `cobra`, `raven`
 
 All profiles use `singularity` as the corresponding containerEngine. To prevent repeatedly downloading the same singularity image for every pipeline run, for all profiles we recommend specifying a cache location in your `~/.bash_profile` with the `$NXF_SINGULARITY_CACHEDIR` bash variable.
 
->NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. Check the [MPCDF documentation](https://www.mpcdf.mpg.de/services/computing).
+> NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. Check the [MPCDF documentation](https://www.mpcdf.mpg.de/services/computing).
 
 ## Global Profiles
 

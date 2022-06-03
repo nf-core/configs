@@ -12,5 +12,5 @@ module purge
 module load singularity
 ```
 
->NB: You will need an account to use the HPC cluster on Sysbio in order to run the pipeline. If in doubt contact OIT.
->NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact OIT.
+> NB: You will need an account to use the HPC cluster on Sysbio in order to run the pipeline. If in doubt contact OIT.
+> NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact OIT.
