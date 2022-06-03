@@ -6,9 +6,9 @@ Extra specific configuration for mag pipeline
 
 To use, run the pipeline with `-profile eva`.
 
-This will download and launch the eager specific [`eva.config`](../../../conf/pipeline/mag/eva.config) which has been pre-configured with a setup suitable for the MPI-EVA cluster.
+This will download and launch the mag specific [`eva.config`](../../../conf/pipeline/mag/eva.config) which has been pre-configured with a setup suitable for the MPI-EVA cluster.
 
-Example: `nextflow run nf-core/eager -profile eva`
+Example: `nextflow run nf-core/mag -profile eva`
 
 ## mag specific configurations for eva
 
