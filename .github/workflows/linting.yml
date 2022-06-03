@@ -1,18 +1,22 @@
-name: Markdown linting
-# This workflow is triggered on pushes and PRs to the repository.
-on: [push, pull_request]  
+name: Code Linting
+on:
+  pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
-  Markdown:
-    runs-on: ubuntu-18.04
+  prettier:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v2
-      - name: Install markdownlint
-        run: |
-          npm install -g markdownlint-cli
-      - name: Run Markdownlint
-        run: |
-          markdownlint ${GITHUB_WORKSPACE} -c ${GITHUB_WORKSPACE}/.github/markdownlint.yml
+      - name: Check out repository
+        uses: actions/checkout@v2
 
- 
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+
+      - name: Install Prettier
+        run: npm install -g prettier
+
+      - name: Run Prettier --check
+        run: prettier --check ${GITHUB_WORKSPACE}

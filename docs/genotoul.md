@@ -65,11 +65,11 @@ sbatch nfcore-rnaseq.sh
 
 By default, available mount points are:
 
-* /bank
-* /home
-* /save
-* /work  
-* /work2  
+- /bank
+- /home
+- /save
+- /work
+- /work2
 
 To have access to specific other mount point (such as nosave or project)
 you can add a config profile file with option `-profile` and which contain:
@@ -84,5 +84,5 @@ A local copy of several genomes are available in `/bank` directory. See
 our [databank page](http://bioinfo.genotoul.fr/index.php/resources-2/databanks/)
 to search for your favorite genome.
 
->NB: You will need an account to use the HPC cluster on Genotoul in order
-to run the pipeline. If in doubt see [http://bioinfo.genotoul.fr/](http://bioinfo.genotoul.fr/).
+> NB: You will need an account to use the HPC cluster on Genotoul in order
+> to run the pipeline. If in doubt see [http://bioinfo.genotoul.fr/](http://bioinfo.genotoul.fr/).
