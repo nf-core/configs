@@ -24,7 +24,7 @@ Before running a pipeline you will need to load Java, Miniconda, Singularity and
 ```bash
 ## Load Java and Nextflow environment modules
 module purge
-module load jdk/1.8.0_291 miniconda/4.9.2 singularity/3.8.0 nextflow/21.04.1.5556
+module load jdk/1.8.0_291 miniconda singularity/3.8.0 nextflow/21.04.1.5556
 ```
 
 All of the intermediate output files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
