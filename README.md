@@ -194,6 +194,8 @@ Currently documentation is available for the following pipelines within specific
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
+- mag
+  - [EVA](docs/pipeline/mag/eva.md)
 - rnafusion
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
 - rnavar
