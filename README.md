@@ -6,20 +6,20 @@ A repository for hosting Nextflow configuration files containing custom paramete
 
 ## Table of contents <!-- omit in toc -->
 
-* [Using an existing config](#using-an-existing-config)
-  * [Configuration and parameters](#configuration-and-parameters)
-  * [Offline usage](#offline-usage)
-* [Adding a new config](#adding-a-new-config)
-  * [Checking user hostnames](#checking-user-hostnames)
-  * [Testing](#testing)
-  * [Documentation](#documentation)
-  * [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
-* [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
-  * [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
-  * [Pipeline-specific documentation](#pipeline-specific-documentation)
-  * [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
-  * [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
-* [Help](#help)
+- [Using an existing config](#using-an-existing-config)
+  - [Configuration and parameters](#configuration-and-parameters)
+  - [Offline usage](#offline-usage)
+- [Adding a new config](#adding-a-new-config)
+  - [Checking user hostnames](#checking-user-hostnames)
+  - [Testing](#testing)
+  - [Documentation](#documentation)
+  - [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
+- [Adding a new pipeline-specific config](#adding-a-new-pipeline-specific-config)
+  - [Pipeline-specific institutional documentation](#pipeline-specific-institutional-documentation)
+  - [Pipeline-specific documentation](#pipeline-specific-documentation)
+  - [Enabling pipeline-specific configs within a pipeline](#enabling-pipeline-specific-configs-within-a-pipeline)
+  - [Create the pipeline-specific `nf-core/configs` files](#create-the-pipeline-specific-nf-coreconfigs-files)
+- [Help](#help)
 
 ## Using an existing config
 
@@ -86,63 +86,70 @@ See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs
 
 Currently documentation is available for the following systems:
 
-* [ABIMS](docs/abims.md)
-* [ALICE](docs/alice.md)
-* [AWSBATCH](docs/awsbatch.md)
-* [AWS_TOWER](docs/aws_tower.md)
-* [AZUREBATCH](docs/azurebatch.md)
-* [BIGPURPLE](docs/bigpurple.md)
-* [BI](docs/bi.md)
-* [BINAC](docs/binac.md)
-* [BIOHPC_GEN](docs/biohpc_gen.md)
-* [CAMBRIDGE](docs/cambridge.md)
-* [CBE](docs/cbe.md)
-* [CCGA_DX](docs/ccga_dx.md)
-* [CCGA_MED](docs/ccga_med.md)
-* [CFC](docs/cfc.md)
-* [Computerome](docs/computerome.md)
-* [CRICK](docs/crick.md)
-* [CZBIOHUB_AWS](docs/czbiohub.md)
-* [DENBI_QBIC](docs/denbi_qbic.md)
-* [EBC](docs/ebc.md)
-* [EVA](docs/eva.md)
-* [GENOTOUL](docs/genotoul.md)
-* [GENOUEST](docs/genouest.md)
-* [GIS](docs/gis.md)
-* [GOOGLE](docs/google.md)
-* [HASTA](docs/hasta.md)
-* [HEBBE](docs/hebbe.md)
-* [ICR_DAVROS](docs/icr_davros.md)
-* [JAX](docs/jax.md)
-* [LUGH](docs/lugh.md)
-* [MAESTRO](docs/maestro.md)
-* [MPCDF](docs/mpcdf.md)
-* [MUNIN](docs/munin.md)
-* [NU_GENOMICS](docs/nu_genomics.md)
-* [NIHBIOWULF](docs/nihbiowulf.md)
-* [OIST](docs/oist.md)
-* [PASTEUR](docs/pasteur.md)
-* [PHOENIX](docs/phoenix.md)
-* [PRINCE](docs/prince.md)
-* [ROSALIND](docs/rosalind.md)
-* [SANGER](docs/sanger.md)
-* [SEG_GLOBE](docs/seg_globe.md)
-* [UCT_HPC](docs/uct_hpc.md)
-* [UNIBE_IBU](docs/unibe_ibu.md)
-* [UPPMAX](docs/uppmax.md)
-* [UTD_GANYMEDE](docs/utd_ganymede.md)
-* [UTD_SYSBIO](docs/utd_sysbio.md)
-* [UZH](docs/uzh.md)
+- [ABIMS](docs/abims.md)
+- [ALICE](docs/alice.md)
+- [AWSBATCH](docs/awsbatch.md)
+- [AWS_TOWER](docs/aws_tower.md)
+- [AZUREBATCH](docs/azurebatch.md)
+- [BIGPURPLE](docs/bigpurple.md)
+- [BI](docs/bi.md)
+- [BINAC](docs/binac.md)
+- [BIOHPC_GEN](docs/biohpc_gen.md)
+- [CAMBRIDGE](docs/cambridge.md)
+- [CBE](docs/cbe.md)
+- [CCGA_DX](docs/ccga_dx.md)
+- [CCGA_MED](docs/ccga_med.md)
+- [Cedars-Sinai](docs/cedars.md)
+- [CFC](docs/cfc.md)
+- [CHEAHA](docs/cheaha.md)
+- [Computerome](docs/computerome.md)
+- [CRICK](docs/crick.md)
+- [CZBIOHUB_AWS](docs/czbiohub.md)
+- [DENBI_QBIC](docs/denbi_qbic.md)
+- [EBC](docs/ebc.md)
+- [EVA](docs/eva.md)
+- [FGCZ](docs/fgcz.md)
+- [GENOTOUL](docs/genotoul.md)
+- [GENOUEST](docs/genouest.md)
+- [GIS](docs/gis.md)
+- [GOOGLE](docs/google.md)
+- [HASTA](docs/hasta.md)
+- [HEBBE](docs/hebbe.md)
+- [ICR_DAVROS](docs/icr_davros.md)
+- [IMPERIAL](docs/imperial.md)
+- [JAX](docs/jax.md)
+- [LUGH](docs/lugh.md)
+- [MAESTRO](docs/maestro.md)
+- [MARVIN](docs/marvin.md)
+- [MPCDF](docs/mpcdf.md)
+- [MUNIN](docs/munin.md)
+- [NU_GENOMICS](docs/nu_genomics.md)
+- [NIHBIOWULF](docs/nihbiowulf.md)
+- [OIST](docs/oist.md)
+- [PASTEUR](docs/pasteur.md)
+- [PHOENIX](docs/phoenix.md)
+- [PRINCE](docs/prince.md)
+- [ROSALIND](docs/rosalind.md)
+- [SANGER](docs/sanger.md)
+- [SEG_GLOBE](docs/seg_globe.md)
+- [UCT_HPC](docs/uct_hpc.md)
+- [UNIBE_IBU](docs/unibe_ibu.md)
+- [UPPMAX](docs/uppmax.md)
+- [UTD_GANYMEDE](docs/utd_ganymede.md)
+- [UTD_SYSBIO](docs/utd_sysbio.md)
+- [UZH](docs/uzh.md)
+- [VAI](docs/vai.md)
+- [VSC_UGENT](docs/vsc_ugent.md)
 
 ### Uploading to `nf-core/configs`
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 Within the local clone of your fork:
 
-* **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory
-* **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory
-* **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone
-* **edit** and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone
+- **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory
+- **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory
+- **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone
+- **edit** and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone
 
 In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
 
@@ -181,25 +188,30 @@ Note that pipeline-specific configs are not required and should only be added if
 
 Currently documentation is available for the following pipelines within specific profiles:
 
-* ampliseq
-  * [BINAC](docs/pipeline/ampliseq/binac.md)
-  * [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
-* eager
-  * [EVA](docs/pipeline/eager/eva.md)
-* rnafusion
-  * [MUNIN](docs/pipeline/rnafusion/munin.md)
-* sarek
-  * [MUNIN](docs/pipeline/sarek/munin.md)
-  * [UPPMAX](docs/pipeline/sarek/uppmax.md)
-* rnavar
-  * [MUNIN](docs/pipeline/rnavar/munin.md)  
+- ampliseq
+  - [BINAC](docs/pipeline/ampliseq/binac.md)
+  - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
+- eager
+  - [EVA](docs/pipeline/eager/eva.md)
+- mag
+  - [EVA](docs/pipeline/mag/eva.md)
+- rnafusion
+  - [MUNIN](docs/pipeline/rnafusion/munin.md)
+- rnavar
+  - [MUNIN](docs/pipeline/rnavar/munin.md)
+- sarek
+  - [MUNIN](docs/pipeline/sarek/munin.md)
+  - [UPPMAX](docs/pipeline/sarek/uppmax.md)
+- taxprofiler
+  - [EVA](docs/pipeline/taxprofiler/eva.md)
+  - [hasta](docs/pipeline/taxprofiler/hasta.md)
 
 ### Pipeline-specific documentation
 
 Currently documentation is available for the following pipeline:
 
-* viralrecon
-  * [genomes](docs/pipeline/viralrecon/genomes.md)
+- viralrecon
+  - [genomes](docs/pipeline/viralrecon/genomes.md)
 
 ### Enabling pipeline-specific configs within a pipeline
 
@@ -228,7 +240,7 @@ We will be notified automatically when you have created your pull request, and p
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 And add or edit the following files in the local clone of your fork.
 
-* `pipeline/<PIPELINE>.config`
+- `pipeline/<PIPELINE>.config`
 
 If not already created, create the `pipeline/<PIPELINE>.config` file, and add your custom profile to the profile scope
 
@@ -238,18 +250,18 @@ profiles {
 }
 ```
 
-* `conf/pipeline/<PIPELINE>/<PROFILE>.config`
+- `conf/pipeline/<PIPELINE>/<PROFILE>.config`
 
 Add the custom configuration file to the `conf/pipeline/<PIPELINE>/` directory.
 Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` to the top of `pipeline/<PIPELINE>.config` and set to reasonable values.
 Users will get information on who wrote the pipeline-specific configuration profile then when executing the nf-core pipeline and can report back if there are things missing for example.
 
-* `docs/pipeline/<PIPELINE>/<PROFILE>.md`
+- `docs/pipeline/<PIPELINE>/<PROFILE>.md`
 
 Add the documentation file to the `docs/pipeline/<PIPELINE>/` directory.
 You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
 
-* `README.md`
+- `README.md`
 
 Edit this file, and add the new pipeline-specific institutional profile to the list in the section Pipeline specific documentation
 

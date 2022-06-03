@@ -21,5 +21,5 @@ A partial local copy of the iGenomes resource is available on Biowulf. This is a
 
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
->NB: You will need an account to use the HPC cluster on Biowulf in order to run the pipeline. If in doubt contact CIT.
->NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster. The master process submitting jobs should be run either as a batch job or on an interactive node - not on the biowulf login node. If in doubt contact Biowulf staff.
+> NB: You will need an account to use the HPC cluster on Biowulf in order to run the pipeline. If in doubt contact CIT.
+> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster. The master process submitting jobs should be run either as a batch job or on an interactive node - not on the biowulf login node. If in doubt contact Biowulf staff.
