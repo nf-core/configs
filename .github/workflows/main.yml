@@ -80,6 +80,7 @@ jobs:
           - "sahmri"
           - "sanger"
           - "seg_globe"
+          - "tigem"
           - "uct_hpc"
           - "unibe_ibu"
           - "uppmax"
