@@ -133,6 +133,7 @@ Currently documentation is available for the following systems:
 - [ROSALIND](docs/rosalind.md)
 - [SANGER](docs/sanger.md)
 - [SEG_GLOBE](docs/seg_globe.md)
+- [TIGEM](docs/tigem.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
 - [UPPMAX](docs/uppmax.md)
