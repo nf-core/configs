@@ -42,4 +42,4 @@ nextflow run nf-core/rnaseq ...
 
 A local copy of several genomes are available in `/mnt/projects/rpd/genomes.testing/S3_igenomes/` directory.
 
->NB: You will need an account to use the HPC cluster on GIS in order to run the pipeline. If in doubt contact IT or go to [Andreas Wilm](https://github.com/andreas-wilm)
+> NB: You will need an account to use the HPC cluster on GIS in order to run the pipeline. If in doubt contact IT or go to [Andreas Wilm](https://github.com/andreas-wilm)
