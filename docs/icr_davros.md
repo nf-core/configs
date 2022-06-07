@@ -19,4 +19,4 @@ Alternatively, if you are running the pipeline regularly for genomes that arent 
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large. All of the main output files will be saved in the `results/` directory.
 
->NB: Nextflow will need to submit the jobs via LSF to the HPC cluster. This can be done from an interactive or normal job. If in doubt contact Scientific Computing.
+> NB: Nextflow will need to submit the jobs via LSF to the HPC cluster. This can be done from an interactive or normal job. If in doubt contact Scientific Computing.

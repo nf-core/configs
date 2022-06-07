@@ -14,5 +14,5 @@ Example: `nextflow run nf-core/rnafusion -profile munin`
 
 Specific configurations for `MUNIN` has been made for rnafusion.
 
-* `cpus`, `memory` and `time` max requirements.
-* Paths to specific references and indexes
+- `cpus`, `memory` and `time` max requirements.
+- Paths to specific references and indexes

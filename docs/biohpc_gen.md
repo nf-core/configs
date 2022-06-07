@@ -12,6 +12,6 @@ module purge
 module load nextflow charliecloud/0.22
 ```
 
->NB: Charliecloud support requires Nextflow version `21.03.0-edge` or later.
->NB: You will need an account to use the LRZ Linux cluster as well as group access to the biohpc_gen cluster in order to run nf-core pipelines.
->NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes.
+> NB: Charliecloud support requires Nextflow version `21.03.0-edge` or later.
+> NB: You will need an account to use the LRZ Linux cluster as well as group access to the biohpc_gen cluster in order to run nf-core pipelines.
+> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes.
