@@ -66,6 +66,7 @@ jobs:
           - "jax"
           - "lugh"
           - "marvin"
+          - "mjolnir_globe"
           - "maestro"
           - "mpcdf"
           - "munin"
@@ -86,6 +87,7 @@ jobs:
           - "utd_sysbio"
           - "uzh"
           - "vai"
+          - "vsc_ugent"
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
