@@ -131,6 +131,7 @@ Currently documentation is available for the following systems:
 - [PHOENIX](docs/phoenix.md)
 - [PRINCE](docs/prince.md)
 - [ROSALIND](docs/rosalind.md)
+- [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [UCT_HPC](docs/uct_hpc.md)
