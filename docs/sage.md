@@ -1,12 +1,14 @@
-# nf-core/configs: Sage Bionetworks Configuration
+# nf-core/configs: Sage Bionetworks Global Configuration
 
-To use this custom configuration, run the pipeline with `-profile sage`. This will download and launch the [`sage.config`](../conf/sage.config), which contains a number of optimizations relevant to Sage employees running workflows on AWS (_e.g._ using Nextflow Tower). These include:
+To use this custom configuration, run the pipeline with `-profile sage`. This will download and load the [`sage.config`](../conf/sage.config), which contains a number of optimizations relevant to Sage employees running workflows on AWS (_e.g._ using Nextflow Tower). This profile will also load any applicable pipeline-specific configuration.
 
-- Updating the default value for `igenomes_base` to `s3://sage-igenomes`
-- Increasing the default time limits because we run pipelines on AWS
-- Enabling retries by default when exit codes relate to insufficient memory
+This global configuration includes the following tweaks:
+
+- Update the default value for `igenomes_base` to `s3://sage-igenomes`
+- Increase the default time limits because we run pipelines on AWS
+- Enable retries by default when exit codes relate to insufficient memory
 - Allow pending jobs to finish if the number of retries are exhausted
-- Slowing the increase in the number of allocated CPU cores on retries
+- Slow the increase in the number of allocated CPU cores on retries
 
 ## Additional information about iGenomes
 

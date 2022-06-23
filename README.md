@@ -10,7 +10,6 @@ A repository for hosting Nextflow configuration files containing custom paramete
   - [Configuration and parameters](#configuration-and-parameters)
   - [Offline usage](#offline-usage)
 - [Adding a new config](#adding-a-new-config)
-  - [Checking user hostnames](#checking-user-hostnames)
   - [Testing](#testing)
   - [Documentation](#documentation)
   - [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
@@ -203,6 +202,7 @@ Currently documentation is available for the following pipelines within specific
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [MUNIN](docs/pipeline/sarek/munin.md)
+  - [SAGE BIONETWORKS](docs/pipeline/sarek/sage.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
