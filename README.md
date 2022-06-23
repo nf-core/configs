@@ -10,7 +10,6 @@ A repository for hosting Nextflow configuration files containing custom paramete
   - [Configuration and parameters](#configuration-and-parameters)
   - [Offline usage](#offline-usage)
 - [Adding a new config](#adding-a-new-config)
-  - [Checking user hostnames](#checking-user-hostnames)
   - [Testing](#testing)
   - [Documentation](#documentation)
   - [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
