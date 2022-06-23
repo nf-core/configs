@@ -202,7 +202,6 @@ Currently documentation is available for the following pipelines within specific
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [MUNIN](docs/pipeline/sarek/munin.md)
-  - [SAGE BIONETWORKS](docs/pipeline/sarek/sage.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)

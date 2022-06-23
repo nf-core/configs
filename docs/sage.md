@@ -9,6 +9,7 @@ This global configuration includes the following tweaks:
 - Enable retries by default when exit codes relate to insufficient memory
 - Allow pending jobs to finish if the number of retries are exhausted
 - Slow the increase in the number of allocated CPU cores on retries
+- Define the `check_max()` function, which is missing in Sarek v2
 
 ## Additional information about iGenomes
 
