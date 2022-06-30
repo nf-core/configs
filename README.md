@@ -120,6 +120,7 @@ Currently documentation is available for the following systems:
 - [LUGH](docs/lugh.md)
 - [MAESTRO](docs/maestro.md)
 - [MARVIN](docs/marvin.md)
+- [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
 - [MPCDF](docs/mpcdf.md)
 - [MUNIN](docs/munin.md)
