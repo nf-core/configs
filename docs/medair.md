@@ -24,7 +24,7 @@ source activate nf-core
 
 We have started to download pipelines in the following location: `/apps/bio/repos/nf-core/`
 
-Use the `nf-core download --singularity-cache-only` command to start a downlonad. It will open an interactive menu. Choose `singularity` and `none` for the compression level.
+Use the `nf-core download --singularity-cache-only` command to start a download. It will open an interactive menu. Choose `singularity` for the software container image, and `none` for the compression type.
 
 ### Storage of Singularity images
 
