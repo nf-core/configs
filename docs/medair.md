@@ -6,9 +6,43 @@ To use, run the pipeline with `-profile medair`. This will download and launch t
 It will enable Nextflow to manage the pipeline jobs via the `SGE` job scheduler.
 Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
-## Modules to load
+## Download nf-core pipelines
 
-Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on medair. You can do this by issuing the commands below:
+### Set-up
+
+First you need to load relevant softwares: Nextflow and nf-core tools. You can do it as follow:
+
+```bash
+## Load Nextflow
+module load nextflow/21.10.5.5658
+## Load nf-core tools
+module load miniconda
+source activate nf-core
+```
+
+### Download a pipeline
+
+We have started to download pipelines in the following location: `/apps/bio/repos/nf-core/`
+
+Use the `nf-core download --singularity-cache-only` command to start a downlonad. It will open an interactive menu. Choose `singularity` and `none` for the compression level.
+
+### Storage of Singularity images
+
+When downloading a new nf-core pipeline for the first time (or a specific version of a pipeline), you can choose to store the Singularity image for future use. A central location for these images is: `/apps/bio/dependencies/nf-core/singularities`
+
+Cached Singularity images can be accessed by running (or adding to your `.bashrc`) the following: 
+
+```
+export NXF_SINGULARITY_CACHEDIR="/apps/bio/dependencies/nf-core/singularities"
+```
+
+This was also added to cronuser.
+
+## Run nf-core pipelines
+
+### Set-up
+
+Before running a pipeline you will need to load Nextflow and Singularity using the environment module system on medair. You can do this by issuing the commands below:
 
 ```bash
 ## Load Nextflow and Singularity environment modules
@@ -18,17 +52,12 @@ module load singularity/v3.4.0
 ```
 
 >Should we link to Confluence page about new modules? See something about updating modules? etc.
->Is this a good location to mention the nf-core conda environment? module load miniconda; source activate nf-core
 
-## Storage of Singularity images
-
-When downloading a new nf-core pipeline for the first time (or a specific version of a pipeline), you can choose to store the Singularity image for future use. A central location for these images is: `/apps/bio/dependencies/nf-core/singularities`
-
-Cached Singularity images can be accessed by running (or adding to your `.bashrc`) the following line: `export NXF_SINGULARITY_CACHEDIR="/apps/bio/dependencies/nf-core/singularities"` #is that correct??
-
-## Different profiles depending on what you are running
+### Choose a profile
 
 Depending on what you are running, you can choose between the `wgs` and `production` profiles. Jobs running with the `wgs` profile run on a queue with higher priority. Jobs running with the `production` profile can last longer (max time: 20 times, versus 2 days for the `wgs` profile).
+
+>Usage: -profile medair,wgs ?? (Check)
 
 ## iGenomes specific configuration
 
