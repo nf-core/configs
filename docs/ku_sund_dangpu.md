@@ -53,6 +53,6 @@ mkdir $NXF_HOME
 
 ### 3. choose a nf-core pipeline and test it with your preferred settings
 ```
-nextflow run nf-core/rnaseq -profile test -c <myconfig> 
+nextflow run nf-core/rnaseq -profile test,ku_sund_dangpu
 ```
 
