@@ -14,7 +14,7 @@ First you need to load relevant softwares: Nextflow and nf-core tools. You can d
 
 ```bash
 ## Load Nextflow
-module load nextflow/21.10.5.5658
+module load nextflow
 ## Load nf-core tools
 module load miniconda
 source activate nf-core
@@ -47,8 +47,8 @@ Before running a pipeline you will need to load Nextflow and Singularity using t
 ```bash
 ## Load Nextflow and Singularity environment modules
 module purge
-module load nextflow/21.10.5.5658
-module load singularity/v3.4.0
+module load nextflow
+module load singularity
 ```
 
 >Should we link to Confluence page about new modules? See something about updating modules? etc.
