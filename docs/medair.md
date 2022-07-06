@@ -6,6 +6,8 @@ To use, run the pipeline with `-profile medair`. This will download and launch t
 It will enable Nextflow to manage the pipeline jobs via the `SGE` job scheduler.
 Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
+You will need an account to use the Medair cluster in order to download or run pipelines. If in doubt, contact cgg-it.
+
 ## Download nf-core pipelines
 
 ### Set-up
@@ -40,6 +42,8 @@ This was also added to cronuser.
 
 ## Run nf-core pipelines
 
+Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands below will have to be executed on one of the login nodes. If in doubt contact cgg-it.
+
 ### Set-up
 
 Before running a pipeline you will need to load Nextflow and Singularity using the environment module system on medair. You can do this by issuing the commands below:
@@ -56,6 +60,3 @@ module load singularity
 Depending on what you are running, you can choose between the `wgs` and `production` profiles. Jobs running with the `wgs` profile run on a queue with higher priority. Jobs running with the `production` profile can last longer (max time: 20 times, versus 2 days for the `wgs` profile).
 
 >Usage: -profile medair,wgs ?? (Check)
-
->NB: You will need an account to use the HPC cluster on PROFILE CLUSTER in order to run the pipeline. If in doubt contact cgg-it.
->NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact cgg-it.
