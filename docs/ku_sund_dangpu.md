@@ -21,13 +21,13 @@ export NXF_TEMP=/scratch/tmp
 export NXF_SINGULARITY_CACHEDIR=/projects/dan1/people/${USER}/cache/singularity-images 
 ```
 
-create nextflow directories if they dont exist:
+Create the user-specific nextflow directories if they don't exist yet:
 ```
 mkdir $NXF_SINGULARITY_CACHEDIR
 mkdir $NXF_HOME
 ```
 
-Finally, download and test the pipeline of choice using the `-profile ku_sund_dangpu`. Note that normally you would run resource-intensive commands with slurm, but in case of nf-core pipelines you do not have to do this: we have pre-configured slurm as resource manager within the `ku_sund_dangpu profile`. Just make sure that the pipeline is run within a tmux session. 
+Finally, download and test the pipeline of choice using the `-profile ku_sund_dangpu`. Note that normally you would run resource-intensive commands with slurm, but in case of nf-core pipelines you do not have to do this: we have pre-configured slurm to be the resource manager within the `ku_sund_dangpu profile`. Just make sure that the pipeline is run within a tmux session. 
 
 ```
 nextflow run nf-core/rnaseq -profile test,ku_sund_dangpu
