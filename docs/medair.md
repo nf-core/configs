@@ -1,8 +1,8 @@
 # nf-core/configs: Medair Configuration
 
-All nf-core pipelines have been successfully configured for use on the medair cluster at Clinical Genomics Gothenburg.
+All nf-core pipelines have been successfully configured for use on the Medair cluster at Clinical Genomics Gothenburg.
 
-To use, run the pipeline with `-profile medair`. This will download and launch the [`medair.config`](../conf/medair.config) which has been pre-configured with a setup suitable for the medair cluster. 
+To use, run the pipeline with `-profile medair`. This will download and launch the [`medair.config`](../conf/medair.config) which has been pre-configured with a setup suitable for the Medair cluster.
 It will enable Nextflow to manage the pipeline jobs via the `SGE` job scheduler.
 Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
@@ -10,7 +10,7 @@ You will need an account to use the Medair cluster in order to download or run p
 
 ## Download nf-core pipelines
 
-### Set-up
+### Set-up: load Nextflow and nf-core tools
 
 First you need to load relevant softwares: Nextflow and nf-core tools. You can do it as follow:
 
@@ -32,9 +32,9 @@ Use the `nf-core download --singularity-cache-only` command to start a download.
 
 When downloading a new nf-core pipeline for the first time (or a specific version of a pipeline), you can choose to store the Singularity image for future use. A central location for these images is: `/apps/bio/dependencies/nf-core/singularities`
 
-Cached Singularity images can be accessed by running (or adding to your `.bashrc`) the following: 
+Cached Singularity images can be accessed by running (or adding to your `.bashrc`) the following:
 
-```
+```bash
 export NXF_SINGULARITY_CACHEDIR="/apps/bio/dependencies/nf-core/singularities"
 ```
 
@@ -44,9 +44,9 @@ This was also added to cronuser.
 
 Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands below will have to be executed on one of the login nodes. If in doubt contact cgg-it.
 
-### Set-up
+### Set-up: load Nextflow and Singularity
 
-Before running a pipeline you will need to load Nextflow and Singularity using the environment module system on medair. You can do this by issuing the commands below:
+Before running a pipeline you will need to load Nextflow and Singularity using the environment module system on Medair. You can do this by issuing the commands below:
 
 ```bash
 ## Load Nextflow and Singularity environment modules
@@ -59,4 +59,4 @@ module load singularity
 
 Depending on what you are running, you can choose between the `wgs` and `production` profiles. Jobs running with the `wgs` profile run on a queue with higher priority. Jobs running with the `production` profile can last longer (max time: 20 times, versus 2 days for the `wgs` profile).
 
->Usage: -profile medair,wgs ?? (Check)
+> Usage: -profile medair,wgs ?? (Check)
