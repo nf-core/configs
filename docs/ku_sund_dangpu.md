@@ -13,7 +13,7 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 ## Load Nextflow and Singularity environment modules
 module purge
 module load openjdk/11.0.0 nextflow/22.04.3 singularity/3.8.0 
-# alternative module load jdk/1.8.0_291 nextflow/22.04.3 singularity/3.8.0 
+# alternative module load jdk/1.8.0_291 nextflow/21.04.1.5556 singularity/3.8.0 
 export NXF_OPTS='-Xms1g -Xmx4g'
 export NXF_HOME=/projects/dan1/people/${USER}/cache/nxf-home
 export NXF_TEMP=/scratch/tmp
@@ -26,7 +26,9 @@ mkdir $NXF_SINGULARITY_CACHEDIR
 mkdir $NXF_HOME
 ```
 
-finally download and test the pipeline of choice using the `-profile ku_sund_dangpu` 
+Finally, download and test the pipeline of choice using the `-profile ku_sund_dangpu`. Note that normally you would run resource-intensive commands with slurm, but in case of nf-core pipelines you do not have to do this: we have pre-configured slurm as resource manager within the ku_sund_dangpu profile. Just make sure that the pipeline is run within a tmux session. 
+
 ```
 nextflow run nf-core/rnaseq -profile test,ku_sund_dangpu
 ```
+
