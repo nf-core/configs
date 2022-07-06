@@ -51,8 +51,6 @@ module load nextflow
 module load singularity
 ```
 
->Should we link to Confluence page about new modules? See something about updating modules? etc.
-
 ### Choose a profile
 
 Depending on what you are running, you can choose between the `wgs` and `production` profiles. Jobs running with the `wgs` profile run on a queue with higher priority. Jobs running with the `production` profile can last longer (max time: 20 times, versus 2 days for the `wgs` profile).
