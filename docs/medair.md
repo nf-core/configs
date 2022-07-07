@@ -22,23 +22,23 @@ module load miniconda
 source activate nf-core
 ```
 
-### Download a pipeline
-
-We have started to download pipelines in the following location: `/apps/bio/repos/nf-core/`
-
-Use the `nf-core download --singularity-cache-only` command to start a download. It will open an interactive menu. Choose `singularity` for the software container image, and `none` for the compression type.
-
 ### Storage of Singularity images
 
-When downloading a new nf-core pipeline for the first time (or a specific version of a pipeline), you can choose to store the Singularity image for future use. A central location for these images is: `/apps/bio/dependencies/nf-core/singularities`
+When downloading a nf-core pipeline for the first time (or a specific version of a pipeline), you can choose to store the Singularity image for future use. A central location for these images is: `/apps/bio/dependencies/nf-core/singularities`.
 
-Cached Singularity images can be accessed by running (or adding to your `.bashrc`) the following:
+If you run or add the following to your `.bashrc`, Nexflow will know where to store the images:
 
 ```bash
 export NXF_SINGULARITY_CACHEDIR="/apps/bio/dependencies/nf-core/singularities"
 ```
 
-This was also added to cronuser.
+> Comment: This was also added to cronuser.
+
+### Download a pipeline
+
+We have started to download pipelines in the following location: `/apps/bio/repos/nf-core/`
+
+Use the `nf-core download --singularity-cache-only` command to start a download. It will open an interactive menu. Choose `singularity` for the software container image, and `none` for the compression type.
 
 ## Run nf-core pipelines
 
@@ -59,4 +59,8 @@ module load singularity
 
 Depending on what you are running, you can choose between the `wgs` and `production` profiles. Jobs running with the `wgs` profile run on a queue with higher priority. Jobs running with the `production` profile can last longer (max time: 20 times, versus 2 days for the `wgs` profile).
 
-> Usage: -profile medair,wgs ?? (Check)
+For example, the following job would run with the `wgs` profile:
+
+```bash
+run nextflow nf-core/raredisease -profile medair,wgs
+```
