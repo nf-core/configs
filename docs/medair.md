@@ -64,3 +64,7 @@ For example, the following job would run with the `wgs` profile:
 ```bash
 run nextflow nf-core/raredisease -profile medair,wgs
 ```
+
+### Sentieon
+
+In some pipelines (sarek, raredisease) it is possible to use Sentieon for alignment and variant calling. If ones uses the label `sentieon` for running a process, the config file contains the path to the Sentieon singularity image on Medair.
