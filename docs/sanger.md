@@ -29,7 +29,7 @@ To do so make a shell script with a similar structure to the following code and 
 #BSUB -e /path/to/a/log/dir/%J.e
 #BSUB -M 8000
 #BSUB -q oversubscribed
-#BSUB -n 4
+#BSUB -n 2
 
 export HTTP_PROXY='http://wwwcache.sanger.ac.uk:3128'
 export HTTPS_PROXY='http://wwwcache.sanger.ac.uk:3128'
