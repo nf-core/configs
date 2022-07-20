@@ -2,8 +2,6 @@
 
 To use, run the pipeline with `-profile sanger`. This will download and launch the [`sanger.config`](../conf/sanger.config) which has been
 pre-configured with a setup suitable for the Wellcome Sanger Institute LSF cluster.
-Using this profile, either a docker image containing all of the required software will be downloaded, and converted to a Singularity image or
-a Singularity image downloaded directly before execution of the pipeline.
 
 ## Running the workflow on the Wellcome Sanger Institute cluster
 
@@ -14,7 +12,9 @@ The latest version of Nextflow is not installed by default on the cluster. You w
 A recommended place to move the `nextflow` executable to is `~/bin` so that it's in the `PATH`.
 
 Nextflow manages each process as a separate job that is submitted to the cluster by using the `bsub` command.
-Since the Nextflow pipeline will submit individual jobs for each process to the cluster and dependencies will be provided by Singularity images you should make sure that your account has access to the Singularity binary by adding these lines to your `.bashrc` file
+
+If asking Nextflow to use Singularity to run the individual jobs,
+you should make sure that your account has access to the Singularity binary by adding these lines to your `.bashrc` file
 
 ```bash
 [[ -f  /software/pathogen/farm5 ]] && module load ISG/singularity
