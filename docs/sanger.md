@@ -17,7 +17,7 @@ If asking Nextflow to use Singularity to run the individual jobs,
 you should make sure that your account has access to the Singularity binary by adding these lines to your `.bashrc` file
 
 ```bash
-[[ -f  /software/pathogen/farm5 ]] && module load ISG/singularity
+[[ -f /software/modules/ISG/singularity ]] && module load ISG/singularity
 ```
 
 Nextflow shouldn't run directly on the submission node but on a compute node.
