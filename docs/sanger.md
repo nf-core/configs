@@ -35,7 +35,7 @@ export HTTP_PROXY='http://wwwcache.sanger.ac.uk:3128'
 export HTTPS_PROXY='http://wwwcache.sanger.ac.uk:3128'
 export NXF_ANSI_LOG=false
 export NXF_OPTS="-Xms8G -Xmx8G -Dnxf.pool.maxThreads=2000"
-export NXF_VER=21.04.0-edge
+export NXF_VER=22.04.0-5697
 
 
 nextflow run \
