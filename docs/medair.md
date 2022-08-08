@@ -42,7 +42,7 @@ Use the `nf-core download --singularity-cache-only` command to start a download.
 
 ## Run nf-core pipelines
 
-Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands below will have to be executed on one of the login nodes. If in doubt contact cgg-it.
+Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands below will have to be executed on one of the login nodes. If in doubt contact cgg-it (cgg-it[at]gu.se).
 
 ### Set-up: load Nextflow and Singularity
 
