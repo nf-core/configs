@@ -24,9 +24,9 @@ source activate nf-core
 
 ### Storage of Singularity images
 
-When downloading a nf-core pipeline for the first time (or a specific version of a pipeline), you can choose to store the Singularity image for future use. A central location for these images is: `/apps/bio/dependencies/nf-core/singularities`.
+When downloading a nf-core pipeline for the first time (or a specific version of a pipeline), you can choose to store the Singularity image for future use. We chose to have a central location for these images on medair: `/apps/bio/dependencies/nf-core/singularities`.
 
-If you run or add the following to your `.bashrc`, Nexflow will know where to store the images:
+For Nexflow to know where to store new images, run or add the following to your `.bashrc`:
 
 ```bash
 export NXF_SINGULARITY_CACHEDIR="/apps/bio/dependencies/nf-core/singularities"
