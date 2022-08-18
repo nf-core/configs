@@ -43,6 +43,7 @@ jobs:
           - "cbe"
           - "ccga_dx"
           - "ccga_med"
+          - "cedars"
           - "cfc"
           - "cfc_dev"
           - "cheaha"
@@ -65,6 +66,8 @@ jobs:
           - "jax"
           - "lugh"
           - "marvin"
+          - "medair"
+          - "mjolnir_globe"
           - "maestro"
           - "mpcdf"
           - "munin"
@@ -75,6 +78,7 @@ jobs:
           - "phoenix"
           - "prince"
           - "rosalind"
+          - "sage"
           - "sahmri"
           - "sanger"
           - "seg_globe"
@@ -85,6 +89,7 @@ jobs:
           - "utd_sysbio"
           - "uzh"
           - "vai"
+          - "vsc_ugent"
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow

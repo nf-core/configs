@@ -10,7 +10,6 @@ A repository for hosting Nextflow configuration files containing custom paramete
   - [Configuration and parameters](#configuration-and-parameters)
   - [Offline usage](#offline-usage)
 - [Adding a new config](#adding-a-new-config)
-  - [Checking user hostnames](#checking-user-hostnames)
   - [Testing](#testing)
   - [Documentation](#documentation)
   - [Uploading to `nf-core/configs`](#uploading-to-nf-coreconfigs)
@@ -99,6 +98,7 @@ Currently documentation is available for the following systems:
 - [CBE](docs/cbe.md)
 - [CCGA_DX](docs/ccga_dx.md)
 - [CCGA_MED](docs/ccga_med.md)
+- [Cedars-Sinai](docs/cedars.md)
 - [CFC](docs/cfc.md)
 - [CHEAHA](docs/cheaha.md)
 - [Computerome](docs/computerome.md)
@@ -120,6 +120,8 @@ Currently documentation is available for the following systems:
 - [LUGH](docs/lugh.md)
 - [MAESTRO](docs/maestro.md)
 - [MARVIN](docs/marvin.md)
+- [MEDAIR](docs/medair.md)
+- [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
 - [MPCDF](docs/mpcdf.md)
 - [MUNIN](docs/munin.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
@@ -129,6 +131,7 @@ Currently documentation is available for the following systems:
 - [PHOENIX](docs/phoenix.md)
 - [PRINCE](docs/prince.md)
 - [ROSALIND](docs/rosalind.md)
+- [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [UCT_HPC](docs/uct_hpc.md)
@@ -138,6 +141,7 @@ Currently documentation is available for the following systems:
 - [UTD_SYSBIO](docs/utd_sysbio.md)
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
+- [VSC_UGENT](docs/vsc_ugent.md)
 
 ### Uploading to `nf-core/configs`
 
@@ -191,13 +195,18 @@ Currently documentation is available for the following pipelines within specific
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
+- mag
+  - [EVA](docs/pipeline/mag/eva.md)
 - rnafusion
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
+- rnavar
+  - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [MUNIN](docs/pipeline/sarek/munin.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
-- rnavar
-  - [MUNIN](docs/pipeline/rnavar/munin.md)
+- taxprofiler
+  - [EVA](docs/pipeline/taxprofiler/eva.md)
+  - [hasta](docs/pipeline/taxprofiler/hasta.md)
 
 ### Pipeline-specific documentation
 
