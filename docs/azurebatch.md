@@ -11,11 +11,11 @@ Name of Azure blob storage account.
 
 ### `--storage_key`
 
-Access key to Azure blob storage account.
+Access key to Azure blob storage account. `--storage_key` or `--storage_sas` are required, but not both.
 
 ### `--storage_sas`
 
-SAS for access to Azure blob storage account (see relevant permissions on Nextflow documentation).
+SAS for access to Azure blob storage account (see relevant permissions on Nextflow documentation). `--storage_key` or `--storage_sas` are required, but not both.
 
 ### `--az_location`
 
@@ -35,7 +35,7 @@ The Azure Blob container to be used as Nextflow work directory (`-w az://work`).
 
 ### `--vm_type`
 
-VM size to use with Nextflow autopool or when creating a worker pool in Azure Batch. Make sure your Azure account has sufficient quota. Defaults to `Standard_D8s_v3`.
+VM size to use with Nextflow autopool or when creating a worker pool in Azure Batch. Make sure your Azure account has sufficient quota. Defaults to `Standard_D8s_v3`. See [Azure VM Size documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) for more information.
 
 ### `--autopoolmode`
 
