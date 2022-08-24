@@ -5,6 +5,18 @@ Custom queue and storage need to be supplied with `params.az_location`, `params.
 
 ## Required Parameters
 
+### `--storage_name`
+
+Name of Azure blob storage account.
+
+### `--storage_key`
+
+Access key to Azure blob storage account.
+
+### `--storage_sas`
+
+SAS for access to Azure blob storage account (see relevant permissions on Nextflow documentation).
+
 ### `--az_location`
 
 The Azure Batch region where the computation is executed in VMs. Default (`westus2`).
@@ -17,17 +29,41 @@ The Azure Batch account name.
 
 The Azure Batch account key.
 
-### `--storage_name`
-
-The Azure Blob Storage name.
-
-### `--sas_token`
-
-The Azure Blob Storage shared access signature token.
-
 ### `-w`
 
 The Azure Blob container to be used as Nextflow work directory (`-w az://work`).
+
+### `--vm_type`
+
+VM size to use with Nextflow autopool or when creating a worker pool in Azure Batch. Make sure your Azure account has sufficient quota. Defaults to `Standard_D8s_v3`.
+
+### `--autopoolmode`
+
+Whether to use Nextflow autopool mode which creates an autoscaling pool for running Nextflow jobs. Defaults to `true`.
+
+### `--allowpoolcreation`
+
+Allow Nextflow to create a pool for running Nextflow jobs. Defaults to `true`.
+
+### `--deletejobs`
+
+Allow Nextflow to delete pools after completion. Defaults to `true`.
+
+### `--az_worker_pool`
+
+Select an existing pool by name to run Nextflow jobs on. Defaults to `auto` (matching `--autopoolmode`).
+
+### `--acr_registry`
+
+URL to Azure container registry for private docker images.
+
+### `--acr_username`
+
+Username to access private Azure container registry.
+
+### `--acr_password`
+
+Password to access private Azure container registry.
 
 ## Azure Batch Setup
 
