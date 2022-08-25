@@ -66,6 +66,7 @@ jobs:
           - "jax"
           - "lugh"
           - "marvin"
+          - "medair"
           - "mjolnir_globe"
           - "maestro"
           - "mpcdf"
