@@ -11,8 +11,8 @@ This global configuration includes the following tweaks:
 - Increase the default chunk size for multipart uploads to S3
 - Slow down job submission rate to avoid overwhelming any APIs
 - Define the `check_max()` function, which is missing in Sarek v2
-- (Disabled temporarily) Slow the increase in the number of allocated CPU cores on retries
-- (Disabled temporarily) Increase the default time limits because we run pipelines on AWS
+- Slow the increase in the number of allocated CPU cores on retries
+- Increase the default time limits because we run pipelines on AWS
 
 ## Additional information about iGenomes
 
