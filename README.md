@@ -198,6 +198,7 @@ Currently documentation is available for the following pipelines within specific
 - mag
   - [EVA](docs/pipeline/mag/eva.md)
 - rnafusion
+  - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
