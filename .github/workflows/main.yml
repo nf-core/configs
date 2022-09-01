@@ -30,6 +30,7 @@ jobs:
       matrix:
         profile:
           - "abims"
+          - "adcra"
           - "alice"
           - "aws_tower"
           - "awsbatch"
