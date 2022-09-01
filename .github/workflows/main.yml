@@ -30,6 +30,7 @@ jobs:
       matrix:
         profile:
           - "abims"
+          - "adcra"
           - "alice"
           - "aws_tower"
           - "awsbatch"
@@ -49,6 +50,7 @@ jobs:
           - "cheaha"
           - "computerome"
           - "crick"
+          - "crukmi"
           - "denbi_qbic"
           - "ebc"
           - "eddie"
