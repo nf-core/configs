@@ -67,6 +67,8 @@ Before adding your config file to nf-core/configs, we highly recommend writing a
 N.B. In your config file, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
 Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
 
+N.B. If you try to specify a shell environment variable within your profile, in some cases you may get an error during testing of something like `Unknown config attribute env.USER_SCRATCH -- check config file: /home/runner/work/configs/configs/nextflow.config` (where the bash environment variable is `$USER_SCRATCH`). This is because the github runner will not have your institutional environment variables set. To fix this you can define this as an internal variable, and set a fallback value for that variable. A good example is in the [VSC_UGENT profile](`https://github.com/nf-core/configs/blob/69468e7ca769643b151a6cfd1ab24185fc341c06/conf/vsc_ugent.config#L2`).
+
 ### Testing
 
 If you want to add a new custom config file to `nf-core/configs` please test that your pipeline of choice runs as expected by using the [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter.
