@@ -58,15 +58,15 @@ All jobs will be submitted to fat nodes using this method, so it's only for use 
 
 The UPPMAX nf-core configuration profile uses the `hostname` of the active environment to automatically apply the following resource limits:
 
-* `rackham`
-  * cpus available: 20 cpus
-  * memory available: 125 GB
-* `bianca`
-  * cpus available: 16 cpus
-  * memory available: 109 GB
-* `irma`
-  * cpus available: 16 cpus
-  * memory available: 250 GB
+- `rackham`
+  - cpus available: 20 cpus
+  - memory available: 125 GB
+- `bianca`
+  - cpus available: 16 cpus
+  - memory available: 109 GB
+- `miarka`
+  - cpus available: 48 cpus
+  - memory available: 357 GB
 
 ## Development config
 
@@ -83,10 +83,10 @@ To use it, submit with `-profile uppmax,devel`.
 
 > :warning: For more information, please follow the following guides:
 >
-> * [UPPMAX `bianca` user guide](http://uppmax.uu.se/support/user-guides/bianca-user-guide/).
-> * [nf-core guide for running offline](https://nf-co.re/usage/offline)
-> * [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use).
-> * [UPPMAX `Singularity` guide](https://www.uppmax.uu.se/support-sv/user-guides/singularity-user-guide/).
+> - [UPPMAX `bianca` user guide](http://uppmax.uu.se/support/user-guides/bianca-user-guide/).
+> - [nf-core guide for running offline](https://nf-co.re/usage/offline)
+> - [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use).
+> - [UPPMAX `Singularity` guide](https://www.uppmax.uu.se/support-sv/user-guides/singularity-user-guide/).
 
 For security reasons, there is no internet access on `bianca` so you can't download from or upload files to the cluster directly.
 Before running a nf-core pipeline on `bianca` you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the `wharf` area to your own `bianca` project.
