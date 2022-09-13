@@ -137,6 +137,7 @@ Currently documentation is available for the following systems:
 - [ROSALIND](docs/rosalind.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
+- [SBC_SHARC](docs/sbc_sharc.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
