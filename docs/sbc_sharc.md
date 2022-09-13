@@ -2,17 +2,17 @@
 
 The following nf-core pipelines have been successfully configured for use on the the [University of Sheffield ShARC cluster](https://docs.hpc.shef.ac.uk/en/latest/index.html):
 
-- [atacseq](https://nf-co.re/atacseq)
-- [chipseq](https://nf-co.re/chipseq)
-- [rnaseq](https://nf-co.re/rnaseq)
-- [sarek](https://nf-co.re/sarek)
+- [nf-co.re/atacseq](https://nf-co.re/atacseq)
+- [nf-co.re/chipseq](https://nf-co.re/chipseq)
+- [nf-co.re/rnaseq](https://nf-co.re/rnaseq)
+- [nf-co.re/sarek](https://nf-co.re/sarek)
 
 When using [`sbc_sharc.config`](../conf/sbc_sharc.config) with the pipelines listed above, the appropriate configuration file from the list below will be loaded automatically:
 
-- atacseq: [sbc_sharc atacseq config](../conf/pipeline/atacseq/sbc_sharc.config)
-- chipseq: [sbc_sharc chipseq config](../conf/pipeline/chipseq/sbc_sharc.config)
-- rnaseq: [sbc_sharc rnaseq config](../conf/pipeline/rnaseq/sbc_sharc.config)
-- sarek: [sbc_sharc sarek config](../conf/pipeline/sarek/sbc_sharc.config)
+- [atacseq sbc_sharc.config](../conf/pipeline/atacseq/sbc_sharc.config)
+- [chipseq sbc_sharc.config](../conf/pipeline/chipseq/sbc_sharc.config)
+- [rnaseq sbc_sharc.config](../conf/pipeline/rnaseq/sbc_sharc.config)
+- [sarek sbc_sharc.config](../conf/pipeline/sarek/sbc_sharc.config)
 
 The [`sbc_sharc.config`](../conf/sbc_sharc.config) configuration file might work with other nf-core pipelines as it stands but we cannot guarantee they will run without issue. We will be continuing to create, test and optimise configurations for new pipelines in the future.
 
