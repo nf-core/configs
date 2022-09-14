@@ -118,6 +118,7 @@ Currently documentation is available for the following systems:
 - [GOOGLE](docs/google.md)
 - [HASTA](docs/hasta.md)
 - [HEBBE](docs/hebbe.md)
+- [HKI](docs/hki.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IMPERIAL](docs/imperial.md)
 - [JAX](docs/jax.md)
