@@ -1,6 +1,5 @@
 # nf-core/configs: Sheffield Bioinformatics Core Facility ShARC Configuration
 
-
 ## Using the SBC_ShARC Institutional Configuration Profile
 
 To use [`sbc_sharc.config`](../conf/sbc_sharc.config), run nextflow with an nf-core pipeline using `-profile sbc_sharc` (note the single hyphen).
@@ -23,7 +22,6 @@ When using [`sbc_sharc.config`](../conf/sbc_sharc.config) with the pipelines lis
 
 The [`sbc_sharc.config`](../conf/sbc_sharc.config) configuration file might work with other nf-core pipelines as it stands but we cannot guarantee they will run without issue. We will be continuing to create, test and optimise configurations for new pipelines in the future.
 
-
 ## A Note on Singularity Containers
 
 The [`sbc_sharc.config`](../conf/sbc_sharc.config) configuration file supports running nf-core pipelines with Singularity containers; Singularity images will be downloaded automatically before execution of the pipeline.
@@ -40,4 +38,3 @@ mkdir /data/$USER/.singularity
 # link the new directory with the existing one
 ln -s /data/$USER/.singularity .singularity
 ```
-
