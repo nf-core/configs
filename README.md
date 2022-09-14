@@ -198,6 +198,10 @@ Currently documentation is available for the following pipelines within specific
 - ampliseq
   - [BINAC](docs/pipeline/ampliseq/binac.md)
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
+- atacseq
+  - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
+- chipseq
+  - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - mag
@@ -205,11 +209,14 @@ Currently documentation is available for the following pipelines within specific
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
+- rnaseq
+  - [SBC_SHARC](docs/pipeline/rnaseq/sbc_sharc.md)
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [Cancer Research UK Manchester Institute](docs/pipeline/sarek/crukmi.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
+  - [SBC_SHARC](docs/pipeline/sarek/sbc_sharc.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
