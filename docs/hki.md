@@ -1,10 +1,10 @@
 # nf-core/configs: HKI Configuration
 
-All nf-core pipelines have been successfully configured for use on clusters at the [Leibniz Institute for Natural Product Research and Infection Biology Hans Knöll Institute](https://www.leibniz-hki.de/en/).
+All nf-core pipelines have been successfully configured for use on clusters at the [Leibniz Institute for Natural Product Research and Infection Biology Hans Knöll Institute](https://www.leibniz-hki.de/en).
 
-To use, run the pipeline with `-profile hki,<cluster>`. This will download and launch the [`hki.config`](../conf/hki.config) which contains specific profiles for each cluter. The number of parallel jobs that run is currently limited to 8.
+To use, run the pipeline with `-profile hki,<cluster>`. This will download and launch the [`hki.config`](../conf/hki.config) which contains specific profiles for each cluster. The number of parallel jobs that run is currently limited to 8.
 
-The profiles currently available are:
+The currently available profiles are:
 
 - apate (uses singularity, cleanup set to true by default)
 - arges (uses singularity, cleanup set to true by default)
