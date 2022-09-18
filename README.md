@@ -118,6 +118,7 @@ Currently documentation is available for the following systems:
 - [GOOGLE](docs/google.md)
 - [HASTA](docs/hasta.md)
 - [HEBBE](docs/hebbe.md)
+- [HKI](docs/hki.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IMPERIAL](docs/imperial.md)
 - [JAX](docs/jax.md)
@@ -137,6 +138,7 @@ Currently documentation is available for the following systems:
 - [ROSALIND](docs/rosalind.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
+- [SBC_SHARC](docs/sbc_sharc.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
@@ -197,6 +199,10 @@ Currently documentation is available for the following pipelines within specific
 - ampliseq
   - [BINAC](docs/pipeline/ampliseq/binac.md)
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
+- atacseq
+  - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
+- chipseq
+  - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - mag
@@ -204,11 +210,14 @@ Currently documentation is available for the following pipelines within specific
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
+- rnaseq
+  - [SBC_SHARC](docs/pipeline/rnaseq/sbc_sharc.md)
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [Cancer Research UK Manchester Institute](docs/pipeline/sarek/crukmi.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
+  - [SBC_SHARC](docs/pipeline/sarek/sbc_sharc.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
