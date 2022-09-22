@@ -122,7 +122,7 @@ Currently documentation is available for the following systems:
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IMPERIAL](docs/imperial.md)
 - [JAX](docs/jax.md)
-- [KU SUND DANGPU] (docs/ku_sund_dangpu.md)
+- [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
 - [MAESTRO](docs/maestro.md)
 - [MARVIN](docs/marvin.md)
