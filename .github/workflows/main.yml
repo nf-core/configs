@@ -67,6 +67,7 @@ jobs:
           - "ifb_core"
           - "imperial"
           - "jax"
+          - "ku_sund_dangpu"
           - "lugh"
           - "marvin"
           - "medair"
