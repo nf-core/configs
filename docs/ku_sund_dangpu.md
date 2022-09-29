@@ -7,14 +7,13 @@ To use, run the pipeline with `-profile ku_sund_dangpu`. This will download and 
 
 ## Prepare the environment
 
-Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on DANGPU. 
-
 Start a tmux session or a screen session. You can start a tmux session like this:
 ```
 tmux new-session -s <session-name>
 ```
 
-Within the created session load Nextflow and Singularity and set up the environment  by issuing the commands below:
+Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on DANGPU. 
+Within the created session load Nextflow and Singularity and set up the environment by issuing the commands below:
 
 ```bash
 ## Load Nextflow and Singularity environment modules
@@ -53,6 +52,4 @@ nextflow run nf-core/rnaseq  -r 3.8.1 -profile ku_sund_dangpu --outdir <name-of-
 
 ## Notes
 
-Note that normally you would run resource-intensive commands with slurm, but in case of nf-core pipelines you do not have to do this: we have pre-configured slurm to be the resource manager within the `ku_sund_dangpu profile`. Just make sure that the pipeline is run within a tmux session or within a screen session.
-
-
+Note that normally on dangpu server you are required to run resource-intensive commands with slurm, but at ku_sund_dangpu profile we have pre-configured slurm to be the resource manager within the `ku_sund_dangpu profile`. Just make sure that the pipeline is run within a tmux session or within a screen session.
