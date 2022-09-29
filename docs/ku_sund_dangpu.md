@@ -33,7 +33,7 @@ Create the user-specific nextflow directories if they don't exist yet:
 ```
 mkdir -p $NXF_SINGULARITY_CACHEDIR
 mkdir -p $NXF_HOME
-mkdir -p $NXF_TEMP
+mkdir $NXF_TEMP
 ```
 
 
