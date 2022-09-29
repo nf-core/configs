@@ -36,18 +36,19 @@ mkdir -p $NXF_HOME
 mkdir -p $NXF_TEMP
 ```
 
-Finally, download and test the pipeline of choice using the `-profile ku_sund_dangpu`. 
 
 ## How to run a pipeline with institution profile
 
-To test a pipeline, use the `-profile test` and specify `--outdir`. For example to run rnaseq:
+To download and test a pipeline for the first time, use the `-profile test` and specify `--outdir`. It is a good practice to use the pipeline version with specifying `-r` each time you run a pipeline. 
+
+For example to run rnaseq:
 ```
-nextflow run nf-core/rnaseq -profile test,ku_sund_dangpu --outdir <name-of-output-directory>
+nextflow run nf-core/rnaseq -r 3.8.1 -profile test,ku_sund_dangpu --outdir <name-of-output-directory>
 ```
 
 To run a pipeline:
 ```
-nextflow run nf-core/rnaseq -profile ku_sund_dangpu --outdir <name-of-output-directory>
+nextflow run nf-core/rnaseq  -r 3.8.1 -profile ku_sund_dangpu --outdir <name-of-output-directory>
 ```
 
 ## Notes
