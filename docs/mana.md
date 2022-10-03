@@ -29,10 +29,10 @@ To setup nextflow on your account, follow these steps.
 
 ```bash
 # Load the latest anaconda3 module
-module load lang/Anaconda3
+module load lang/Anaconda3/2022.05
 
 # Initialize environment
-. /opt/apps/software/lang/Anaconda3/5.1.0/etc/profile.d/conda.sh
+. $(conda info --base)/etc/profile.d/conda.sh
 
 # Install nextflow (here in base environment, but you can create a new one if you'd like)
 conda install -c bioconda nextflow
@@ -41,6 +41,6 @@ conda install -c bioconda nextflow
 If you want these settings to be persistent, you can add the first 2 commands in your .bash_profile file like this:
 
 ```bash
-echo "module load lang/Anaconda3" >> ~/.bash_profile
-echo ". /opt/apps/software/lang/Anaconda3/5.1.0/etc/profile.d/conda.sh >> ~/.bash_profile"
+echo "module load lang/Anaconda3/2022.05" >> ~/.bash_profile
+echo "$(conda info --base)/etc/profile.d/conda.sh" >> ~/.bash_profile
 ```
