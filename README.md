@@ -125,6 +125,7 @@ Currently documentation is available for the following systems:
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
 - [MAESTRO](docs/maestro.md)
+- [MANA](docs/mana.md)
 - [MARVIN](docs/marvin.md)
 - [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
