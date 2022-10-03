@@ -69,7 +69,7 @@ jobs:
           - "jax"
           - "ku_sund_dangpu"
           - "lugh"
-		  - "mana"
+          - "mana"
           - "marvin"
           - "medair"
           - "mjolnir_globe"
