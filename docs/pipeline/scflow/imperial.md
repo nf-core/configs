@@ -14,8 +14,8 @@ Example: `nextflow run nf-core/scflow -profile imperial`
 
 Specific configurations for Imperial have been made for scflow.
 
-* Singularity `enabled` and `autoMounts` set to `true`
-* Singularity `cacheDir` path set to an RDS location
-* Singularity `runOptions` path set to bind (`-B`) RDS paths with container paths.
-* Params `ctd_folder` set to an RDS location.
-* Parms `ensembl_mappings` set to an RDS location.
+- Singularity `enabled` and `autoMounts` set to `true`
+- Singularity `cacheDir` path set to an RDS location
+- Singularity `runOptions` path set to bind (`-B`) RDS paths with container paths.
+- Params `ctd_folder` set to an RDS location.
+- Parms `ensembl_mappings` set to an RDS location.
