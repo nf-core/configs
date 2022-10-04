@@ -1,6 +1,6 @@
 # nf-core/configs: TIGEM configuration
 
-To use, run the pipeline with -profile tigem. This will download and launch the tigem.config which has been pre-configured with a setup suitable for the TIGEM personal biocluster.
+To use, run the pipeline with `-profile tigem`. This will download and launch the tigem.config which has been pre-configured with a setup suitable for the TIGEM personal biocluster.
 
 ---
 
