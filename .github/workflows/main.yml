@@ -87,6 +87,7 @@ jobs:
           - "sanger"
           - "sbc_sharc"
           - "seg_globe"
+          - "tigem"
           - "uct_hpc"
           - "unibe_ibu"
           - "uppmax"
