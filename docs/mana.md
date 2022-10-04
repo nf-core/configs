@@ -1,6 +1,6 @@
 # nf-core/configs Mana (at University of Hawaii at Manoa) Configuration
 
-To use, run the pipeline with `-profile mana`. It will use the following parameters for Mana (UHM HPCC): 
+To use, run the pipeline with `-profile mana`. It will use the following parameters for Mana (UHM HPCC):
 
 - Load singularity and use it as default container technology
 - Setup a container cache directory in your home (~/.singularity_images_cache)
@@ -9,7 +9,6 @@ To use, run the pipeline with `-profile mana`. It will use the following paramet
   - CPUs: 96
   - Memory: 400.GB
   - Time: 72.h
-
 
 ## Pre-requisites
 
