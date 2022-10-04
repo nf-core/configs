@@ -18,7 +18,7 @@ source /mnt/projects/rpd/rc/init.2017-04
 module load miniconda3
 
 
-# Run a nextflow pipeline with dependencies bundles in a conda environment
+# Run a nextflow pipeline with dependencies bundled in a conda environment
 set +u
 source activate nfcore-rnaseq-1.0dev
 set -u
