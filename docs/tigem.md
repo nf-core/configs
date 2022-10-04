@@ -4,4 +4,4 @@ To use, run the pipeline with `-profile tigem`. This will download and launch th
 
 ---
 
-For this pipeline you need a docker container containing the tools needed for the specific pipeline. You can find the docker containers on giusmar docker hub profile. A docker image containing the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+This pipeline can be used on TIGEM clusters, in which is installed slurm as job scheduling system, so you can use this config if you have the same tool installed. An additional parameter is google.zone to allow downloading data from GCP for a specific time zone. It should not interfere with a local or an AWS configuration.
