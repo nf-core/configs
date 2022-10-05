@@ -206,6 +206,8 @@ Currently documentation is available for the following pipelines within specific
   - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
 - chipseq
   - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
+- demultiplex
+  - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - mag
