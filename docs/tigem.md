@@ -4,4 +4,4 @@ To use, run the pipeline with `-profile tigem`. This will download and launch th
 
 ---
 
-This pipeline can be used on TIGEM clusters, in which is installed slurm as job scheduling system, so you can use this config if you have the same tool installed. An additional parameter is google.zone to allow downloading data from GCP for a specific time zone. It should not interfere with a local or an AWS configuration.
+This configuration profile can be used on TIGEM clusters, with the pre-installed SLURM job scheduling system. An additional parameter is `google.zone` to allow downloading data from GCP for a specific time zone. It should not interfere with any local or other AWS configuration.
