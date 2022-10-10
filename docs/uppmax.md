@@ -8,7 +8,7 @@ We have a Slack channel dedicated to UPPMAX users on the nf-core Slack: [https:/
 
 ## Using the UPPMAX config profile
 
-The recommended way to activate `Nextflow`, `nf-tools`, and any pipeline
+The recommended way to activate `Nextflow`, `nf-core`, and any pipeline
 available in `nf-core` on UPPMAX is to use the [module system](https://www.uppmax.uu.se/resources/software/module-system/):
 
 ```bash
@@ -103,7 +103,7 @@ Before running a nf-core pipeline on `bianca` you will first have to download th
 In this guide, we use `rackham` to download and transfer files to the `wharf` area, but it can also be done on your own computer.
 If you use `rackham` to download the pipeline and the singularity containers, we recommend using an interactive session (cf [interactive guide](https://www.uppmax.uu.se/support/faq/running-jobs-faq/how-can-i-run-interactively-on-a-compute-node/)), which is what we do in the following guide.
 
-It is recommended to activate `Nextflow`, `nf-tools` and your `nf-core`
+It is recommended to activate `Nextflow`, `nf-core` and your `nf-core`
 pipeline through the module system (see **Using the UPPMAX config profile**
 above). In case you need a specific version of any of these tools you can
 follow the guide below.
