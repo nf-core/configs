@@ -10,6 +10,7 @@ We have a Slack channel dedicated to UPPMAX users on the nf-core Slack: [https:/
 
 The recommended way to activate `Nextflow`, `nf-tools`, and any pipeline
 available in `nf-core` on UPPMAX is to use the [module system](https://www.uppmax.uu.se/resources/software/module-system/):
+
 ```bash
 # Log in to the desired cluster
 ssh <USER>@{rackham,miarka,bianca}.uppmax.uu.se
