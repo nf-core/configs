@@ -16,12 +16,11 @@ This can be done with the following commands:
 ## Load Singularity environment modules - these commands can be placed in your ~/.bashrc also
 module add java/openjdk-11/11.0.1
 module add singularity-env/1.0.0
-
 ```
 
 Then set the correct configuration of the cache directories, where <YOUR_ID> is replaced with you credentials which you can find by entering `whoami` into the terminal once you are logged into myriad. Once you have added your credentials save these lines into your .bashrc file in the base directory (e.g. /home/<YOUR_ID>/.bashrc):
 
-```
+```bash
 # Set all the Singularity cache dirs to Scratch
 export SINGULARITY_CACHEDIR=/home/<YOUR_ID>/Scratch/.singularity/
 export SINGULARITY_TMPDIR=/home/<YOUR_ID>/Scratch/.singularity/tmp
@@ -47,6 +46,6 @@ mv nextflow ~/bin/nextflow
 
 Then make sure that your bin PATH is executable, by placing the following line in your .bashrc:
 
-```
+```bash
 export PATH=$PATH:/home/<YOUR_ID>/bin
 ```
