@@ -89,6 +89,7 @@ jobs:
           - "sbc_sharc"
           - "seg_globe"
           - "tigem"
+          - "ucl_myriad"
           - "uct_hpc"
           - "unibe_ibu"
           - "uppmax"
