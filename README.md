@@ -142,6 +142,8 @@ Currently documentation is available for the following systems:
 - [SANGER](docs/sanger.md)
 - [SBC_SHARC](docs/sbc_sharc.md)
 - [SEG_GLOBE](docs/seg_globe.md)
+- [TIGEM](docs/tigem.md)
+- [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
 - [UPPMAX](docs/uppmax.md)
@@ -205,6 +207,8 @@ Currently documentation is available for the following pipelines within specific
   - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
 - chipseq
   - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
+- demultiplex
+  - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - mag
