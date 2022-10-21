@@ -49,6 +49,7 @@ jobs:
           - "cfc_dev"
           - "cheaha"
           - "computerome"
+          - "crg"
           - "crick"
           - "crukmi"
           - "denbi_qbic"
@@ -98,7 +99,6 @@ jobs:
           - "uzh"
           - "vai"
           - "vsc_ugent"
-          - "crg"
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
