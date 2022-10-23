@@ -228,6 +228,8 @@ Currently documentation is available for the following pipelines within specific
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
   - [hasta](docs/pipeline/taxprofiler/hasta.md)
+- proteinfold
+  - [CRG](docs/pipeline/proteinfold/crg.md)
 
 ### Pipeline-specific documentation
 
