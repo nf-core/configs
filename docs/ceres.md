@@ -12,7 +12,9 @@ Before running the pipeline, you will need to load Nextflow using the environmen
 module load nextflow/22.04.3
 ```
 
-All of the intermediate files required to run the pipeline will be stored in the `work/` directory by default. It is recommended to use Nextflow's [`-work-dir`](https://nextflow.io/docs/latest/cli.html#run) parameter to change this to a [`/90daydata`](https://scinet.usda.gov/guide/storage/#large-short-term-storage) directory instead, e.g.
+## File storage recommendations
+
+All of the intermediate files required to run the pipeline will be stored in the `work/` directory by default. As [`/project`](https://scinet.usda.gov/guide/storage/#project-directories) directories have a limited quota, it is recommended to store raw data in `/project` and use Nextflow's [`-work-dir`](https://nextflow.io/docs/latest/cli.html#run) parameter to place intermediate files in a [`/90daydata`](https://scinet.usda.gov/guide/storage/#large-short-term-storage) directory instead, e.g.
 
 ```bash
 nextflow run nf-core/mag -profile ceres,test -w /90daydata/shared/$USER/.nextflow/work
