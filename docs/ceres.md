@@ -6,9 +6,10 @@ All nf-core pipelines have been successfully configured for use on the Ceres clu
 
 To use, run the pipeline with `-profile ceres`. The will download and launch the [`ceres.config`](../conf/ceres.config) which has been pre-configured with a setup suitable for the Ceres cluster. Using this profile will configure Nextflow to download all required software as Singularity images as they are required in the pipeline.
 
-Before running the pipeline, you will need to load Nextflow using the environment module system on Ceres (Singularity is available globally). You can do this by issuing the command:
+Before running the pipeline, you will need to load Singularity and Nextflow using the environment module system on Ceres. You can do this by issuing the command:
 
 ```bash
+module load singularity/3.10.2
 module load nextflow/22.04.3
 ```
 
