@@ -102,6 +102,7 @@ Currently documentation is available for the following systems:
 - [CCGA_DX](docs/ccga_dx.md)
 - [CCGA_MED](docs/ccga_med.md)
 - [Cedars-Sinai](docs/cedars.md)
+- [Ceres](docs/ceres.md)
 - [CFC](docs/cfc.md)
 - [CHEAHA](docs/cheaha.md)
 - [Computerome](docs/computerome.md)
