@@ -84,6 +84,7 @@ jobs:
           - "pasteur"
           - "phoenix"
           - "prince"
+          - "psmn"
           - "rosalind"
           - "sage"
           - "sahmri"
