@@ -45,6 +45,7 @@ jobs:
           - "ccga_dx"
           - "ccga_med"
           - "cedars"
+          - "ceres"
           - "cfc"
           - "cfc_dev"
           - "cheaha"
