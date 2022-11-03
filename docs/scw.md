@@ -1,6 +1,6 @@
 # nf-core/configs: Super Computing Wales configuration
 
-A base configuration file for running nf-core pipelines has been set up for use with [Super Computing Wales](https://supercomputing.wales) (SCW). To use this profile, the pipeline can be run with the option `-profile scw`, which will download the [`scw.config`](../conf/scw.config) config file. This config file by default runs pipelines using Singularity, and runs all jobs on the *htc* partition.
+A base configuration file for running nf-core pipelines has been set up for use with [Super Computing Wales](https://supercomputing.wales) (SCW). To use this profile, the pipeline can be run with the option `-profile scw`, which will download the [`scw.config`](../conf/scw.config) config file. This config file by default runs pipelines using Singularity, and runs all jobs on the _htc_ partition.
 
 To run an nf-core pipeline, you will first need to activate Nextflow. You can do this with the following command:
 
