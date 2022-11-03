@@ -89,6 +89,7 @@ jobs:
           - "sahmri"
           - "sanger"
           - "sbc_sharc"
+          - "scw"
           - "seg_globe"
           - "tigem"
           - "ucl_myriad"
