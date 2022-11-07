@@ -98,6 +98,7 @@ jobs:
           - "utd_ganymede"
           - "utd_sysbio"
           - "uzh"
+          - "wehi"
           - "vai"
           - "vsc_ugent"
     steps:

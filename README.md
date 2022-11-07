@@ -151,6 +151,7 @@ Currently documentation is available for the following systems:
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
 - [UTD_SYSBIO](docs/utd_sysbio.md)
 - [UZH](docs/uzh.md)
+- [WEHI](docs/wehi.md)
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 
