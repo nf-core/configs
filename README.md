@@ -155,6 +155,7 @@ Currently documentation is available for the following systems:
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
+- [WEHI](docs/wehi.md)
 
 ### Uploading to `nf-core/configs`
 
