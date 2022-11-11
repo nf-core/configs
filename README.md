@@ -138,11 +138,13 @@ Currently documentation is available for the following systems:
 - [PASTEUR](docs/pasteur.md)
 - [PHOENIX](docs/phoenix.md)
 - [PRINCE](docs/prince.md)
+- [PSMN](docs/psmn.md)
 - [ROSALIND](docs/rosalind.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
 - [SBC_SHARC](docs/sbc_sharc.md)
 - [SEG_GLOBE](docs/seg_globe.md)
+- [Super Computing Wales](docs/scw.md)
 - [TIGEM](docs/tigem.md)
 - [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
@@ -153,6 +155,7 @@ Currently documentation is available for the following systems:
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
+- [WEHI](docs/wehi.md)
 
 ### Uploading to `nf-core/configs`
 
