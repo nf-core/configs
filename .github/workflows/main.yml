@@ -45,6 +45,7 @@ jobs:
           - "ccga_dx"
           - "ccga_med"
           - "cedars"
+          - "ceres"
           - "cfc"
           - "cfc_dev"
           - "cheaha"
@@ -83,11 +84,13 @@ jobs:
           - "pasteur"
           - "phoenix"
           - "prince"
+          - "psmn"
           - "rosalind"
           - "sage"
           - "sahmri"
           - "sanger"
           - "sbc_sharc"
+          - "scw"
           - "seg_globe"
           - "tigem"
           - "ucl_myriad"
@@ -99,6 +102,7 @@ jobs:
           - "uzh"
           - "vai"
           - "vsc_ugent"
+          - "wehi"
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
