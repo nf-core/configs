@@ -1,6 +1,6 @@
 # nf-core/configs: Eddie Configuration
 
-nf-core pipelines sarek, rnaseq, atacseq, scrnaseq, chipseq, and viralrecon have all been tested on the University of Edinburgh Eddie HPC. All except atacseq 
+nf-core pipelines sarek, rnaseq, atacseq, scrnaseq, chipseq, and viralrecon have all been tested on the University of Edinburgh Eddie HPC. All except atacseq
 and chipseq have pipeline-specific config files; atacseq does not yet support this.
 
 ## Getting help
