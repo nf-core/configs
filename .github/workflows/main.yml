@@ -103,6 +103,7 @@ jobs:
           - "vai"
           - "vsc_ugent"
           - "wehi"
+          - "dkfz"
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
