@@ -156,6 +156,7 @@ Currently documentation is available for the following systems:
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 - [WEHI](docs/wehi.md)
+- [DKFZ](docks/dkfz.md) 
 
 ### Uploading to `nf-core/configs`
 
