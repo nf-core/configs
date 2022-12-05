@@ -110,7 +110,7 @@ Currently documentation is available for the following systems:
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
 - [DENBI_QBIC](docs/denbi_qbic.md)
-- [DKFZ](docs/dkfz.md) 
+- [DKFZ](docs/dkfz.md)
 - [EBC](docs/ebc.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
