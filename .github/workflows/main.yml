@@ -54,6 +54,7 @@ jobs:
           - "crick"
           - "crukmi"
           - "denbi_qbic"
+          - "dkfz"
           - "ebc"
           - "eddie"
           - "eva"
@@ -103,7 +104,6 @@ jobs:
           - "vai"
           - "vsc_ugent"
           - "wehi"
-          - "dkfz"
           
     steps:
       - uses: actions/checkout@v1
