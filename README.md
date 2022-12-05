@@ -110,6 +110,7 @@ Currently documentation is available for the following systems:
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
 - [DENBI_QBIC](docs/denbi_qbic.md)
+- [DKFZ](docks/dkfz.md) 
 - [EBC](docs/ebc.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
@@ -156,7 +157,6 @@ Currently documentation is available for the following systems:
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 - [WEHI](docs/wehi.md)
-- [DKFZ](docks/dkfz.md) 
 
 ### Uploading to `nf-core/configs`
 
