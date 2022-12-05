@@ -1,8 +1,8 @@
 # nf-core/configs: DKFZ configuration
 
-This is a configuration file has been used in DKFZ HPC cluster.
+This configuration specifies hardware and infrastructure access at the Deutsches Krebsforschungszentrum (DKFZ) HPC cluster in Heidelberg / Germany.
 
-To use, run the pipeline with `-profile dkfz`. This will download and launch the dkfz.config which has been pre-configured with a setup suitable for the automatically created cluster. Using this profile, a Docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile dkfz`. This will download and launch the dkfz.config which has been pre-configured with a setup suitable for the cluster. Using this profile, a Docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 > :warning: Before running the pipeline you will need to load Nextflow using the environment module system. Please check the main README of the pipeline to make sure that the version of Nextflow is compatible with that required to run the pipeline. You can do this by issuing the commands below:
 
