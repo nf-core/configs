@@ -25,7 +25,7 @@ Nextflow shouldn't run directly on the submission node but on a compute node. We
 
 ```bash
 #!/bin/bash
-##SBATCH --partition=ipop-up
+#SBATCH --partition=ipop-up
 #SBATCH --mem=4G
 
 module purge
