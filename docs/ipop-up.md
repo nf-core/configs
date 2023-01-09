@@ -48,7 +48,7 @@ nf-core provides some test for each workflow:
 
 ```bash
 #!/bin/bash
-##SBATCH --partition=ipop-up
+#SBATCH --partition=ipop-up
 #SBATCH --mem=4G
 
 module purge
