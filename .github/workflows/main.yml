@@ -69,6 +69,7 @@ jobs:
           - "icr_davros"
           - "ifb_core"
           - "imperial"
+          - "ipop-up"
           - "jax"
           - "ku_sund_dangpu"
           - "lugh"
