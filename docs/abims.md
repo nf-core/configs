@@ -22,7 +22,7 @@ module load nextflow slurm-drmaa graphviz
 ```
 
 Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command in background.
-Even if the job won't run directly on the login node, please launch Nextflow on a compute node: 
+Even if the job won't run directly on the login node, please launch Nextflow on a compute node:
 
 ```bash
 # Load the dependencies if not done before
