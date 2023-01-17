@@ -5,6 +5,7 @@ To use this custom configuration, run the pipeline with `-profile sage`. This wi
 This global configuration includes the following tweaks:
 
 - Update the default value for `igenomes_base` to `s3://sage-igenomes`
+- Auto-delete work directory files upon successful workflow completion
 - Enable retries for all failures
 - Allow pending jobs to finish if the number of retries are exhausted
 - Increase resource allocations for specific resource-related exit codes
