@@ -7,7 +7,7 @@ To use, run the pipeline with `-profile abims`. This will download and launch th
 ## Request an account
 
 You will need an account to use the HPC cluster on ABiMS in order
-to run the pipeline. If in doubt see [http://abims.sb-roscoff.fr/account](http://abims.sb-roscoff.fr/account).
+to run the pipeline. If in doubt see [https://my.sb-roscoff.fr](https://my.sb-roscoff.fr).
 
 ## Running the workflow on the ABiMS cluster
 
@@ -73,7 +73,7 @@ nextflow run nf-core/rnaseq -profile abims,test
 
 To reduce the disk usage, nf-core images can be stored in a mutualized directory: `/shared/software/singularity/images/nf-core/`
 
-The environment variable `NXF_SINGULARITY_CACHEDIR: /shared/data/cache/nextflow` will indicate this directory to nextflow.
+The environment variable `NXF_SINGULARITY_CACHEDIR=/shared/software/singularity/images/nf-core/` will indicate this directory to nextflow.
 
 ## Databanks
 
