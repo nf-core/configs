@@ -1,8 +1,8 @@
 # nf-core/configs: ABiMS Configuration
 
-All nf-core pipelines have been successfully configured for use on the ABiMS cluster.
+All nf-core pipelines have been successfully configured for use on [the ABiMS cluster](https://abims-sbr.gitlab.io/cluster/doc/).
 
-To use, run the pipeline with `-profile abims`. This will download and launch the [`abims.config`](../conf/abims.config) which has been pre-configured with a setup suitable for the ABiMS cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile abims`. This will download and launch the [`abims.config`](../conf/abims.config) which has been pre-configured with a setup suitable for the ABiMS cluster.
 
 ## Request an account
 
@@ -13,35 +13,29 @@ to run the pipeline. If in doubt see [https://my.sb-roscoff.fr](https://my.sb-ro
 
 Nextflow is installed on the ABiMS cluster.
 
+### Launch it using `srun`
+
 You need to activate it like this:
 
 ```bash
 module load nextflow slurm-drmaa graphviz
 ```
 
-Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command.
-Nextflow shouldn't run directly on the submission node but on a compute node. Run nextflow from a compute node:
+Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command in background.
+Even if the job won't run directly on the login node, please launch Nextflow on a compute node:
 
 ```bash
 # Load the dependencies if not done before
 module load nextflow slurm-drmaa graphviz
 
-# Run a downloaded/git-cloned nextflow workflow from
-srun nextflow run \
-/path/to/nf-core/workflow \
--profile abims \
---email my-email@example.org  \
--c my-specific.config
-...
-
-# Or use let nf-core client download the workflow
-srun nextflow run nf-core/rnaseq -profile abims ...
+# Run Nextflow, it will submit the jobs with the resources needed on the cluster
+srun nextflow run nf-core/rnaseq -r 3.10.1 -profile abims ...
 
 # To launch in background
-sbatch --wrap "nextflow run nf-core/rnaseq -profile abims ..."
+sbatch --wrap "nextflow run nf-core/rnaseq -r 3.10.1 -profile abims ..."
 ```
 
-Or write a sbatch script
+### Or write a `sbatch` script
 
 > nfcore-rnaseq.sh
 
@@ -51,7 +45,7 @@ Or write a sbatch script
 #SBATCH --mem=4G
 
 module load nextflow slurm-drmaa graphviz
-nextflow run nf-core/rnaseq -profile abims ...
+nextflow run nf-core/rnaseq -r 3.10.1 -profile abims ...
 ```
 
 Launch on the cluster with sbatch:
@@ -66,14 +60,16 @@ nf-core provides some test for each workflow:
 
 ```bash
 module load nextflow slurm-drmaa graphviz
-nextflow run nf-core/rnaseq -profile abims,test
+srun nextflow run nf-core/rnaseq -r 3.10.1 -profile abims,test
 ```
 
 ## Singularity images mutualized directory
 
 To reduce the disk usage, nf-core images can be stored in a mutualized directory: `/shared/software/singularity/images/nf-core/`
 
-The environment variable `NXF_SINGULARITY_CACHEDIR=/shared/software/singularity/images/nf-core/` will indicate this directory to nextflow.
+The `abims` profil includes the dedicade environment variable `NXF_SINGULARITY_CACHEDIR` to indicate the cache directory to nextflow.
+
+If you need more images, please contact the [support team](https://abims-sbr.gitlab.io/cluster/doc/support/)
 
 ## Databanks
 
