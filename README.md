@@ -112,6 +112,7 @@ Currently documentation is available for the following systems:
 - [DENBI_QBIC](docs/denbi_qbic.md)
 - [DKFZ](docs/dkfz.md)
 - [EBC](docs/ebc.md)
+- [Engaging](docs/engaging.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
 - [GENOTOUL](docs/genotoul.md)
