@@ -112,6 +112,7 @@ Currently documentation is available for the following systems:
 - [DENBI_QBIC](docs/denbi_qbic.md)
 - [DKFZ](docs/dkfz.md)
 - [EBC](docs/ebc.md)
+- [Engaging](docs/engaging.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
 - [GENOTOUL](docs/genotoul.md)
@@ -217,6 +218,7 @@ Currently documentation is available for the following pipelines within specific
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - mag
+  - [Engaging](docs/pipeline/mag/engaging.md)
   - [EVA](docs/pipeline/mag/eva.md)
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)

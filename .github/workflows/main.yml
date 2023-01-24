@@ -57,6 +57,7 @@ jobs:
           - "dkfz"
           - "ebc"
           - "eddie"
+          - "engaging"
           - "eva"
           - "fgcz"
           - "genotoul"
