@@ -218,8 +218,8 @@ Currently documentation is available for the following pipelines within specific
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - mag
-  - [EVA](docs/pipeline/mag/eva.md)
   - [Engaging](docs/pipeline/mag/engaging.md)
+  - [EVA](docs/pipeline/mag/eva.md)
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
