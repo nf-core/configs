@@ -8,11 +8,12 @@ To use, run the pipeline with `-profile ku_sund_dangpu`. This will download and 
 ## Prepare the environment
 
 Start a tmux session or a screen session. You can start a tmux session like this:
+
 ```
 tmux new-session -s <session-name>
 ```
 
-Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on DANGPU. 
+Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on DANGPU.
 Within the created session load Nextflow and Singularity and set up the environment by issuing the commands below:
 
 ```bash
@@ -35,17 +36,18 @@ mkdir -p $NXF_HOME
 mkdir $NXF_TEMP
 ```
 
-
 ## How to run a pipeline with institution profile
 
-To download and test a pipeline for the first time, use the `-profile test` and specify `--outdir`. It is a good practice to use the pipeline version with specifying `-r` each time you run a pipeline. 
+To download and test a pipeline for the first time, use the `-profile test` and specify `--outdir`. It is a good practice to use the pipeline version with specifying `-r` each time you run a pipeline.
 
 For example to run rnaseq:
+
 ```
 nextflow run nf-core/rnaseq -r 3.8.1 -profile test,ku_sund_dangpu --outdir <name-of-output-directory>
 ```
 
 To run a pipeline:
+
 ```
 nextflow run nf-core/rnaseq  -r 3.8.1 -profile ku_sund_dangpu --outdir <name-of-output-directory>
 ```
