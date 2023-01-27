@@ -19,8 +19,8 @@ Within the created session load Nextflow and Singularity and set up the environm
 ## Load Nextflow and Singularity environment modules
 module purge
 module load java/11.0.15 nextflow/22.04.4 singularity/3.8.0
-# alternative modules for older nextflow version (v.21) that works with java 8:
-# module load jdk/1.8.0_291 nextflow/21.04.1.5556 singularity/3.8.0
+
+# set up bash environment variables for memory
 export NXF_OPTS='-Xms1g -Xmx4g'
 export NXF_HOME=/projects/dan1/people/${USER}/cache/nxf-home
 export NXF_TEMP=/scratch/tmp/${USER}
