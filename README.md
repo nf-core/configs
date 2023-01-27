@@ -102,6 +102,7 @@ Currently documentation is available for the following systems:
 - [CCGA_DX](docs/ccga_dx.md)
 - [CCGA_MED](docs/ccga_med.md)
 - [Cedars-Sinai](docs/cedars.md)
+- [Ceres](docs/ceres.md)
 - [CFC](docs/cfc.md)
 - [CHEAHA](docs/cheaha.md)
 - [Computerome](docs/computerome.md)
@@ -109,7 +110,9 @@ Currently documentation is available for the following systems:
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
 - [DENBI_QBIC](docs/denbi_qbic.md)
+- [DKFZ](docs/dkfz.md)
 - [EBC](docs/ebc.md)
+- [Engaging](docs/engaging.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
 - [GENOTOUL](docs/genotoul.md)
@@ -125,6 +128,7 @@ Currently documentation is available for the following systems:
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
 - [MAESTRO](docs/maestro.md)
+- [Mana](docs/mana.md)
 - [MARVIN](docs/marvin.md)
 - [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
@@ -136,11 +140,15 @@ Currently documentation is available for the following systems:
 - [PASTEUR](docs/pasteur.md)
 - [PHOENIX](docs/phoenix.md)
 - [PRINCE](docs/prince.md)
+- [PSMN](docs/psmn.md)
 - [ROSALIND](docs/rosalind.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
 - [SBC_SHARC](docs/sbc_sharc.md)
 - [SEG_GLOBE](docs/seg_globe.md)
+- [Super Computing Wales](docs/scw.md)
+- [TIGEM](docs/tigem.md)
+- [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
 - [UPPMAX](docs/uppmax.md)
@@ -149,6 +157,7 @@ Currently documentation is available for the following systems:
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
+- [WEHI](docs/wehi.md)
 
 ### Uploading to `nf-core/configs`
 
@@ -204,9 +213,12 @@ Currently documentation is available for the following pipelines within specific
   - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
 - chipseq
   - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
+- demultiplex
+  - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - mag
+  - [Engaging](docs/pipeline/mag/engaging.md)
   - [EVA](docs/pipeline/mag/eva.md)
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
@@ -223,6 +235,8 @@ Currently documentation is available for the following pipelines within specific
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
   - [hasta](docs/pipeline/taxprofiler/hasta.md)
+- proteinfold
+  - [CRG](docs/pipeline/proteinfold/crg.md)
 
 ### Pipeline-specific documentation
 
