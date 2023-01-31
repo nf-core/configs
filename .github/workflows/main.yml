@@ -54,8 +54,10 @@ jobs:
           - "crick"
           - "crukmi"
           - "denbi_qbic"
+          - "dkfz"
           - "ebc"
           - "eddie"
+          - "engaging"
           - "eva"
           - "fgcz"
           - "genotoul"
@@ -90,6 +92,7 @@ jobs:
           - "sahmri"
           - "sanger"
           - "sbc_sharc"
+          - "scw"
           - "seg_globe"
           - "tigem"
           - "ucl_myriad"
@@ -101,6 +104,8 @@ jobs:
           - "uzh"
           - "vai"
           - "vsc_ugent"
+          - "wehi"
+
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
