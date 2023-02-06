@@ -231,6 +231,7 @@ Currently documentation is available for the following pipelines within specific
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [Cancer Research UK Manchester Institute](docs/pipeline/sarek/crukmi.md)
+  - [EVA](docs/pipeline/sarek/eva.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
   - [SBC_SHARC](docs/pipeline/sarek/sbc_sharc.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
