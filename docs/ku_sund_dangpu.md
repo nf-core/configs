@@ -43,13 +43,13 @@ To download and test a pipeline for the first time, use the `-profile test` and 
 For example to run rnaseq:
 
 ```
-nextflow run nf-core/rnaseq -r 3.8.1 -profile test,ku_sund_dangpu --outdir <name-of-output-directory>
+nextflow run nf-core/rnaseq -r 3.10.1 -profile test,ku_sund_dangpu --outdir <name-of-output-directory>
 ```
 
 To run a pipeline:
 
 ```
-nextflow run nf-core/rnaseq  -r 3.8.1 -profile ku_sund_dangpu --outdir <name-of-output-directory>
+nextflow run nf-core/rnaseq  -r 3.10.1 -profile ku_sund_dangpu --outdir <name-of-output-directory>
 ```
 
 ## Notes
