@@ -62,14 +62,14 @@ tmux new-session -s mysessionname
 # load modules, define variables, run nfcore pipeline here
 ```
 
-detach a session use control+B and then press d
+Detach a session use control+B and then press d.
 
-to attach a previously detached session again:
+To attach a previously detached session again:
 ```
 tmux atttach-session -t mysessionname
 ```
 
-to exit a tmux session when the job is done:
+To exit a tmux session when the job is done:
 ```
 exit
 ```
