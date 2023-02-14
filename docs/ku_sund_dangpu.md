@@ -19,7 +19,7 @@ Within the created session load Nextflow and Singularity and set up the environm
 ```bash
 ## Load Nextflow and Singularity environment modules
 module purge
-module load java/11.0.15 nextflow/22.04.4 singularity/3.8.0
+module load java/11.0.15 nextflow/22.10.6 singularity/3.8.0
 
 # set up bash environment variables for memory
 export NXF_OPTS='-Xms1g -Xmx4g'
