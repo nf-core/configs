@@ -24,7 +24,7 @@ module load java/11.0.15 nextflow/22.10.6 singularity/3.8.0
 # set up bash environment variables for memory
 export NXF_OPTS='-Xms1g -Xmx4g'
 export NXF_HOME=/projects/dan1/people/${USER}/cache/nxf-home
-export NXF_TEMP=/scratch/tmp/${USER}
+export NXF_TEMP=/scratch/temp/${USER}
 export NXF_SINGULARITY_CACHEDIR=/projects/dan1/people/${USER}/cache/singularity-images
 ```
 
