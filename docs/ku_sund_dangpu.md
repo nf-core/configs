@@ -49,7 +49,7 @@ nextflow run nf-core/rnaseq -r 3.10.1 -profile test,ku_sund_dangpu --outdir <nam
 To run a pipeline:
 
 ```
-nextflow run nf-core/rnaseq  -r 3.10.1 -profile ku_sund_dangpu --outdir <name-of-output-directory>
+nextflow run nf-core/rnaseq  -r 3.10.1 -profile ku_sund_dangpu --outdir <name-of-output-directory> --input <name-of-input-csv-file>
 ```
 
 ## Notes
