@@ -37,6 +37,7 @@ By default, Nextflow will download Singularity containers to a cache directory w
 mkdir /scratch/$USER/singularity-containers
 echo NXF_SINGULARITY_CACHEDIR=/scratch/$USER/singularity-containers >> ~/.myenv
 ```
+
 Then you can download the pipeline of your choice to run:
 
 ```bash
