@@ -9,12 +9,10 @@ This global configuration includes the following tweaks:
 - Allow pending jobs to finish if the number of retries are exhausted
 - Increase resource allocations for specific resource-related exit codes
 - Optimize resource allocations to better "fit" EC2 instance types
-- Slow the increase in the number of allocated CPU cores and time on retries
+- Slow the increase in the number of allocated CPU cores on retries
 - Increase the default time limits because we run pipelines on AWS
 - Increase the amount of time allowed for file transfers
 - Improve reliability of file transfers with retries and reduced concurrency
-- Increase the default chunk size for multipart uploads to S3
-- Slow down job submission rate to avoid overwhelming any APIs
 - Define the `check_max()` function, which is missing in Sarek v2
 
 ## Additional information about iGenomes
