@@ -29,7 +29,6 @@ The Azure tenant ID.
 
 The Azure Blob container to be used as Nextflow work directory (`-w az://work`).
 
-
 ### `--autopoolmode`
 
 Whether to use Nextflow autopool mode which creates an autoscaling pool for running Nextflow jobs. Defaults to `false`.
@@ -41,7 +40,6 @@ Allow Nextflow to create a pool for running Nextflow jobs. Defaults to `false`.
 ### `--deletejobs`
 
 Allow Nextflow to delete pools after completion. Defaults to `true`.
-
 
 ### `--acr_registry`
 
