@@ -2,7 +2,7 @@
 
 All nf-core pipelines have been successfully configured for use on the iPOP-UP cluster.
 
-To use, run the pipeline with `-profile ipop-up`. This will download and launch the [`ipop-up.config`](../conf/ipop-up.config) which has been pre-configured with a setup suitable for the iPOP-UP cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile ipop_up`. This will download and launch the [`ipop_up.config`](../conf/ipop_up.config) which has been pre-configured with a setup suitable for the iPOP-UP cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 ## Request an account
 
