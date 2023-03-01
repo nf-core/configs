@@ -6,11 +6,11 @@ To use, run the pipeline with `-profile ipop_up`. This will download and launch 
 
 ## Request an account
 
-You will need an account to use iPOP-UP HPC cluster in order to run the pipeline, please refer to [https://parisepigenetics.github.io/bibs/cluster/ipopup/](https://parisepigenetics.github.io/bibs/cluster/ipopup/#/cluster/). 
+You will need an account to use iPOP-UP HPC cluster in order to run the pipeline, please refer to [https://parisepigenetics.github.io/bibs/cluster/ipopup/](https://parisepigenetics.github.io/bibs/cluster/ipopup/#/cluster/).
 
 ## Running the workflow on the iPOP-UP cluster
 
-Guidelines to start nf-core workflows are provided at [https://parisepigenetics.github.io/bibs/edctools/workflows/nf-cores](https://parisepigenetics.github.io/bibs/edctools/workflows/nf-cores/#/edctools/).  
+Guidelines to start nf-core workflows are provided at [https://parisepigenetics.github.io/bibs/edctools/workflows/nf-cores](https://parisepigenetics.github.io/bibs/edctools/workflows/nf-cores/#/edctools/).
 
 In brief, Nextflow is installed on the iPOP-UP cluster and you need to activate it like this:
 
@@ -19,7 +19,7 @@ module load nextflow
 ```
 
 Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command.
-Nextflow shouldn't run directly on the submission node but on a compute node. We recommand using a sbatch script: 
+Nextflow shouldn't run directly on the submission node but on a compute node. We recommand using a sbatch script:
 
 > nfcore-atac.sh
 
@@ -31,7 +31,7 @@ Nextflow shouldn't run directly on the submission node but on a compute node. We
 module purge
 export JAVA_LD_LIBRARY_PATH=/shared/software/conda/envs/nextflow-21.04.0/lib/server
 export JAVA_HOME=/shared/software/conda/envs/nextflow-21.04.0
-module load nextflow/21.04.0 
+module load nextflow/21.04.0
 
 nextflow run nf-core/atacseq  -profile ipop_up -params-file nf-params.json
 ```
@@ -54,7 +54,7 @@ nf-core provides some test for each workflow:
 module purge
 export JAVA_LD_LIBRARY_PATH=/shared/software/conda/envs/nextflow-21.04.0/lib/server
 export JAVA_HOME=/shared/software/conda/envs/nextflow-21.04.0
-module load nextflow/21.04.0 
+module load nextflow/21.04.0
 
 nextflow run nf-core/atacseq  -profile ipop_up,test
 ```
