@@ -219,6 +219,8 @@ Currently documentation is available for the following pipelines within specific
   - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
+- funcscan
+  - [HKI](docs/pipeline/funcscan/hki.md)
 - mag
   - [Engaging](docs/pipeline/mag/engaging.md)
   - [EVA](docs/pipeline/mag/eva.md)
