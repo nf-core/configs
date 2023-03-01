@@ -33,7 +33,7 @@ export JAVA_LD_LIBRARY_PATH=/shared/software/conda/envs/nextflow-21.04.0/lib/ser
 export JAVA_HOME=/shared/software/conda/envs/nextflow-21.04.0
 module load nextflow/21.04.0 
 
-nextflow run nf-core/atacseq  -profile ipop-up -params-file nf-params.json
+nextflow run nf-core/atacseq  -profile ipop_up -params-file nf-params.json
 ```
 
 Launch on the cluster with sbatch:
