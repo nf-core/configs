@@ -9,7 +9,6 @@ Custom queue and storage need to be supplied with `params.az_location`, `params.
 
 Name of Azure blob storage account.
 
-
 ### `--az_location`
 
 The Azure Batch region where the computation is executed in VMs. Default (`westus2`).
@@ -19,36 +18,30 @@ The Azure Batch region where the computation is executed in VMs. Default (`westu
 The service principal client ID.
 
 ### `--principal_secret`
-	
+
 The service principal client secret.
 
 ### `--tenant_id`
-	
+
 The Azure tenant ID.
 
 ### `-w`
 
 The Azure Blob container to be used as Nextflow work directory (`-w az://work`).
 
-### `--vm_type`
-
-VM size to use with Nextflow autopool or when creating a worker pool in Azure Batch. Make sure your Azure account has sufficient quota. Defaults to `Standard_D8s_v3`. See [Azure VM Size documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes) for more information.
 
 ### `--autopoolmode`
 
-Whether to use Nextflow autopool mode which creates an autoscaling pool for running Nextflow jobs. Defaults to `true`.
+Whether to use Nextflow autopool mode which creates an autoscaling pool for running Nextflow jobs. Defaults to `false`.
 
 ### `--allowpoolcreation`
 
-Allow Nextflow to create a pool for running Nextflow jobs. Defaults to `true`.
+Allow Nextflow to create a pool for running Nextflow jobs. Defaults to `false`.
 
 ### `--deletejobs`
 
 Allow Nextflow to delete pools after completion. Defaults to `true`.
 
-### `--az_worker_pool`
-
-Select an existing pool by name to run Nextflow jobs on. Defaults to `auto` (matching `--autopoolmode`).
 
 ### `--acr_registry`
 
