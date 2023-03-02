@@ -106,6 +106,7 @@ Currently documentation is available for the following systems:
 - [CFC](docs/cfc.md)
 - [CHEAHA](docs/cheaha.md)
 - [Computerome](docs/computerome.md)
+- [CRG](docs/crg.md)
 - [CRICK](docs/crick.md)
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
