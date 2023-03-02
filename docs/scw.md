@@ -11,27 +11,31 @@ module avail
 module load nextflow/21.10.6
 ```
 
-## Downloading Singularity containers
-
-By default, Nextflow will download Singularity containers to a cache directory within the pipeline directory. To reduce storage space and to reuse containers between pipelines, you should set the environment variable `NXF_SINGULARITY_CACHEDIR` to somewhere on the /scratch partition in your `~/.bashrc` file:
-
-```bash
-echo NXF_SINGULARITY_CACHEDIR=/scratch/username/singularity-containers >> ~/.bashrc
-```
-
-## Downloading pipelines for offline use
+## Downloading pipelines for offline use
 
 To download an nf-core pipeline for offline use, you will have to install the nf-core tool in a conda environment:
 
 ```bash
-module load mambaforge/4.10.1
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
+bash Mambaforge-Linux-x86_64.sh -b -p /scratch/$USER/mambaforge
+eval "$(/scratch/$USER/mambaforge/bin/conda shell.bash hook)"
+chmod u+w ~/.bashrc
+conda init
 conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --set channel_priority strict
-conda create -n nf-core
-conda activate nf-core
-conda install -c bioconda nf-core
+
+mamba create -n nf-core
+mamba activate nf-core
+mamba install nextflow nf-core
+```
+
+By default, Nextflow will download Singularity containers to a cache directory within the pipeline directory. To reduce storage space and to reuse containers between pipelines, you should create a directory on the /scratch partition where the containers will be downloaded and set the environment variable NXF_SINGULARITY_CACHEDIR in your ~/.myenv file:
+
+```bash
+mkdir /scratch/$USER/singularity-containers
+echo NXF_SINGULARITY_CACHEDIR=/scratch/$USER/singularity-containers >> ~/.myenv
 ```
 
 Then you can download the pipeline of your choice to run:
@@ -40,7 +44,7 @@ Then you can download the pipeline of your choice to run:
 nf-core download pipeline_name
 ```
 
-And run it with the following:
+The pipeline can then be run with the following:
 
 ```bash
 nextflow run /path/to/download/nf-core-pipeline/workflow/ -profile scw
