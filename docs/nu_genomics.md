@@ -6,7 +6,7 @@ To use, run the pipeline with `-profile nu_genomics`. This will download and lau
 
 ## Before running the pipeline
 
-There are several important steps to take before this pipeline will run successfully on Quest. First, you must have an active Quest allocation. If you do not, please apply [here](https://www.it.northwestern.edu/secure/forms/research/allocation-request.html). You will also need access to the Genomics Nodes. If you do not already have access, please apply [here](https://app.smartsheet.com/b/form?EQBCT=9b3647a8cb2145929737ab4a0540cb46). Finally, you will need to perform a local installation of Nextflow and add it to your path. Please follow the basic installation instructions shown [here](https://www.nextflow.io/), or install in your home directory as shown. If you already have a bin directory in your path, you will not need to create the directory or append to your path.
+There are several important steps to take before this pipeline will run successfully on Quest. First, you must have an active Quest allocation. If you do not, please apply [here](https://www.it.northwestern.edu/secure/forms/research/allocation-request-forms.html). You will also need access to the Genomics Nodes. If you do not already have access, please apply [here](https://app.smartsheet.com/b/form/f6e96bd561114be8a33dc778bc00b919). As of 2023, we now have a dedicated nextflow module, which we recommend using. However if you need an edge version of nextflow, you will need to perform a local installation of Nextflow and add it to your path. Please follow the basic installation instructions shown [here](https://www.nextflow.io/), or install in your home directory as shown below. If you already have a bin directory in your path, you will not need to create the directory or append to your path.
 
 ```bash
 cd ~
@@ -22,12 +22,20 @@ Note that you may need to install an "edge" version of Nextflow, depending on wh
 curl -s https://github.com/nextflow-io/nextflow/releases/download/v20.11.0-edge/nextflow-20.11.0-edge-all | bash
 ```
 
-Note that while the config does explicitly load the necessary modules, you will often need to load them manually anyway. Please do so before each run as follows, or you may run into errors:
+If you are using the nextflow module, you can simply load the module as follows:
+
+```bash
+module purge
+module load nextflow/22.10.5 #or newest version
+```
+
+If you are using your own installation, note that while the config does explicitly load the necessary modules, you will often need to load them manually anyway. Please do so before each run as follows, or you may run into errors:
 
 ```bash
 module purge
 module load singularity/latest
 module load graphviz/2.40.1
+module load java/jdk11.0.10
 ```
 
 ## Use of iGenomes
