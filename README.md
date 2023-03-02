@@ -123,7 +123,9 @@ Currently documentation is available for the following systems:
 - [HEBBE](docs/hebbe.md)
 - [HKI](docs/hki.md)
 - [ICR_DAVROS](docs/icr_davros.md)
+- [IFB](docs/ifb_core.md)
 - [IMPERIAL](docs/imperial.md)
+- [iPOP-UP](docs/ipop_up.md)
 - [JAX](docs/jax.md)
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
@@ -217,6 +219,8 @@ Currently documentation is available for the following pipelines within specific
   - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
+- funcscan
+  - [HKI](docs/pipeline/funcscan/hki.md)
 - mag
   - [Engaging](docs/pipeline/mag/engaging.md)
   - [EVA](docs/pipeline/mag/eva.md)
