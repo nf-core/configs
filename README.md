@@ -121,7 +121,6 @@ Currently documentation is available for the following systems:
 - [GIS](docs/gis.md)
 - [GOOGLE](docs/google.md)
 - [HASTA](docs/hasta.md)
-- [HEBBE](docs/hebbe.md)
 - [HKI](docs/hki.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IFB](docs/ifb_core.md)
