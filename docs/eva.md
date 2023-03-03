@@ -9,6 +9,9 @@ Using this profile, a docker image containing all of the required software will 
 Institute-specific pipeline profiles exists for:
 
 - eager
+- mag
+- sarek
+- taxprofiler
 
 ## Additional Profiles
 
