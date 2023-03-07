@@ -18,3 +18,7 @@ The SeaWulf config  will use singularity to download and run all the containers 
 module load openjdk
 module load nextflow/latest
 ```
+# Access to SeaWulf
+The SeaWulf cluster is available to researchers at Stony Brook University.
+Please see our [FAQ Page](https://it.stonybrook.edu/services/high-performance-computing) 
+for instructions on getting access.
