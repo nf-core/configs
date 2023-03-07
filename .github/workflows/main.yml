@@ -94,6 +94,7 @@ jobs:
           - "sbc_sharc"
           - "scw"
           - "seg_globe"
+          - "seawulf"
           - "tigem"
           - "ucl_myriad"
           - "uct_hpc"
