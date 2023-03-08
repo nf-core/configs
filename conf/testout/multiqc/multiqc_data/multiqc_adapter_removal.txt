@@ -1,3 +1,0 @@
-Sample	total	unaligned	aligned	reads_total	retained	percent_aligned	discarded_m1	singleton_m1	discarded_m2	singleton_m2	full-length_cp	truncated_cp	aligned_total	unaligned_total	discarded_total	paired_reads	percent_collapsed	percent_discarded
-JK2782_TGGCCGATCAACGA_L008_R1_001	10000	33	9967	20000	9892	99.67	145	8	152	1	18944	678	19934	66	10108	72	98.11	1.485
-JK2802_AGAATAACCTACCA_L008_R1_001	10000	613	9387	10000	9828	93.87	172	9828	0	0	0	0	9387	613	172			1.72

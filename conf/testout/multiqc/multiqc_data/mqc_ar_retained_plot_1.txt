@@ -1,3 +1,0 @@
-Sample	Uncollapsed Paired Reads	Singleton R1	Singleton R2	Full-length Collapsed Reads	Truncated Collapsed Reads	Discarded R1	Discarded R2
-JK2782_TGGCCGATCAACGA_L008_R1_001	72.0	8.0	1.0	18944.0	678.0	145.0	152.0
-JK2802_AGAATAACCTACCA_L008_R1_001	nan	9828.0	0.0	0.0	0.0	172.0	0.0

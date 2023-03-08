@@ -1,7 +1,0 @@
-	0.0	1000.0
-JK2782_PE	0.0	905.0
-	0.0	1000.0
-JK2802_SE	0.0	927.0
-	0	741.6
-a perfect library where each read is unique	0	741.6
-

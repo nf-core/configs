@@ -1,9 +1,0 @@
-10.1093/bioinformatics/btw354                      # MultiQC
-10.1186/s13104-016-1900-2                          # adapterRemoval
-10.1186/1756-0500-5-337                            # adapterRemoval
-10.1093/bioinformatics/btp352                      # Samtools
-10.1038/nmeth.2375                                 # preseq
-10.1093/bioinformatics/btab190                     # damageprofiler
-10.1093/bioinformatics/btv566                      # qualimap
-10.1093/bioinformatics/bts503                      # qualimap
-

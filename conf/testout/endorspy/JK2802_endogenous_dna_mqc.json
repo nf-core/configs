@@ -1,1 +1,0 @@
-{"id": "endorSpy", "plot_type": "generalstats", "pconfig": {"endogenous_dna": {"max": 100, "min": 0, "title": "Endogenous DNA (%)", "format": "{:,.2f}"}}, "data": {"JK2802": {"endogenous_dna": 16.483516}}}
