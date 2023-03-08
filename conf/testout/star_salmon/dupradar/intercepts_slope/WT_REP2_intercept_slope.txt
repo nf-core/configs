@@ -1,0 +1,2 @@
+WT_REP2 - dupRadar Int (duprate at low read counts): 0.000191469410841821 
+WT_REP2 - dupRadar Sl (progression of the duplication rate): 6.49733595541403

@@ -1,0 +1,6 @@
+Sample	total_reads	avg_input_read_length	uniquely_mapped	uniquely_mapped_percent	avg_mapped_read_length	num_splices	num_annotated_splices	num_GTAG_splices	num_GCAG_splices	num_ATAC_splices	num_noncanonical_splices	mismatch_rate	deletion_rate	deletion_length	insertion_rate	insertion_length	multimapped	multimapped_percent	multimapped_toomany	multimapped_toomany_percent	unmapped_mismatches_percent	unmapped_tooshort_percent	unmapped_other_percent	unmapped_mismatches	unmapped_tooshort	unmapped_other
+RAP1_IAA_30M_REP1	49593.0	198.0	44853.0	90.44	196.85	641.0	528.0	608.0	1.0	5.0	27.0	0.84	0.02	1.16	0.0	1.1	916.0	1.85	0.0	0.0	0.0	2.66	5.05	0	1319	2505
+RAP1_UNINDUCED_REP1	48567.0	99.0	46603.0	95.96	98.67	315.0	235.0	312.0	0.0	0.0	3.0	1.11	0.02	1.23	0.0	1.2	1110.0	2.29	0.0	0.0	0.0	1.55	0.2	0	756	98
+RAP1_UNINDUCED_REP2	97654.0	99.0	93598.0	95.85	98.79	633.0	489.0	621.0	1.0	0.0	11.0	1.11	0.02	1.3	0.0	1.2	2245.0	2.3	1.0	0.0	0.0	1.65	0.21	0	1606	204
+WT_REP1	99225.0	198.0	88305.0	88.99	196.46	1407.0	1152.0	1333.0	3.0	3.0	68.0	0.91	0.02	1.16	0.0	1.11	1996.0	2.01	0.0	0.0	0.0	3.53	5.46	0	3504	5420
+WT_REP2	49551.0	198.0	44368.0	89.54	196.44	762.0	644.0	724.0	3.0	0.0	35.0	0.86	0.02	1.16	0.0	1.13	987.0	1.99	0.0	0.0	0.0	3.11	5.36	0	1541	2655

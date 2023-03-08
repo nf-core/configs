@@ -1,0 +1,13 @@
+#id: 'biotype-gs'
+#plot_type: 'generalstats'
+#pconfig:
+#    percent_rRNA:
+#        title: '% rRNA'
+#        namespace: 'Biotype Counts'
+#        description: '% reads overlapping rRNA features'
+#        max: 100
+#        min: 0
+#        scale: 'RdYlGn-rev'
+#        format: '{:.2f}%'
+Sample	percent_rRNA
+'RAP1_UNINDUCED_REP2'	0

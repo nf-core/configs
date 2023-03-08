@@ -1,0 +1,53 @@
+[2023-03-08 12:49:53.285] [jointLog] [info] setting maxHashResizeThreads to 2
+[2023-03-08 12:49:53.285] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2023-03-08 12:49:53.285] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2023-03-08 12:49:53.285] [jointLog] [info] Setting consensusSlack to selective-alignment default of 0.35.
+[2023-03-08 12:49:53.285] [jointLog] [info] parsing read library format
+[2023-03-08 12:49:53.286] [jointLog] [info] There is 1 library.
+[2023-03-08 12:49:53.288] [jointLog] [info] Loading pufferfish index
+[2023-03-08 12:49:53.289] [jointLog] [info] Loading dense pufferfish index.
+[2023-03-08 12:49:53.444] [jointLog] [info] done
+[2023-03-08 12:49:53.486] [jointLog] [info] Index contained 126 targets
+[2023-03-08 12:49:53.487] [jointLog] [info] Number of decoys : 1
+[2023-03-08 12:49:53.487] [jointLog] [info] First decoy index : 125 
+[2023-03-08 12:49:53.668] [jointLog] [info] Computed 117 rich equivalence classes for further processing
+[2023-03-08 12:49:53.668] [jointLog] [info] Counted 39585 total reads in the equivalence classes 
+[2023-03-08 12:49:53.669] [jointLog] [warning] 0.00411802% of fragments were shorter than the k used to build the index.
+If this fraction is too large, consider re-building the index with a smaller k.
+The minimum read size found was 26.
+
+
+[2023-03-08 12:49:53.669] [jointLog] [info] Number of mappings discarded because of alignment score : 2037
+[2023-03-08 12:49:53.669] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 2391
+[2023-03-08 12:49:53.669] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 1817
+[2023-03-08 12:49:53.669] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 0
+[2023-03-08 12:49:53.669] [jointLog] [warning] Only 39585 fragments were mapped, but the number of burn-in fragments was set to 5000000.
+The effective lengths have been computed using the observed mappings.
+
+[2023-03-08 12:49:53.669] [jointLog] [info] Mapping rate = 81.506%
+
+[2023-03-08 12:49:53.669] [jointLog] [info] finished quantifyLibrary()
+[2023-03-08 12:49:53.670] [jointLog] [info] Starting optimizer
+[2023-03-08 12:49:53.671] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2023-03-08 12:49:53.671] [jointLog] [info] iteration = 0 | max rel diff. = 1085.31
+[2023-03-08 12:49:53.673] [jointLog] [info] iteration = 100 | max rel diff. = 0.000112866
+[2023-03-08 12:49:53.673] [jointLog] [info] Finished optimizer
+[2023-03-08 12:49:53.673] [jointLog] [info] writing output 
+
+[2023-03-08 12:49:53.675] [jointLog] [info] Computing gene-level abundance estimates
+[2023-03-08 12:49:53.687] [jointLog] [warning] Feature has no GFF ID
+[2023-03-08 12:49:53.687] [jointLog] [warning] Feature has no GFF ID
+[2023-03-08 12:49:53.687] [jointLog] [info] There were 124 transcripts mapping to 124 genes
+[2023-03-08 12:49:53.687] [jointLog] [info] NOTE: We recommend using tximport (https://bioconductor.org/packages/release/bioc/html/tximport.html) for aggregating transcript-level salmon abundance estimates to the gene level.  It is more versatile, exposes more features, and allows considering multi-sample information during aggregation.
+[2023-03-08 12:49:53.688] [jointLog] [warning] couldn't find transcript named [Gfp_transgene_gene] in transcript <-> gene map; returning transcript as it's own gene
+[2023-03-08 12:49:53.688] [jointLog] [info] Aggregating expressions to gene level
+[2023-03-08 12:49:53.689] [jointLog] [info] done
+[2023-03-08 12:49:53.689] [jointLog] [warning] NOTE: Read Lib [[ RAP1_UNINDUCED_REP1_primary.fastq.gz ]] :
+
+Detected a *potential* strand bias > 1% in an unstranded protocol check the file: RAP1_UNINDUCED_REP1/lib_format_counts.json for details
+
+[2023-03-08 12:49:53.668] [fileLog] [info] 
+At end of round 0
+==================
+Observed 48567 total fragments (48567 in most recent round)
+

@@ -1,0 +1,6 @@
+Sample	Known Splicing Junctions	Novel Splicing Junctions
+RAP1_IAA_30M_REP1	3.0	60.0
+RAP1_UNINDUCED_REP1	2.0	40.0
+RAP1_UNINDUCED_REP2	3.0	60.0
+WT_REP1	3.0	120.0
+WT_REP2	2.0	63.0

@@ -1,0 +1,35 @@
+nf-core/eager	v2.4.6
+Nextflow	v22.10.7
+FastQC	v0.11.9
+MultiQC	v1.13
+AdapterRemoval	v2.3.2
+fastP	v0.20.1
+BWA	v0.7.17-r1188
+Bowtie2	v2.4.4
+circulargenerator	v1.0
+Samtools	v1.12
+endorS.py	v0.4
+DeDup	v0.12.8
+Picard MarkDuplicates	v2.26.0
+Qualimap	v2.2.2-dev
+Preseq	v3.1.1
+GATK HaplotypeCaller	v4.2.0.0
+GATK UnifiedGenotyper	v3.5-0-g36282e4
+freebayes	v1.3.5
+sequenceTools	v1.5.2
+VCF2genome	v0.91
+MTNucRatioCalculator	v0.7
+bedtools	v2.30.0
+DamageProfiler	v0.4.9
+bamUtil	v1.0.15
+pmdtools	v0.50
+angsd	v0.935
+sexdeterrmine	v1.1.2
+multivcfanalyzer	v0.85.2
+malt	v0.6.1
+kraken	v2.1.2
+maltextract	v1.7
+eigenstrat_snp_coverage	v1.0.2
+mapDamage2	v2.2.1
+bbduk	v38.92
+bcftools	v1.12

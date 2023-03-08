@@ -1,0 +1,3 @@
+Sample	bam_file	total_reads	mapped_reads	mapped_bases	sequenced_bases	mean_insert_size	median_insert_size	mean_mapping_quality	general_error_rate	mean_coverage	percentage_aligned
+JK2782	JK2782_rmdup.bam	9802.0	1160.0	96794.0	96783.0	0.0	0.0	35.8485	0.0111	5.7719	11.834319526627219
+JK2802	JK2802_rmdup.bam	9702.0	1494.0	106196.0	106192.0	0.0	0.0	35.6187	0.0162	6.3325	15.398886827458256

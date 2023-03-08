@@ -1,0 +1,3 @@
+#name	%unambiguousReads	unambiguousMB	%ambiguousReads	ambiguousMB	unambiguousReads	ambiguousReads	assignedReads	assignedBases
+primary	99.60033	9.841570	0.00201	0.000109	99184	2	99184	9841570
+human	0.00000	0.000000	0.00201	0.000109	0	2	2	109

@@ -1,0 +1,6 @@
+Sample	bam_file	reads_aligned	total_alignments	non_unique_alignments	reads_aligned_genes	ambiguous_alignments	not_aligned	5_3_bias	reads_aligned_exonic	reads_aligned_intronic	reads_aligned_intergenic	reads_aligned_overlapping_exon
+RAP1_IAA_30M_REP1	RAP1_IAA_30M_REP1.markdup.sorted.bam	45767.0	94470.0	4766.0	75498.0	0.0	0.0	0.88	75498.0	138.0	14068.0	5338.0
+RAP1_UNINDUCED_REP1	RAP1_UNINDUCED_REP1.markdup.sorted.bam	47713.0	48977.0	2374.0	34554.0	5762.0	0.0	0.95	34554.0	23.0	6264.0	3514.0
+RAP1_UNINDUCED_REP2	RAP1_UNINDUCED_REP2.markdup.sorted.bam	95843.0	98201.0	4603.0	80387.0	11.0	0.0	0.94	80387.0	47.0	13153.0	7043.0
+WT_REP1	WT_REP1.markdup.sorted.bam	90298.0	187107.0	10500.0	146127.0	6.0	0.0	1.07	146127.0	268.0	30206.0	10386.0
+WT_REP2	WT_REP2.markdup.sorted.bam	45354.0	93895.0	5160.0	73668.0	2.0	0.0	1.17	73668.0	152.0	14913.0	5333.0

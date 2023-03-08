@@ -1,0 +1,9 @@
+10.1093/bioinformatics/btw354                      # MultiQC
+10.1093/bioinformatics/btv566                      # qualimap
+10.1093/bioinformatics/bts503                      # qualimap
+10.1093/bioinformatics/bts356                      # rseqc
+10.1038/nmeth.4197                                 # salmon
+10.1093/bioinformatics/btp352                      # Samtools
+10.1093/bioinformatics/bts635                      # star
+10.14806/ej.17.1.200                               # cutadapt
+

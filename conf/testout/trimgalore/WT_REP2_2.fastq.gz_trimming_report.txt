@@ -1,0 +1,120 @@
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: WT_REP2_2.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.7
+Cutadapt version: 3.4
+Number of cores used for trimming: 1
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Using Illumina adapter for trimming (count: 2049). Second best hit was smallRNA (count: 0)
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; auto-detected)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Running FastQC with the following extra arguments: -t 2
+Output file will be GZIP compressed
+
+
+This is cutadapt 3.4 with Python 3.9.6
+Command line parameters: -j 1 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC WT_REP2_2.fastq.gz
+Processing reads on 1 core in single-end mode ...
+Finished in 0.92 s (18 µs/read; 3.27 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:                  50,000
+Reads with adapters:                    22,442 (44.9%)
+Reads written (passing filters):        50,000 (100.0%)
+
+Total basepairs processed:     5,050,000 bp
+Quality-trimmed:                  31,792 bp (0.6%)
+Total written (filtered):      4,930,261 bp (97.6%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 22442 times
+
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 35.0%
+  C: 27.4%
+  G: 19.8%
+  T: 17.8%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	13977	12500.0	0	13977
+2	2882	3125.0	0	2882
+3	1331	781.2	0	1331
+4	452	195.3	0	452
+5	308	48.8	0	308
+6	238	12.2	0	238
+7	245	3.1	0	245
+8	231	0.8	0	231
+9	173	0.2	0	168 5
+10	197	0.0	1	193 4
+11	168	0.0	1	162 6
+12	169	0.0	1	166 3
+13	120	0.0	1	114 6
+14	173	0.0	1	168 5
+15	127	0.0	1	118 9
+16	131	0.0	1	128 3
+17	153	0.0	1	147 6
+18	78	0.0	1	76 2
+19	116	0.0	1	112 4
+20	112	0.0	1	107 5
+21	68	0.0	1	68
+22	78	0.0	1	76 2
+23	81	0.0	1	76 5
+24	81	0.0	1	80 1
+25	81	0.0	1	81
+26	62	0.0	1	60 2
+27	62	0.0	1	59 3
+28	59	0.0	1	58 1
+29	50	0.0	1	48 2
+30	51	0.0	1	46 5
+31	26	0.0	1	24 2
+32	31	0.0	1	30 1
+33	28	0.0	1	26 2
+34	43	0.0	1	40 3
+35	30	0.0	1	29 1
+36	25	0.0	1	25
+37	19	0.0	1	19
+38	21	0.0	1	21
+39	23	0.0	1	23
+40	14	0.0	1	12 2
+41	18	0.0	1	18
+42	11	0.0	1	11
+43	13	0.0	1	13
+44	7	0.0	1	7
+45	9	0.0	1	9
+46	8	0.0	1	8
+47	10	0.0	1	10
+48	6	0.0	1	6
+49	11	0.0	1	10 1
+50	2	0.0	1	2
+51	6	0.0	1	6
+52	2	0.0	1	2
+53	5	0.0	1	5
+54	4	0.0	1	4
+55	3	0.0	1	3
+56	2	0.0	1	2
+57	4	0.0	1	4
+58	2	0.0	1	2
+59	1	0.0	1	1
+61	3	0.0	1	3
+62	1	0.0	1	1
+
+RUN STATISTICS FOR INPUT FILE: WT_REP2_2.fastq.gz
+=============================================
+50000 sequences processed in total
+
+Total number of sequences analysed for the sequence pair length validation: 50000
+
+Number of sequence pairs removed because at least one read was shorter than the length cutoff (20 bp): 240 (0.48%)

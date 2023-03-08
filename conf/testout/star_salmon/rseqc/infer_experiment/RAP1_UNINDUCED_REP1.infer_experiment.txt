@@ -1,0 +1,6 @@
+
+
+This is SingleEnd Data
+Fraction of reads failed to determine: 0.1233
+Fraction of reads explained by "++,--": 0.0228
+Fraction of reads explained by "+-,-+": 0.8540

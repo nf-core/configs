@@ -1,0 +1,2 @@
+Sample	Provided strandedness	Inferred strandedness	Sense (%)	Antisense (%)	Undetermined (%)
+RAP1_UNINDUCED_REP1	unstranded	reverse	2.280000038444996	85.39999723434448	12.330000102519989

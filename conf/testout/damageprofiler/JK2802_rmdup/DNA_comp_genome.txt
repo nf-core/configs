@@ -1,0 +1,10 @@
+# table produced by calculations.DamageProfiler
+# using mapped file JK2802_rmdup.bam
+# Sample ID: JK2802_rmdup.bam
+DNA base frequencies Sample
+A	C	G	T
+0.3077200085648103	0.1934771183306406	0.1904551028750511	0.308347770229498
+
+DNA base frequencies Reference
+A	C	G	T
+0.3010434511758293	0.1994919015729637	0.19731155583242485	0.3021530914187821

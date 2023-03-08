@@ -1,0 +1,40 @@
+R version 4.0.3 (2020-10-10)
+Platform: x86_64-conda-linux-gnu (64-bit)
+Running under: Buildroot 2014.02
+
+Matrix products: default
+BLAS/LAPACK: /usr/local/lib/libopenblasp-r0.3.10.so
+
+locale:
+[1] C
+
+attached base packages:
+[1] parallel  stats4    stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] pheatmap_1.0.12             RColorBrewer_1.1-2         
+ [3] ggplot2_3.3.2               DESeq2_1.28.0              
+ [5] SummarizedExperiment_1.18.1 DelayedArray_0.14.0        
+ [7] matrixStats_0.57.0          Biobase_2.48.0             
+ [9] GenomicRanges_1.40.0        GenomeInfoDb_1.24.0        
+[11] IRanges_2.22.1              S4Vectors_0.26.0           
+[13] BiocGenerics_0.34.0         optparse_1.6.6             
+
+loaded via a namespace (and not attached):
+ [1] genefilter_1.70.0      locfit_1.5-9.4         splines_4.0.3         
+ [4] lattice_0.20-41        colorspace_1.4-1       vctrs_0.3.4           
+ [7] getopt_1.20.3          blob_1.2.1             survival_3.2-7        
+[10] XML_3.99-0.3           rlang_0.4.7            pillar_1.4.6          
+[13] glue_1.4.2             withr_2.3.0            DBI_1.1.0             
+[16] BiocParallel_1.22.0    bit64_4.0.5            GenomeInfoDbData_1.2.3
+[19] lifecycle_0.2.0        zlibbioc_1.34.0        munsell_0.5.0         
+[22] gtable_0.3.0           memoise_1.1.0          labeling_0.4.2        
+[25] geneplotter_1.66.0     AnnotationDbi_1.50.0   Rcpp_1.0.4.6          
+[28] xtable_1.8-4           scales_1.1.1           annotate_1.66.0       
+[31] XVector_0.28.0         farver_2.0.3           bit_4.0.4             
+[34] digest_0.6.26          grid_4.0.3             tools_4.0.3           
+[37] bitops_1.0-6           magrittr_1.5           RCurl_1.98-1.2        
+[40] RSQLite_2.2.1          tibble_3.0.4           crayon_1.3.4          
+[43] pkgconfig_2.0.3        ellipsis_0.3.1         Matrix_1.2-18         
+[46] R6_2.4.1               compiler_4.0.3        

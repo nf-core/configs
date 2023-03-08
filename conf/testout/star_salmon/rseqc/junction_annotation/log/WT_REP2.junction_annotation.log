@@ -1,0 +1,18 @@
+Reading reference bed file:  genome_gfp.bed  ...  Done
+Load BAM file ...  Done
+
+===================================================================
+Total splicing  Events:	701
+Known Splicing Events:	369
+Partial Novel Splicing Events:	0
+Novel Splicing Events:	268
+Filtered Splicing Events:	64
+
+Total splicing  Junctions:	65
+Known Splicing Junctions:	2
+Partial Novel Splicing Junctions:	0
+Novel Splicing Junctions:	63
+
+===================================================================
+Create BED file ...
+Create Interact file ...

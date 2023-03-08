@@ -1,0 +1,8 @@
+pdf("WT_REP2.splice_events.pdf")
+events=c(0.0,38.23109843081313,52.639087018544934)
+pie(events,col=c(2,3,4),init.angle=30,angle=c(60,120,150),density=c(70,70,70),main="splicing events",labels=c("partial_novel 0%","complete_novel 38%","known 53%"))
+dev.off()
+pdf("WT_REP2.splice_junction.pdf")
+junction=c(0.0,96.92307692307692,3.076923076923077)
+pie(junction,col=c(2,3,4),init.angle=30,angle=c(60,120,150),density=c(70,70,70),main="splicing junctions",labels=c("partial_novel 0%","complete_novel 97%","known 3%"))
+dev.off()

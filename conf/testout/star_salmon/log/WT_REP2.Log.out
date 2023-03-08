@@ -1,0 +1,181 @@
+STAR version=2.7.9a
+STAR compilation time,server,dir=2021-05-04T09:43:56-0400 vega:/home/dobin/data/STAR/STARcode/STAR.master/source
+##### Command Line:
+STAR --genomeDir star --readFilesIn WT_REP2_primary_1.fastq.gz WT_REP2_primary_2.fastq.gz --runThreadN 2 --outFileNamePrefix WT_REP2. --sjdbGTFfile genome_gfp.gtf --outSAMattrRGline ID:WT_REP2 SM:WT_REP2 --quantMode TranscriptomeSAM --twopassMode Basic --outSAMtype BAM Unsorted --readFilesCommand zcat --runRNGseed 0 --outFilterMultimapNmax 20 --alignSJDBoverhangMin 1 --outSAMattributes NH HI AS NM MD --quantTranscriptomeBan Singleend --outSAMstrandField intronMotif
+##### Initial USER parameters from Command Line:
+outFileNamePrefix                 WT_REP2.
+###### All USER parameters from Command Line:
+genomeDir                     star     ~RE-DEFINED
+readFilesIn                   WT_REP2_primary_1.fastq.gz   WT_REP2_primary_2.fastq.gz        ~RE-DEFINED
+runThreadN                    2     ~RE-DEFINED
+outFileNamePrefix             WT_REP2.     ~RE-DEFINED
+sjdbGTFfile                   genome_gfp.gtf     ~RE-DEFINED
+outSAMattrRGline              ID:WT_REP2   SM:WT_REP2        ~RE-DEFINED
+quantMode                     TranscriptomeSAM        ~RE-DEFINED
+twopassMode                   Basic     ~RE-DEFINED
+outSAMtype                    BAM   Unsorted        ~RE-DEFINED
+readFilesCommand              zcat        ~RE-DEFINED
+runRNGseed                    0     ~RE-DEFINED
+outFilterMultimapNmax         20     ~RE-DEFINED
+alignSJDBoverhangMin          1     ~RE-DEFINED
+outSAMattributes              NH   HI   AS   NM   MD        ~RE-DEFINED
+quantTranscriptomeBan         Singleend     ~RE-DEFINED
+outSAMstrandField             intronMotif     ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runThreadN                        2
+runRNGseed                        0
+genomeDir                         star
+readFilesIn                       WT_REP2_primary_1.fastq.gz   WT_REP2_primary_2.fastq.gz   
+readFilesCommand                  zcat   
+outFileNamePrefix                 WT_REP2.
+outSAMtype                        BAM   Unsorted   
+outSAMstrandField                 intronMotif
+outSAMattributes                  NH   HI   AS   NM   MD   
+outSAMattrRGline                  ID:WT_REP2   SM:WT_REP2   
+outFilterMultimapNmax             20
+alignSJDBoverhangMin              1
+sjdbGTFfile                       genome_gfp.gtf
+quantMode                         TranscriptomeSAM   
+quantTranscriptomeBan             Singleend
+twopassMode                       Basic
+
+-------------------------------
+##### Final effective command line:
+STAR   --runThreadN 2   --runRNGseed 0   --genomeDir star   --readFilesIn WT_REP2_primary_1.fastq.gz   WT_REP2_primary_2.fastq.gz      --readFilesCommand zcat      --outFileNamePrefix WT_REP2.   --outSAMtype BAM   Unsorted      --outSAMstrandField intronMotif   --outSAMattributes NH   HI   AS   NM   MD      --outSAMattrRGline ID:WT_REP2   SM:WT_REP2      --outFilterMultimapNmax 20   --alignSJDBoverhangMin 1   --sjdbGTFfile genome_gfp.gtf   --quantMode TranscriptomeSAM      --quantTranscriptomeBan Singleend   --twopassMode Basic
+----------------------------------------
+
+Number of fastq files for each mate = 1
+
+   Input read files for mate 1 :
+-rw-rw-r--    1 decarlso Genomics   2730776 Mar  8 12:45 WT_REP2_primary_1.fastq.gz
+
+   readsCommandsFile:
+exec > "WT_REP2._STARtmp/tmp.fifo.read1"
+echo FILE 0
+zcat      "WT_REP2_primary_1.fastq.gz"
+
+
+   Input read files for mate 2 :
+-rw-rw-r--    1 decarlso Genomics   2742390 Mar  8 12:45 WT_REP2_primary_2.fastq.gz
+
+   readsCommandsFile:
+exec > "WT_REP2._STARtmp/tmp.fifo.read2"
+echo FILE 0
+zcat      "WT_REP2_primary_2.fastq.gz"
+
+WARNING --outSAMattrRG defines a read group, therefore STAR will output RG attribute
+WARNING --outSAMstrandField=intronMotif, therefore STAR will output XS attribute
+ParametersSolo: --soloCellFilterType CellRanger2.2 filtering parameters:  3000 0.99 10
+Finished loading and checking parameters
+Reading genome generation parameters:
+### STAR   --runMode genomeGenerate      --runThreadN 2   --genomeDir star/   --genomeFastaFiles genome_gfp.fasta      --genomeSAindexNbases 8   --limitGenomeGenerateRAM 6342450944   --sjdbGTFfile genome_gfp.gtf
+### GstrandBit=32
+versionGenome                 2.7.4a     ~RE-DEFINED
+genomeType                    Full     ~RE-DEFINED
+genomeFastaFiles              genome_gfp.fasta        ~RE-DEFINED
+genomeSAindexNbases           8     ~RE-DEFINED
+genomeChrBinNbits             18     ~RE-DEFINED
+genomeSAsparseD               1     ~RE-DEFINED
+genomeTransformType           None     ~RE-DEFINED
+genomeTransformVCF            -     ~RE-DEFINED
+sjdbOverhang                  100     ~RE-DEFINED
+sjdbFileChrStartEnd           -        ~RE-DEFINED
+sjdbGTFfile                   genome_gfp.gtf     ~RE-DEFINED
+sjdbGTFchrPrefix              -     ~RE-DEFINED
+sjdbGTFfeatureExon            exon     ~RE-DEFINED
+sjdbGTFtagExonParentTranscripttranscript_id     ~RE-DEFINED
+sjdbGTFtagExonParentGene      gene_id     ~RE-DEFINED
+sjdbInsertSave                Basic     ~RE-DEFINED
+genomeFileSizes               525293   1913566        ~RE-DEFINED
+Genome version is compatible with current STAR
+Number of real (reference) chromosomes= 2
+1	I	230218	0
+2	Gfp_transgene	729	262144
+--sjdbOverhang = 100 taken from the generated genome
+Started loading the genome: Wed Mar  8 12:46:09 2023
+
+Genome: size given as a parameter = 525293
+SA: size given as a parameter = 1913566
+SAindex: size given as a parameter = 1
+Read from SAindex: pGe.gSAindexNbases=8  nSAi=87380
+nGenome=525293;  nSAbyte=1913566
+GstrandBit=32   SA number of indices=463894
+Shared memory is not used for genomes. Allocated a private copy of the genome.
+Genome file size: 525293 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading Genome ... done! state: good=1 eof=0 fail=0 bad=0; loaded 525293 bytes
+SA file size: 1913566 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading SA ... done! state: good=1 eof=0 fail=0 bad=0; loaded 1913566 bytes
+Loading SAindex ... done: 382371 bytes
+Finished loading the genome: Wed Mar  8 12:46:09 2023
+
+Processing splice junctions database sjdbN=5,   pGe.sjdbOverhang=100 
+alignIntronMax=alignMatesGapMax=0, the max intron size will be approximately determined by (2^winBinNbits)*winAnchorDistNbins=589824
+Mar 08 12:46:09   Loaded database junctions from the generated genome star//sjdbList.out.tab: 5 total junctions
+
+Mar 08 12:46:09 ..... processing annotations GTF
+Processing pGe.sjdbGTFfile=genome_gfp.gtf, found:
+		125 transcripts
+		130 exons (non-collapsed)
+		5 collapsed junctions
+Total junctions: 10
+Mar 08 12:46:09 ..... finished GTF processing
+
+Mar 08 12:46:09   Finished preparing junctions
+Mar 08 12:46:09 ..... inserting junctions into the genome indices
+Mar 08 12:46:09   Finished SA search: number of new junctions=0, old junctions=5
+Mar 08 12:46:09   Finished sorting SA indicesL nInd=0
+Genome size with junctions=525293  524288   1005
+GstrandBit1=32   GstrandBit=32
+Mar 08 12:46:09   Finished inserting junction indices
+Mar 08 12:46:09   Finished SAi
+Mar 08 12:46:09 ..... finished inserting junctions into genome
+Created thread # 1
+Starting to map file # 0
+mate 1:   WT_REP2_primary_1.fastq.gz
+mate 2:   WT_REP2_primary_2.fastq.gz
+Thread #0 end of input stream, nextChar=-1
+Completed: thread #1
+Completed: thread #0
+Joined thread # 1
+Mar 08 12:46:43   Loaded database junctions from the 1st pass file: WT_REP2._STARpass1//SJ.out.tab: 31 total junctions
+
+Mar 08 12:46:43   Finished preparing junctions
+Mar 08 12:46:43 ..... inserting junctions into the genome indices
+Mar 08 12:46:43   Finished SA search: number of new junctions=19, old junctions=5
+Mar 08 12:46:43   Finished sorting SA indicesL nInd=7600
+Genome size with junctions=529112  524288   4824
+GstrandBit1=32   GstrandBit=32
+Mar 08 12:46:43   Finished inserting junction indices
+Mar 08 12:46:43   Finished SAi
+Mar 08 12:46:43 ..... finished inserting junctions into genome
+
+   Input read files for mate 1 :
+-rw-rw-r--    1 decarlso Genomics   2730776 Mar  8 12:45 WT_REP2_primary_1.fastq.gz
+
+   readsCommandsFile:
+exec > "WT_REP2._STARtmp/tmp.fifo.read1"
+echo FILE 0
+zcat      "WT_REP2_primary_1.fastq.gz"
+
+
+   Input read files for mate 2 :
+-rw-rw-r--    1 decarlso Genomics   2742390 Mar  8 12:45 WT_REP2_primary_2.fastq.gz
+
+   readsCommandsFile:
+exec > "WT_REP2._STARtmp/tmp.fifo.read2"
+echo FILE 0
+zcat      "WT_REP2_primary_2.fastq.gz"
+
+Loaded transcript database, nTr=125
+Loaded exon database, nEx=130
+Created thread # 1
+Starting to map file # 0
+mate 1:   WT_REP2_primary_1.fastq.gz
+mate 2:   WT_REP2_primary_2.fastq.gz
+Thread #0 end of input stream, nextChar=-1
+Completed: thread #1
+Completed: thread #0
+Joined thread # 1
+ALL DONE!

@@ -1,0 +1,10 @@
+{
+    "salmon_version": "1.9.0",
+    "geneMap": "genome_gfp.gtf",
+    "threads": "2",
+    "libType": "U",
+    "index": "salmon",
+    "unmatedReads": "RAP1_UNINDUCED_REP1_primary.fastq.gz",
+    "output": "RAP1_UNINDUCED_REP1",
+    "auxDir": "aux_info"
+}

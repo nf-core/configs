@@ -1,0 +1,11 @@
+{
+    "salmon_version": "1.9.0",
+    "geneMap": "genome_gfp.gtf",
+    "threads": "2",
+    "libType": "ISR",
+    "index": "salmon",
+    "mates1": "RAP1_IAA_30M_REP1_primary_1.fastq.gz",
+    "mates2": "RAP1_IAA_30M_REP1_primary_2.fastq.gz",
+    "output": "RAP1_IAA_30M_REP1",
+    "auxDir": "aux_info"
+}

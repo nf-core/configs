@@ -1,0 +1,3 @@
+Sample	Unique Unpaired	Duplicate Unpaired	Unmapped
+JK2782	1160.0	90.0	8642.0
+JK2802	1494.0	126.0	8208.0

@@ -1,0 +1,6 @@
+Sample	total_splicing_events	known_splicing_events	partial_novel_splicing_events	novel_splicing_events	total_splicing_junctions	known_splicing_junctions	partial_novel_splicing_junctions	novel_splicing_junctions	known_splicing_events_pct	partial_novel_splicing_events_pct	novel_splicing_events_pct	known_splicing_junctions_pct	partial_novel_splicing_junctions_pct	novel_splicing_junctions_pct
+RAP1_IAA_30M_REP1	587	317	0	213	63	3	0	60	54.00340715502555	0.0	36.28620102214651	4.761904761904762	0.0	95.23809523809523
+RAP1_UNINDUCED_REP1	116	50	0	62	42	2	0	40	43.103448275862064	0.0	53.44827586206896	4.761904761904762	0.0	95.23809523809523
+RAP1_UNINDUCED_REP2	173	78	0	88	63	3	0	60	45.08670520231214	0.0	50.86705202312138	4.761904761904762	0.0	95.23809523809523
+WT_REP1	1202	548	0	537	123	3	0	120	45.59068219633943	0.0	44.67554076539101	2.4390243902439024	0.0	97.5609756097561
+WT_REP2	701	369	0	268	65	2	0	63	52.63908701854494	0.0	38.23109843081313	3.076923076923077	0.0	96.92307692307692

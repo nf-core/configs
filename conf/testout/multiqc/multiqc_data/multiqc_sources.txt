@@ -1,0 +1,22 @@
+Module	Section	Sample Name	Source
+FastQC (pre-Trimming)	all_sections	JK2782_TGGCCGATCAACGA_L008_R1_001	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/fastqc_raw/JK2782_TGGCCGATCAACGA_L008_R1_001.fastq.gz.tengrand_raw_fastqc.zip
+FastQC (pre-Trimming)	all_sections	JK2782_TGGCCGATCAACGA_L008_R2_001	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/fastqc_raw/JK2782_TGGCCGATCAACGA_L008_R2_001.fastq.gz.tengrand_raw_fastqc.zip
+FastQC (pre-Trimming)	all_sections	JK2802_AGAATAACCTACCA_L008_R1_001	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/fastqc_raw/JK2802_AGAATAACCTACCA_L008_R1_001.fastq.gz.tengrand_raw_fastqc.zip
+Adapter Removal	all_sections	JK2782_TGGCCGATCAACGA_L008_R1_001	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/adapter_removal/JK2782_TGGCCGATCAACGA_L008_R1_001.fastq.gz.tengrand.fq_L1.pe.settings
+Adapter Removal	all_sections	JK2802_AGAATAACCTACCA_L008_R1_001	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/adapter_removal/JK2802_AGAATAACCTACCA_L008_R1_001.fastq.gz.tengrand.fq_L2.se.settings
+FastQC (post-Trimming)	all_sections	JK2802_AGAATAACCTACCA_L008_R1_001	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/fastqc/JK2802_AGAATAACCTACCA_L008_R1_001.fastq.gz.tengrand.fq_L2.se.truncated_fastqc.zip
+FastQC (post-Trimming)	all_sections	JK2782_TGGCCGATCAACGA_L008_R1_001	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/fastqc/JK2782_TGGCCGATCAACGA_L008_R1_001.fastq.gz.tengrand.fq_L1.pe.combined_fastqc.zip
+Samtools Flagstat (pre-samtools filter)	flagstat	JK2782	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/flagstat/JK2782_flagstat.stats
+Samtools Flagstat (pre-samtools filter)	flagstat	JK2802	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/flagstat/JK2802_flagstat.stats
+Picard	DuplicationMetrics	JK2782	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/markdup/JK2782_rmdup.metrics
+Picard	DuplicationMetrics	JK2802	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/markdup/JK2802_rmdup.metrics
+Preseq	all_sections	JK2782_PE	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/preseq/JK2782_PE.mapped.preseq
+Preseq	all_sections	JK2802_SE	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/preseq/JK2802_SE.mapped.preseq
+DamageProfiler	all_sections	JK2782	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/damageprofiler/dmgprof8/dmgprof.json
+DamageProfiler	all_sections	JK2802	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/damageprofiler/dmgprof16/dmgprof.json
+QualiMap	genome_results	JK2802	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/qualimap/qualimap16/JK2802_rmdup_stats/genome_results.txt
+QualiMap	genome_results	JK2782	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/qualimap/qualimap8/JK2782_rmdup_stats/genome_results.txt
+QualiMap	coverage_histogram	JK2802	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/qualimap/qualimap16/JK2802_rmdup_stats/raw_data_qualimapReport/coverage_histogram.txt
+QualiMap	coverage_histogram	JK2782	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/qualimap/qualimap8/JK2782_rmdup_stats/raw_data_qualimapReport/coverage_histogram.txt
+QualiMap	mapped_gc_distribution	JK2802	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/qualimap/qualimap16/JK2802_rmdup_stats/raw_data_qualimapReport/mapped_reads_gc-content_distribution.txt
+QualiMap	mapped_gc_distribution	JK2782	/gpfs/projects/GenomicsCore/nf-core/configs/conf/work/3b/d27f2813381bbce628f895b46117bd/qualimap/qualimap8/JK2782_rmdup_stats/raw_data_qualimapReport/mapped_reads_gc-content_distribution.txt

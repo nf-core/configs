@@ -1,0 +1,9 @@
+Sample	Filename	File type	Encoding	Total Sequences	Sequences flagged as poor quality	Sequence length	%GC	total_deduplicated_percentage	avg_sequence_length	basic_statistics	per_base_sequence_quality	per_sequence_quality_scores	per_base_sequence_content	per_sequence_gc_content	per_base_n_content	sequence_length_distribution	sequence_duplication_levels	overrepresented_sequences	adapter_content
+RAP1_IAA_30M_REP1_1	RAP1_IAA_30M_REP1_1.gz	Conventional base calls	Sanger / Illumina 1.9	50000.0	0.0	101.0	40.0	34.599999999999994	101.0	pass	pass	pass	fail	warn	pass	pass	fail	warn	pass
+RAP1_IAA_30M_REP1_2	RAP1_IAA_30M_REP1_2.gz	Conventional base calls	Sanger / Illumina 1.9	50000.0	0.0	101.0	40.0	34.072	101.0	pass	pass	pass	fail	warn	pass	pass	fail	warn	pass
+RAP1_UNINDUCED_REP1	RAP1_UNINDUCED_REP1.gz	Conventional base calls	Sanger / Illumina 1.9	50000.0	0.0	101.0	40.0	34.708	101.0	pass	pass	pass	fail	warn	pass	pass	fail	warn	pass
+RAP1_UNINDUCED_REP2	RAP1_UNINDUCED_REP2.gz	Conventional base calls	Sanger / Illumina 1.9	100000.0	0.0	101.0	40.0	27.26	101.0	pass	pass	pass	fail	warn	pass	pass	fail	warn	pass
+WT_REP1_1	WT_REP1_1.gz	Conventional base calls	Sanger / Illumina 1.9	100000.0	0.0	101.0	40.0	24.928	101.0	pass	pass	pass	fail	warn	pass	pass	fail	warn	pass
+WT_REP1_2	WT_REP1_2.gz	Conventional base calls	Sanger / Illumina 1.9	100000.0	0.0	101.0	40.0	25.537	101.0	pass	pass	pass	fail	pass	pass	pass	fail	warn	pass
+WT_REP2_1	WT_REP2_1.gz	Conventional base calls	Sanger / Illumina 1.9	50000.0	0.0	101.0	40.0	32.144	101.0	pass	pass	pass	fail	warn	pass	pass	fail	warn	pass
+WT_REP2_2	WT_REP2_2.gz	Conventional base calls	Sanger / Illumina 1.9	50000.0	0.0	101.0	40.0	33.824	101.0	pass	pass	pass	fail	warn	pass	pass	fail	warn	pass
