@@ -21,3 +21,9 @@ All of the intermediate files required to run the pipeline will be stored in the
 
 > NB: You will need an account to use the HPC cluster on CAMP in order to run the pipeline. If in doubt contact IT.
 > NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
+
+## Pipeline specific profiles
+
+Specific pipeline profiles exist for the following pipelines, and will be automatically loaded when supplying `-profile crick` to your command:
+
+- eager
