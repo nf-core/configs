@@ -228,6 +228,7 @@ Currently documentation is available for the following pipelines within specific
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
 - rnaseq
+  - [AZUREBATCH](docs/pipeline/rnaseq/azurebatch.md)
   - [SBC_SHARC](docs/pipeline/rnaseq/sbc_sharc.md)
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
