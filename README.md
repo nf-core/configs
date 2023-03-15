@@ -147,6 +147,7 @@ Currently documentation is available for the following systems:
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
 - [SBC_SHARC](docs/sbc_sharc.md)
+- [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [Super Computing Wales](docs/scw.md)
 - [TIGEM](docs/tigem.md)
