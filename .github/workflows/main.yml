@@ -106,6 +106,7 @@ jobs:
           - "vai"
           - "vsc_ugent"
           - "wehi"
+          - "xanadu"
 
     steps:
       - uses: actions/checkout@v1
