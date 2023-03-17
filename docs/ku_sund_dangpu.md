@@ -38,7 +38,7 @@ mkdir $NXF_TEMP
 
 ## How to run a pipeline with institution profile
 
-To download and test a pipeline for the first time, use the `-profile test` and specify `--outdir`. It is a good practice to use the pipeline version with specifying `-r` each time you run a pipeline. `-r` refers to a revision version and is useful to ensurereproducibility when rerunning the pipeline. You can read more on nf-core pipeline reproducibility [here](https://nf-co.re/rnaseq/3.10.1/usage#reproducibility)
+To download and test a pipeline for the first time, use the `-profile test` and specify `--outdir`. It is a good practice to use the pipeline version with specifying `-r` each time you run a pipeline. `-r` refers to a revision version and is useful to ensure reproducibility when rerunning the pipeline. You can read more on nf-core pipeline reproducibility [here](https://nf-co.re/rnaseq/3.10.1/usage#reproducibility)
 
 For example to run rnaseq:
 
