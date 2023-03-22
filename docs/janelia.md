@@ -6,7 +6,7 @@ To use, run the pipeline with `-profile janelia`. This will download and launch 
 
 The latest version of Nextflow is not installed by default on the cluster. You will need to install it into your cluster account by following the installation instructions:
 
-- Install Nextflow : [here](https://www.nextflow.io/docs/latest/getstarted.html#)
+- [Install Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#)
 
 Remember to move the `nextflow` executable to `~/bin` or otherwise ensure that it's in your `PATH`.
 
@@ -39,5 +39,7 @@ if [[ $status -eq 0 ]]; then
 fi
 ```
 
-You can also use the [internal Nextflow Tower instance](https://nextflow.int.janelia.org) to run workflows on the cluster. Additional instructions for using this resource can be found on the [Janelia Wiki](https://wikis.janelia.org/display/SCSW/Using+Nextflow+Tower).
+## Using Nextflow Tower (web UI) to launch and monitor workflows
+
+You can use Janelia's [internal Nextflow Tower instance](https://nextflow.int.janelia.org) to run workflows on the cluster. Additional instructions for using this resource can be found on the [Janelia Wiki](https://wikis.janelia.org/display/SCSW/Using+Nextflow+Tower).
 
