@@ -42,4 +42,3 @@ fi
 ## Using Nextflow Tower (web UI) to launch and monitor workflows
 
 You can use Janelia's [internal Nextflow Tower instance](https://nextflow.int.janelia.org) to run workflows on the cluster. Additional instructions for using this resource can be found on the [Janelia Wiki](https://wikis.janelia.org/display/SCSW/Using+Nextflow+Tower).
-
