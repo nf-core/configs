@@ -162,6 +162,7 @@ Currently documentation is available for the following systems:
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 - [WEHI](docs/wehi.md)
+- [XANADU](docs/xanadu.md)
 
 ### Uploading to `nf-core/configs`
 
