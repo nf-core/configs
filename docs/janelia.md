@@ -29,14 +29,7 @@ nextflow run \
 /path/to/nf-core/pipeline/main.nf \
 -w /path/to/some/dir/work \
 -profile janelia \
--c my_specific.config \
--resume
-
-## clean up on exit 0 - delete this if you want to keep the work dir
-status=$?
-if [[ $status -eq 0 ]]; then
-  rm -r /path/to/some/dir/work
-fi
+-params-file my_params.json
 ```
 
 ## Using Nextflow Tower (web UI) to launch and monitor workflows
