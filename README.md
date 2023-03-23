@@ -126,6 +126,7 @@ Currently documentation is available for the following systems:
 - [IFB](docs/ifb_core.md)
 - [IMPERIAL](docs/imperial.md)
 - [iPOP-UP](docs/ipop_up.md)
+- [Janelia Research Campus](docs/janelia.md)
 - [JAX](docs/jax.md)
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
