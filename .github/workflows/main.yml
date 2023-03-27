@@ -63,6 +63,8 @@ jobs:
           - "genouest"
           - "gis"
           - "google"
+          - "googlebatch"
+          - "googlele"
           - "hasta"
           - "hki"
           - "icr_davros"
