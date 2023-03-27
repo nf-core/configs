@@ -118,6 +118,8 @@ Currently documentation is available for the following systems:
 - [GENOUEST](docs/genouest.md)
 - [GIS](docs/gis.md)
 - [GOOGLE](docs/google.md)
+- [GOOGLEBATCH](docs/googlebatch.md)
+- [GOOGLELS](docs/googlels.md)
 - [HASTA](docs/hasta.md)
 - [HEBBE](docs/hebbe.md)
 - [HKI](docs/hki.md)
