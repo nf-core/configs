@@ -63,6 +63,8 @@ jobs:
           - "genouest"
           - "gis"
           - "google"
+          - "googlebatch"
+          - "googlels"
           - "hasta"
           - "hebbe"
           - "hki"
