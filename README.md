@@ -120,6 +120,8 @@ Currently documentation is available for the following systems:
 - [GENOUEST](docs/genouest.md)
 - [GIS](docs/gis.md)
 - [GOOGLE](docs/google.md)
+- [GOOGLEBATCH](docs/googlebatch.md)
+- [GOOGLELS](docs/googlels.md)
 - [HASTA](docs/hasta.md)
 - [HKI](docs/hki.md)
 - [ICR_DAVROS](docs/icr_davros.md)
