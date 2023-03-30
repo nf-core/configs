@@ -63,12 +63,15 @@ jobs:
           - "genouest"
           - "gis"
           - "google"
+          - "googlebatch"
+          - "googlels"
           - "hasta"
           - "hki"
           - "icr_davros"
           - "ifb_core"
           - "imperial"
           - "ipop_up"
+          - "janelia"
           - "jax"
           - "ku_sund_dangpu"
           - "leicester"
@@ -108,6 +111,7 @@ jobs:
           - "vai"
           - "vsc_ugent"
           - "wehi"
+          - "xanadu"
 
     steps:
       - uses: actions/checkout@v1

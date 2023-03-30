@@ -120,12 +120,15 @@ Currently documentation is available for the following systems:
 - [GENOUEST](docs/genouest.md)
 - [GIS](docs/gis.md)
 - [GOOGLE](docs/google.md)
+- [GOOGLEBATCH](docs/googlebatch.md)
+- [GOOGLELS](docs/googlels.md)
 - [HASTA](docs/hasta.md)
 - [HKI](docs/hki.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IFB](docs/ifb_core.md)
 - [IMPERIAL](docs/imperial.md)
 - [iPOP-UP](docs/ipop_up.md)
+- [Janelia Research Campus](docs/janelia.md)
 - [JAX](docs/jax.md)
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
@@ -163,6 +166,7 @@ Currently documentation is available for the following systems:
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 - [WEHI](docs/wehi.md)
+- [XANADU](docs/xanadu.md)
 
 ### Uploading to `nf-core/configs`
 
