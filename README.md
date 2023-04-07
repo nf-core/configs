@@ -162,7 +162,7 @@ Currently documentation is available for the following systems:
 - [UPPMAX](docs/uppmax.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
 - [UTD_SYSBIO](docs/utd_sysbio.md)
-- [UW_HYAK_PEDSLABS] (docs/uw_hyak_pedslabs.md)
+- [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
