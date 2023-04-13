@@ -16,20 +16,28 @@ $ more job.pbs
 
 module load Nextflow
 
-nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> <Add your other parameters>
+nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER-option> <Add your other parameters>
 ```
+
+Here the cluster options are:
+
+- genius (72h)
+- genius_long (168h)
+- wice (72h)
+- wice_long (168h)
+- superdome (72h)
+- superdome_long (168h)
+
+> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. Should you require resources outside of these limits (e.g. more memory or gpus) you will need to provide a custom config specifying an appropriate SLURM partition (e.g. 'bigmem*', or 'gpu*').
 
 Use the `--cluster` option to specify the cluster you intend to use when submitting the job:
 
 ```shell
-sbatch --cluster=wice job.slurm 
+sbatch --cluster=wice|genius job.slurm 
 ```
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
+
 The config contains a `cleanup` command that removes the `work/` directory automatically once the pipeline has completed successfully. If the run does not complete successfully then the `work/` dir should be removed manually to save storage space. The default work directory is set to `$VSC_SCRATCH/work` per this configuration
-
-You can also add several TORQUE options to the PBS script. More about this on this [link](http://hpcugent.github.io/vsc_user_docs/pdf/intro-HPC-linux-gent.pdf#appendix.B).
-
-To submit your job to the cluster by using the following command:
 
 > **NB:** The default directory where the `work/` and `singularity/` (cache directory for images) is located in `$VSC_SCRATCH`.
