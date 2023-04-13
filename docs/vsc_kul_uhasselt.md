@@ -4,29 +4,27 @@
 
 First you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius`.
 
-Before running the pipeline you will need to create a slurm script to submit as a job.
+Before running the pipeline you will need to create a slurm script that acts as a master script to submit as all jobs.
 
 ```bash
 $ more job.pbs
 #!/bin/bash
 #SBATCH --account=...
 #SBATCH --chdir=....
-#SBATCH --nodes="2"
-#SBATCH --ntasks-per-node="36"
+#SBATCH --partition=batch_long
+#SBATCH --nodes="1"
+#SBATCH --ntasks-per-node="1"
 
 module load Nextflow
 
-nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER-option> <Add your other parameters>
+nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> --project <your-credential-acc> <Add your other parameters>
 ```
 
 Here the cluster options are:
 
-- genius (72h)
-- genius_long (168h)
-- wice (72h)
-- wice_long (168h)
-- superdome (72h)
-- superdome_long (168h)
+- genius
+- wice
+- superdome
 
 > **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. Should you require resources outside of these limits (e.g. more memory or gpus) you will need to provide a custom config specifying an appropriate SLURM partition (e.g. 'bigmem*', or 'gpu*').
 
