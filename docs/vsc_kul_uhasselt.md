@@ -4,7 +4,7 @@
 
 First you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius`.
 
-Before running the pipeline you will need to create a slurm script that acts as a master script to submit as all jobs.
+Before running the pipeline you will need to create a slurm script that acts as a master script to submit all jobs.
 
 ```bash
 $ more job.pbs
@@ -19,6 +19,8 @@ module load Nextflow
 
 nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> --project <your-credential-acc> <Add your other parameters>
 ```
+
+> **NB:** You have to specify your credential account, else the jobs will fail!
 
 Here the cluster options are:
 
