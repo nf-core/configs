@@ -5,10 +5,14 @@ To use this custom configuration, run the pipeline with `-profile sage`. This wi
 This global configuration includes the following tweaks:
 
 - Update the default value for `igenomes_base` to `s3://sage-igenomes`
-- Increase the default time limits because we run pipelines on AWS
-- Enable retries by default when exit codes relate to insufficient memory
+- Enable retries for all failures
 - Allow pending jobs to finish if the number of retries are exhausted
+- Increase resource allocations for specific resource-related exit codes
+- Optimize resource allocations to better "fit" EC2 instance types
 - Slow the increase in the number of allocated CPU cores on retries
+- Increase the default time limits because we run pipelines on AWS
+- Increase the amount of time allowed for file transfers
+- Improve reliability of file transfers with retries and reduced concurrency
 - Define the `check_max()` function, which is missing in Sarek v2
 
 ## Additional information about iGenomes
