@@ -164,6 +164,7 @@ Currently documentation is available for the following systems:
 - [UTD_SYSBIO](docs/utd_sysbio.md)
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
+- [VSC_KUL_UHASSELT](docs/vsc_kul_uhasselt.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 - [WEHI](docs/wehi.md)
 - [XANADU](docs/xanadu.md)
