@@ -110,6 +110,7 @@ jobs:
           - "utd_sysbio"
           - "uzh"
           - "vai"
+          - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
           - "xanadu"
