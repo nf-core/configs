@@ -6,19 +6,10 @@ To use, run the pipeline with `-profile tubingen_apg`. This will download and la
 
 This configuration will automatically choose the correct SLURM queue (short,medium,long) depending on the time and memory required by each process.
 
-Using this profile, a docker image containing all of the required software will be downloaded, and converted to a charliecloud container before execution of the pipeline. The image will be stored in the user-specific directory:
-
+Using this profile, a docker image containing all of the required software will be downloaded, and converted to a singularity container before execution of the pipeline. The image will be stored in the cache directory:
 ```
-/opt/images-live/$USER/nf-core
+/opt/container_tmp/apptainer/nextflow
 ```
-
-The following directories are bound to the container on execution:
-
-- `/nfs/geo`
-- `/home`
-- `/local_scratch`
-- `/opt/reference`
-- `/opt/resources`
 
 > NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. If in doubt contact IT.
 
