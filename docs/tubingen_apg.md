@@ -13,13 +13,14 @@ Using this profile, a docker image containing all of the required software will 
 ```
 
 The following directories are bound to the container on execution:
+
 - `/nfs/geo`
 - `/home`
 - `/local_scratch`
 - `/opt/reference`
 - `/opt/resources`
 
->NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. If in doubt contact IT.
+> NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. If in doubt contact IT.
 
 ## Additional Profiles
 
