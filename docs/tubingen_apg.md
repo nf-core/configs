@@ -7,6 +7,7 @@ To use, run the pipeline with `-profile tubingen_apg`. This will download and la
 This configuration will automatically choose the correct SLURM queue (short,medium,long) depending on the time and memory required by each process.
 
 Using this profile, a docker image containing all of the required software will be downloaded, and converted to a singularity container before execution of the pipeline. The image will be stored in the cache directory:
+
 ```
 /opt/container_tmp/apptainer/nextflow
 ```
