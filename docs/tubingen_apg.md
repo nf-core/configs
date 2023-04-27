@@ -4,7 +4,7 @@ All nf-core pipelines have been successfully configured for use on the APG group
 
 To use, run the pipeline with `-profile tubingen_apg`. This will download and launch the [`tubingen_apg.config`](../conf/tubingen_apg.config) which has been pre-configured with a setup suitable for the APG cluster. The number of parallel jobs that run is currently limited to 8.
 
-This configuration will automatically choose the correct SLURM queue (short,medium,long) depending on the time and memory required by each process.
+This configuration will automatically choose the correct SLURM queue (short, medium, long) depending on the time and memory required by each process.
 
 When using this profile, a docker image containing all of the required software will be downloaded and converted to a singularity container before execution of the pipeline. The image will be stored in the cache directory:
 
