@@ -146,6 +146,7 @@ Currently documentation is available for the following systems:
 - [PHOENIX](docs/phoenix.md)
 - [PRINCE](docs/prince.md)
 - [PSMN](docs/psmn.md)
+- [RCAC](docs/rcac.md)
 - [ROSALIND](docs/rosalind.md)
 - [ROSALIND_UGE](docs/rosalind_uge.md)
 - [SAGE BIONETWORKS](docs/sage.md)

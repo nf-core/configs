@@ -90,6 +90,7 @@ jobs:
           - "phoenix"
           - "prince"
           - "psmn"
+          - "rcac"
           - "rosalind"
           - "rosalind_uge"
           - "sage"
