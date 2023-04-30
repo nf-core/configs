@@ -143,6 +143,7 @@ Currently documentation is available for the following systems:
 - [NIHBIOWULF](docs/nihbiowulf.md)
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
+- [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
 - [PHOENIX](docs/phoenix.md)
 - [PRINCE](docs/prince.md)
 - [PSMN](docs/psmn.md)
