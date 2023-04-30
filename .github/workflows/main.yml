@@ -87,6 +87,7 @@ jobs:
           - "nu_genomics"
           - "oist"
           - "pasteur"
+          - "pawsey_nimbus"
           - "phoenix"
           - "prince"
           - "psmn"
