@@ -14,6 +14,6 @@ Also, do not forget to run nextflow using tmux or alike.
 
 ## Other profiles at Pasteur
 
-If you are using TARS cluster, please refer to the [pasteur profile]((docs/pasteur.md)).
+If you are using TARS cluster, please refer to the [pasteur profile](<(docs/pasteur.md)>).
 
 Please refer to [docs/pasteur.md](docs/pasteur.md) for installing and running nf-core instructions.
