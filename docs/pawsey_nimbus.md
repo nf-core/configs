@@ -10,7 +10,7 @@ Currently profiles for various [instance flavours](https://support.pawsey.org.au
 
 Profiles for various standard instance flavours are available in this config. Please select a profile based on the flavour (i.e. CPUs, and RAM it has access to):
 
-- c2r8: 2 CPU cores, 4Gb RAM
+- c2r8: 2 CPU cores,  8 Gb RAM
 - c4r16: 4 CPU cores, 16 Gb RAM
 - c8r32: 8 CPU cores, 32 Gb RAM
 - c16r64: 16 CPU cores, 64 Gb RAM
