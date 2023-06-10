@@ -79,6 +79,7 @@ jobs:
           - "maestro"
           - "mana"
           - "marvin"
+          - "mccleary"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
