@@ -135,6 +135,7 @@ Currently documentation is available for the following systems:
 - [MAESTRO](docs/maestro.md)
 - [Mana](docs/mana.md)
 - [MARVIN](docs/marvin.md)
+- [McCleary](docs/mccleary.md)
 - [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
 - [MPCDF](docs/mpcdf.md)
