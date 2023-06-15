@@ -11,7 +11,7 @@ Before running the pipeline you will need to load Java 11 using the environment 
 ```bash
 ## Load Java 11 environment modules
 module purge
-module load Java/11
+module load Java/17.0.4
 ```
 
 ## Recommendation on environment variables to set
