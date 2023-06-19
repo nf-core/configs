@@ -14,4 +14,4 @@ Example: `nextflow run nf-core/ampliseq -profile uppmax`
 
 Specific configurations for UPPMAX has been made for ampliseq.
 
-* Makes sure that a fat node is allocated for training and applying a Bayesian classifier.
+- Makes sure that a fat node is allocated for training and applying a Bayesian classifier.

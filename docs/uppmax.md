@@ -8,7 +8,16 @@ We have a Slack channel dedicated to UPPMAX users on the nf-core Slack: [https:/
 
 ## Using the UPPMAX config profile
 
-Before running the pipeline you will need to either install `Nextflow` or load it using the environment module system (this can be done with e.g. `module load bioinfo-tools Nextflow/<VERSION>` where `VERSION` is e.g. `20.10`).
+The recommended way to activate `Nextflow`, `nf-core`, and any pipeline
+available in `nf-core` on UPPMAX is to use the [module system](https://www.uppmax.uu.se/resources/software/module-system/):
+
+```bash
+# Log in to the desired cluster
+ssh <USER>@{rackham,miarka,bianca}.uppmax.uu.se
+
+# Activate the modules, you can also choose to use a specific version with e.g. `Nextflow/21.10`.
+module load bioinfo-tools Nextflow nf-core nf-core-pipelines
+```
 
 To use, run the pipeline with `-profile uppmax` (one hyphen).
 This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers.
@@ -58,15 +67,15 @@ All jobs will be submitted to fat nodes using this method, so it's only for use 
 
 The UPPMAX nf-core configuration profile uses the `hostname` of the active environment to automatically apply the following resource limits:
 
-* `rackham`
-  * cpus available: 20 cpus
-  * memory available: 125 GB
-* `bianca`
-  * cpus available: 16 cpus
-  * memory available: 109 GB
-* `irma`
-  * cpus available: 16 cpus
-  * memory available: 250 GB
+- `rackham`
+  - cpus available: 20 cpus
+  - memory available: 125 GB
+- `bianca`
+  - cpus available: 16 cpus
+  - memory available: 109 GB
+- `miarka`
+  - cpus available: 48 cpus
+  - memory available: 357 GB
 
 ## Development config
 
@@ -83,10 +92,10 @@ To use it, submit with `-profile uppmax,devel`.
 
 > :warning: For more information, please follow the following guides:
 >
-> * [UPPMAX `bianca` user guide](http://uppmax.uu.se/support/user-guides/bianca-user-guide/).
-> * [nf-core guide for running offline](https://nf-co.re/usage/offline)
-> * [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use).
-> * [UPPMAX `Singularity` guide](https://www.uppmax.uu.se/support-sv/user-guides/singularity-user-guide/).
+> - [UPPMAX `bianca` user guide](http://uppmax.uu.se/support/user-guides/bianca-user-guide/).
+> - [nf-core guide for running offline](https://nf-co.re/usage/offline)
+> - [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use).
+> - [UPPMAX `Singularity` guide](https://www.uppmax.uu.se/support-sv/user-guides/singularity-user-guide/).
 
 For security reasons, there is no internet access on `bianca` so you can't download from or upload files to the cluster directly.
 Before running a nf-core pipeline on `bianca` you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the `wharf` area to your own `bianca` project.
@@ -94,20 +103,12 @@ Before running a nf-core pipeline on `bianca` you will first have to download th
 In this guide, we use `rackham` to download and transfer files to the `wharf` area, but it can also be done on your own computer.
 If you use `rackham` to download the pipeline and the singularity containers, we recommend using an interactive session (cf [interactive guide](https://www.uppmax.uu.se/support/faq/running-jobs-faq/how-can-i-run-interactively-on-a-compute-node/)), which is what we do in the following guide.
 
+It is recommended to activate `Nextflow`, `nf-core` and your `nf-core`
+pipeline through the module system (see **Using the UPPMAX config profile**
+above). In case you need a specific version of any of these tools you can
+follow the guide below.
+
 ### Download and install Nextflow
-
-You can use the `Nextflow` UPPMAX provided `module`, but if necessary, you can also download a more recent version.
-
-```bash
-# Connect to bianca
-$ ssh -A <USER>-<BIANCA_PROJECT>@bianca.uppmax.uu.se
-
-# See the available versions for the module
-module spider Nextflow
-
-# Load a specific version of the Nextflow module
-module load bioinfo-tools Nextflow/<VERSION>`
-```
 
 ```bash
 # Connect to rackham
@@ -159,19 +160,6 @@ $ export NXF_SINGULARITY_CACHEDIR=/castor/project/proj_nobackup/singularity-imag
 ```
 
 ### Install nf-core tools
-
-You can use the `nf-core` UPPMAX provided `module`, but if necessary, you can also download a more recent version.
-
-```bash
-# Connect to rackham
-$ ssh -X <USER>@rackham.uppmax.uu.se
-
-# See the available versions for the module
-module spider nf-core
-
-# Load a specific version of the nf-core module
-module load bioinfo-tools nf-core/<VERSION>`
-```
 
 ```bash
 # Connect to rackham
@@ -254,7 +242,7 @@ And then `nf-core/<PIPELINE>` can be used with:
 $ nextflow run ~/<PIPELINE> -profile uppmax --project <BIANCA_PROJECT> --genome <GENOME_ASSEMBLY> ...
 ```
 
-## Update a pipeline
+### Update a pipeline
 
 To update, repeat the same steps as for installing and update the link.
 

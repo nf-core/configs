@@ -1,6 +1,7 @@
 name: Configs tests
 
 on: [pull_request, push]
+
 jobs:
   test_all_profiles:
     runs-on: ubuntu-latest
@@ -8,64 +9,113 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Check whether profiles are all tested
+        run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
+
+  check_nextflow_config:
+    runs-on: ubuntu-latest
+    name: Check if nextflow config runs in repository root
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Nextflow
         run: |
-          python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
+          wget -qO- get.nextflow.io | bash
+          sudo mv nextflow /usr/local/bin/
+      - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+
   profile_test:
     runs-on: ubuntu-latest
     name: Run ${{ matrix.profile }} profile
     needs: test_all_profiles
     strategy:
-        matrix:
-          profile:
-            - 'abims'
-            - 'alice'
-            - 'aws_tower'
-            - 'awsbatch'
-            - 'bi'
-            - 'bigpurple'
-            - 'binac'
-            - 'biohpc_gen'
-            - 'cambridge'
-            - 'leicester'
-            - 'cbe'
-            - 'ccga_dx'
-            - 'ccga_med'
-            - 'cfc'
-            - 'cfc_dev'
-            - 'computerome'
-            - 'crick'
-            - 'denbi_qbic'
-            - 'ebc'
-            - 'eddie'
-            - 'eva'
-            - 'genotoul'
-            - 'genouest'
-            - 'gis'
-            - 'google'
-            - 'hasta'
-            - 'hebbe'
-            - 'icr_davros'
-            - 'ifb_core'
-            - 'imperial'
-            - 'imperial_mb'
-            - 'jax'
-            - 'lugh'
-            - 'maestro'
-            - 'mpcdf'
-            - 'munin'
-            - 'nu_genomics'
-            - 'oist'
-            - 'pasteur'
-            - 'phoenix'
-            - 'prince'
-            - 'rosalind'
-            - 'sanger'
-            - 'seg_globe'
-            - 'uct_hpc'
-            - 'uppmax'
-            - 'utd_ganymede'
-            - 'utd_sysbio'
-            - 'uzh'
+      matrix:
+        profile:
+          - "abims"
+          - "adcra"
+          - "alice"
+          - "aws_tower"
+          - "awsbatch"
+          - "azurebatch"
+          - "bi"
+          - "bigpurple"
+          - "binac"
+          - "biohpc_gen"
+          - "cambridge"
+          - "cbe"
+          - "ccga_dx"
+          - "ccga_med"
+          - "cedars"
+          - "ceres"
+          - "cfc"
+          - "cfc_dev"
+          - "cheaha"
+          - "computerome"
+          - "crg"
+          - "crick"
+          - "crukmi"
+          - "denbi_qbic"
+          - "dkfz"
+          - "ebc"
+          - "eddie"
+          - "engaging"
+          - "eva"
+          - "fgcz"
+          - "genotoul"
+          - "genouest"
+          - "gis"
+          - "google"
+          - "googlebatch"
+          - "googlels"
+          - "hasta"
+          - "hki"
+          - "icr_davros"
+          - "ifb_core"
+          - "imperial"
+          - "ipop_up"
+          - "janelia"
+          - "jax"
+          - "ku_sund_dangpu"
+          - "leicester"
+          - "lugh"
+          - "maestro"
+          - "mana"
+          - "marvin"
+          - "medair"
+          - "mjolnir_globe"
+          - "mpcdf"
+          - "munin"
+          - "nihbiowulf"
+          - "nu_genomics"
+          - "oist"
+          - "pasteur"
+          - "pawsey_nimbus"
+          - "phoenix"
+          - "prince"
+          - "psmn"
+          - "rosalind"
+          - "rosalind_uge"
+          - "sage"
+          - "sahmri"
+          - "sanger"
+          - "sbc_sharc"
+          - "scw"
+          - "seawulf"
+          - "seg_globe"
+          - "tigem"
+          - "tubingen_apg"
+          - "ucl_myriad"
+          - "uct_hpc"
+          - "uge"
+          - "unibe_ibu"
+          - "uppmax"
+          - "utd_ganymede"
+          - "utd_sysbio"
+          - "uzh"
+          - "vai"
+          - "vsc_kul_uhasselt"
+          - "vsc_ugent"
+          - "wehi"
+          - "xanadu"
+
     steps:
       - uses: actions/checkout@v1
       - name: Install Nextflow
@@ -76,4 +126,4 @@ jobs:
         env:
           SCRATCH: "~"
           NXF_GLOBAL_CONFIG: awsbatch.config
-        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf --custom_config_base=${GITHUB_WORKSPACE} -profile ${{ matrix.profile }}
+        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf -profile ${{ matrix.profile }}

@@ -6,7 +6,8 @@ To use, run the pipeline with `-profile ifb_core`. This will download and launch
 
 ## How to use on IFB core
 
-Before running the pipeline you will need to load Nextflow using the environment module system on IFB core. You can do this by issuing the commands below:
+Here is [the link to the cluster's documentation](https://ifb-elixirfr.gitlab.io/cluster/doc/quick-start/).
+Before running the pipeline you will need to load Nextflow and other dependencies using the environment module system on IFB core. You can do this by issuing the commands below:
 
 ```bash
 # Login to a compute node
@@ -14,7 +15,10 @@ srun --pty bash
 
 ## Load Nextflow and Singularity environment modules
 module purge
-module load nextflow/20.04.1
+module load nextflow
+module load singularity
+module load openjdk
+
 
 # Run a downloaded/git-cloned nextflow workflow from
 nextflow run \\
@@ -37,4 +41,4 @@ A local copy of several genomes are available in `/shared/bank` directory. See
 our [databank page](https://ifb-elixirfr.gitlab.io/cluster/doc/banks/)
 to search for your favorite genome.
 
->NB: You will need an account to use the HPC cluster on IFB core in order to run the pipeline. If in doubt contact IT or go to [account page](https://my.cluster.france-bioinformatique.fr/manager2/login).
+> NB: You will need an account to use the HPC cluster on IFB core in order to run the pipeline. If in doubt contact IT or go to [account page](https://my.cluster.france-bioinformatique.fr/manager2/login).
