@@ -11,8 +11,8 @@ Before running the pipeline you will need to install Nextflow and load Singulari
 ```bash
 ## Load Java, Singularity and Nextflow environment modules
 module purge
-module load jdk/19.0.2 
-module load singularity/3.7.1 
+module load jdk/19.0.2
+module load singularity/3.7.1
 module load nextflow/22.10.1
 ```
 
