@@ -124,6 +124,7 @@ Currently documentation is available for the following systems:
 - [GOOGLELS](docs/googlels.md)
 - [HASTA](docs/hasta.md)
 - [HKI](docs/hki.md)
+- [HYPATIA](docs/hypatia.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IFB](docs/ifb_core.md)
 - [IMPERIAL](docs/imperial.md)
