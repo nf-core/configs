@@ -67,6 +67,7 @@ jobs:
           - "googlels"
           - "hasta"
           - "hki"
+          - "hypatia"
           - "icr_davros"
           - "ifb_core"
           - "imperial"
