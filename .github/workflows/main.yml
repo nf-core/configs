@@ -70,6 +70,7 @@ jobs:
           - "icr_davros"
           - "ifb_core"
           - "imperial"
+          - "incliva"
           - "ipop_up"
           - "janelia"
           - "jax"
