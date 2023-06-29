@@ -28,7 +28,7 @@ Here the cluster options are:
 - wice
 - superdome
 
-> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. Should you require resources outside of these limits (e.g. more memory or gpus) you will need to provide a custom config specifying an appropriate SLURM partition (e.g. 'bigmem*', or 'gpu*').
+> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. Should you require resources outside of these limits (e.g.gpus) you will need to provide a custom config specifying an appropriate SLURM partition (e.g. 'gpu\*').
 
 Use the `--cluster` option to specify the cluster you intend to use when submitting the job:
 
