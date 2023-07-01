@@ -2,7 +2,7 @@
 
 All nf-core pipelines have been successfully configured for use on the SLURM login nodes of the codon cluster at the European Bioinformatics Institute.
 
-To use, run the pipeline with `-profile ebi-codon-slurm`. This will download and launch the [`ebi_codon_slurm.config`](../conf/ebi_codon_slurm.config) which has been pre-configured with a setup suitable for the codon cluster.
+To use, run the pipeline with `-profile ebi_codon_slurm`. This will download and launch the [`ebi_codon_slurm.config`](../conf/ebi_codon_slurm.config) which has been pre-configured with a setup suitable for the codon cluster.
 
 You should not run Nextflow on the login nodes. You should submit a batch job that executes Nextflow.
 
