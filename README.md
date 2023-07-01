@@ -113,6 +113,8 @@ Currently documentation is available for the following systems:
 - [DENBI_QBIC](docs/denbi_qbic.md)
 - [DKFZ](docs/dkfz.md)
 - [EBC](docs/ebc.md)
+- [EBI_CODON](docs/ebi_codon.md)
+- [EBI_CODON_SLURM](docs/ebi_codon_slurm.md)
 - [Engaging](docs/engaging.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
