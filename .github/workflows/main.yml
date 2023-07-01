@@ -55,6 +55,8 @@ jobs:
           - "denbi_qbic"
           - "dkfz"
           - "ebc"
+          - "ebi_codon"
+          - "ebi_codon_slurm"
           - "eddie"
           - "engaging"
           - "eva"
