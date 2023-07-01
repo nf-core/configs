@@ -17,7 +17,7 @@ module load nextflow/22.10.1
 module load singularityce/3.10.3
 ```
 
-You may want to add those module load commands to your shell configuration file if you use them often. 
+You may want to add those module load commands to your shell configuration file if you use them often.
 
 ## Installing mamba
 
