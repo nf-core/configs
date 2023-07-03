@@ -8,6 +8,7 @@ Please follow these steps before submitting your PR:
 - [ ] If your PR is a work in progress, include `[WIP]` in its title
 - [ ] Your PR targets the `master` branch
 - [ ] You've included links to relevant issues, if any
+- [ ] Requested review from @nf-core/maintainers
 
 Steps for adding a new config profile:
 
@@ -18,7 +19,7 @@ Steps for adding a new config profile:
 - [ ] Add your profile name to the `profile:` scope in `.github/workflows/main.yml`
 
 <!--
-If you require/still waiting for a review, please feel free to request from @nf-core/configs-team
+If you require/still waiting for a review, please feel free to request from @nf-core/maintainers
 
 Please see uploading to`nf-core/configs` for more details:
 https://github.com/nf-core/configs#uploading-to-nf-coreconfigs
