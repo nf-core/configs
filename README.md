@@ -194,7 +194,7 @@ set(['<profile_name>'])
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
-We will be notified automatically when you have created your pull request, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
+Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 
 ## Adding a new pipeline-specific config
 
@@ -316,6 +316,7 @@ Edit this file, and add the new pipeline-specific institutional profile to the l
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 In the pull-request description, add a link to the repository specific pull-request(s) that use this new code.
+Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 Both PRs will need to be merged at the approximately the same time.
 
 ## Help
