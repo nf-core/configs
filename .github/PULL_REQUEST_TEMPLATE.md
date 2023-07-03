@@ -8,7 +8,7 @@ Please follow these steps before submitting your PR:
 - [ ] If your PR is a work in progress, include `[WIP]` in its title
 - [ ] Your PR targets the `master` branch
 - [ ] You've included links to relevant issues, if any
-- [ ] Requested review from @nf-core/maintainers
+- [ ] Requested review from @nf-core/maintainers and/or #request-review on slack
 
 Steps for adding a new config profile:
 
