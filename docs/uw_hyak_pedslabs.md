@@ -14,13 +14,14 @@ Nextflow manages each process as a separate job that is submitted to the cluster
 Nextflow shouldn't run directly on the submission node but on a compute node.
 
 To install and use Nextflow, the following process can be used:
+
 1. Install mamba and create a mamba environment containing nextflow and nf-core
-  
-  ```bash  
-  wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
-  bash Mambaforge-Linux-x86_64.sh -b -p $HOME/mambaforge
-  mamba create -n nextflow -c bioconda -c conda-forge python=3.8 nf-core nextflow -y -q
-  ```
+
+```bash
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
+bash Mambaforge-Linux-x86_64.sh -b -p $HOME/mambaforge
+mamba create -n nextflow -c bioconda -c conda-forge python=3.8 nf-core nextflow -y -q
+```
 
 2. Run nextflow on a compute node:
 
