@@ -142,7 +142,7 @@ Currently documentation is available for the following systems:
 - [MPCDF](docs/mpcdf.md)
 - [MUNIN](docs/munin.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
-- [NIHBIOWULF](docs/nihbiowulf.md)
+- [BIOWULF](docs/biowulf.md)
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
 - [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
