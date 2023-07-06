@@ -2,7 +2,7 @@
 
 nf-core pipelines have been configured for use on the Biowulf cluster at the NIH.
 
-To use, run the pipeline with `-profile biowulf`, this will pull the [`biowulf.config`] (../conf/biowulf.config)from github which has been pre-configured with a setup suitable for the Biowulf cluster. By default, Nextflow will download Singularity containers to a cache directory setted by the config file. 
+To use, run the pipeline with `-profile biowulf`, this will pull the [`biowulf.config`] (../conf/biowulf.config) from github which has been pre-configured with a setup suitable for the Biowulf cluster. By default, Nextflow will download Singularity containers to a cache directory setted by the config file. 
 
 ```bash
 nextflow run <pipeline> -profile biowulf <Add your other parameters>
