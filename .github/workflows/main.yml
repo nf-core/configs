@@ -111,6 +111,7 @@ jobs:
           - "uppmax"
           - "utd_ganymede"
           - "utd_sysbio"
+          - "uw_hyak_pedslabs"
           - "uzh"
           - "vai"
           - "vsc_kul_uhasselt"
