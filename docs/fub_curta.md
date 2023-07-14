@@ -19,3 +19,11 @@ A profile for deactivating the cleanup of intermediate files is also offered.
 ### debug
 
 This simply turns off automatic clean up of intermediate files, which can be useful for debugging. It is specified with `-profile fub_curta,debug`.
+
+## Publications
+
+If computing time on Curta has contributed to a publication or the completion of a degree course, please send us the corresponding DOI or BibTeX entry and, if possible, an appropriate image to hpc@zedat.fu-berlin.de.  This is the ONLY way we can document the usefulness of our service.
+
+The current list of publications is available [here](https://www.fu-berlin.de/en/sites/high-performance-computing/Forschungsergebnisse).
+
+Please also acknowledge the use of our service in any publications you produce ([Reporting Publications](https://www.fu-berlin.de/en/sites/high-performance-computing/FAQ/Publikationen)), including the DOI [10.17169/refubium-26754](http://dx.doi.org/10.17169/refubium-26754).
