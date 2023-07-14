@@ -27,3 +27,7 @@ If computing time on Curta has contributed to a publication or the completion of
 The current list of publications is available [here](https://www.fu-berlin.de/en/sites/high-performance-computing/Forschungsergebnisse).
 
 Please also acknowledge the use of our service in any publications you produce, using the following [reporting guidelines](https://www.fu-berlin.de/en/sites/high-performance-computing/FAQ/Publikationen), including the DOI [10.17169/refubium-26754](http://dx.doi.org/10.17169/refubium-26754).
+
+## Acknowledgments
+
+This configuration was refined with Dr. Loris Bennett's help (@tardigradus) of the HPC Team from the FUB ZEDAT's Scienfitic Computing Unit.
