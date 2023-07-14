@@ -4,7 +4,7 @@
 
 This profile is configured to run with Singularity version `1.1.9-1.el7`, which does not need to be loaded.
 
-Nextflow should be loaded before use. Nextflow version `22.10.6.5844` is used. The following should be added to your sbatch/SLURM script:
+Nextflow should be loaded before use. Nextflow version `22.10.6.5844` is installed. The following should be added to your sbatch/SLURM script:
 
 ```
 module load Nextflow
@@ -26,4 +26,4 @@ If computing time on Curta has contributed to a publication or the completion of
 
 The current list of publications is available [here](https://www.fu-berlin.de/en/sites/high-performance-computing/Forschungsergebnisse).
 
-Please also acknowledge the use of our service in any publications you produce ([Reporting Publications](https://www.fu-berlin.de/en/sites/high-performance-computing/FAQ/Publikationen)), including the DOI [10.17169/refubium-26754](http://dx.doi.org/10.17169/refubium-26754).
+Please also acknowledge the use of our service in any publications you produce, using the following [reporting guidelines](https://www.fu-berlin.de/en/sites/high-performance-computing/FAQ/Publikationen), including the DOI [10.17169/refubium-26754](http://dx.doi.org/10.17169/refubium-26754).
