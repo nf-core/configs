@@ -97,6 +97,7 @@ Currently documentation is available for the following systems:
 - [BI](docs/bi.md)
 - [BINAC](docs/binac.md)
 - [BIOHPC_GEN](docs/biohpc_gen.md)
+- [BIOWULF](docs/biowulf.md)
 - [CAMBRIDGE](docs/cambridge.md)
 - [CBE](docs/cbe.md)
 - [CCGA_DX](docs/ccga_dx.md)
@@ -124,9 +125,11 @@ Currently documentation is available for the following systems:
 - [GOOGLELS](docs/googlels.md)
 - [HASTA](docs/hasta.md)
 - [HKI](docs/hki.md)
+- [HYPATIA](docs/hypatia.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IFB](docs/ifb_core.md)
 - [IMPERIAL](docs/imperial.md)
+- [INCLIVA](docs/incliva.md)
 - [iPOP-UP](docs/ipop_up.md)
 - [Janelia Research Campus](docs/janelia.md)
 - [JAX](docs/jax.md)
@@ -140,7 +143,6 @@ Currently documentation is available for the following systems:
 - [MPCDF](docs/mpcdf.md)
 - [MUNIN](docs/munin.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
-- [NIHBIOWULF](docs/nihbiowulf.md)
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
 - [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
@@ -164,6 +166,7 @@ Currently documentation is available for the following systems:
 - [UPPMAX](docs/uppmax.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
 - [UTD_SYSBIO](docs/utd_sysbio.md)
+- [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
 - [UZH](docs/uzh.md)
 - [VAI](docs/vai.md)
 - [VSC_KUL_UHASSELT](docs/vsc_kul_uhasselt.md)
@@ -192,7 +195,7 @@ set(['<profile_name>'])
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
-We will be notified automatically when you have created your pull request, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
+Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 
 ## Adding a new pipeline-specific config
 
@@ -243,7 +246,6 @@ Currently documentation is available for the following pipelines within specific
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
-  - [Cancer Research UK Manchester Institute](docs/pipeline/sarek/crukmi.md)
   - [EVA](docs/pipeline/sarek/eva.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
   - [SBC_SHARC](docs/pipeline/sarek/sbc_sharc.md)
@@ -315,6 +317,7 @@ Edit this file, and add the new pipeline-specific institutional profile to the l
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 In the pull-request description, add a link to the repository specific pull-request(s) that use this new code.
+Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 Both PRs will need to be merged at the approximately the same time.
 
 ## Help
