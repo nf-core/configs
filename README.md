@@ -119,6 +119,7 @@ Currently documentation is available for the following systems:
 - [Engaging](docs/engaging.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
+- [FUB Curta](docs/fub_curta.md)
 - [GENOTOUL](docs/genotoul.md)
 - [GENOUEST](docs/genouest.md)
 - [GIS](docs/gis.md)
