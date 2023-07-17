@@ -6,7 +6,7 @@ This profile is configured to run with Singularity version `1.1.9-1.el7`, which 
 
 Nextflow should be loaded before use. Nextflow version `22.10.6.5844` is installed. The following should be added to your sbatch/SLURM script:
 
-```
+```bash
 module load Nextflow
 ```
 
