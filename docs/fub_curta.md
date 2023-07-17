@@ -30,4 +30,4 @@ Please also acknowledge the use of our service in any publications you produce, 
 
 ## Acknowledgments
 
-This configuration was refined with Dr. Loris Bennett's help [@tardigradus](https://github.com/tardigradus) of the HPC Team from the FUB ZEDAT's Scienfitic Computing Unit.
+This configuration was refined with Dr. Loris Bennett's help [@tardigradus](https://github.com/tardigradus) of the HPC Team from the FUB ZEDAT's Scientific Computing Unit.
