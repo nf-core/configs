@@ -22,7 +22,7 @@ This simply turns off automatic clean up of intermediate files, which can be use
 
 ## Publications
 
-If computing time on Curta has contributed to a publication or the completion of a degree course, please send us the corresponding DOI or BibTeX entry and, if possible, an appropriate image to hpc@zedat.fu-berlin.de.  This is the ONLY way we can document the usefulness of our service.
+If computing time on Curta has contributed to a publication or the completion of a degree course, please send us the corresponding DOI or BibTeX entry and, if possible, an appropriate image to hpc@zedat.fu-berlin.de. This is the ONLY way we can document the usefulness of our service.
 
 The current list of publications is available [here](https://www.fu-berlin.de/en/sites/high-performance-computing/Forschungsergebnisse).
 
