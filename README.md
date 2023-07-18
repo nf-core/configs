@@ -175,6 +175,7 @@ Currently documentation is available for the following systems:
 - [VSC_KUL_UHASSELT](docs/vsc_kul_uhasselt.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 - [WEHI](docs/wehi.md)
+- [WUSTL HTCF](docs/wustl_htcf.md)
 - [XANADU](docs/xanadu.md)
 
 ### Uploading to `nf-core/configs`
