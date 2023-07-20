@@ -1,14 +1,8 @@
 # nf-core/configs: WUSTL High Throughput Computing Facility Configuration
 
-Forked from https://github.com/nf-core/configs/blob/master/docs/prince.md
+Forked from the prince configuration.
 
-## setup
-
-The following line must be added to your `.bashrc`, so that the singularity images can be stored in the lab's `/ref` data directory:
-
-```bash
-export LAB=\$(id -nG "\$(whoami)" 2> /dev/null | awk 'NF>1{print \$NF}')
-```
+<!-- https://github.com/nf-core/configs/blob/master/docs/prince.md -->
 
 ## nf-core pipelines that use this repo
 
