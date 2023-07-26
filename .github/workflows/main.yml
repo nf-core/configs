@@ -120,6 +120,7 @@ jobs:
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
+          - "wustl_htcf"
           - "xanadu"
 
     steps:
