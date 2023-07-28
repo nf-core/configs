@@ -250,6 +250,7 @@ Currently documentation is available for the following pipelines within specific
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
+  - [AZUREBATCH](docs/pipeline/sarek/azurebatch.md)
   - [EVA](docs/pipeline/sarek/eva.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
   - [SBC_SHARC](docs/pipeline/sarek/sbc_sharc.md)
