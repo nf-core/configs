@@ -67,7 +67,7 @@ tmux new-session -s mysessionname
 Detach a session use control+B and then press d.
 
 To attach a previously detached session again:
-```
+```bash
 tmux atttach-session -t mysessionname
 ```
 
