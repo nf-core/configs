@@ -1,9 +1,8 @@
 # nf-core/configs: ku_sund_dangpu configuration
 
-All nf-core pipelines have been successfully configured for use on the DANGPU at the
-Novo Nordisk Foundation Center for Stem Cell Medicine (reNEW) and the Novo Nordisk Foundation Center for Protein Research (CPR) at the University of Copenhagen.
+All nf-core pipelines have been successfully configured for use on the DANGPU server at the Novo Nordisk Foundation Center for Stem Cell Medicine (reNEW) at the University of Copenhagen.
 
-To use, run the pipeline with `-profile ku_sund_dangpu`. This will download and launch the [`ku_sund_dangpu.config`](../conf/ku_sund_dangpu.config) which has been pre-configured with a setup suitable for the DANGPU.
+To use the institution profile, run the pipeline with `-profile ku_sund_dangpu`. This will download and launch the [`ku_sund_dangpu.config`](../conf/ku_sund_dangpu.config) which has been pre-configured with a setup suitable for the DANGPU.
 
 ## Prepare the environment
 
