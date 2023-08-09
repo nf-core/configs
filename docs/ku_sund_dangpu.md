@@ -59,7 +59,10 @@ Note that normally on dangpu server you are required to run resource-intensive c
 Start a new session and enter the vitual screen named `mysessionname`:
 ```
 tmux new-session -s mysessionname
-# load modules, define variables, run nfcore pipeline here
+
+# load modules
+# define variables
+# run nfcore pipeline here
 ```
 
 Detach a session use control+B and then press d.
