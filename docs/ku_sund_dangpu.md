@@ -72,6 +72,6 @@ tmux atttach-session -t mysessionname
 ```
 
 To exit a tmux session when the job is done:
-```
+```bash
 exit
 ```
