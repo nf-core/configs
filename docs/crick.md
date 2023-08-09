@@ -9,8 +9,8 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 ```bash
 ## Load Nextflow and Singularity environment modules
 module purge
-module load Nextflow/21.04.0
-module load Singularity/3.4.2
+module load Nextflow/22.10.3
+module load Singularity/3.6.4
 ```
 
 A local copy of the [AWS-iGenomes](https://github.com/ewels/AWS-iGenomes) resource has been made available on CAMP so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter. Some of the more exotic genomes may not have been downloaded onto CAMP so have a look in the `igenomes_base` path specified in [`crick.config`](../conf/crick.config), and if your genome of interest is not present please contact [BABS](mailto:bioinformatics@crick.ac.uk).
@@ -21,3 +21,9 @@ All of the intermediate files required to run the pipeline will be stored in the
 
 > NB: You will need an account to use the HPC cluster on CAMP in order to run the pipeline. If in doubt contact IT.
 > NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
+
+## Pipeline specific profiles
+
+Specific pipeline profiles exist for the following pipelines, and will be automatically loaded when supplying `-profile crick` to your command:
+
+- eager
