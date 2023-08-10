@@ -53,9 +53,10 @@ nextflow run nf-core/rnaseq  -r 3.10.1 -profile ku_sund_dangpu --outdir <name-of
 
 ## Notes
 
-Note that normally on dangpu server you are required to run resource-intensive commands with slurm, but at ku_sund_dangpu profile we have pre-configured slurm to be the resource manager within the `ku_sund_dangpu profile`. Just make sure that the pipeline is run within a tmux session or within a screen session. 
+Note that normally on dangpu server you are required to run resource-intensive commands with slurm, but at ku_sund_dangpu profile we have pre-configured slurm to be the resource manager within the `ku_sund_dangpu profile`. Just make sure that the pipeline is run within a tmux session or within a screen session.
 
 Start a new session and enter the vitual screen named `mysessionname`:
+
 ```bash
 tmux new-session -s mysessionname
 
@@ -67,11 +68,13 @@ tmux new-session -s mysessionname
 Detach a session use control+B and then press d.
 
 To attach a previously detached session again:
+
 ```bash
 tmux atttach-session -t mysessionname
 ```
 
 To exit a tmux session when the job is done:
+
 ```bash
 exit
 ```
