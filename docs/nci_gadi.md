@@ -26,9 +26,8 @@ module load nextflow
 module load singularity
 
 nextflow run <nf-core_pipeline>/main.nf \
-    -profile test,singularity,nci_gadi \
-    -c nci_gadi.config \
-    --outdir <outdir>
+    -profile singularity,nci_gadi \
+    <additional flags>
 ```
 
 ### Cluster considerations
