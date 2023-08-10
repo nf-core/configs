@@ -21,13 +21,13 @@ module load nextflow singularity
 
 ### Execution command
 
-```
+```bash
 module load nextflow
 module load singularity
 
 nextflow run <nf-core_pipeline>/main.nf \
-    -profile test,singularity,gadi \
-    -c nci-gadi.config \
+    -profile test,singularity,nci_gadi \
+    -c nci_gadi.config \
     --outdir <outdir>
 ```
 
@@ -35,7 +35,7 @@ nextflow run <nf-core_pipeline>/main.nf \
 
 Please be aware that as of July 2023, NCI Gadi HPC queues **do not** have external network access. This means you will not be able to pull the workflow code base or containers if you submit your `nextflow run` command as a job on any of the standard job queues. NCI currently recommends you download a local copy of the nf-core pipeline and run your Nextflow head job either in a GNU screen or tmux session from the login node or submit it as a job to the [copyq](https://opus.nci.org.au/display/Help/Queue+Structure).
 
-This config currently determined which Gadi queue to submit your task jobs to based on the amount of memory required. For the sake of resource and cost (service unit) efficiency, the following rules are applied by this config:
+This config currently determines which Gadi queue to submit your task jobs to based on the amount of memory required. For the sake of resource and cost (service unit) efficiency, the following rules are applied by this config:
 
 - Tasks requesting **less than 128 Gb** will be submitted to the normalbw queue
 - Tasks requesting **more than 128 Gb and less than 190 Gb** will be submitted to the normal queue
@@ -47,13 +47,13 @@ See the NCI Gadi [queue limit documentation](https://opus.nci.org.au/display/Hel
 
 This config uses the PBS environmental variable `$PROJECT` to assign a project code to all task job submissions for billing purposes. If you are a member of multiple Gadi projects, you should confirm which project will be charged for your pipeline execution. You can do this using:
 
-```
+```bash
 echo $PROJECT
 ```
 
 The version of Nextflow installed on Gadi has been modified to make it easier to specify resource options for jobs submitted to the cluster. See NCI's [Gadi user guide](https://opus.nci.org.au/display/DAE/Nextflow) for more details. You can manually override the $PROJECT specification by editing your local copy of the `nci_gadi.config` and replacing $PROJECT with your project code. For example:
 
-```
+```nextflow
 process {
     executor = 'pbspro'
     project = 'aa00'
@@ -64,10 +64,10 @@ process {
 
 ## Resource usage
 
-The NCI Gadi config summarises resource usage in a custom trace file that will be saved to your execution directory. However, for accounting or resource benchmarking purposes you may need to collect per-task SU charges. Upon workflow completion, you can run the Sydney Informatics Hub's [gadi_nfcore_report.sh](https://github.com/Sydney-Informatics-Hub/HPC_usage_reports/blob/master/Scripts/gadi_nfcore_report.sh) script in your workflow execution directory with:
+The NCI Gadi config summarises resource usage in a custom trace file that will be saved to your execution directory. However, for accounting or resource benchmarking purposes you may need to collect per-task service unit (SU) charges. Upon workflow completion, you can run the Sydney Informatics Hub's [gadi_nfcore_report.sh](https://github.com/Sydney-Informatics-Hub/HPC_usage_reports/blob/master/Scripts/gadi_nfcore_report.sh) script in your workflow execution directory with:
 
-```
+```bash
 bash gadi_nfcore_report.sh
 ```
 
-This script will collect resources from the PBS log files printed to each task's `.command.log`. Resource requests and usage for each process is summarised in the output `gadi-nf-core-joblogs.tsv` file. This is useful for resource benchmarking and service unit (SU) accounting.
+This script will collect resources from the PBS log files printed to each task's `.command.log`. Resource requests and usage for each process is summarised in the output `gadi-nf-core-joblogs.tsv` file. This is useful for resource benchmarking and service unit SU accounting.
