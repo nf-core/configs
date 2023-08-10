@@ -32,7 +32,7 @@ nextflow run <nf-core_pipeline>/main.nf \
 
 ### Cluster considerations
 
-Please be aware that as of July 2023, NCI Gadi HPC queues **do not** have external network access. This means you will not be able to pull the workflow code base or containers if you submit your `nextflow run` command as a job on any of the standard job queues. NCI currently recommends you download a local copy of the nf-core pipeline and run your Nextflow head job either in a GNU screen or tmux session from the login node or submit it as a job to the [copyq](https://opus.nci.org.au/display/Help/Queue+Structure).
+Please be aware that as of July 2023, NCI Gadi HPC queues **do not** have external network access. This means you will not be able to pull the workflow code base or containers if you submit your `nextflow run` command as a job on any of the standard job queues. NCI currently recommends you run your Nextflow head job either in a GNU screen or tmux session from the login node or submit it as a job to the [copyq](https://opus.nci.org.au/display/Help/Queue+Structure). See the [nf-core documentation](https://nf-co.re/docs/usage/offline) for instructions on running pipelines offline.
 
 This config currently determines which Gadi queue to submit your task jobs to based on the amount of memory required. For the sake of resource and cost (service unit) efficiency, the following rules are applied by this config:
 
@@ -69,4 +69,4 @@ The NCI Gadi config summarises resource usage in a custom trace file that will b
 bash gadi_nfcore_report.sh
 ```
 
-This script will collect resources from the PBS log files printed to each task's `.command.log`. Resource requests and usage for each process is summarised in the output `gadi-nf-core-joblogs.tsv` file. This is useful for resource benchmarking and service unit SU accounting.
+This script will collect resources from the PBS log files printed to each task's `.command.log`. Resource requests and usage for each process is summarised in the output `gadi-nf-core-joblogs.tsv` file. This is useful for resource benchmarking and SU accounting.
