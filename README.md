@@ -90,6 +90,7 @@ Currently documentation is available for the following systems:
 - [ABIMS](docs/abims.md)
 - [ADCRA](docs/adcra.md)
 - [ALICE](docs/alice.md)
+- [APOLLO](docs/apollo.md)
 - [AWSBATCH](docs/awsbatch.md)
 - [AWS_TOWER](docs/aws_tower.md)
 - [AZUREBATCH](docs/azurebatch.md)
