@@ -32,6 +32,7 @@ jobs:
           - "abims"
           - "adcra"
           - "alice"
+          - "apollo"
           - "aws_tower"
           - "awsbatch"
           - "azurebatch"
