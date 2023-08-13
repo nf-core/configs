@@ -90,6 +90,7 @@ jobs:
           - "mjolnir_globe"
           - "mpcdf"
           - "munin"
+          - "nci_gadi"
           - "nu_genomics"
           - "oist"
           - "pasteur"

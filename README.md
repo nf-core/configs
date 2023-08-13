@@ -146,6 +146,7 @@ Currently documentation is available for the following systems:
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
 - [MPCDF](docs/mpcdf.md)
 - [MUNIN](docs/munin.md)
+- [NCI GADI](docs/nci_gadi.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
