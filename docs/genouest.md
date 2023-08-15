@@ -8,10 +8,10 @@ To use, run the pipeline with `-profile genouest`. This will download and launch
 
 Nextflow is installed on the GenOuest cluster. Some documentation is available on the [GenOuest website](https://www.genouest.org/howto/#nextflow).
 
-You need to activate it like this:
+You need to activate it like this (or any more recent version in the same directory):
 
 ```bash
-source /local/env/envnextflow-19.07.0.sh
+source /local/env/envnextflow-22.10.4.sh
 ```
 
 Nextflow manages each process as a separate job that is submitted to the cluster by using the sbatch command.
@@ -22,7 +22,7 @@ Nextflow shouldn't run directly on the submission node but on a compute node. Ru
 srun --pty bash
 
 # Load the dependencies if not done before
-source /local/env/envnextflow-19.07.0.sh
+source /local/env/envnextflow-22.10.4.sh
 
 # Run a downloaded/git-cloned nextflow workflow from
 nextflow run \\
