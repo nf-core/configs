@@ -111,6 +111,7 @@ jobs:
           - "tubingen_apg"
           - "ucl_myriad"
           - "uct_hpc"
+          - "ucd_sonic"
           - "uge"
           - "unibe_ibu"
           - "uppmax"

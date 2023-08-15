@@ -164,6 +164,7 @@ Currently documentation is available for the following systems:
 - [Super Computing Wales](docs/scw.md)
 - [TIGEM](docs/tigem.md)
 - [TUBINGEN_APG](docs/tubingen_apg.md)
+- [UCD_SONIC](docs/ucd_sonic.md)
 - [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UGE](docs/uge.md)
