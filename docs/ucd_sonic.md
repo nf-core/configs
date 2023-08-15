@@ -6,7 +6,7 @@ This Sonic config offers very minimal options to users but should allow the use 
 
 ## sbatch_nxf_creator
 
-To run a pipeline, you can use the [sbatch_nxf_creator](https://github.com/brucemoran/sbatch_nxf_creator) method.
+To run a pipeline, you can optionally use the [sbatch_nxf_creator](https://github.com/brucemoran/sbatch_nxf_creator) method.
 
 This allows you to write a YAML file including all of your sample names that you want to process individually, as well as your basic Nextflow command and where the output should be written.
 
