@@ -2,9 +2,9 @@
 
 > **NB:** In order to run pipelines using this HPC cluster, you must first apply for access [here](https://ssl2.cms.fu-berlin.de/fu-berlin/en/sites/high-performance-computing/PM_Zugang-beantragen/index.html).
 
-This profile is configured to run with Singularity version `1.1.9-1.el7`, which is pre-loaded and globally available to all users on the cluster.
+This profile is configured to run with Apptainer, which is pre-loaded and globally available to all users on the cluster.
 
-Nextflow should be loaded before use. Nextflow version `22.10.6.5844` is installed. The following should be added to your sbatch/SLURM script:
+Nextflow should be loaded into your environment before use. The following should be added to your Slurm script:
 
 ```bash
 module load Nextflow
