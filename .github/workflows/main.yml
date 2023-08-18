@@ -96,7 +96,6 @@ jobs:
           - "pasteur"
           - "pawsey_nimbus"
           - "phoenix"
-          - "prince"
           - "psmn"
           - "rosalind"
           - "rosalind_uge"
