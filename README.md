@@ -167,6 +167,7 @@ Currently documentation is available for the following systems:
 - [UCD_SONIC](docs/ucd_sonic.md)
 - [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
+- [UNC_LCCC](docs/unc_lccc.md)
 - [UGE](docs/uge.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
 - [UPPMAX](docs/uppmax.md)
