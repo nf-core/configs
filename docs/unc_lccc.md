@@ -15,10 +15,5 @@ module load Nextflow/0.32.0
 module load Singularity/2.6.0
 ```
 
-## Below are non-mandatory information on iGenomes specific configuration
-
-A local copy of the iGenomes resource has been made available on PROFILE CLUSTER so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline.
-You can do this by simply using the `--genome <GENOME_ID>` parameter.
-
 > NB: You will need an account to use the  in order to run the pipelines. If in doubt contact <informaticshelp@unc.edu>.
 > NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
