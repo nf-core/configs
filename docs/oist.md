@@ -18,7 +18,7 @@ Before running the pipeline you will need to load Nextflow and Singularity
 using the environment module system on _Deigo_. You can do this by issuing the
 commands below:
 
-```bash
+````bash
 ## Load the latest Nextflow and Singularity environment modules
 ml purge
 ml bioinfo-ugrp-modules Nextflow2
@@ -28,7 +28,7 @@ will load all the modules you need.
 
 ```bash
 ml bioinfo-ugrp-modules nf-core
-```
+````
 
 > NB: You will need an account to use the _Deigo_ cluster in order to run the
 > pipeline. If in doubt contact [SCDA](https://groups.oist.jp/scs/documentation).
