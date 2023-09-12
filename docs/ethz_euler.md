@@ -10,26 +10,27 @@ Currently, Nextflow is not installed by default on the Euler cluster. You have t
 
 > **Important:** Previous Nextflow versions will fail to run the job, since the executor option '**perCpuMemAllocation**' is only available since **23.07.0-edge**. This option specifies memory allocations for SLURM jobs as --mem-per-cpu <task.memory / task.cpus> instead of --mem <task.memory>.
 
-
 To run Nextflow on Euler, you will need to load the following modules:
 
-```openjdk``` - a free and opensource java implementation; <br />
-```eth_proxy``` - for the compute nodes communicate with the Internet through the ETH Zurich proxy server;<br />
-```nextflow``` - enables scalable and reproducible scientific workflows using software containers *(this module can have a user-defined name since was a custom installation)*.
+`openjdk` - a free and opensource java implementation; <br />
+`eth_proxy` - for the compute nodes communicate with the Internet through the ETH Zurich proxy server;<br />
+`nextflow` - enables scalable and reproducible scientific workflows using software containers _(this module can have a user-defined name since was a custom installation)_.
 
 ```bash
 module load openjdk eth_proxy nextflow
 ```
 
-Finally, you will also need to specify the Singularity cache directory with the environmental variable ```NXF_SINGULARITY_CACHEDIR```. *(https://www.nextflow.io/docs/latest/singularity.html)*
+Finally, you will also need to specify the Singularity cache directory with the environmental variable `NXF_SINGULARITY_CACHEDIR`. _(https://www.nextflow.io/docs/latest/singularity.html)_
 
 ## Genomes
-In ```/cluster/project/igenomes```, the Euler cluster provides a set of reference genomes and annotations (illumina igenomes) for a selection of model organism. The genomes and annotations were downloaded from: https://support.illumina.com/sequencing/sequencing_software/igenome.html 
 
-The path for the *igenomes* saved in the Euler cluster is already assigned to the parameter variable ```igenomes_base``` and the parameter variable ```igenomes_ignore``` is set to ```false``` so that it loads the igenomes.config when running the pipeline. These default values can be overwritten when running the Nextflow command.
+In `/cluster/project/igenomes`, the Euler cluster provides a set of reference genomes and annotations (illumina igenomes) for a selection of model organism. The genomes and annotations were downloaded from: https://support.illumina.com/sequencing/sequencing_software/igenome.html
+
+The path for the _igenomes_ saved in the Euler cluster is already assigned to the parameter variable `igenomes_base` and the parameter variable `igenomes_ignore` is set to `false` so that it loads the igenomes.config when running the pipeline. These default values can be overwritten when running the Nextflow command.
+
 ```
 igenomes_base   = '/cluster/project/igenomes'
 igenomes_ignore = false
 ```
 
-*(For more information : https://scicomp.ethz.ch/wiki/Reference_genomes)*
+_(For more information : https://scicomp.ethz.ch/wiki/Reference_genomes)_
