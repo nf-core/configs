@@ -118,6 +118,7 @@ Currently documentation is available for the following systems:
 - [EBI_CODON](docs/ebi_codon.md)
 - [EBI_CODON_SLURM](docs/ebi_codon_slurm.md)
 - [Engaging](docs/engaging.md)
+- [ETH Zurich Euler](docs/ethz_euler.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
 - [FUB Curta](docs/fub_curta.md)
