@@ -21,7 +21,7 @@ To run Nextflow on Euler, you will need to load the following modules:
 module load openjdk eth_proxy nextflow
 ```
 
-Finally, you will also need to specify the Singularity cache directory with the environmental variable ```APPTAINER_CACHEDIR```.
+Finally, you will also need to specify the Singularity cache directory with the environmental variable ```NXF_SINGULARITY_CACHEDIR```. *(https://www.nextflow.io/docs/latest/singularity.html)*
 
 ## Genomes
 In ```/cluster/project/igenomes```, the Euler cluster provides a set of reference genomes and annotations (illumina igenomes) for a selection of model organism. The genomes and annotations were downloaded from: https://support.illumina.com/sequencing/sequencing_software/igenome.html 
