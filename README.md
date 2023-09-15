@@ -92,7 +92,6 @@ Currently documentation is available for the following systems:
 - [ALICE](docs/alice.md)
 - [APOLLO](docs/apollo.md)
 - [AWSBATCH](docs/awsbatch.md)
-- [AWS_TOWER](docs/aws_tower.md)
 - [AZUREBATCH](docs/azurebatch.md)
 - [BIGPURPLE](docs/bigpurple.md)
 - [BI](docs/bi.md)
@@ -237,8 +236,6 @@ Currently documentation is available for the following pipelines within specific
   - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
 - chipseq
   - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
-- demultiplex
-  - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - funcscan
