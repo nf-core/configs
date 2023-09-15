@@ -33,6 +33,7 @@ jobs:
           - "adcra"
           - "alice"
           - "apollo"
+          - "aws_anonymous"
           - "aws_tower"
           - "awsbatch"
           - "azurebatch"
