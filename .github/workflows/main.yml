@@ -32,7 +32,6 @@ jobs:
           - "abims"
           - "adcra"
           - "alice"
-          - "aws_tower"
           - "awsbatch"
           - "azurebatch"
           - "bi"
