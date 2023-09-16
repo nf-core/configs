@@ -159,12 +159,12 @@ Currently documentation is available for the following systems:
 - [ROSALIND_UGE](docs/rosalind_uge.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
-- [SBC_SHARC](docs/sbc_sharc.md)
 - [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [Super Computing Wales](docs/scw.md)
 - [TIGEM](docs/tigem.md)
 - [TUBINGEN_APG](docs/tubingen_apg.md)
+- [TUOS_STANAGE](docs/tuos_stanage.md)
 - [UCD_SONIC](docs/ucd_sonic.md)
 - [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
@@ -234,9 +234,9 @@ Currently documentation is available for the following pipelines within specific
   - [BINAC](docs/pipeline/ampliseq/binac.md)
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
 - atacseq
-  - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
+  - [TUOS_STANAGE](docs/pipeline/atacseq/tuos_stanage.md)
 - chipseq
-  - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
+  - [TUOS_STANAGE](docs/pipeline/chipseq/tuos_stanage.md)
 - demultiplex
   - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
@@ -251,14 +251,16 @@ Currently documentation is available for the following pipelines within specific
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
 - rnaseq
   - [AZUREBATCH](docs/pipeline/rnaseq/azurebatch.md)
-  - [SBC_SHARC](docs/pipeline/rnaseq/sbc_sharc.md)
+  - [TUOS_STANAGE](docs/pipeline/rnaseq/tuos_stanage.md)
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [EVA](docs/pipeline/sarek/eva.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
-  - [SBC_SHARC](docs/pipeline/sarek/sbc_sharc.md)
+  - [TUOS_STANAGE](docs/pipeline/sarek/tuos_stanage.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
+- smrnaseq
+  - [TUOS_STANAGE](docs/pipeline/atacseq/tuos_stanage.md)
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
   - [hasta](docs/pipeline/taxprofiler/hasta.md)
