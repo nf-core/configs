@@ -4,23 +4,7 @@
 
 To use [`tuos_stanage.config`](../conf/tuos_stanage.config), run nextflow with an nf-core pipeline using `-profile tuos_stanage` (note the single hyphen).
 
-This will download and launch [`tuos_stanage.config`](../conf/tuos_stanage.config) which has been pre-configured with a setup suitable for the ShARC cluster and will automatically load the appropriate pipeline-specific configuration file.
-
-The following nf-core pipelines have been successfully configured for use on the the [University of Sheffield ShARC cluster](https://docs.hpc.shef.ac.uk/en/latest/index.html):
-
-- [nf-co.re/atacseq](https://nf-co.re/atacseq)
-- [nf-co.re/chipseq](https://nf-co.re/chipseq)
-- [nf-co.re/rnaseq](https://nf-co.re/rnaseq)
-- [nf-co.re/sarek](https://nf-co.re/sarek)
-
-When using [`tuos_stanage.config`](../conf/tuos_stanage.config) with the pipelines listed above, the appropriate configuration file from the list below will be loaded automatically:
-
-- [atacseq tuos_stanage.config](../conf/pipeline/atacseq/tuos_stanage.config)
-- [chipseq tuos_stanage.config](../conf/pipeline/chipseq/tuos_stanage.config)
-- [rnaseq tuos_stanage.config](../conf/pipeline/rnaseq/tuos_stanage.config)
-- [sarek tuos_stanage.config](../conf/pipeline/sarek/tuos_stanage.config)
-
-The [`tuos_stanage.config`](../conf/tuos_stanage.config) configuration file might work with other nf-core pipelines as it stands but we cannot guarantee they will run without issue. We will be continuing to create, test and optimise configurations for new pipelines in the future.
+This will download and launch [`tuos_stanage.config`](../conf/tuos_stanage.config) which has been pre-configured with a setup suitable for the Stanage cluster and will automatically load the appropriate pipeline-specific configuration file.
 
 ## A Note on Singularity Containers
 
