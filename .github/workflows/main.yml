@@ -107,6 +107,7 @@ jobs:
           - "scw"
           - "seawulf"
           - "seg_globe"
+          - "software_license"
           - "tigem"
           - "tubingen_apg"
           - "tuos_stanage"
