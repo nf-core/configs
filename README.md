@@ -138,6 +138,7 @@ Currently documentation is available for the following systems:
 - [iPOP-UP](docs/ipop_up.md)
 - [Janelia Research Campus](docs/janelia.md)
 - [JAX](docs/jax.md)
+- [Jex](docs/jex.md)
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
 - [MAESTRO](docs/maestro.md)
