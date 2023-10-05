@@ -62,7 +62,7 @@ If you decide to upload your custom config file to `nf-core/configs` then this w
 You will simply have to specify `-profile <config_name>` in the command used to run the pipeline.
 See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
-Before adding your config file to nf-core/configs, we highly recommend writing and testing your own custom config file (as described [above](Using an existing config)), and then continuing with the next steps.
+Before adding your config file to nf-core/configs, we highly recommend writing and testing your own custom config file (as described [above](https://github.com/nf-core/configs#using-an-existing-config)), and then continuing with the next steps.
 
 N.B. In your config file, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
 Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
