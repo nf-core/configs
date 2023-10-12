@@ -171,6 +171,7 @@ Currently documentation is available for the following systems:
 - [UNC_LCCC](docs/unc_lccc.md)
 - [UGE](docs/uge.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
+- [UOD_HPC](docs/uod_hpc.md)
 - [UPPMAX](docs/uppmax.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
 - [UTD_SYSBIO](docs/utd_sysbio.md)
