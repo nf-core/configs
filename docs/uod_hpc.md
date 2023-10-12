@@ -4,7 +4,7 @@ The nf-core pipelines [rnaseq](https://nf-co.re/rnaseq) and [sarek](https://nf-c
 
 To use, run the pipeline with `-profile uod_hpc`. This will download and launch the [`uod_hpc.config`](../conf/uod_hpc.config) which has been pre-configured with a setup suitable for the Dundee cluster.
 
-## Using Nextflow on Myriad
+## Using Nextflow on Dundee Cluster
 
 Before running the pipeline you will need to install and configure Nextflow. You can do this by issuing the commands below:
 
@@ -17,11 +17,15 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 conda install -c bioconda nextflow
+
+# Specify a cache directory in your /cluster space for conda environments
+export NXF_CONDA_CACHEDIR="/cluster/<group_name>/<your_directory>/nxf-conda-cachedir"
 ```
 
-For convenience, append the activation command to your `.bashrc` file to avoid having to source your conda environment on each log-in:
+For convenience, append the `export NXF_CONDA_CACHEDIR` and conda activation commands to your `.bashrc` file to avoid having to run on each log-in:
 
 ```bash
+echo export NXF_CONDA_CACHEDIR='"/cluster/<group_name>/<your_directory>/nxf-conda-cachedir"' >> ~/.bashrc
 echo source '"/cluster/<group_name>/<your_directory>/nextflow-env/bin/activate"' >> ~/.bashrc
 ```
 
