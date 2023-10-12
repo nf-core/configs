@@ -117,6 +117,7 @@ jobs:
           - "uge"
           - "unibe_ibu"
           - "unc_lccc"
+          - "uod_hpc"
           - "uppmax"
           - "utd_ganymede"
           - "utd_sysbio"
