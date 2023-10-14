@@ -96,6 +96,7 @@ jobs:
           - "oist"
           - "pasteur"
           - "pawsey_nimbus"
+          - "pawsey_setonix"
           - "pdc_kth"
           - "phoenix"
           - "prince"
