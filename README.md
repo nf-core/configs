@@ -152,6 +152,7 @@ Currently documentation is available for the following systems:
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
 - [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
+- [PAWSEY SETONIX](docs/pawsey_setonix.md)
 - [PDC](docs/pdc_kth.md)
 - [PHOENIX](docs/phoenix.md)
 - [PRINCE](docs/prince.md)
