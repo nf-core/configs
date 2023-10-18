@@ -6,17 +6,19 @@ with a setup suitable for the Cambridge HPC cluster. Using this profile, either 
 and converted to a Singularity image or a Singularity image downloaded directly before execution of the pipeline.
 
 ### Install Nextflow
+
 The latest version of Nextflow is not installed by default on the Cambridge HPC cluster CSD3. You will need to install it into a directory you have write access to.
 Follow [these instructions](https://www.nextflow.io/docs/latest/getstarted.html#) from the Nextflow documentation.
 
 ```
-# move to desired directory on HPC 
+# move to desired directory on HPC
 cd /home/<username>/path/to/dir
 # get the newest version
 wget -qO- https://get.nextflow.io | bash
 ```
 
 ### Obtain updated java version
+
 The java version on the HPC needs updating.
 
 ```
@@ -31,8 +33,10 @@ java --version
 java 20.0.1 2023-04-18
 ```
 
-### Set up Singularity 
+### Set up Singularity
+
 Singularity allows the use of containers. You also needs to make a directory to store Singularity cache.
+
 ```
 module load singularity
 # make a directory for the cache
@@ -40,8 +44,10 @@ mkdir -p /home/<username>/rds/hpc-work/path/to/cache/dir
 ```
 
 ### Run Nextflow
+
 Here is an example with the nf-core pipeline sarek ([read documentation here](https://nf-co.re/sarek/3.3.2)).
 The user includes the project name, the node and the cache directory for Singularity.
+
 ```
 # create a working directory in rds/hpc-work
 mkdir /home/<username>/rds/hpc-work/dir/to/test
