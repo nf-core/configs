@@ -16,6 +16,25 @@ cd /home/<username>/path/to/dir
 # get the newest version
 wget -qO- https://get.nextflow.io | bash
 ```
+Alternatively, install Nextflow with conda
+
+```
+module load miniconda/3
+
+# set up Bioconda according to the Bioconda documentation, notably setting up channels
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+# create the environment env_nf, and install the tool nextflow
+conda create --name env_nf nextflow
+
+# activate the environment containing nextflow
+conda activate env_nf
+
+# once done with the environment, deactivate
+conda deactivate
+```
 
 ### Obtain updated java version
 
