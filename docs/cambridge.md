@@ -7,16 +7,7 @@ and converted to a Singularity image or a Singularity image downloaded directly 
 
 ### Install Nextflow
 
-The latest version of Nextflow is not installed by default on the Cambridge HPC cluster CSD3. You will need to install it into a directory you have write access to.
-Follow [these instructions](https://www.nextflow.io/docs/latest/getstarted.html#) from the Nextflow documentation.
-
-```
-# move to desired directory on HPC
-cd /home/<username>/path/to/dir
-# get the newest version
-wget -qO- https://get.nextflow.io | bash
-```
-Alternatively, install Nextflow with conda
+The latest version of Nextflow is not installed by default on the Cambridge HPC cluster CSD3. You can install it with conda:
 
 ```
 module load miniconda/3
@@ -36,45 +27,53 @@ conda activate env_nf
 conda deactivate
 ```
 
-### Obtain updated java version
-
-The java version on the HPC needs updating.
+Alternatively, you can install Nextflow into a directory you have write access to. 
+Follow [these instructions](https://www.nextflow.io/docs/latest/getstarted.html#) from the Nextflow documentation. This alternative method requires also to update java.
 
 ```
-cd ~/
+# move to desired directory on HPC
+cd /home/<username>/path/to/dir
+
+# get the newest version
+wget -qO- https://get.nextflow.io | bash
+
+# update java version to the latest
 wget https://download.oracle.com/java/20/latest/jdk-20_linux-x64_bin.tar.gz
 tar xvfz jdk-20_linux-x64_bin.tar.gz
-# add these lines to .bashrc
-export JAVA_HOME=/home/ef479/jdk-20.0.1
-export PATH=/home/ef479/jdk-20.0.1/bin:$PATH
-# Once above is done “java --version” should return:
+
+# if all tools are compatible with the java version you chose, add these lines to .bashrc
+export JAVA_HOME=/home/<username>/path/to/dir/jdk-20.0.1
+export PATH=/home/<username>/path/to/dir/jdk-20.0.1/bin:$PATH
+
+# Once above is done `java --version` should return `java 20.0.1 2023-04-18`
 java --version
-java 20.0.1 2023-04-18
+
 ```
 
 ### Set up Singularity
 
-Singularity allows the use of containers. You also needs to make a directory to store Singularity cache.
+Singularity allows the use of containers and will use a caching strategy. First, you need to set the `NXF_SINGULARITY_CACHEDIR` bash environment variable, pointing at your hpc-work location.
+
+```
+# do this once per login, or add these lines to .bashrc
+export NXF_SINGULARITY_CACHEDIR=/home/<username>/rds/hpc-work/path/to/cache/dir
+```
+
+Once done, and ready to use Nextflow, load the Singularity module.
 
 ```
 module load singularity
-# make a directory for the cache
-mkdir -p /home/<username>/rds/hpc-work/path/to/cache/dir
 ```
 
 ### Run Nextflow
 
 Here is an example with the nf-core pipeline sarek ([read documentation here](https://nf-co.re/sarek/3.3.2)).
-The user includes the project name, the node and the cache directory for Singularity.
+The user includes the project name and the node.
 
 ```
-# create a working directory in rds/hpc-work
-mkdir /home/<username>/rds/hpc-work/dir/to/test
-cd /home/<username>/rds/hpc-work/dir/to/test
-
 # Launch the nf-core pipeline for a test database
 # with the Cambridge profile
-nextflow run nf-core/sarek -profile test,cambridge.config --partition "cclake" --project "NAME-SL3-CPU" --cacheDir "/home/<username>/rds/hpc-work/path/to/cache/dir" --outdir nf-sarek-test
+nextflow run nf-core/sarek -profile test,cambridge.config --partition "cclake" --project "NAME-SL3-CPU" --outdir nf-sarek-test
 ```
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline
