@@ -39,7 +39,7 @@ jobs:
           - "bigpurple"
           - "binac"
           - "biohpc_gen"
-          - "BUTTER_HPC"
+          - "butter_hpc"
           - "cambridge"
           - "cbe"
           - "ccga_dx"
