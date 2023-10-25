@@ -1,8 +1,8 @@
-# nf-core/configs: Butter Quantitative Proteomics (BUTTER_HPC) Configuration
+# nf-core/configs: Butter Quantitative Proteomics (butter_hpc) Configuration
 
-All nf-core pipelines have been successfully configured for use on the Butter Quantitative Proteomics (BUTTER_HPC) cluster that is housed at the FLI Greifswald for research groups at institute.
+All nf-core pipelines have been successfully configured for use on the Butter Quantitative Proteomics (butter_hpc) cluster that is housed at the FLI Greifswald for research groups at institute.
 
-To use, run the pipeline with -profile BUTTER_HPC. This will download and launch the BUTTER_HPC.config which has been pre-configured with a setup suitable for the BUTTER_HPC cluster.
+To use, run the pipeline with -profile butter_hpc. This will download and launch the butter_hpc.config which has been pre-configured with a setup suitable for the butter_hpc cluster.
 Before running the pipeline you will have to prepare a conda environment with Nextflow and nf-core installed:
 
 ## only at the first time application:
@@ -25,7 +25,7 @@ nf-core list
 
 ## Test
 
-nextflow run nf-core/rnaseq -profile BUTER_HPC,test --outdir results
+nextflow run nf-core/rnaseq -profile butter_hpc,test --outdir results
 
 ## Own data
 
@@ -38,6 +38,6 @@ cd nf-core-rnaseq-3.10.1/workflow/
 
 ## Execute for testing:
 
-nextflow run main.nf -profile BUTTER_HPC,test --outdir results_test
+nextflow run main.nf -profile butter_hpc,test --outdir results_test
 
 ### use -resume to resume a formerly failed run after adjusting parameters
