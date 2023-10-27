@@ -76,6 +76,7 @@ jobs:
           - "hypatia"
           - "icr_davros"
           - "ifb_core"
+          - "imb"
           - "imperial"
           - "incliva"
           - "ipop_up"
