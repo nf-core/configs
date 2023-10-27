@@ -27,7 +27,7 @@ conda activate env_nf
 conda deactivate
 ```
 
-Alternatively, you can install Nextflow into a directory you have write access to. 
+Alternatively, you can install Nextflow into a directory you have write access to.
 Follow [these instructions](https://www.nextflow.io/docs/latest/getstarted.html#) from the Nextflow documentation. This alternative method requires also to update java.
 
 ```
