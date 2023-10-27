@@ -50,18 +50,21 @@ java --version
 
 ```
 
-### Set up Singularity
+### Set up Singularity cache
 
-Singularity allows the use of containers and will use a caching strategy. First, you need to set the `NXF_SINGULARITY_CACHEDIR` bash environment variable, pointing at your hpc-work location.
+Singularity allows the use of containers and will use a caching strategy. First, you might want to set the `NXF_SINGULARITY_CACHEDIR` bash environment variable, pointing at your hpc-work location. If not, it will be automatically assigned to the current directory.
 
 ```
 # do this once per login, or add these lines to .bashrc
 export NXF_SINGULARITY_CACHEDIR=/home/<username>/rds/hpc-work/path/to/cache/dir
 ```
 
-Once done, and ready to use Nextflow, load the Singularity module.
+Once done, and ready to use Nextflow, you can check that the Singularity module is loaded by default when logging on the cluster.
 
 ```
+module list
+
+# If singularity is not loaded:
 module load singularity
 ```
 
