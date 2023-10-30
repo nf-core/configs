@@ -1,0 +1,135 @@
+**abims** @lecorguille
+**adcra** @kalayaneech
+**alice** @osteobjorn
+**apollo** @coh.org
+**aws_tower** @ggabernet
+**awsbatch** @apeltzer
+**azurebatch** @adamrtalbot
+**azurebatchdev** @abhi18av
+**bi** @apeltzer
+**bigpurple** @tobsecret
+**binac** @apeltzer
+**biohpc_gen** @phue
+**biowulf** @hpc.nih.gov'
+**cambridge** @cam.ac.uk
+**cbe** @phue
+**ccga_dx** @marchoeppner
+**ccga_med** @marchoeppner
+**cedars** @rajewski
+**ceres** @MillironX
+**cfc** @FriederikeHanssen
+**cfc_dev** @FriederikeHanssen
+**cheaha** @uab.edu
+**computerome** @marcmtk
+**crg** @joseespinosa
+**crick** @chris-cheshire
+**crukmi** @sppearce
+**czbiohub_aws** @olgabot
+**denbi_qbic** @apeltzer
+**dkfz** @dkfz-heidelberg.de'
+**ebc** @marcel-keller
+**ebi_codon** @saulpierotti-ebi
+**ebi_codon_slurm** @saulpierotti-ebi
+**eddie** @ameynert
+**engaging** @PhilPalmer
+**ethz_euler** @hest.ethz.ch
+**eva** @jfy133
+**fgcz** @fgcz.ethz.ch"
+**fub_curta** @zedat.fu-berlin.de'
+**genotoul** @inra.fr'
+**genouest** @abretaud
+**gis** @andreas-wilm
+**google** @evanfloden
+**googlebatch** @hnawar'
+**googlels** @hnawar'
+**hasta** config_profile_contact = 'Clinical Genomics, Stockholm'
+**hki** @jfy133 @jfy133 @jfy133 @jfy133
+**hypatia** @lusacristan
+**icr_davros** @adrlar
+**ifb_core** config_profile_contact = 'https://community.france-bioinformatique.fr'
+**imperial** @imperial.ac.uk
+**incliva** @incliva.es'
+**ipop_up** @parisepigenetics.com'
+**janelia** @janelia.hhmi.org
+**jax** @flynnb
+**ku_sund_dangpu** @sund.ku.dk>'
+**leicester** @cam.ac.uk'
+**lugh** @BarryDigby
+**maestro** @pierrespc
+**mana** config_profile_contact = 'Cedric Arisdakessian'
+**marvin** @gmail.com (Pablo Carrion
+**medair** @gu.se
+**mjolnir_globe** @ashildv
+**mpcdf** @jfy133
+**munin** @maxulysse
+**nci_gadi** @mattdton
+**nu_genomics** @NUjon
+**oist** @oist.jp>'
+**pasteur** @rplanel
+**pawsey_nimbus** @SarahBeecroft'
+**pawsey_setonix** @georgiesamaha
+**pdc_kth** @pontus
+**phoenix** @apeltzer
+**binac** @apeltzer
+**uppmax** @lnu.se
+**aws_tower** @emiller88
+**crick** @ChristopherBarrington
+**eva** @jfy133 @jfy133 @jfy133
+**maestro**
+**mpcdf** @jfy133 @jfy133
+**hki** @jfy133
+**engaging** @PhilPalmer
+**eva** @jfy133
+**crg** @joseespinosa
+**hasta**
+**hasta**
+**munin**
+**azurebatch_pools_Edv4** @vsmalladi
+**eddie**
+**mpcdf** @jfy133
+**utd_sysbio** @emiller88
+**munin** @praveenraj2018
+**cfc** @FriederikeHanssen
+**eddie**
+**eva** @jfy133
+**icr_davros**
+**munin** @maxulysse
+**uppmax** @MaxUlysse
+**imperial** config_profile_contact = 'NA'
+**eva** @jfy133
+**hasta** @sofstam
+**eddie**
+**genomes**
+**prince** @tobsecret
+**psmn** @l-modolo
+**rosalind** config_profile_contact = 'Theo Portlock'
+**rosalind_uge** @gregorysprenger
+**sage** @BrunoGrandePhD
+**sahmri** @sahmri.com
+**sanger** @priyanka-surana
+**scw** @bangor.ac.uk'
+**seawulf** @davidecarlson
+**seg_globe** @ashildv
+**software_license** @maxulysse
+**tigem** @giusmar
+**tubingen_apg** @sc13-bioinf
+**tuos_stanage** @sheffield.ac.uk
+**ucd_sonic** @brucemoran
+**ucl_myriad** @ucl.ac.uk
+**uct_hpc** @kviljoen
+**uge** @gregorysprenger
+**unc_lccc** @alanhoyle
+**unibe_ibu** @bioinformatics.unibe.ch"
+**uod_hpc** @dundee.ac.uk
+**uppmax** @ewels
+**utd_ganymede** @emiller88
+**utd_sysbio** @emiller88
+**uw_hyak_pedslabs** @CarsonJM
+**uzh** @apeltzer
+**vai** @njspix
+**vsc_kul_uhasselt** @kuleuven.be' @kuleuven.be' @kuleuven.be'
+**vsc_ugent** @nvnieuwk @matthdsm ict@cmgg.be
+**wcm** @DoaneAS
+**wehi** @wehi.edu.au
+**wustl_htcf** @wustl.edu>"
+**xanadu** @uconn.edu'
