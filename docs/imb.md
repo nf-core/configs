@@ -10,4 +10,6 @@ Before running the pipeline, you will need to load Nextflow using the environmen
 module load nextflow
 ```
 
-> You will need an account to use the IMB HPC cluster in order to run the pipeline. If in doubt contact IT.
+:::note
+You will need an account to use the IMB HPC cluster in order to run the pipeline. If in doubt contact IT.
+:::
