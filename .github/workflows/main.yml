@@ -132,6 +132,7 @@ jobs:
           - "wehi"
           - "wustl_htcf"
           - "xanadu"
+          - "ChristopherBarrington"
 
     steps:
       - uses: actions/checkout@v1
