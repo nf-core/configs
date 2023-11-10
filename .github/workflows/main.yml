@@ -82,6 +82,7 @@ jobs:
           - "ipop_up"
           - "janelia"
           - "jax"
+          - "jex"
           - "ku_sund_dangpu"
           - "leicester"
           - "lugh"
