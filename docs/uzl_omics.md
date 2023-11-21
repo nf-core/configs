@@ -1,7 +1,7 @@
 # nf-core/configs: UzL OMICS Cluster Configuration
 
 The rnaseq nf-core pipeline has been successfully configured for use on the UzL OMICS cluster at the University of Luebeck.
-Implementation of nf-core pipelines for use on the UzL OMICS is in process. 
+Implementation of nf-core pipelines for use on the UzL OMICS is in process.
 
 To use, run the pipeline with `-profile uzl_omics`. This will download and launch the `uzl_omics.config` which has been pre-configured with a setup suitable for the UzL OMICS cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
@@ -23,10 +23,5 @@ NXF_SINGULARITY_HOME_MOUNT=true
 You need to run the pipeline in `$WORK`. You can specify this in your batch-script, as in the following expample:
 
 ```bash
-cd $WORK/nf-core_rnaseq_launchDir 
+cd $WORK/nf-core_rnaseq_launchDir
 ```
-
-## Below are non-mandatory information
-
->note:
-You will need access to the UzL OMICS cluster in order to run the pipeline. In doubt contact IT.
