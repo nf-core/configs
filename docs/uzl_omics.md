@@ -20,12 +20,6 @@ For Nextflow versions newer than 23.07.0-edge, it is necessary to explicitly mou
 NXF_SINGULARITY_HOME_MOUNT=true
 ```
 
-You need to run the pipeline in `$WORK`. You can specify this in your batch-script, as in the following expample:
-
-```bash
-cd $WORK/nf-core_rnaseq_launchDir
-```
-
 ## Below are non-mandatory information
 
 > note:
