@@ -25,3 +25,8 @@ You need to run the pipeline in `$WORK`. You can specify this in your batch-scri
 ```bash
 cd $WORK/nf-core_rnaseq_launchDir
 ```
+
+## Below are non-mandatory information
+
+> note:
+> You will need access to the UzL OMICS cluster in order to run the pipeline. In doubt contact IT.
