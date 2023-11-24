@@ -14,11 +14,6 @@ module load singularity
 
 nf-core requires a Nextflow version 22.10.1 or higher, so you have to intall a more recent version first.
 
-For Nextflow versions newer than 23.07.0-edge, it is necessary to explicitly mount the home directory using the command:
-
-```bash
-NXF_SINGULARITY_HOME_MOUNT=true
-```
 
 ## Below are non-mandatory information
 
