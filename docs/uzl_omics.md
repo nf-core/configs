@@ -14,7 +14,6 @@ module load singularity
 
 nf-core requires a Nextflow version 22.10.1 or higher, so you have to intall a more recent version first.
 
-
 ## Below are non-mandatory information
 
 > note:
