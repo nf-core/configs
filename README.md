@@ -182,6 +182,7 @@ Currently documentation is available for the following systems:
 - [UTD_SYSBIO](docs/utd_sysbio.md)
 - [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
 - [UZH](docs/uzh.md)
+- [UZL_OMICS](docs/uzl_omics.md)
 - [VAI](docs/vai.md)
 - [VSC_KUL_UHASSELT](docs/vsc_kul_uhasselt.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
