@@ -1,7 +1,6 @@
 # nf-core/configs: DaiSyBio
 
-
-To use the DaiSyBio profile, run a nf-core pipeline with  `-profile DaiSyBio,<singularity/apptainer>`.
+To use the DaiSyBio profile, run a nf-core pipeline with `-profile DaiSyBio,<singularity/apptainer>`.
 
 This will automatically download and apply ['daisybio.config'](../conf/daisybio.config) as a nextflow config file.
 
