@@ -113,6 +113,7 @@ Currently documentation is available for the following systems:
 - [CRICK](docs/crick.md)
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
+- [DaiSyBio](docs/daisybio.md)
 - [DENBI_QBIC](docs/denbi_qbic.md)
 - [DKFZ](docs/dkfz.md)
 - [EBC](docs/ebc.md)
