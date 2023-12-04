@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if all profiles are tested
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Check whether profiles are all tested
         run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if nextflow config runs in repository root
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Install Nextflow
         run: |
           wget -qO- get.nextflow.io | bash
@@ -112,6 +112,7 @@ jobs:
           - "sanger"
           - "scw"
           - "seawulf"
+          - "self_hosted_runner"
           - "seg_globe"
           - "software_license"
           - "tigem"
@@ -138,7 +139,7 @@ jobs:
           - "xanadu"
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Install Nextflow
         run: |
           wget -qO- get.nextflow.io | bash

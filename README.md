@@ -167,6 +167,7 @@ Currently documentation is available for the following systems:
 - [SANGER](docs/sanger.md)
 - [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)
+- [self-hosted-runner](docs/self-hosted-runner.md)
 - [Super Computing Wales](docs/scw.md)
 - [TIGEM](docs/tigem.md)
 - [TUBINGEN_APG](docs/tubingen_apg.md)
