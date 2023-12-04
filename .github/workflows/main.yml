@@ -112,6 +112,7 @@ jobs:
           - "sanger"
           - "scw"
           - "seawulf"
+          - "self-hosted-runner"
           - "seg_globe"
           - "software_license"
           - "tigem"
