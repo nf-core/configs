@@ -2,7 +2,7 @@
 
 > **NB:** In order to run pipelines using this HPC cluster, you must first apply for access [here](https://ssl2.cms.fu-berlin.de/fu-berlin/en/sites/high-performance-computing/PM_Zugang-beantragen/index.html).
 
-Job limits are capped at 32 CPUs, 385 GB and a maximum run time of 14 days.
+Job limits are capped at 32 CPUs, 772 GB and a maximum run time of 14 days.
 
 This profile is configured to run with Apptainer, which is pre-loaded and globally available to all users on the cluster.
 
@@ -11,6 +11,8 @@ First, Nextflow should be loaded into your interactive session or added to your 
 ```bash
 module load Nextflow
 ```
+
+> Note: There exists different version modules for Nextflow on the cluster. This command ensures loading the latest version.
 
 Using `-profile fub_curta` will download the config file, which has been pre-configured with a setup suitable for the Curta cluster.
 
