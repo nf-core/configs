@@ -16,7 +16,7 @@ module load Nextflow
 
 Using `-profile fub_curta` will download the config file, which has been pre-configured with a setup suitable for the Curta cluster.
 
-The default partition for job submissions is `main`. With the current `max_memory` settings, the user has access to 162 nodes on `main`. The profile automatically detects whether the user belongs to the BeGenDiv working group, and gives the user access to 4 more nodes by making use of the `begendiv` partition together with `main`, giving precedence to the former.
+The default partition for job submissions is `main`. The user has access to 166 nodes on `main`. The profile automatically detects whether the user belongs to the BeGenDiv working group, and gives the user access to 4 more nodes by making use of the `begendiv` partition together with `main`, giving precedence to the former.
 
 In addition, job submissions are assigned the appropriate quality of service (QOS) as such:
 
