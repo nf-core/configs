@@ -1,4 +1,4 @@
-# nf-core/configs: Freie Universiät Berlin High-Performance Computer (Curta) Configuration
+# nf-core/configs: Freie Universität Berlin High-Performance Computer (Curta) Configuration
 
 > **NB:** In order to run pipelines using this HPC cluster, you must first apply for access [here](https://ssl2.cms.fu-berlin.de/fu-berlin/en/sites/high-performance-computing/PM_Zugang-beantragen/index.html).
 
