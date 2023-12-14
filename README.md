@@ -153,6 +153,7 @@ Currently documentation is available for the following systems:
 - [MUNIN](docs/munin.md)
 - [NCI GADI](docs/nci_gadi.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
+- [NYGC](docs/nygc.md)
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
 - [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
