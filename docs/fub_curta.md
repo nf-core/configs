@@ -24,6 +24,10 @@ In addition, job submissions are assigned the appropriate quality of service (QO
 - `prio` for `task.time <= 3.d`
 - `standard` for `task.time <= 14.d`
 
+Institute-specific pipeline profiles exists for:
+
+- [methylseq](pipeline/methylseq/fub_curta.md)
+
 ## debug profile
 
 Deactivating the cleanup of intermediate files is also possible. It is done by specifying `-profile fub_curta,debug`. This simply turns off automatic clean up of intermediate files, which can be useful for debugging.
