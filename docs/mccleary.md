@@ -6,12 +6,11 @@ To use, run the pipeline with `-profile mccleary`. This will download and launch
 
 ## Below are non-mandatory information e.g. on modules to load etc
 
-Before running the pipeline you will need to load Java 11 using the environment module system on McCleary. You can do this by issuing the commands below:
+Before running the pipeline you will need to load Java using the environment module system on McCleary. You can do this by issuing the commands below:
 
 ```bash
-## Load Java 11 environment modules
 module purge
-module load Java/17.0.4
+module load Java/17
 ```
 
 ## Recommendation on environment variables to set
@@ -29,7 +28,7 @@ Adding these lines to the end of your `~/.bashrc` will load them upon login.
 ## Below are non-mandatory information on iGenomes specific configuration
 
 A local copy of the iGenomes resource has been made available on McCleary so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline.
-You can do this by simply using the `--genome <GENOME_ID>` parameter.
+You can do this by using the `--genome <GENOME_ID>` parameter.
 
 > NB: You will need an account to use the HPC cluster on McCleary in order to run the pipeline. If in doubt contact YCRC.
-> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact YCRC.
+> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt, contact YCRC.
