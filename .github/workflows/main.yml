@@ -67,6 +67,7 @@ jobs:
           - "eva"
           - "fgcz"
           - "fub_curta"
+          - "genericdata"
           - "genotoul"
           - "genouest"
           - "gis"
