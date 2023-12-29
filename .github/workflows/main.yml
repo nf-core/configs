@@ -105,7 +105,6 @@ jobs:
           - "pawsey_setonix"
           - "pdc_kth"
           - "phoenix"
-          - "prince"
           - "psmn"
           - "rosalind"
           - "rosalind_uge"

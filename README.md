@@ -161,7 +161,6 @@ Currently documentation is available for the following systems:
 - [PAWSEY SETONIX](docs/pawsey_setonix.md)
 - [PDC](docs/pdc_kth.md)
 - [PHOENIX](docs/phoenix.md)
-- [PRINCE](docs/prince.md)
 - [PSMN](docs/psmn.md)
 - [ROSALIND](docs/rosalind.md)
 - [ROSALIND_UGE](docs/rosalind_uge.md)
