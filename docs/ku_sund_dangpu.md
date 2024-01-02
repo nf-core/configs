@@ -15,19 +15,28 @@ tmux new-session -s <session-name>
 Before running the pipeline you will need to load Nextflow and Singularity using the environment module system on DANGPU.
 Within the created session load Nextflow and Singularity and set up the environment by issuing the commands below:
 
+first clear the environment and load Nextflow environment modules:
 ```bash
-## Load Nextflow and Singularity environment modules
 module purge
-module load dangpu_libs java/11.0.15 nextflow/22.10.6 singularity/3.8.0 python/3.7.13 nf-core/2.7.2
+module load dangpu_libs openjdk/20.0.0 nextflow/23.04.1.5866
+```
 
-# set up bash environment variables for memory
+for loading the older module nextflow/22.10.6 you can use `module load dangpu_libs java/11.0.15 nextflow/22.10.6` instead of `module load dangpu_libs openjdk/20.0.0 nextflow/23.04.1.5866`.
+
+next, load Singularity environment module:
+```bash
+module load singularity/3.8.0 python/3.7.13 nf-core/2.7.2
+```
+
+set up bash environment variables for memory:
+```bash
 export NXF_OPTS='-Xms1g -Xmx4g'
 export NXF_HOME=/projects/dan1/people/${USER}/cache/nxf-home
 export NXF_TEMP=/scratch/temp/${USER}
 export NXF_SINGULARITY_CACHEDIR=/projects/dan1/people/${USER}/cache/singularity-images
 ```
 
-Create the user-specific nextflow directories if they don't exist yet:
+Create the user-specific nextflow directories if they don't exist yet. You have to do this only once.
 
 ```
 mkdir -p $NXF_SINGULARITY_CACHEDIR
