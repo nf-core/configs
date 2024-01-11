@@ -16,6 +16,7 @@ Before running the pipeline you will need to load Nextflow and Singularity, both
 module purge
 module load nextflow singularity
 ```
+
 ### Cluster considerations
 
 Before running an nf-core pipeline you will need to set your project code as a Slurm environment variable:
