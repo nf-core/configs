@@ -55,6 +55,7 @@ jobs:
           - "crg"
           - "crick"
           - "crukmi"
+          - "csiro_petrichor"
           - "daisybio"
           - "denbi_qbic"
           - "dkfz"

@@ -112,6 +112,7 @@ Currently documentation is available for the following systems:
 - [CRG](docs/crg.md)
 - [CRICK](docs/crick.md)
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
+- [CSIRO PETRICHOR](docs/csiro_petrichor.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
 - [DaiSyBio](docs/daisybio.md)
 - [DENBI_QBIC](docs/denbi_qbic.md)
