@@ -136,6 +136,7 @@ Currently documentation is available for the following systems:
 - [HYPATIA](docs/hypatia.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IFB](docs/ifb_core.md)
+- [ILIFU](docs/ilifu.md)
 - [IMPERIAL](docs/imperial.md)
 - [IMB](docs/imb.md)
 - [INCLIVA](docs/incliva.md)
