@@ -112,7 +112,6 @@ jobs:
           - "rosalind_uge"
           - "sage"
           - "sahmri"
-          - "sanbi_ilifu"
           - "sanger"
           - "scw"
           - "seawulf"
