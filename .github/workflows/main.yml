@@ -80,6 +80,7 @@ jobs:
           - "icr_davros"
           - "ifb_core"
           - "imb"
+          - "ilifu"
           - "imperial"
           - "incliva"
           - "ipop_up"
