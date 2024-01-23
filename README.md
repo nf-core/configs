@@ -112,6 +112,7 @@ Currently documentation is available for the following systems:
 - [CRG](docs/crg.md)
 - [CRICK](docs/crick.md)
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
+- [CSIRO PETRICHOR](docs/csiro_petrichor.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
 - [DaiSyBio](docs/daisybio.md)
 - [DENBI_QBIC](docs/denbi_qbic.md)
@@ -153,13 +154,14 @@ Currently documentation is available for the following systems:
 - [MUNIN](docs/munin.md)
 - [NCI GADI](docs/nci_gadi.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
+- [NYGC](docs/nygc.md)
+- [NYU_HPC](docs/nyu_hpc.md)
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
 - [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
 - [PAWSEY SETONIX](docs/pawsey_setonix.md)
 - [PDC](docs/pdc_kth.md)
 - [PHOENIX](docs/phoenix.md)
-- [PRINCE](docs/prince.md)
 - [PSMN](docs/psmn.md)
 - [ROSALIND](docs/rosalind.md)
 - [ROSALIND_UGE](docs/rosalind_uge.md)
@@ -251,6 +253,8 @@ Currently documentation is available for the following pipelines within specific
 - mag
   - [Engaging](docs/pipeline/mag/engaging.md)
   - [EVA](docs/pipeline/mag/eva.md)
+- methylseq
+  - [FUB Curta](docs/pipeline/methylseq/fub_curta.md)
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
