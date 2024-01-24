@@ -2,12 +2,12 @@
 
 To use, run the pipeline with `-profile ilifu`. This will use the [`ilifu.config`](../conf/ilifu.config) which has been pre-configured
 with a setup suitable for the Ilifu slurm cluster. In particular it configures the use of Singularity containers and chooses an
-appropriate queue based on the memory required and the need (or lack of need) for a GPU (as specified using the 
+appropriate queue based on the memory required and the need (or lack of need) for a GPU (as specified using the
 [`accelerator` attribute](https://www.nextflow.io/docs/latest/process.html#accelerator) of the Nextflow process).
 
 ## Running the workflow on the Ilifu slurm cluster
 
-Mextflow is made available using the Environment Modules system. Load the Nextflow module with `module load nextflow`. 
+Mextflow is made available using the Environment Modules system. Load the Nextflow module with `module load nextflow`.
 
 Do not run Nextflow directly on the login node, rather write a script that executes `module load nextflow` and then
 runs the workflow with `nextflow -profile ilifu`.
@@ -29,7 +29,7 @@ module add nextflow
 
 nextflow run nf-core/my_pipeline -profile ilifu \
     -w /path/to/some/dir/work \
-    -resume 
+    -resume
     --some_parameter
 
 ## clean up on exit 0 - delete this if you want to keep the work dir
