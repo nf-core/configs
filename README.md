@@ -62,7 +62,7 @@ If you decide to upload your custom config file to `nf-core/configs` then this w
 You will simply have to specify `-profile <config_name>` in the command used to run the pipeline.
 See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
-Before adding your config file to nf-core/configs, we highly recommend writing and testing your own custom config file (as described [above](Using an existing config)), and then continuing with the next steps.
+Before adding your config file to nf-core/configs, we highly recommend writing and testing your own custom config file (as described [above](https://github.com/nf-core/configs#using-an-existing-config)), and then continuing with the next steps.
 
 N.B. In your config file, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
 Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
@@ -108,10 +108,13 @@ Currently documentation is available for the following systems:
 - [CFC](docs/cfc.md)
 - [CHEAHA](docs/cheaha.md)
 - [Computerome](docs/computerome.md)
+- [CREATE](docs/create.md)
 - [CRG](docs/crg.md)
 - [CRICK](docs/crick.md)
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
+- [CSIRO PETRICHOR](docs/csiro_petrichor.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
+- [DaiSyBio](docs/daisybio.md)
 - [DENBI_QBIC](docs/denbi_qbic.md)
 - [DKFZ](docs/dkfz.md)
 - [EBC](docs/ebc.md)
@@ -133,11 +136,14 @@ Currently documentation is available for the following systems:
 - [HYPATIA](docs/hypatia.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [IFB](docs/ifb_core.md)
+- [ILIFU](docs/ilifu.md)
 - [IMPERIAL](docs/imperial.md)
+- [IMB](docs/imb.md)
 - [INCLIVA](docs/incliva.md)
 - [iPOP-UP](docs/ipop_up.md)
 - [Janelia Research Campus](docs/janelia.md)
 - [JAX](docs/jax.md)
+- [Jex](docs/jex.md)
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
 - [MAESTRO](docs/maestro.md)
@@ -149,33 +155,39 @@ Currently documentation is available for the following systems:
 - [MUNIN](docs/munin.md)
 - [NCI GADI](docs/nci_gadi.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
+- [NYGC](docs/nygc.md)
+- [NYU_HPC](docs/nyu_hpc.md)
 - [OIST](docs/oist.md)
 - [PASTEUR](docs/pasteur.md)
 - [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
+- [PAWSEY SETONIX](docs/pawsey_setonix.md)
+- [PDC](docs/pdc_kth.md)
 - [PHOENIX](docs/phoenix.md)
-- [PRINCE](docs/prince.md)
 - [PSMN](docs/psmn.md)
 - [ROSALIND](docs/rosalind.md)
 - [ROSALIND_UGE](docs/rosalind_uge.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
-- [SBC_SHARC](docs/sbc_sharc.md)
 - [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)
+- [self-hosted-runner](docs/self-hosted-runner.md)
 - [Super Computing Wales](docs/scw.md)
 - [TIGEM](docs/tigem.md)
 - [TUBINGEN_APG](docs/tubingen_apg.md)
+- [TUOS_STANAGE](docs/tuos_stanage.md)
 - [UCD_SONIC](docs/ucd_sonic.md)
 - [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNC_LCCC](docs/unc_lccc.md)
 - [UGE](docs/uge.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
+- [UOD_HPC](docs/uod_hpc.md)
 - [UPPMAX](docs/uppmax.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
 - [UTD_SYSBIO](docs/utd_sysbio.md)
 - [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
 - [UZH](docs/uzh.md)
+- [UZL_OMICS](docs/uzl_omics.md)
 - [VAI](docs/vai.md)
 - [VSC_KUL_UHASSELT](docs/vsc_kul_uhasselt.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
@@ -233,10 +245,6 @@ Currently documentation is available for the following pipelines within specific
 - ampliseq
   - [BINAC](docs/pipeline/ampliseq/binac.md)
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
-- atacseq
-  - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
-- chipseq
-  - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
 - demultiplex
   - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
@@ -246,18 +254,18 @@ Currently documentation is available for the following pipelines within specific
 - mag
   - [Engaging](docs/pipeline/mag/engaging.md)
   - [EVA](docs/pipeline/mag/eva.md)
+- methylseq
+  - [FUB Curta](docs/pipeline/methylseq/fub_curta.md)
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
 - rnaseq
   - [AZUREBATCH](docs/pipeline/rnaseq/azurebatch.md)
-  - [SBC_SHARC](docs/pipeline/rnaseq/sbc_sharc.md)
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
   - [EVA](docs/pipeline/sarek/eva.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
-  - [SBC_SHARC](docs/pipeline/sarek/sbc_sharc.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
 - taxprofiler
   - [EVA](docs/pipeline/taxprofiler/eva.md)
