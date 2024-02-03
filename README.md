@@ -179,6 +179,7 @@ Currently documentation is available for the following systems:
 - [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNC_LCCC](docs/unc_lccc.md)
+- [UNC_LONGLEAF](docs/unc_longleaf.md)
 - [UGE](docs/uge.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
 - [UOD_HPC](docs/uod_hpc.md)
