@@ -51,6 +51,7 @@ ch-run -b /scratch:/scratch \
 
 By default the `psmn` profile will lookup charliecloud img in the `/Xnfs/abc/charliecloud/` folder.
 To download all the images that are not already present in this folder you can use the following script
+
 ```sh
 cd nf-core-rnaseq
 pull_ch_images_locally.sh
