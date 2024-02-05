@@ -9,7 +9,7 @@ To use, run the pipeline with `-profile pasteur`. This will download and launch 
 ### Install [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#) and [Charliecloud](https://hpc.github.io/charliecloud/index.html)
 
 The Nextflow binary is available in the folder `/Xnfs/abc/nextflow_bin/`.
-All the Charliecloud binaries are available in the folder `Xnfs/abc/charliecloud_bin/`.
+All the Charliecloud binaries are available in the folder `/Xnfs/abc/charliecloud_bin/`.
 
 You can update your `$PATH` variable with the following command to have access to Nextflow and Charliecloud:
 
@@ -30,7 +30,8 @@ ch-run -b /scratch:/scratch /Xnfs/abc/charliecloud/img/nfcore%tools+2.6 -- nf-co
 For exemple to download the `nf-core/rnaseq` pipeline you can use the command:
 
 ```sh
-ch-run -b /scratch:/scratch \
+cd /Xnfs/abc/nf_scratch/<user_name>/
+ch-run -b /scratch:/scratch -b /Xnfs:"" \
   /Xnfs/abc/charliecloud/img/nfcore%tools+2.6 -- nf-core \
   download rnaseq -r 3.9 --outdir nf-core-rnaseq
 ```
@@ -39,16 +40,27 @@ ch-run -b /scratch:/scratch \
 
 You can use the `nf-core download` command to download an nf-core pipeline and the configuration files for the PSMN:
 
-```
-cd <your scratch directory>
+```sh
+cd /Xnfs/abc/nf_scratch/<user_name>/
 ch-run -b /scratch:/scratch \
   /Xnfs/abc/charliecloud/img/nfcore%tools+2.6 -- nf-core \
   download rnaseq -r 3.9 --outdir <your scratch directory>/nf-core-rnaseq -x none -c none
 ```
 
-The you can launch this pipeline with the PSMN profile
+### Download all the necessary image
 
+By default the `psmn` profile will lookup charliecloud img in the `/Xnfs/abc/charliecloud/` folder.
+To download all the images that are not already present in this folder you can use the following script
+```sh
+cd nf-core-rnaseq
+pull_ch_images_locally.sh
 ```
+
+### Launch the pipeline
+
+Then you can launch this pipeline with the PSMN profile
+
+```sh
 tmux
 cd nf-core-rnaseq
 nextflow run workflow -profile test,psmn --outdir results/
