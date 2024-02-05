@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if all profiles are tested
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Check whether profiles are all tested
         run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
 
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if nextflow config runs in repository root
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Install Nextflow
         run: |
           wget -qO- get.nextflow.io | bash
@@ -32,6 +32,7 @@ jobs:
           - "abims"
           - "adcra"
           - "alice"
+          - "apollo"
           - "aws_tower"
           - "awsbatch"
           - "azurebatch"
@@ -39,8 +40,8 @@ jobs:
           - "bigpurple"
           - "binac"
           - "biohpc_gen"
+          - "biowulf"
           - "cambridge"
-          - "leicester"
           - "cbe"
           - "ccga_dx"
           - "ccga_med"
@@ -50,64 +51,99 @@ jobs:
           - "cfc_dev"
           - "cheaha"
           - "computerome"
+          - "create"
           - "crg"
           - "crick"
           - "crukmi"
+          - "csiro_petrichor"
+          - "daisybio"
           - "denbi_qbic"
           - "dkfz"
           - "ebc"
+          - "ebi_codon"
+          - "ebi_codon_slurm"
           - "eddie"
           - "engaging"
+          - "ethz_euler"
           - "eva"
           - "fgcz"
+          - "fub_curta"
           - "genotoul"
           - "genouest"
           - "gis"
           - "google"
+          - "googlebatch"
+          - "googlels"
           - "hasta"
-          - "hebbe"
           - "hki"
+          - "hypatia"
           - "icr_davros"
           - "ifb_core"
+          - "imb"
+          - "ilifu"
           - "imperial"
+          - "incliva"
+          - "ipop_up"
+          - "janelia"
           - "jax"
+          - "jex"
           - "ku_sund_dangpu"
+          - "leicester"
           - "lugh"
+          - "maestro"
           - "mana"
           - "marvin"
           - "medair"
           - "mjolnir_globe"
-          - "maestro"
           - "mpcdf"
           - "munin"
+          - "nci_gadi"
           - "nu_genomics"
-          - "nihbiowulf"
+          - "nygc"
+          - "nyu_hpc"
           - "oist"
           - "pasteur"
+          - "pawsey_nimbus"
+          - "pawsey_setonix"
+          - "pdc_kth"
           - "phoenix"
-          - "prince"
           - "psmn"
           - "rosalind"
+          - "rosalind_uge"
           - "sage"
           - "sahmri"
           - "sanger"
-          - "sbc_sharc"
           - "scw"
+          - "seawulf"
+          - "self_hosted_runner"
           - "seg_globe"
+          - "software_license"
           - "tigem"
+          - "tubingen_apg"
+          - "tuos_stanage"
           - "ucl_myriad"
           - "uct_hpc"
+          - "ucd_sonic"
+          - "uge"
           - "unibe_ibu"
+          - "unc_lccc"
+          - "unc_longleaf"
+          - "uod_hpc"
           - "uppmax"
           - "utd_ganymede"
           - "utd_sysbio"
+          - "uw_hyak_pedslabs"
           - "uzh"
+          - "uzl_omics"
           - "vai"
+          - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
+          - "wustl_htcf"
+          - "xanadu"
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Install Nextflow
         run: |
           wget -qO- get.nextflow.io | bash
