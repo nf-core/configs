@@ -2,7 +2,10 @@
 
 All nf-core pipelines have been successfully configured for use on the tars cluster at the Institut Pasteur.
 
-To use, run the pipeline with `-profile pasteur`. This will download and launch the [`psmn.config`](../conf/psmn.config) which has been pre-configured with a setup suitable for the PSMN cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile psmn`. This will download and launch the [`psmn.config`](../conf/psmn.config) which has been pre-configured with a setup suitable for the PSMN cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+
+You can have more information on the cluster parition here:
+[www.ens-lyon.fr/PSMN/Documentation/clusters_usage/computing_resources.html](https://www.ens-lyon.fr/PSMN/Documentation/clusters_usage/computing_resources.html)
 
 ## Running the workflow on the PSMN cluster
 
