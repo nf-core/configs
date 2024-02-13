@@ -41,5 +41,5 @@ Create a params.json file with the desired parameters for the pipeline.  Place t
 
 ```bash
 screen -S run-nextflow
-nextflow run nf-core/<pipeline_name> -name <run_name> -params-file params.json -r <nf-core revision> -profile york_viking -resume
+nextflow run nf-core/<pipeline_name> -profile york_viking -name <run_name> -params-file params.json -r <nf-core revision>
 ```
