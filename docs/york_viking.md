@@ -1,10 +1,10 @@
-# nf-core/configs: York University Viking SLURM Configuration
+# nf-core/configs: York University Viking Configuration
 
 This config is for running nf-core pipelines, either directly on Viking or via tower.nf
 
-To use, run the pipeline with `-profile york_viking_slurm`. This will download and launch the [`york_viking_slurm.config`](../conf/york_viking_slurm.config) which has been pre-configured with a setup suitable for the Viking cluster.
+To use, run the pipeline with `-profile york_viking`. This will download and launch the [`york_viking.config`](../conf/york_viking.config) which has been pre-configured with a setup suitable for the Viking cluster.
 
-I recommend running Nextflow via tower.nf, in which case make sure to include the **york_viking_slurm** profile within the pipeline.
+I recommend running Nextflow via tower.nf, in which case make sure to include the **york_viking** profile within the pipeline.
 
 However, should you need to run it directly on the HPC follow the guidance below.
 
@@ -41,5 +41,5 @@ Create a params.json file with the desired parameters for the pipeline.  Place t
 
 ```bash
 screen -S run-nextflow
-nextflow run nf-core/<pipeline_name> -name <run_name> -params-file params.json -r <nf-core revision> -profile york_viking_slurm -resume
+nextflow run nf-core/<pipeline_name> -name <run_name> -params-file params.json -r <nf-core revision> -profile york_viking -resume
 ```

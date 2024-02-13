@@ -141,7 +141,7 @@ jobs:
           - "wehi"
           - "wustl_htcf"
           - "xanadu"
-          - "york_viking_slurm"
+          - "york_viking"
 
     steps:
       - uses: actions/checkout@v4
