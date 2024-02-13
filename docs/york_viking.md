@@ -36,7 +36,7 @@ export APPTAINER_CACHEDIR="/mnt/scratch/<PATH_TO_FOLDER>"
 
 ## Running the nextflow pipeline
 
-Create a params.json file with the desired parameters for the pipeline.  Place this file in the folder from which you wish to run the Nextflow pipeline.  Then using a screen session:
+Create a params.json file with the desired parameters for the pipeline. Place this file in the folder from which you wish to run the Nextflow pipeline. Then using a screen session:
 
 ```bash
 screen -S run-nextflow
