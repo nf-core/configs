@@ -3,6 +3,7 @@
 > **NB:** You will need an [account](https://www.ugent.be/hpc/en/access/faq/access) to use the HPC cluster to run the pipeline.
 
 Regarding environment variables in `~/.bashrc`, make sure you have a setup similar to the one below. If you're already part of a VO, ask for one or use `VSC_DATA_USER` instead of `VSC_DATA_VO_USER`.
+
 ```bash
 # Needed for Tier1 accounts, not for Tier2
 export SLURM_ACCOUNT={FILL_IN_NAME_OF_YOUR_ACCOUNT}
@@ -43,20 +44,23 @@ To submit your job to the cluster by using the following command:
 qsub <script name>.pbs
 ```
 
-The VSC does [not support](https://docs.hpc.ugent.be/Linux/apptainer/) Apptainer containers provided via a URL (e.g., shub://... or docker://...). 
-One solution is to download all the containers beforehand, like in [this pipeline](https://github.com/saeyslab/spotless-benchmark). 
+The VSC does [not support](https://docs.hpc.ugent.be/Linux/apptainer/) Apptainer containers provided via a URL (e.g., shub://... or docker://...).
+One solution is to download all the containers beforehand, like in [this pipeline](https://github.com/saeyslab/spotless-benchmark).
 
 First get the containers.json file from the pipeline you want to run:
+
 ```bash
 nextflow inspect main.nf -profile vsc_ugent,<CLUSTER> > containers.json
 ```
 
 Then run a build script (script appended below) to build all the containers. This can take a long time and a lot of space, but it is a one-time cost. For many large images, consider running this as a job.
+
 ```bash
 bash build_all_containers.sh containers.json
 ```
 
 Overwrite the container in your `nextflow.config`. If you need GPU support, also apply the label 'use_gpu':
+
 ```groovy
 process {
      withName: DEEPCELL_MESMER {
@@ -72,6 +76,7 @@ process {
 > **NB:** The default directory where the `work/` and `singularity/` (cache directory for images) is located in `$VSC_SCRATCH_VO_USER`.
 
 `build_all_containers.sh`:
+
 ```bash
 #!/bin/env bash
 
