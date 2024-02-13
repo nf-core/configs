@@ -195,6 +195,7 @@ Currently documentation is available for the following systems:
 - [WEHI](docs/wehi.md)
 - [WUSTL_HTCF](docs/wustl_htcf.md)
 - [XANADU](docs/xanadu.md)
+- [YORK_VIKING](docs/york_viking.md)
 
 ### Uploading to `nf-core/configs`
 
