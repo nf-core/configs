@@ -179,6 +179,7 @@ Currently documentation is available for the following systems:
 - [UCL_MYRIAD](docs/ucl_myriad.md)
 - [UCT_HPC](docs/uct_hpc.md)
 - [UNC_LCCC](docs/unc_lccc.md)
+- [UNC_LONGLEAF](docs/unc_longleaf.md)
 - [UGE](docs/uge.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
 - [UOD_HPC](docs/uod_hpc.md)
@@ -194,6 +195,7 @@ Currently documentation is available for the following systems:
 - [WEHI](docs/wehi.md)
 - [WUSTL_HTCF](docs/wustl_htcf.md)
 - [XANADU](docs/xanadu.md)
+- [YORK_VIKING](docs/york_viking.md)
 
 ### Uploading to `nf-core/configs`
 

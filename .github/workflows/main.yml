@@ -127,6 +127,7 @@ jobs:
           - "uge"
           - "unibe_ibu"
           - "unc_lccc"
+          - "unc_longleaf"
           - "uod_hpc"
           - "uppmax"
           - "utd_ganymede"
@@ -140,6 +141,7 @@ jobs:
           - "wehi"
           - "wustl_htcf"
           - "xanadu"
+          - "york_viking"
 
     steps:
       - uses: actions/checkout@v4
