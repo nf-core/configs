@@ -16,5 +16,5 @@ Before running the pipeline, you will need to load the Nextflow module by:
 
 ```bash
 module purge ## Optional but recommended
-module load nextflow
+module load nextflow singularity
 ```
