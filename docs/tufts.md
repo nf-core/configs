@@ -4,7 +4,7 @@ nf-core pipelines have been configured for use on the Tufts HPC clusters operate
 
 To use Tufts's profile, run the pipeline with `-profile tufts`.
 
-Example: `nextflow run -profile tufts`
+Example: `nextflow run <pipeline> -profile tufts`
 
 Users can also put the `nextflow ...` command into a batch script and submit the job to computing nodes by `sbatch` or launch interative jobs to computing nodes by `srun`. Using this way, both nextflow manager processes and tasks will run on the allocated compute nodes using the `local` executor. It is recommended to use `-profile singularity`
 
