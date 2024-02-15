@@ -1,0 +1,23 @@
+params {
+  config_profile_description = 'Bacteriology session of Instituto Evandro Chagas cluster profile provided by nf-core/configs.'
+  config_profile_contact = 'Davi Marcon - @Mxrcon - davijosuemarcon@gmail.com'
+
+  max_cpus = 12
+  max_memory = 48.GB
+  max_time = 72.h
+
+}
+
+docker {
+  enabled = true
+  runOptions = "-u root"
+}
+
+process {
+  executor = 'pbs'
+  pollInterval = '5 sec'
+  queueSize = '10'   
+  clusterOptions = {"-l nodes=1:hpcnod16:ppn=${task.cpus}"}
+  queue = "sabmi"
+  }
+}
