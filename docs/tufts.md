@@ -2,7 +2,7 @@
 
 nf-core pipelines have been configured for use on the Tufts HPC clusters operated by Research Technology at Tufts University.
 
-To use Tufts's profile, run the pipeline with `-profile tufts`. 
+To use Tufts's profile, run the pipeline with `-profile tufts`.
 
 Example: `nextflow run -profile tufts`
 
