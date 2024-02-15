@@ -120,6 +120,7 @@ jobs:
           - "software_license"
           - "tigem"
           - "tubingen_apg"
+          - "tufts"
           - "tuos_stanage"
           - "ucl_myriad"
           - "uct_hpc"
