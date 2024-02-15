@@ -8,7 +8,7 @@ Example: `nextflow run <pipeline> -profile tufts`
 
 Users can also put the `nextflow ...` command into a batch script and submit the job to computing nodes by `sbatch` or launch interative jobs to computing nodes by `srun`. Using this way, both nextflow manager processes and tasks will run on the allocated compute nodes using the `local` executor. It is recommended to use `-profile singularity`
 
-Example: `nextflow run -profile singularity`
+Example: `nextflow run <pipeline> -profile singularity`
 
 ## Environment module
 
