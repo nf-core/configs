@@ -8,7 +8,7 @@ To run an nf-core pipeline at Pawsey's Setonix HPC, run the pipeline with `-prof
 
 Please be aware that you will need to have a user account, be a member of a Setonix project, and have a service unit allocation to your project in order to use this infrastructure. See documentation for details regarding [access mechanisms for Setonix HPC](https://support.pawsey.org.au/documentation/display/US/Requesting+Access+to+Pawsey+Supercomputers).
 
-## Launch an nf-core pipeline on Gadi
+## Launch an nf-core pipeline on Setonix
 
 ### Prerequisites
 
