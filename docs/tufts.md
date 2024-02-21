@@ -10,6 +10,8 @@ Users can also put the `nextflow ...` command into a batch script and submit the
 
 Example: `nextflow run <pipeline> -profile singularity`
 
+By default, the `batch` partition is used for job submission. Other partitions can be specified using the `--partition <PARTITION NAME>` argument to the run.
+
 ## Environment module
 
 Before running the pipeline, you will need to load the Nextflow module by:
