@@ -192,6 +192,7 @@ Currently documentation is available for the following systems:
 - [UZH](docs/uzh.md)
 - [UZL_OMICS](docs/uzl_omics.md)
 - [VAI](docs/vai.md)
+- [VSC_CALCUA](docs/vsc_calcua.md)
 - [VSC_KUL_UHASSELT](docs/vsc_kul_uhasselt.md)
 - [VSC_UGENT](docs/vsc_ugent.md)
 - [WEHI](docs/wehi.md)
