@@ -10,7 +10,7 @@ module load nextflow/23.04.2;
 module load apptainer/1.2.2-1;
 ```
 
-All of the intermediate files required to run the pipeline will be stored in the `work/` directory, which will be generated inside the location you ran the nf-core pipeline. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway. You can also specify the working directory using the Nextflow `-w` option.
+All of the intermediate files required to run the pipeline will be stored in the `work/` directory, which will be generated inside the location you ran the nf-core pipeline. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway. You can also specify the working directory using the Nextflow [`-w` or `-work-dir` option](https://www.nextflow.io/docs/latest/cli.html#run).
 
 This configuration will automatically submit jobs to the `general` SLURM queue, where it may automatically be shuffled to different partitions depending on the time required by each process.
 
