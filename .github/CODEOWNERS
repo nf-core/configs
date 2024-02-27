@@ -1,7 +1,7 @@
 **abims** @lecorguille
 **adcra** @kalayaneech
-**alice** @osteobjorn
-**apollo** @coh.org
+**alice** @bbartholdy
+**apollo** @drejom
 **aws_tower** @ggabernet
 **awsbatch** @apeltzer
 **azurebatch** @adamrtalbot
@@ -10,8 +10,8 @@
 **bigpurple** @tobsecret
 **binac** @apeltzer
 **biohpc_gen** @phue
-**biowulf** @hpc.nih.gov'
-**cambridge** @cam.ac.uk
+**biowulf** @qiyubio
+**cambridge** @EmelineFavreau
 **cbe** @phue
 **ccga_dx** @marchoeppner
 **ccga_med** @marchoeppner
@@ -19,31 +19,31 @@
 **ceres** @MillironX
 **cfc** @FriederikeHanssen
 **cfc_dev** @FriederikeHanssen
-**cheaha** @uab.edu
+**cheaha** @lianov @atrull314
 **computerome** @marcmtk
 **crg** @joseespinosa
 **crick** @chris-cheshire
 **crukmi** @sppearce
 **czbiohub_aws** @olgabot
 **denbi_qbic** @apeltzer
-**dkfz** @dkfz-heidelberg.de'
+**dkfz** @kubranarci
 **ebc** @marcel-keller
-**ebi_codon** @saulpierotti-ebi
-**ebi_codon_slurm** @saulpierotti-ebi
+**ebi_codon** @saulpierotti
+**ebi_codon_slurm** @saulpierotti
 **eddie** @ameynert
 **engaging** @PhilPalmer
-**ethz_euler** @hest.ethz.ch
+**ethz_euler** @jpadesousa
 **eva** @jfy133
-**fgcz** @fgcz.ethz.ch"
-**fub_curta** @zedat.fu-berlin.de'
-**genotoul** @inra.fr'
+**fgcz** @zajacn
+**fub_curta** @wassimsalam01
+**genotoul** @chklopp
 **genouest** @abretaud
 **gis** @andreas-wilm
-**google** @evanfloden
-**googlebatch** @hnawar'
-**googlels** @hnawar'
-**hasta** config_profile_contact = 'Clinical Genomics, Stockholm'
-**hki** @jfy133 @jfy133 @jfy133 @jfy133
+**google** @FIXME
+**googlebatch** @hnawar
+**googlels** @hnawar
+**hasta** @FIXME
+**hki** @jfy133
 **hypatia** @lusacristan
 **icr_davros** @adrlar
 **ifb_core** config_profile_contact = 'https://community.france-bioinformatique.fr'
