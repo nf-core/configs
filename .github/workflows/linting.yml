@@ -1,22 +1,31 @@
-name: Code Linting
+name: Lint tools code formatting
 on:
-  pull_request:
   push:
     branches:
       - master
+  pull_request:
+
+# Cancel if a newer run is started
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  prettier:
+  pre-commit:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
-      - name: Install NodeJS
-        uses: actions/setup-node@v2
+      - name: Set up Python 3.11
+        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
+        with:
+          python-version: 3.11
+          cache: "pip"
 
-      - name: Install Prettier
-        run: npm install -g prettier
+      - name: Install pre-commit
+        run: pip install pre-commit
 
-      - name: Run Prettier --check
-        run: prettier --check ${GITHUB_WORKSPACE}
+      - name: Run pre-commit
+        run: pre-commit run --all-files
