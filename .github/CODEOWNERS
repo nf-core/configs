@@ -50,7 +50,7 @@
 # **incliva** @FIXME
 # **ipop_up** @FIXME
 # **janelia** @FIXME
-**jax** @flynnb
+**/jax** @flynnb
 # **ku_sund_dangpu** @FIXME
 # **leicester** @FIXME
 **/lugh** @BarryDigby
@@ -66,7 +66,7 @@
 # **oist** @FIXME
 **/pasteur** @rplanel
 **/pawsey_nimbus** @marcodelapierre @SarahBeecroft
-**/pawsey_setonix** @georgiesamaha@ SarahBeecroft
+**/pawsey_setonix** @georgiesamaha @SarahBeecroft
 **/pdc_kth** @pontus
 **/phoenix** @apeltzer
 **/uppmax** @ewels @MaxUlysse
@@ -74,13 +74,12 @@
 **/azurebatch_pools_Edv4** @vsmalladi
 # **icr_davros** @FIXME
 **/hasta** @sofstam
-**/prince** @tobsecret
 **/psmn** @l-modolo
 **/rosalind** @theoportlock
 **/rosalind_uge** @gregorysprenger
 **/sage** @BrunoGrandePhD
 # **sahmri** @FIXME
-**/sanbi_ilifu** @pvanheus
+**/ilifu** @pvanheus
 **/sanger** @priyanka-surana
 # **scw** @FIXME
 **/seawulf** @davidecarlson
@@ -96,16 +95,16 @@
 **/unc_lccc** @alanhoyle
 **/unc_longleaf** @ahepperla
 # **unibe_ibu** @FIXME
-**/uod_hpc** @dundee.ac.uk
+# **/uod_hpc** @FIXME
 **/utd_ganymede** @edmundmiller
 **/utd_sysbio** @edmundmiller
 **/uw_hyak_pedslabs** @CarsonJM
 **/uzh** @apeltzer
 **/vai** @njspix
-**/vsc_kul_uhasselt** @kuleuven.be' @kuleuven.be' @kuleuven.be'
-**/vsc_ugent** @nvnieuwk @matthdsm ict@cmgg.be
+# **/vsc_kul_uhasselt** @FIXME
+**/vsc_ugent** @nvnieuwk @matthdsm
 **/wcm** @DoaneAS
-**/wehi** @wehi.edu.au
-**/wustl_htcf** @wustl.edu>"
-**/xanadu** @uconn.edu'
+# **/wehi** @FIXME
+# **/wustl_htcf** @FIXME
+# **/xanadu** @FIXME
 **/tufts** @zhan4429
