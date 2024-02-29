@@ -1,51 +1,51 @@
-**abims** @lecorguille
-**adcra** @kalayaneech
-**alice** @bbartholdy
-**apollo** @drejom
-**aws_tower** @ggabernet
-**awsbatch** @apeltzer
-**azurebatch** @adamrtalbot
-**azurebatchdev** @abhi18av
-**bi** @apeltzer
-**bigpurple** @tobsecret
-**binac** @apeltzer
-**biohpc_gen** @phue
-**biowulf** @qiyubio
-**cambridge** @EmelineFavreau
-**cbe** @phue
-**ccga_dx** @marchoeppner
-**ccga_med** @marchoeppner
-**cedars** @rajewski
-**ceres** @MillironX
-**cfc** @FriederikeHanssen
-**cfc_dev** @FriederikeHanssen
-**cheaha** @lianov @atrull314
-**computerome** @marcmtk
-**crg** @joseespinosa
-**crick** @chris-cheshire @ChristopherBarrington
-**crukmi** @sppearce
-**czbiohub_aws** @olgabot
-**denbi_qbic** @apeltzer
-**dkfz** @kubranarci
-**ebc** @marcel-keller
-**ebi_codon** @saulpierotti
-**ebi_codon_slurm** @saulpierotti
-**eddie** @ameynert
-**engaging** @PhilPalmer
-**ethz_euler** @jpadesousa
-**eva** @jfy133
-**fgcz** @zajacn
-**fub_curta** @wassimsalam01
-**genotoul** @chklopp
-**genouest** @abretaud
-**gis** @andreas-wilm
-**google** @FIXME
-**googlebatch** @hnawar
-**googlels** @hnawar
-**hki** @jfy133
-**hypatia** @lusacristan
-**icr_davros** @adrlar
-**ifb_core** @FIXME
+**/abims** @lecorguille
+**/adcra** @kalayaneech
+**/alice** @bbartholdy
+**/apollo** @drejom
+**/aws_tower** @ggabernet
+**/awsbatch** @apeltzer
+**/azurebatch** @adamrtalbot
+**/azurebatchdev** @abhi18av
+**/bi** @apeltzer
+**/bigpurple** @tobsecret
+**/binac** @apeltzer
+**/biohpc_gen** @phue
+**/biowulf** @qiyubio
+**/cambridge** @EmelineFavreau
+**/cbe** @phue
+**/ccga_dx** @marchoeppner
+**/ccga_med** @marchoeppner
+**/cedars** @rajewski
+**/ceres** @MillironX
+**/cfc** @FriederikeHanssen
+**/cfc_dev** @FriederikeHanssen
+**/cheaha** @lianov @atrull314
+**/computerome** @marcmtk
+**/crg** @joseespinosa
+**/crick** @chris-cheshire @ChristopherBarrington
+**/crukmi** @sppearce
+**/czbiohub_aws** @olgabot
+**/denbi_qbic** @apeltzer
+**/dkfz** @kubranarci
+**/ebc** @marcel-keller
+**/ebi_codon** @saulpierotti
+**/ebi_codon_slurm** @saulpierotti
+**/eddie** @ameynert
+**/engaging** @PhilPalmer
+**/ethz_euler** @jpadesousa
+**/eva** @jfy133
+**/fgcz** @zajacn
+**/fub_curta** @wassimsalam01
+**/genotoul** @chklopp
+**/genouest** @abretaud
+**/gis** @andreas-wilm
+**/google** @FIXME
+**/googlebatch** @hnawar
+**/googlels** @hnawar
+**/hki** @jfy133
+**/hypatia** @lusacristan
+**/icr_davros** @adrlar
+**/ifb_core** @FIXME
 # **imperial** @FIXME
 # **incliva** @FIXME
 # **ipop_up** @FIXME
@@ -53,59 +53,59 @@
 **jax** @flynnb
 # **ku_sund_dangpu** @FIXME
 # **leicester** @FIXME
-**lugh** @BarryDigby
-**maestro** @pierrespc
+**/lugh** @BarryDigby
+**/maestro** @pierrespc
 # **mana** @FIXME
 # **marvin** @FIXME
 # **medair** @FIXME
-**mjolnir_globe** @ashildv
-**mpcdf** @jfy133
-**munin** @praveenraj2018 @maxulysse
-**nci_gadi** @mattdton
-**nu_genomics** @RoganGrant @NUjon
+**/mjolnir_globe** @ashildv
+**/mpcdf** @jfy133
+**/munin** @praveenraj2018 @maxulysse
+**/nci_gadi** @mattdton
+**/nu_genomics** @RoganGrant @NUjon
 # **oist** @FIXME
-**pasteur** @rplanel
-**pawsey_nimbus** @marcodelapierre @SarahBeecroft
-**pawsey_setonix** @georgiesamaha@ SarahBeecroft
-**pdc_kth** @pontus
-**phoenix** @apeltzer
-**uppmax** @ewels @MaxUlysse
-**demultiplex** @nf-core/demultiplex
-**azurebatch_pools_Edv4** @vsmalladi
+**/pasteur** @rplanel
+**/pawsey_nimbus** @marcodelapierre @SarahBeecroft
+**/pawsey_setonix** @georgiesamaha@ SarahBeecroft
+**/pdc_kth** @pontus
+**/phoenix** @apeltzer
+**/uppmax** @ewels @MaxUlysse
+**/demultiplex** @nf-core/demultiplex
+**/azurebatch_pools_Edv4** @vsmalladi
 # **icr_davros** @FIXME
-**hasta** @sofstam
-**prince** @tobsecret
-**psmn** @l-modolo
-**rosalind** @theoportlock
-**rosalind_uge** @gregorysprenger
-**sage** @BrunoGrandePhD
+**/hasta** @sofstam
+**/prince** @tobsecret
+**/psmn** @l-modolo
+**/rosalind** @theoportlock
+**/rosalind_uge** @gregorysprenger
+**/sage** @BrunoGrandePhD
 # **sahmri** @FIXME
-**sanbi_ilifu** @pvanheus
-**sanger** @priyanka-surana
+**/sanbi_ilifu** @pvanheus
+**/sanger** @priyanka-surana
 # **scw** @FIXME
-**seawulf** @davidecarlson
-**seg_globe** @ashildv
-**software_license** @maxulysse
-**tigem** @giusmar
-**tubingen_apg** @sc13-bioinf
+**/seawulf** @davidecarlson
+**/seg_globe** @ashildv
+**/software_license** @maxulysse
+**/tigem** @giusmar
+**/tubingen_apg** @sc13-bioinf
 # **tuos_stanage** @FIXME
-**ucd_sonic** @brucemoran
+**/ucd_sonic** @brucemoran
 # **ucl_myriad** @FIXME
-**uct_hpc** @kviljoen
-**uge** @gregorysprenger
-**unc_lccc** @alanhoyle
-**unc_longleaf** @ahepperla
+**/uct_hpc** @kviljoen
+**/uge** @gregorysprenger
+**/unc_lccc** @alanhoyle
+**/unc_longleaf** @ahepperla
 # **unibe_ibu** @FIXME
-**uod_hpc** @dundee.ac.uk
-**utd_ganymede** @edmundmiller
-**utd_sysbio** @edmundmiller
-**uw_hyak_pedslabs** @CarsonJM
-**uzh** @apeltzer
-**vai** @njspix
-**vsc_kul_uhasselt** @kuleuven.be' @kuleuven.be' @kuleuven.be'
-**vsc_ugent** @nvnieuwk @matthdsm ict@cmgg.be
-**wcm** @DoaneAS
-**wehi** @wehi.edu.au
-**wustl_htcf** @wustl.edu>"
-**xanadu** @uconn.edu'
-**tufts** @zhan4429
+**/uod_hpc** @dundee.ac.uk
+**/utd_ganymede** @edmundmiller
+**/utd_sysbio** @edmundmiller
+**/uw_hyak_pedslabs** @CarsonJM
+**/uzh** @apeltzer
+**/vai** @njspix
+**/vsc_kul_uhasselt** @kuleuven.be' @kuleuven.be' @kuleuven.be'
+**/vsc_ugent** @nvnieuwk @matthdsm ict@cmgg.be
+**/wcm** @DoaneAS
+**/wehi** @wehi.edu.au
+**/wustl_htcf** @wustl.edu>"
+**/xanadu** @uconn.edu'
+**/tufts** @zhan4429
