@@ -6,7 +6,6 @@
 #######################################################################
 #######################################################################
 
-import os
 import sys
 import argparse
 import re
@@ -41,7 +40,6 @@ args = argParser.parse_args()
 
 def check_config(Config, Github):
     regex = "includeConfig*"
-    ERROR_STR = "ERROR: Please check config file! Did you really update the profiles?"
 
     ## CHECK Config First
     config_profiles = set()
