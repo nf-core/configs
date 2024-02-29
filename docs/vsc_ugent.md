@@ -61,13 +61,13 @@ bash build_all_containers.sh containers.json
 
 Overwrite the container in your `nextflow.config`. If you need GPU support, also apply the label 'use_gpu':
 
-```groovy
+```nextflow
 process {
-     withName: DEEPCELL_MESMER {
-          label = 'use_gpu'
-          // container "docker.io/vanvalenlab/deepcell-applications:0.4.1"
-          container = "./DEEPCELL_MESMER_GPU.sif"
-     }
+    withName: DEEPCELL_MESMER {
+        label = 'use_gpu'
+        // container "docker.io/vanvalenlab/deepcell-applications:0.4.1"
+        container = "./DEEPCELL_MESMER_GPU.sif"
+    }
 }
 ```
 
