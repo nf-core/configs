@@ -1,8 +1,8 @@
 # nf-core/configs: UTD Ganymede Configuration
 
-All nf-core pipelines have been successfully configured for use on the [Ganymede HPC cluster](https://docs.circ.utdallas.edu/user-guide/systems/ganymede.html) at the [The Univeristy of Texas at Dallas](https://www.utdallas.edu/).
+All nf-core pipelines have been successfully configured for use on the [Ganymede HPC cluster](https://docs.circ.utdallas.edu/user-guide/systems/ganymede.html) at [The Univeristy of Texas at Dallas](https://www.utdallas.edu/).
 
-To use, run the pipeline with `-profile utd_ganymede`. This will download and launch the [`utd_ganymede.config`](../conf/utd_ganymede.config) which has been pre-configured with a setup suitable for the Ganymede HPC cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile utd_ganymede`. This will download and launch the [`utd_ganymede.config`](../conf/utd_ganymede.config) which has been pre-configured with a setup suitable for Ganymede.
 
 Before running the pipeline you will need to load Singularity using the environment module system on Ganymede. You can do this by issuing the commands below:
 
