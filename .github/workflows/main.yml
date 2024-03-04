@@ -138,6 +138,7 @@ jobs:
           - "uzh"
           - "uzl_omics"
           - "vai"
+          - "vsc_calcua"
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
