@@ -62,6 +62,13 @@ nextflow run nf-core/rnaseq \
   -profile test,vsc_calcua,broadwell_slurm \
   -with-report report.html \
   --outdir test_output
+
+# Alternatively, use the generic slurm profile to let Nextflow submit tasks
+# to different partitions, depending on their requirements.
+nextflow run nf-core/rnaseq \
+  -profile test,vsc_calcua,slurm \
+  -with-report report.html \
+  --outdir test_output
 ```
 
 ### Running pipeline in a single Slurm job
@@ -162,6 +169,9 @@ Before it can be used, you will still need to load the Java module in your job s
 
 ## Overview of partition profiles and resources
 
+> **NB:** Aside from the profiles defined in the table below, one additional profile is available, named `slurm`. It automatically lets Nextflow choose the most appropriate Slurm partition to submit each pipeline task to based on the task's requirements (CPU, memory and run time).
+> Example usage: `nextflow run -profile vsc_calcua,slurm`.
+
 The CalcUA config defines two types of profiles for each of the following partitions:
 
 | Partition     | Cluster                   | Profile name        | Type                 | Max memory               | Max CPU              | Max wall time | Example usage                                                     |
@@ -178,10 +188,12 @@ The CalcUA config defines two types of profiles for each of the following partit
 | broadwell_256 | Leibniz                   | broadwell_256_local | Local node execution | 240 GB (or as requested) | 28 (or as requested) | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,broadwell_256_local` |
 | skylake       | Breniac (formerly Hopper) | skylake_slurm       | Slurm scheduler      | 176 GB (per task)        | 28 (per task)        | 7 days        | `nextflow run <pipeline> -profile vsc_calcua,skylake_slurm`       |
 | skylake       | Breniac (formerly Hopper) | skylake_local       | Local node execution | 176 GB (or as requested) | 28 (or as requested) | 7 days        | `nextflow run <pipeline> -profile vsc_calcua,skylake_local`       |
+| all           | /                         | slurm               | Slurm scheduler      | /                        | /                    | /             | `nextflow run <pipeline> -profile vsc_calcua,slurm`               |
 
 For more information on the difference between the [\*\_slurm-type](#schedule-nextflow-pipeline-using-slurm) and [\*\_local-type](#local-nextflow-run-on-a-single-interactive-node) profiles, see below. Briefly,
 
-- Slurm profiles submit each pipeline task to the Slurm job scheduler.
+- Slurm profiles submit each pipeline task to the Slurm job scheduler using a particular partition.
+  - The generic `slurm` profile also submits jobs to the Slurm job scheduler, but it can stage them across different partitions simultaneously depending on the tasks' requirements.
 - Local profiles run pipeline tasks on the local node, using only the resource that were requested by `sbatch` (or `srun` in interactive mode).
 
 The max memory for the Slurm partitions is set to the [available amount of memory for each partition](https://docs.vscentrum.be/antwerp/tier2_hardware.html) minus 16 GB (which is the amount reserved for the OS and file system buffers, [see slide 63 of this CalcUA introduction course](https://calcua.uantwerpen.be/courses/hpc-intro/IntroductionHPC-20240226.pdf)). For the local profiles the resources are set dynamically based on those requested by `sbatch`.
@@ -192,7 +204,7 @@ More information on the hardware differences between the partitions can be found
 
 ## Schedule Nextflow pipeline using Slurm
 
-The Slurm profiles allow Nextflow to use the Slurm job scheduler to queue each pipeline task as a separate job. The main job that you manually submit using `sbatch` will run the head Nextflow process (`nextflow run ...`), which acts as a governor and monitoring job, and spawn new Slurm jobs for the different tasks in the pipeline. Each task will request the appropriate amount of resources defined by the pipeline (up to a threshold set in the given partition's profile) and will be run as an individual Slurm job. This means that each task will be placed in the scheduling queue individually and [all the standard priority rules](https://docs.vscentrum.be/jobs/why_doesn_t_my_job_start.html#why-doesn-t-my-job-start) will apply to each of them.
+The `*_slurm` (and `slurm`) profiles allow Nextflow to use the Slurm job scheduler to queue each pipeline task as a separate job. The main job that you manually submit using `sbatch` will run the head Nextflow process (`nextflow run ...`), which acts as a governor and monitoring job, and spawn new Slurm jobs for the different tasks in the pipeline. Each task will request the appropriate amount of resources defined by the pipeline (up to a threshold set in the given partition's profile) and will be run as an individual Slurm job. This means that each task will be placed in the scheduling queue individually and [all the standard priority rules](https://docs.vscentrum.be/jobs/why_doesn_t_my_job_start.html#why-doesn-t-my-job-start) will apply to each of them.
 
 The `nextflow run ...` command that launches the head process, can be invoked either via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session), but it **does NOT need to request the total amount of resources that would be required for the full pipeline!**
 
@@ -202,7 +214,7 @@ The `nextflow run ...` command that launches the head process, can be invoked ei
 
 ## Local Nextflow run on a single (interactive) node
 
-In contrast to the Slurm profiles, the local profiles instead run in Nextflow's _local execution mode_, which means that they do not make use of the Slurm job scheduler. Instead, the head Nextflow process (`nextflow run ...`) will run on the allocated compute node and spawn all of sub-processes for the individual tasks in the pipeline on that same node (i.e., similar to running a pipeline on your own machine). The available resources are determined by the [`#SBATCH` options passed to Slurm](https://docs.vscentrum.be/jobs/job_submission.html#requesting-compute-resources) as usual and are shared among all tasks.
+In contrast to the `*_slurm` profiles, the `*_local` profiles instead run in Nextflow's _local execution mode_, which means that they do not make use of the Slurm job scheduler. Instead, the head Nextflow process (`nextflow run ...`) will run on the allocated compute node and spawn all of sub-processes for the individual tasks in the pipeline on that same node (i.e., similar to running a pipeline on your own machine). The available resources are determined by the [`#SBATCH` options passed to Slurm](https://docs.vscentrum.be/jobs/job_submission.html#requesting-compute-resources) as usual and are shared among all tasks.
 
 The `nextflow run ...` command that launches the head process, can be invoked either via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session) and it **DOES need to request the total amount of resources that are required by the full pipeline!**
 
