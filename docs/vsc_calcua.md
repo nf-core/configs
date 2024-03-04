@@ -145,6 +145,8 @@ Debug mode can be enabled to always retain the `work` directory instead of clean
 
 `nextflow run <pipeline> -profile vsc_calcua,broadwell_local,debug`
 
+Note that this is a core config provided by nf-core pipelines, not something built into the VSC CalcUA config.
+
 ## Availability of Nextflow
 
 Nextflow has been made available on CalcUA as a module. You can find out which versions are available by using `module av nextflow`.
