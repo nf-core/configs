@@ -111,30 +111,30 @@ nextflow run nf-core/rnaseq \
 
 ## Step-by-step instructions
 
-1. Set the `APPTAINER_CACHEDIR` and `APPTAINER_TMPDIR` environment variables by adding the following lines to your `.bashrc` file (or simply add them to your Slurm job script):
+1.  Set the `APPTAINER_CACHEDIR` and `APPTAINER_TMPDIR` environment variables by adding the following lines to your `.bashrc` file (or simply add them to your Slurm job script):
 
-   ```
-   export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
-   export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
-   ```
+        ```
+        export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
+        export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
+        ```
 
-   When using the `~/.bashrc` method, you can ensure that the environment variables are available in your jobs by starting your scripts with the line `#! /bin/bash -l`, although this does not seem to be required (see [below](#apptainer--singularity-environment-variables-for-cache-and-tmp-directories) for more info).
+    When using the `~/.bashrc` method, you can ensure that the environment variables are available in your jobs by starting your scripts with the line `#! /bin/bash -l`, although this does not seem to be required (see [below](#apptainer--singularity-environment-variables-for-cache-and-tmp-directories) for more info).
 
-2. Load Nextflow in your job script via the command: `module load Nextflow/23.04.2`. Alternatively, when using [your own version of Nextflow](#availability-of-nextflow), use `module load Java`.
+2.  Load Nextflow in your job script via the command: `module load Nextflow/23.04.2`. Alternatively, when using [your own version of Nextflow](#availability-of-nextflow), use `module load Java`.
 
-3. Choose whether you want to run in [local execution mode on a single node](#local-nextflow-run-on-a-single-interactive-node) or make use of the [Slurm job scheduler to queue individual pipeline tasks](#schedule-nextflow-pipeline-using-slurm).
+3.  Choose whether you want to run in [local execution mode on a single node](#local-nextflow-run-on-a-single-interactive-node) or make use of the [Slurm job scheduler to queue individual pipeline tasks](#schedule-nextflow-pipeline-using-slurm).
 
-   - For Slurm scheduling, choose a partition profile ending in `*_slurm`. E.g., `nextflow run pipeline -profile vsc_calcua,broadwell_slurm`.
-   - For local execution mode on a single node, choose a partition profile ending in `*_local`. E.g., `nextflow run pipeline -profile vsc_calcua,broadwell_local`.
+    - For Slurm scheduling, choose a partition profile ending in `*_slurm`. E.g., `nextflow run pipeline -profile vsc_calcua,broadwell_slurm`.
+    - For local execution mode on a single node, choose a partition profile ending in `*_local`. E.g., `nextflow run pipeline -profile vsc_calcua,broadwell_local`.
 
-   Note that the `-profile` option can take multiple values, the first one always being `vsc_calcua` and the second one a partition plus execution mode.
+    Note that the `-profile` option can take multiple values, the first one always being `vsc_calcua` and the second one a partition plus execution mode.
 
-4. Specify the _partition_ that you want to run the pipeline on using the [`sbatch` command's `--partition=<name>` option](https://docs.vscentrum.be/jobs/job_submission.html#specifying-a-partition) and how many _resources_ should be allocated. See the [overview of partitions and their resources](#overview-of-partition-profiles-and-resources) below, or refer to [the CalcUA documentation](https://docs.vscentrum.be/antwerp/tier2_hardware.html) for more info.
+4.  Specify the _partition_ that you want to run the pipeline on using the [`sbatch` command's `--partition=<name>` option](https://docs.vscentrum.be/jobs/job_submission.html#specifying-a-partition) and how many _resources_ should be allocated. See the [overview of partitions and their resources](#overview-of-partition-profiles-and-resources) below, or refer to [the CalcUA documentation](https://docs.vscentrum.be/antwerp/tier2_hardware.html) for more info.
 
-   - For Slurm scheduling, the partition on which the head process runs has no effect on the resources allocated to the actual pipeline tasks. The head process only requires minimal resources (e.g., 1 CPU and 4 GB RAM).
-   - For local execution mode on a single node, the partition selected via `sbatch` must match the one selected with nextflow's `-profile` option, otherwise the pipeline will not launch. It is probably convenient to simply request a full node (e.g., `--cpus-per-task=28` and `--mem=112G` for broadwell). Omitting `--mem-per-cpu` or `--mem` will [allocate the default memory value](https://docs.vscentrum.be/jobs/job_submission.html#requesting-memory), which is the total available memory divided by the number of cores, e.g., `28 * 4 GB = 112 GB` for broadwell (`128 GB - 16 GB buffer`).
+    - For Slurm scheduling, the partition on which the head process runs has no effect on the resources allocated to the actual pipeline tasks. The head process only requires minimal resources (e.g., 1 CPU and 4 GB RAM).
+    - For local execution mode on a single node, the partition selected via `sbatch` must match the one selected with nextflow's `-profile` option, otherwise the pipeline will not launch. It is probably convenient to simply request a full node (e.g., `--cpus-per-task=28` and `--mem=112G` for broadwell). Omitting `--mem-per-cpu` or `--mem` will [allocate the default memory value](https://docs.vscentrum.be/jobs/job_submission.html#requesting-memory), which is the total available memory divided by the number of cores, e.g., `28 * 4 GB = 112 GB` for broadwell (`128 GB - 16 GB buffer`).
 
-5. Submit the job script containing your full `nextflow run` command via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session).
+5.  Submit the job script containing your full `nextflow run` command via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session).
 
 ---
 
@@ -262,7 +262,11 @@ For general errors regarding the pulling of images, try clearing out the existin
 
 ### Failed to pull singularity image
 
-    FATAL: While making image from oci registry: error fetching image to cache: while building SIF from layers: conveyor failed to get: while getting config: no descriptor found for reference "139610e0c1955f333b61f10e6681e6c70c94357105e2ec6f486659dc61152a21"
+```
+FATAL: While making image from oci registry: error fetching image to cache: while building SIF from
+layers: conveyor failed to get: while getting config: no descriptor found for reference
+"139610e0c1955f333b61f10e6681e6c70c94357105e2ec6f486659dc61152a21"
+```
 
 Errors similar to the one above can be avoided by first downloading all required container images manually before running the pipeline. It seems like they could be caused by parallel downloads overwhelming the image repository (see [issue](https://github.com/apptainer/singularity/issues/5020)).
 
