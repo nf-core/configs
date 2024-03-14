@@ -17,6 +17,7 @@ Before running the pipeline you will need to download Nextflow and load Singular
 ## Download Nextflow
 wget -qO- https://get.nextflow.io | bash
 ```
+
 For your convenience, you can move the `nextflow` launcher to a directory included in your `PATH` environment variable.
 
 ```bash
@@ -25,6 +26,7 @@ module use /software/as/el7.2/EasyBuild/CRG/modules/all
 module load Singularity/3.7.0
 module load Java/11.0.2
 ```
+
 Adding the previous lines to your `.bash_profile` or `.bashrc` file is an option to avoid having to load the modules each time you start a session.
 
 To use, run the pipeline with `-profile crg`. This will download and launch the [`crg.config`](../conf/crg.config) which has been pre-configured with a setup suitable for the CRG HPC cluster, with the queues definitions. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
@@ -33,6 +35,7 @@ To use, run the pipeline with `-profile crg`. This will download and launch the 
 # Launch a nf-core pipeline with the crg profile
 $ nextflow run nf-core/<PIPELINE> -profile crg [...]
 ```
+
 Remember to use `-bg` to launch `Nextflow` in the background, so that the pipeline doesn't exit if you leave your terminal session.
 Alternatively, you can also launch `Nextflow` in a `screen` or a `tmux` session.
 
