@@ -42,7 +42,9 @@ Alternatively, you can also launch `Nextflow` in a `screen` or a `tmux` session.
 ## Redirecting the `work` directory
 
 It is highly recommended to place the `work` directory within the `scratch` volume.
+
 > If your group has no space on the scratch volume, please open a ticket to SIT for receiving support.
+
 You might create a work folder in the CRG scratch volume and run the nextflow pipeline specifying that folder as the work directory using the parameter `-w`
 
 ```bash
