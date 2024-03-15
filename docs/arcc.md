@@ -71,9 +71,17 @@ that will need to be added.
 
 The available partitions include:
 
-`beartooth`, `beartooth-bigmem`, `beartooth-hugemem`  
-`moran`, `moran-bigmem`, `moran-hugemem`  
-`teton`, `teton-cascade`, `teton-hugemem`, `teton-massmem`, `teton-knl`  
+- `beartooth`
+- `beartooth-bigmem`
+- `beartooth-hugemem`
+- `moran`
+- `moran-bigmem`
+- `moran-hugemem`
+- `teton`
+- `teton-cascade`
+- `teton-hugemem`
+- `teton-massmem`
+- `teton-knl`  
 
 Please see [Beartooth Hardware Summary Table](https://arccwiki.atlassian.net/wiki/spaces/DOCUMENTAT/pages/1721139201/Beartooth+Hardware+Summary+Table)
 for the full list of partitions.
