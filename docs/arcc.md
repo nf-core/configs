@@ -104,7 +104,6 @@ To use `beartooth-bigmem``, you would provide:
 -profile arcc,beartooth_bigmem
 ```
 
-
 ## Example: Running nf-core/fetchngs
 
 ```{bash}
