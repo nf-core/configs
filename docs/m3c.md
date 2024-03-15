@@ -11,4 +11,4 @@ Before running the pipeline you will need to install Nextflow on the M3 cluster.
 > [!Note]
 > Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
 > [!Note]
-> Each group needs to configure their singularity cache directory. 
+> Each group needs to configure their singularity cache directory.
