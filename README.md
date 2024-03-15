@@ -146,6 +146,7 @@ Currently documentation is available for the following systems:
 - [Jex](docs/jex.md)
 - [KU SUND DANGPU](docs/ku_sund_dangpu.md)
 - [LUGH](docs/lugh.md)
+- [M3C](docs/m3c.md)
 - [MAESTRO](docs/maestro.md)
 - [Mana](docs/mana.md)
 - [MARVIN](docs/marvin.md)
