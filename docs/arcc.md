@@ -81,7 +81,7 @@ The available partitions include:
 - `teton-cascade`
 - `teton-hugemem`
 - `teton-massmem`
-- `teton-knl`  
+- `teton-knl`
 
 Please see [Beartooth Hardware Summary Table](https://arccwiki.atlassian.net/wiki/spaces/DOCUMENTAT/pages/1721139201/Beartooth+Hardware+Summary+Table)
 for the full list of partitions.
