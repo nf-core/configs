@@ -13,14 +13,14 @@ With an account in hand, you are ready to proceed.
 
 ## Running Nextflow
 
-When using Nextflow on ARCC it is recommended you launch Nextflow on one of the compute nodes,
-instead of the login nodes. To do this you will use the `salloc` command to launch an
+Please consider making use of [screen or tmux](https://arccwiki.atlassian.net/wiki/spaces/DOCUMENTAT/pages/1617494076/Screen+and+Tmux+Commands)
+before launching your Interactive Job. This will allow you to resume it later.
+
+When using Nextflow on ARCC it is recommended you launch Nextflow as an Interactive Jobs on one of the
+compute nodes, instead of the login nodes. To do this you will use the `salloc` command to launch an
 [Interactive Job](https://arccwiki.atlassian.net/wiki/spaces/DOCUMENTAT/pages/1599078403/Start+Processing#Interactive-Jobs).
 
-Alongside `salloc`, please consider making use of [screen or tmux](https://arccwiki.atlassian.net/wiki/spaces/DOCUMENTAT/pages/1617494076/Screen+and+Tmux+Commands)
-in order to not lose your Interactive Job.
-
-Once you are on a compute node, you can then use the `module` command to load Conda and
+Once you are on a compute node, you can then use the `module` command to load Conda and/or
 Singularity.
 
 ### Creating a Nextflow environment
@@ -35,29 +35,67 @@ module load miniforge
 conda create -n nextflow -c conda-forge -c bioconda nextflow
 ```
 
-## Parameters of Interest
+### Environment Variables
 
-#### `--slurm_account`
+When using Nextflow on ARCC, you will need to set a few environment variables.
 
-You will want to use `--slurm_account` to the Project group you would like to submit jobs under.
-This is the name you typically provide with `--account` in your sbatch scripts.
+#### `NXF_SINGULARITY_CACHEDIR`
 
-#### `--slurm_opts`
+This is a Nextflow specific environment variable that will let Nextflow know where you have
+or would like downloaded Singularity images to be downloaded.
 
-`--slurm_opts` allows you to pass any additional options that might be required for your
-analysis.
+```{bash}
+export NXF_SINGULARITY_CACHEDIR="/path/to/your/singularity/image/cache"
 
-#### `--slurm_queue`
+# Example for 'healthdatasci'
+export NXF_SINGULARITY_CACHEDIR="/project/healthdatasci/singularity"
+```
 
-By default the `teton` and `moran` partitions are used to submit jobs to. However, if you need
-additional partitions are totally different partitiions, make use of `--slurm_queue`. Be sure
-to separate the partitions by a comma if you would like to include more than one (e.g.
-`--slurm_queue teton,moran`).
+#### `SBATCH_ACCOUNT`
 
-### `--slurm_use_scratch`
+The `SBATCH_ACCOUNT` environment variable will be used by Nextflow to inform SLURM which
+account the job should be submitted under.
 
-Finally you can adjust the usage of temporary scratch space with `--slurm_use_scratch`. If
-enabled, you may lose access to the `work` directory files on job completion.
+```{bash}
+export SBATCH_ACCOUNT=<YOUR_ARCC_ACCOUNT>
+
+# Example for 'healthdatasci'
+export SBATCH_ACCOUNT=heatlhdatasci
+```
+
+### Available Paritions
+
+At the moment, only the CPU based paritions are available from this config. In the event
+a GPU partition is needed, please reach out. The GPU partitions require additional arguements
+that will need to be added.
+
+The available partitions include:
+
+`beartooth`, `beartooth-bigmem`, `beartooth-hugemem`  
+`moran`, `moran-bigmem`, `moran-hugemem`  
+`teton`, `teton-cascade`, `teton-hugemem`, `teton-massmem`, `teton-knl`  
+
+Please see [Beartooth Hardware Summary Table](https://arccwiki.atlassian.net/wiki/spaces/DOCUMENTAT/pages/1721139201/Beartooth+Hardware+Summary+Table)
+for the full list of partitions.
+
+#### Specifying a Partition
+
+Each partition is provided as a separate Nextflow profile, so you will need to pick a
+specific partition to submit jobs to. Using the available partitions, you will replace
+the `-` (dash) with an underscore.
+
+For example, to use `beartooth`, you would provide the following:
+
+```
+-profile arcc,beartooth
+```
+
+To use `beartooth-bigmem``, you would provide:
+
+```
+-profile arcc,beartooth_bigmem
+```
+
 
 ## Example: Running nf-core/fetchngs
 
@@ -76,11 +114,13 @@ conda activate nextflow
 # Export NXF_SINGULARITY_CACHEDIR (consider adding to your .bashrc)
 export NXF_SINGULARITY_CACHEDIR=/gscratch/rpetit/singularity
 
+# Export SBATCH_ACCOUNT to specificy which account to use
+export SBATCH_ACCOUNT="healthdatasci"
+
 # Run the fetchngs test profile with Singularity
 nextflow run nf-core/fetchngs \
-    -profile test,arcc \
+    -profile test,arcc,<ARCC_PARTITION> \
     --outdir test-fetchngs \
-    --slurm_account healthdatasci
 ```
 
 If everything is successful, you will be met with:
