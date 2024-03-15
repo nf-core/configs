@@ -6,6 +6,9 @@ To use, run the pipeline with `-profile m3c`. This will download and launch the 
 
 Before running the pipeline you will need to install Nextflow on the M3 cluster. You can do this by following the instructions [here](https://www.nextflow.io/).
 
-> NB: You will need an account to use the M3 HPC cluster in order to run the pipeline. If in doubt contact IT.
-> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
-> NB: Each group needs to configure their singularity cache directory. 
+> [!Note]
+> You will need an account to use the M3 HPC cluster in order to run the pipeline. If in doubt contact IT.
+> [!Note]
+> Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
+> [!Note]
+> Each group needs to configure their singularity cache directory. 
