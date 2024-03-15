@@ -86,13 +86,13 @@ the `-` (dash) with an underscore.
 
 For example, to use `beartooth`, you would provide the following:
 
-```
+```{bash}
 -profile arcc,beartooth
 ```
 
 To use `beartooth-bigmem``, you would provide:
 
-```
+```{bash}
 -profile arcc,beartooth_bigmem
 ```
 
