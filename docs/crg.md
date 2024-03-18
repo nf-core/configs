@@ -55,6 +55,8 @@ You might create a work folder in the CRG scratch volume and run the nextflow pi
 $ nextflow run nf-core/<PIPELINE> -profile crg -w /nfs/scratch01/<YOUR_GROUP_NAME>/<YOUR_WORK_DIR>
 ```
 
+Alternatively, you can set the `NXF_WORK` environmental variable to set the Nextflow work directory to the scratch volume permanently.
+
 ## Reducing the amout of RAM
 
 In case of big pipelines Nextflow can use a non trivial amount of RAM. You can reduce it by setting a special nextflow environmental variable that define the Java VM heap memory allocation limits:
