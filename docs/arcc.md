@@ -65,7 +65,7 @@ export SBATCH_ACCOUNT=heatlhdatasci
 
 ### Available Paritions
 
-At the moment, only the CPU based paritions are available from this config. In the event
+At the moment, only the CPU based partitions are available from this config. In the event
 a GPU partition is needed, please reach out. The GPU partitions require additional arguements
 that will need to be added.
 
