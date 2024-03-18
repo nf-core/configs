@@ -91,6 +91,7 @@ Currently documentation is available for the following systems:
 - [ADCRA](docs/adcra.md)
 - [ALICE](docs/alice.md)
 - [APOLLO](docs/apollo.md)
+- [ARCC](docs/arcc.md)
 - [AWSBATCH](docs/awsbatch.md)
 - [AWS_TOWER](docs/aws_tower.md)
 - [AZUREBATCH](docs/azurebatch.md)
