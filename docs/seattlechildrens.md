@@ -41,6 +41,19 @@ Make sure that channel priority is set to flexible using the following comments:
 > mamba env create -f nextflow.yaml
 ```
 
+4. Running 
+Please look into [RSC-RP/nextflow_scri_config](https://github.com/RSC-RP/nextflow_scri_config) for details.
+
+```
+# activate conda/mamba env
+mamba activate nextflow
+
+# running nextflow pipeline example (please replace with your own project code and module)
+nextflow run -c 'conf/seattlechildrens.config' \
+    [nf-core/module_name] \
+    -profile test,PBS_singularity \
+    --project ["your_project_code"] \
+```
 
 
 
