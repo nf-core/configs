@@ -29,7 +29,7 @@ dependencies:
 ```
 
 2. Setting channel priority
-   Make sure that channel priority is set to flexible using the following comments:
+Make sure that channel priority is set to flexible using the following comments:
 
 ```bash
 # print your current conda settings
