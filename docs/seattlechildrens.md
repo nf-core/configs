@@ -29,6 +29,7 @@ dependencies:
 ```
 
 2. Setting channel priority
+
 Make sure that channel priority is set to flexible using the following comments:
 
 ```bash
