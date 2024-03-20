@@ -2,6 +2,11 @@ name: Configs tests
 
 on: [pull_request, push]
 
+# Cancel if a newer run is started
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test_all_profiles:
     runs-on: ubuntu-latest
@@ -153,9 +158,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "latest-everything"
       - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
