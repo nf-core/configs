@@ -41,21 +41,24 @@ Make sure that channel priority is set to flexible using the following comments:
 > mamba env create -f nextflow.yaml
 ```
 
-4. Running 
+4. Running in HPC (Cybertron)
+
 Please look into [RSC-RP/nextflow_scri_config](https://github.com/RSC-RP/nextflow_scri_config) for details.
 
-```
-# activate conda/mamba env
+```bash
+# activate enviornment
 mamba activate nextflow
+module load singularity
 
-# running nextflow pipeline example (please replace with your own project code and module)
+# to list all the projects with project codes you are authorized on HPC
+project info
+
+# example to run nextflow pipeline (please replace with your own project code and module)
 nextflow run -c 'conf/seattlechildrens.config' \
     [nf-core/module_name] \
     -profile test,PBS_singularity \
     --project ["your_project_code"] \
 ```
-
-
 
 You can find more information about computational resources [here](https:#child.seattlechildrens.org/research/center_support_services/research_informatics/research_scientific_computing/high_performance_computing_core/). You have to be an employee of SCRI to access the link. 
 
