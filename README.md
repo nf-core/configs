@@ -171,6 +171,7 @@ Currently documentation is available for the following systems:
 - [ROSALIND_UGE](docs/rosalind_uge.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
+- [SEATTLECHILDRENS](docs/seattlechildrens.md)
 - [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [self-hosted-runner](docs/self-hosted-runner.md)
