@@ -29,6 +29,7 @@ Next, set up bash environment variables for memory. (You can avoid repeatedly wr
 export NXF_OPTS='-Xms1g -Xmx4g'
 export NXF_HOME=/projects/dan1/people/${USER}/cache/nxf-home
 export NXF_TEMP=/scratch/temp/${USER}
+export NXF_WORK=/scratch/temp/${USER}
 export NXF_SINGULARITY_CACHEDIR=/projects/dan1/people/${USER}/cache/singularity-images
 ```
 
