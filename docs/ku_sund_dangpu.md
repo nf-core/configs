@@ -16,6 +16,7 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 Within the created session load Nextflow and Singularity and set up the environment by issuing the commands below:
 
 first clear the environment and load Nextflow environment modules:
+
 ```bash
 module purge
 module load dangpu_libs openjdk/20.0.0 nextflow/23.04.1.5866
@@ -24,7 +25,8 @@ module load singularity/3.8.0 python/3.7.13 nf-core/2.7.2
 
 for loading the older module nextflow/22.10.6 you can use `module load dangpu_libs java/11.0.15 nextflow/22.10.6` instead of `module load dangpu_libs openjdk/20.0.0 nextflow/23.04.1.5866`.
 
-Next, set up bash environment variables for memory. (You can avoid repeatedly writing this every time by placing this code chunk into ${HOME}/.bash_profile and ${HOME}/.bashrc) 
+Next, set up bash environment variables for memory. (You can avoid repeatedly writing this every time by placing this code chunk into ${HOME}/.bash_profile and ${HOME}/.bashrc)
+
 ```bash
 export NXF_OPTS='-Xms1g -Xmx4g'
 export NXF_HOME=/projects/dan1/people/${USER}/cache/nxf-home
@@ -33,7 +35,8 @@ export NXF_WORK=/scratch/temp/${USER}
 export NXF_SINGULARITY_CACHEDIR=/projects/dan1/people/${USER}/cache/singularity-images
 ```
 
-Create the user-specific nextflow directories if they don't exist yet. You have to do this only first time you run a nf-core pipeline. 
+Create the user-specific nextflow directories if they don't exist yet. You have to do this only first time you run a nf-core pipeline.
+
 ```
 mkdir -p $NXF_SINGULARITY_CACHEDIR
 mkdir -p $NXF_HOME
