@@ -1,6 +1,6 @@
 # nf-core/configs: SAHMRI HPC Configuration
 
-All nf-core pipelines have been successfully configured for use on the HPC cluster at [SAHMRI](https://sahmri.org.au/).  
+All nf-core pipelines have been successfully configured for use on the HPC cluster at [SAHMRI](https://sahmri.org.au/).
 To use, run the pipeline with `-profile sahmri`. This will download and launch the [`sahmri.config`](../conf/sahmri.config) which has been pre-configured
 with a setup suitable for the SAHMRI HPC cluster. Using this profile, either a docker image containing all of the required software will be downloaded,
 and converted to a Singularity image or a Singularity image downloaded directly before execution of the pipeline.
