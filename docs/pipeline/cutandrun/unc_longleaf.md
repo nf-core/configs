@@ -1,6 +1,6 @@
 # nf-core/configs: UNC's Longleaf CUT&RUN specific configuration
 
-Extra specific configuration for eager pipeline
+Extra specific configuration for cutandrun pipeline
 
 ## Pipeline specific profiles
 
