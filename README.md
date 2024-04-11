@@ -255,6 +255,8 @@ Currently documentation is available for the following pipelines within specific
 - ampliseq
   - [BINAC](docs/pipeline/ampliseq/binac.md)
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
+- cutandrun
+  - [UNC_LONGLEAF](docs/pipeline/cutandrun/unc_longleaf.md)
 - demultiplex
   - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
