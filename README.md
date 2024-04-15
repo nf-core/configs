@@ -121,6 +121,7 @@ Currently documentation is available for the following systems:
 - [EBC](docs/ebc.md)
 - [EBI_CODON](docs/ebi_codon.md)
 - [EBI_CODON_SLURM](docs/ebi_codon_slurm.md)
+- [EINSTEIN](docs/einstein.md)
 - [Engaging](docs/engaging.md)
 - [ETH Zurich Euler](docs/ethz_euler.md)
 - [EVA](docs/eva.md)
