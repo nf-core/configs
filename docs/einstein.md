@@ -8,9 +8,7 @@ To use, run the pipeline with `-profile einstein` (one hyphen).
 This will download and launch the [`einstein.config`](../conf/einstein.config) which has been pre-configured with a setup suitable for the einstein server.
 It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job scheduler.
 
-
 Using this profile, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline.
-
 
 ## Below are non-mandatory information on e.g., required modules
 
