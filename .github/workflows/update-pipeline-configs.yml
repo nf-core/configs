@@ -62,17 +62,17 @@ jobs:
           git status
           git commit -m "[automated] Update pipeline configs"
 
-        # - name: Create PR
-          # uses: peter-evans/create-pull-request@70a41aba780001da0a30141984ae2a0c95d8704e # v6
-          # with:
-          #   token: ${{ secrets.GITHUB_TOKEN }}
-          #   commit-message: Update pipeline configs
-          #   title: Update pipeline configs
-          #   body: |
-          #     This is an automated PR to update pipeline configs for newly created nf-core pipelines.
-          #   branch: 'update-pipeline-configs-'${{ github.run_id }}
-          #   delete-branch: true
-          #   base: 'master'
-          #   draft: false
+      - name: Create PR
+        uses: peter-evans/create-pull-request@70a41aba780001da0a30141984ae2a0c95d8704e # v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update pipeline configs
+          title: Update pipeline configs
+          body: |
+            This is an automated PR to update pipeline configs for newly created nf-core pipelines.
+          branch: 'update-pipeline-configs-'${{ github.run_id }}
+          delete-branch: true
+          base: 'master'
+          draft: false
 
 
