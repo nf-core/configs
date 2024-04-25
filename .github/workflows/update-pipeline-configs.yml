@@ -1,0 +1,78 @@
+name: Update Pipeline Configs
+on:
+  schedule:
+    - cron: '0 0 * * *' # Run every day at midnight
+  workflow_dispatch:
+
+
+jobs:
+  update_configs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch pipeline names
+        run: |
+          curl -o pipeline_names.json https://nf-co.re/pipeline_names.json
+
+      - name: add test pipeline to pipeline_names.json #TODO remove this testing step after successful tests
+        run: |
+          jq '.pipeline += ["test"]' pipeline_names.json > tmp.json
+          mv tmp.json pipeline_names.json
+
+      - name: Check pipeline names and add missing configs
+        run: |
+            pipeline=$(jq -r '.pipeline[]' pipeline_names.json)
+            for pipeline in $pipeline; do
+              printf "Checking pipeline: %s\n" $pipeline
+              if [ ! -f "pipeline/${pipeline}.config" ]; then
+                cat << EOF > "pipeline/${pipeline}.config"
+            /*
+            * -------------------------------------------------
+            *  nfcore/${pipeline} custom profile Nextflow config file
+            * -------------------------------------------------
+            * Config options for custom environments.
+            * Cluster-specific config options should be saved
+            * in the conf/pipeline/${pipeline} folder and imported
+            * under a profile name here.
+            */
+
+            profiles {
+            }
+            EOF
+              fi
+            done
+
+      - name: inspect test pipeline config #TODO remove this testing step after successful tests
+        run: |
+          cat pipeline/test.config
+
+      - name: clean up
+        run: |
+          rm pipeline_names.json
+
+      - name: Commit & push changes
+        id: commit-and-push
+        run: |
+          git config user.email "core@nf-co.re"
+          git config user.name "nf-core-bot"
+          git add .
+          git status
+          git commit -m "[automated] Update pipeline configs"
+
+        # - name: Create PR
+          # uses: peter-evans/create-pull-request@70a41aba780001da0a30141984ae2a0c95d8704e # v6
+          # with:
+          #   token: ${{ secrets.GITHUB_TOKEN }}
+          #   commit-message: Update pipeline configs
+          #   title: Update pipeline configs
+          #   body: |
+          #     This is an automated PR to update pipeline configs for newly created nf-core pipelines.
+          #   branch: 'update-pipeline-configs-'${{ github.run_id }}
+          #   delete-branch: true
+          #   base: 'master'
+          #   draft: false
+
+
