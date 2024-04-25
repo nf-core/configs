@@ -1,9 +1,8 @@
 name: Update Pipeline Configs
 on:
   schedule:
-    - cron: '0 0 * * *' # Run every day at midnight
+    - cron: "0 0 * * *" # Run every day at midnight
   workflow_dispatch:
-
 
 jobs:
   update_configs:
@@ -24,26 +23,26 @@ jobs:
 
       - name: Check pipeline names and add missing configs
         run: |
-            pipeline=$(jq -r '.pipeline[]' pipeline_names.json)
-            for pipeline in $pipeline; do
-              printf "Checking pipeline: %s\n" $pipeline
-              if [ ! -f "pipeline/${pipeline}.config" ]; then
-                cat << EOF > "pipeline/${pipeline}.config"
-            /*
-            * -------------------------------------------------
-            *  nfcore/${pipeline} custom profile Nextflow config file
-            * -------------------------------------------------
-            * Config options for custom environments.
-            * Cluster-specific config options should be saved
-            * in the conf/pipeline/${pipeline} folder and imported
-            * under a profile name here.
-            */
+          pipeline=$(jq -r '.pipeline[]' pipeline_names.json)
+          for pipeline in $pipeline; do
+            printf "Checking pipeline: %s\n" $pipeline
+            if [ ! -f "pipeline/${pipeline}.config" ]; then
+              cat << EOF > "pipeline/${pipeline}.config"
+          /*
+          * -------------------------------------------------
+          *  nfcore/${pipeline} custom profile Nextflow config file
+          * -------------------------------------------------
+          * Config options for custom environments.
+          * Cluster-specific config options should be saved
+          * in the conf/pipeline/${pipeline} folder and imported
+          * under a profile name here.
+          */
 
-            profiles {
-            }
-            EOF
-              fi
-            done
+          profiles {
+          }
+          EOF
+            fi
+          done
 
       - name: inspect test pipeline config #TODO remove this testing step after successful tests
         run: |
@@ -70,9 +69,7 @@ jobs:
           title: Update pipeline configs
           body: |
             This is an automated PR to update pipeline configs for newly created nf-core pipelines.
-          branch: 'update-pipeline-configs-'${{ github.run_id }}
+            branch: 'update-pipeline-configs-${{ github.run_id }}'
           delete-branch: true
-          base: 'master'
+          base: "master"
           draft: false
-
-
