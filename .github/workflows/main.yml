@@ -100,6 +100,7 @@ jobs:
           - "m3c"
           - "maestro"
           - "mana"
+          - "marjorie"
           - "marvin"
           - "medair"
           - "mjolnir_globe"
