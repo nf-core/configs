@@ -151,6 +151,7 @@ Currently documentation is available for the following systems:
 - [M3C](docs/m3c.md)
 - [MAESTRO](docs/maestro.md)
 - [Mana](docs/mana.md)
+- [MARJORIE](docs/marjorie.md)
 - [MARVIN](docs/marvin.md)
 - [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)

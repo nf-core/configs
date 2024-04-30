@@ -5,7 +5,7 @@
 Before running any pipeline in Novo Nordisk's Einstein cluster, `Nextflow` will need to be installed in the conda environment being used.
 
 To use, run the pipeline with `-profile einstein` (one hyphen).
-This will download and launch the [`einstein.config`](../conf/einstein.config) which has been pre-configured with a setup suitable for the einstein server.
+This will download and launch the [`einstein.config`](../conf/einstein.config) which has been pre-configured with a setup suitable for the Einstein server.
 It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job scheduler.
 
 Using this profile, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline.
@@ -16,5 +16,6 @@ Before running the pipeline you will need to have a working Nextflow installatio
 
 ```bash
 # Load Singularity environment modules
-module load singularity/3.8.1
+module load nextflow
+module load singularity
 ```
