@@ -16,11 +16,6 @@ jobs:
         run: |
           curl -o pipeline_names.json https://nf-co.re/pipeline_names.json
 
-      - name: add test pipeline to pipeline_names.json #TODO remove this testing step after successful tests
-        run: |
-          jq '.pipeline += ["test"]' pipeline_names.json > tmp.json
-          mv tmp.json pipeline_names.json
-
       - name: Check pipeline names and add missing configs
         run: |
           pipeline=$(jq -r '.pipeline[]' pipeline_names.json)
@@ -43,10 +38,6 @@ jobs:
           EOF
             fi
           done
-
-      - name: inspect test pipeline config #TODO remove this testing step after successful tests
-        run: |
-          cat pipeline/test.config
 
       - name: clean up
         run: |
