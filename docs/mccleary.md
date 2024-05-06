@@ -34,7 +34,6 @@ nextflow run nf-core/<pipeline> -r <release> \
 ...
 ```
 
-
 ## Pipeline Specific profiles
 
 There are no specific profiles added for now
