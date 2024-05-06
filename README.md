@@ -153,6 +153,7 @@ Currently documentation is available for the following systems:
 - [Mana](docs/mana.md)
 - [MARJORIE](docs/marjorie.md)
 - [MARVIN](docs/marvin.md)
+- [MCCLEARY](docs/mccleary.md)
 - [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
 - [MPCDF](docs/mpcdf.md)
