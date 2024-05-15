@@ -4,7 +4,7 @@ To use, run the pipeline with `-profile computerome`. This will download and lau
 
 ## Using the Computerome config profile
 
-Before running the pipeline you will need to load `Nextflow` using the environment module system (this can be done with e.g. module load tools jdk/19 singularity/4.0.0 nextflow/<VERSION>` where `VERSION` is e.g. `23.04.3`).
+Before running the pipeline you will need to load `Nextflow` using the environment module system (this can be done with e.g. `module load tools jdk/19 singularity/4.0.0 nextflow/<VERSION>` where `VERSION` is e.g. `23.04.3`).
 
 To use, run the pipeline with `-profile computerome` (one hyphen).
 This will download and launch the [`computerome.config`](../conf/computerome.config) which has been pre-configured with a setup suitable for the Computerome servers.
