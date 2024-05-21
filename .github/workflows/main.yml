@@ -2,6 +2,11 @@ name: Configs tests
 
 on: [pull_request, push]
 
+# Cancel if a newer run is started
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test_all_profiles:
     runs-on: ubuntu-latest
@@ -33,6 +38,7 @@ jobs:
           - "adcra"
           - "alice"
           - "apollo"
+          - "arcc"
           - "aws_tower"
           - "awsbatch"
           - "azurebatch"
@@ -64,6 +70,7 @@ jobs:
           - "ebi_codon_slurm"
           - "eddie"
           - "engaging"
+          - "einstein"
           - "ethz_euler"
           - "eva"
           - "fgcz"
@@ -80,6 +87,7 @@ jobs:
           - "icr_davros"
           - "ifb_core"
           - "imb"
+          - "ilifu"
           - "imperial"
           - "incliva"
           - "ipop_up"
@@ -89,9 +97,12 @@ jobs:
           - "ku_sund_dangpu"
           - "leicester"
           - "lugh"
+          - "m3c"
           - "maestro"
           - "mana"
+          - "marjorie"
           - "marvin"
+          - "mccleary"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
@@ -107,6 +118,7 @@ jobs:
           - "pdc_kth"
           - "phoenix"
           - "psmn"
+          - "qmul_apocrita"
           - "rosalind"
           - "rosalind_uge"
           - "sage"
@@ -119,33 +131,39 @@ jobs:
           - "software_license"
           - "tigem"
           - "tubingen_apg"
+          - "tufts"
           - "tuos_stanage"
+          - "ucl_cscluster"
           - "ucl_myriad"
           - "uct_hpc"
           - "ucd_sonic"
           - "uge"
           - "unibe_ibu"
           - "unc_lccc"
+          - "unc_longleaf"
           - "uod_hpc"
           - "uppmax"
+          - "utd_europa"
           - "utd_ganymede"
           - "utd_sysbio"
           - "uw_hyak_pedslabs"
           - "uzh"
           - "uzl_omics"
           - "vai"
+          - "vsc_calcua"
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
           - "wustl_htcf"
           - "xanadu"
+          - "york_viking"
 
     steps:
       - uses: actions/checkout@v4
       - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "latest-everything"
       - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
