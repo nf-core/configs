@@ -1,4 +1,4 @@
-# nf-core/configs: Rosalind UGE HPC Configuration
+# nf-core/configs: Rosalind UGE Configuration
 
 nf-core pipelines have been successfully configured for use on the Rosalind UGE cluster.
 
