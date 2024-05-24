@@ -97,6 +97,7 @@ Currently documentation is available for the following systems:
 - [AZUREBATCH](docs/azurebatch.md)
 - [BIGPURPLE](docs/bigpurple.md)
 - [BI](docs/bi.md)
+- [BIH](docs/bih.md)
 - [BINAC](docs/binac.md)
 - [BIOHPC_GEN](docs/biohpc_gen.md)
 - [BIOWULF](docs/biowulf.md)
