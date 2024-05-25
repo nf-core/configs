@@ -51,4 +51,3 @@ Therefore, we recommend the `--scratch` option to point to a user/group/project'
 If the pipeline runs successfully, files in the work directory are deleted automatically.
 If the pipeline exits with an error, the work directory is not deleted and pipeline execution can be continued with the `-resume` option.
 Main output files created by the pipeline will be saved in the `--outdir` directory.
-
