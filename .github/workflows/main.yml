@@ -44,6 +44,7 @@ jobs:
           - "azurebatch"
           - "bi"
           - "bigpurple"
+          - "bih"
           - "binac"
           - "biohpc_gen"
           - "biowulf"

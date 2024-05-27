@@ -97,6 +97,7 @@ Currently documentation is available for the following systems:
 - [AZUREBATCH](docs/azurebatch.md)
 - [BIGPURPLE](docs/bigpurple.md)
 - [BI](docs/bi.md)
+- [BIH](docs/bih.md)
 - [BINAC](docs/binac.md)
 - [BIOHPC_GEN](docs/biohpc_gen.md)
 - [BIOWULF](docs/biowulf.md)
@@ -279,6 +280,7 @@ Currently documentation is available for the following pipelines within specific
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
+  - [AZUREBATCH](docs/pipeline/sarek/azurebatch.md)
   - [EVA](docs/pipeline/sarek/eva.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)
