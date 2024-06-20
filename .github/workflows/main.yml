@@ -95,7 +95,7 @@ jobs:
           - "janelia"
           - "jax"
           - "jex"
-          - "ku_sund_dangpu"
+          - "ku_sund_danhead"
           - "leicester"
           - "lugh"
           - "m3c"
