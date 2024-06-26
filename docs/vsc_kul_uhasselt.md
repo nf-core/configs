@@ -2,20 +2,26 @@
 
 > **NB:** You will need an [account](https://docs.vscentrum.be/en/latest/access/getting_access.html#required-steps-to-get-access) to use the HPC cluster to run the pipeline.
 
-First you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius`.
+1. Install Nextflow on the cluster
+```bash
+conda create --name nf-core python=3.12 nf-core nextflow
+```
 
-Before running the pipeline you will need to create a slurm script that acts as a master script to submit all jobs.
+2. Make the submission script.
+
+> **NB:** you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius`.
 
 ```bash
 $ more job.pbs
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --account=...
 #SBATCH --chdir=....
 #SBATCH --partition=batch_long
 #SBATCH --nodes="1"
 #SBATCH --ntasks-per-node="1"
 
-module load Nextflow
+# module load Nextflow # does not support plugins
+conda activate nf-core
 
 nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> --project <your-credential-acc> <Add your other parameters>
 ```
