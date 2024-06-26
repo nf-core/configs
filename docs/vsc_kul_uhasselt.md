@@ -7,7 +7,29 @@
 conda create --name nf-core python=3.12 nf-core nextflow
 ```
 
-2. Make the submission script.
+:::warning
+The current config is setup with array jobs. Make sure nextflow version >= 24.04.0, read [array jobs in nextflow](https://www.nextflow.io/docs/latest/process.html#array)
+:::
+
+2. Set up the environment variables in `~/.bashrc` or `~/.bash_profile`:
+```bash
+export SLURM_ACCOUNT={FILL_IN_NAME_OF_YOUR_ACCOUNT}
+
+# Needed for running Nextflow jobs
+export NXF_HOME=$VSC_SCRATCH/.nextflow
+export NXF_WORK="$VSC_SCRATCH/work"
+
+# Needed for running Apptainer containers
+export APPTAINER_CACHEDIR=$VSC_SCRATCH/.apptainer/cache
+export APPTAINER_TMPDIR=$VSC_SCRATCH/.apptainer/tmp
+export NXF_CONDA_CACHEDIR="$VSC_SCRATCH/miniconda3/envs"
+
+# Optional tower key
+# export TOWER_ACCESS_TOKEN="<your_tower_access_token>"
+# export NXF_VER="<version>"      # make sure it's larger then 24.04.0
+```
+
+3. Make the submission script.
 
 > **NB:** you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius`.
 
@@ -23,7 +45,7 @@ $ more job.pbs
 # module load Nextflow # does not support plugins
 conda activate nf-core
 
-nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> --project <your-credential-acc> <Add your other parameters>
+nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> <Add your other parameters>
 ```
 
 > **NB:** You have to specify your credential account, else the jobs will fail!
