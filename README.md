@@ -97,6 +97,7 @@ Currently documentation is available for the following systems:
 - [AZUREBATCH](docs/azurebatch.md)
 - [BIGPURPLE](docs/bigpurple.md)
 - [BI](docs/bi.md)
+- [BIH](docs/bih.md)
 - [BINAC](docs/binac.md)
 - [BIOHPC_GEN](docs/biohpc_gen.md)
 - [BIOWULF](docs/biowulf.md)
@@ -121,6 +122,7 @@ Currently documentation is available for the following systems:
 - [EBC](docs/ebc.md)
 - [EBI_CODON](docs/ebi_codon.md)
 - [EBI_CODON_SLURM](docs/ebi_codon_slurm.md)
+- [EINSTEIN](docs/einstein.md)
 - [Engaging](docs/engaging.md)
 - [ETH Zurich Euler](docs/ethz_euler.md)
 - [EVA](docs/eva.md)
@@ -145,12 +147,14 @@ Currently documentation is available for the following systems:
 - [Janelia Research Campus](docs/janelia.md)
 - [JAX](docs/jax.md)
 - [Jex](docs/jex.md)
-- [KU SUND DANGPU](docs/ku_sund_dangpu.md)
+- [KU SUND DANHEAD](docs/ku_sund_danhead.md)
 - [LUGH](docs/lugh.md)
 - [M3C](docs/m3c.md)
 - [MAESTRO](docs/maestro.md)
 - [Mana](docs/mana.md)
+- [MARJORIE](docs/marjorie.md)
 - [MARVIN](docs/marvin.md)
+- [MCCLEARY](docs/mccleary.md)
 - [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
 - [MPCDF](docs/mpcdf.md)
@@ -171,6 +175,7 @@ Currently documentation is available for the following systems:
 - [ROSALIND_UGE](docs/rosalind_uge.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
+- [SEATTLECHILDRENS](docs/seattlechildrens.md)
 - [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [self-hosted-runner](docs/self-hosted-runner.md)
@@ -254,6 +259,8 @@ Currently documentation is available for the following pipelines within specific
 - ampliseq
   - [BINAC](docs/pipeline/ampliseq/binac.md)
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
+- cutandrun
+  - [UNC_LONGLEAF](docs/pipeline/cutandrun/unc_longleaf.md)
 - demultiplex
   - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
@@ -273,6 +280,7 @@ Currently documentation is available for the following pipelines within specific
 - rnavar
   - [MUNIN](docs/pipeline/rnavar/munin.md)
 - sarek
+  - [AZUREBATCH](docs/pipeline/sarek/azurebatch.md)
   - [EVA](docs/pipeline/sarek/eva.md)
   - [MUNIN](docs/pipeline/sarek/munin.md)
   - [UPPMAX](docs/pipeline/sarek/uppmax.md)

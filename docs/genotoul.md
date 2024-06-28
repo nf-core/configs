@@ -1,6 +1,6 @@
 # nf-core/configs: Bioinfo Genotoul Configuration
 
-All nf-core pipelines have been successfully configured for use on the Bioinfo Genotoul cluster at the INRA toulouse.
+All nf-core pipelines have been successfully configured for use on the Bioinfo Genotoul cluster at the INRAe toulouse.
 
 To use, run the pipeline with `-profile genotoul`. This will download and
 launch the [`genotoul.config`](../conf/genotoul.config) which has been
@@ -33,7 +33,7 @@ Load environment :
 
 ```bash
 module purge
-module load bioinfo/nfcore-Nextflow-v19.04.0
+module load bioinfo/NextflowWorkflows/nfcore-Nextflow-v23.10.0
 ```
 
 Try a test workflow (for example the methylseq workflow) :
@@ -42,7 +42,7 @@ Try a test workflow (for example the methylseq workflow) :
 nextflow run nf-core/methylseq -profile genotoul,test
 ```
 
-Create launch script `nfcore-rnaseq.sh` :
+Create launch script `nfcore-methylseq.sh` :
 
 ```bash
 #!/bin/bash
@@ -51,14 +51,14 @@ Create launch script `nfcore-rnaseq.sh` :
 #SBATCH --mem=4G
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-module load bioinfo/nfcore-Nextflow-v19.04.0
+module load bioinfo/NextflowWorkflows/nfcore-Nextflow-v23.10.0
 nextflow run nf-core/methylseq -profile genotoul,test
 ```
 
 Launch on the cluster with sbatch:
 
 ```bash
-sbatch nfcore-rnaseq.sh
+sbatch nfcore-methylseq.sh
 ```
 
 ## Mounted directory
@@ -69,10 +69,8 @@ By default, available mount points are:
 - /home
 - /save
 - /work
-- /work2
 
-To have access to specific other mount point (such as nosave or project)
-you can add a config profile file with option `-profile` and which contain:
+To have access to specific other mount point you can add a config profile file with option `-profile` and which contain:
 
 ```bash
 singularity.runOptions = '-B /directory/to/mount'

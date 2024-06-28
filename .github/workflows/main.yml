@@ -2,6 +2,11 @@ name: Configs tests
 
 on: [pull_request, push]
 
+# Cancel if a newer run is started
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test_all_profiles:
     runs-on: ubuntu-latest
@@ -39,6 +44,7 @@ jobs:
           - "azurebatch"
           - "bi"
           - "bigpurple"
+          - "bih"
           - "binac"
           - "biohpc_gen"
           - "biowulf"
@@ -65,6 +71,7 @@ jobs:
           - "ebi_codon_slurm"
           - "eddie"
           - "engaging"
+          - "einstein"
           - "ethz_euler"
           - "eva"
           - "fgcz"
@@ -88,13 +95,15 @@ jobs:
           - "janelia"
           - "jax"
           - "jex"
-          - "ku_sund_dangpu"
+          - "ku_sund_danhead"
           - "leicester"
           - "lugh"
           - "m3c"
           - "maestro"
           - "mana"
+          - "marjorie"
           - "marvin"
+          - "mccleary"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
@@ -153,9 +162,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "latest-everything"
       - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
