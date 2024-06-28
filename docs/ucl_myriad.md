@@ -22,6 +22,8 @@ export APPTAINER_LOCALCACHEDIR=/home/<YOUR_ID>/Scratch/.apptainer/localcache
 export APPTAINER_PULLFOLDER=/home/<YOUR_ID>/Scratch/.apptainer/pull
 ```
 
+**Warning**: You may need to outcomment any singularity environmental variables you have set previously.
+
 ### Nextflow
 
 Download the latest release of nextflow. Warning: the self-update line should update to the latest version, but sometimes not, so please check which is the latest release (https://github.com/nextflow-io/nextflow/releases), you can then manually set this by entering (`NXF_VER=XX.XX.X`).
@@ -39,4 +41,28 @@ Then make sure that your bin PATH is executable, by placing the following line i
 
 ```bash
 export PATH=$PATH:/home/<YOUR_ID>/bin
+```
+
+### Common troubleshooting issues:
+
+1. If your job gets terminated by SIGHUP, you should then submit your nextflow script within a job:
+
+`qsub -l h_rt=48:00:00 -l mem_free=40G -pe smp 1 -b y nextflow run`
+
+2. If a job fails due to apptainer requiring too much cpu/memory, from the `mksquashfs` process.
+   
+Then make a sge qsub script to pull the container using apptainer, then point to the location of the resultant SIF files. 
+
+e.g. 
+
+```bash
+#!/bin/bash -l
+#$ -l h_rt=3:0:0
+#$ -l mem=50G
+#$ -N Apptainer_pull
+#$ -wd /home/<YOUR_ID>/Scratch/
+#$ -e /home/<YOUR_ID>/Scratch/
+
+# Pull a container.
+apptainer pull docker://kanghu/hite:3.2.0
 ```
