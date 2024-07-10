@@ -22,7 +22,8 @@ export APPTAINER_LOCALCACHEDIR=/home/<YOUR_ID>/Scratch/.apptainer/localcache
 export APPTAINER_PULLFOLDER=/home/<YOUR_ID>/Scratch/.apptainer/pull
 ```
 
-**Warning**: You may need to outcomment any singularity environmental variables you have set previously.
+> [!Warning]
+> You may need to outcomment any singularity environmental variables you have set previously.
 
 ### Nextflow
 
