@@ -296,6 +296,9 @@ Currently documentation is available for the following pipeline:
 
 - viralrecon
   - [genomes](docs/pipeline/viralrecon/genomes.md)
+ 
+- rnaseq
+   - [uondrs_ada](docs/pipeline/rnaseq/uondrs_ada.md)
 
 ### Enabling pipeline-specific configs within a pipeline
 
