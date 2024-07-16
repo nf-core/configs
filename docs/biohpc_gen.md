@@ -21,7 +21,7 @@ module load spack
 module load user_spack
 ```
 
-We recommend to use `charliecloud` >= 0.35. 
+We recommend to use `charliecloud` >= 0.35.
 
 ```bash
 spack install charliecloud@0.35
