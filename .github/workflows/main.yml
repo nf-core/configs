@@ -70,6 +70,7 @@ jobs:
           - "ebi_codon"
           - "ebi_codon_slurm"
           - "eddie"
+          - "embl_hd"
           - "engaging"
           - "einstein"
           - "ethz_euler"
