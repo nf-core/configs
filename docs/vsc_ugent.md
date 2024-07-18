@@ -2,7 +2,7 @@
 
 ## Setup
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > You will need an [account](https://www.ugent.be/hpc/en/access/faq/access) to use the HPC cluster to run the pipeline.
 
 Regarding environment variables in `~/.bashrc`, make sure you have a setup similar to the one below. If you're already part of a VO, ask for one or use `VSC_DATA_USER` instead of `VSC_DATA_VO_USER`.
@@ -50,7 +50,7 @@ qsub <script name>.pbs
 > [!NOTE]
 > The profile only works for the clusters `shinx`, `skitty`, `kirlia`, `doduo` and all tier1 clusters.
 
-> [!NOTE] 
+> [!NOTE]
 > The default directory where the `work/` and `singularity/` (cache directory for images) is located in `$VSC_SCRATCH_VO_USER` (when you are part of a VO) or `$VSC_SCRATCH` (when you are not part of a VO) for tier2 clusters and `$VSC_SCRATCH_PROJECTS_BASE/<tier1_project_name>` for tier1 clusters.
 
 ## Use Apptainer containers
@@ -131,6 +131,3 @@ process {
     }
 }
 ```
-
-
-
