@@ -145,7 +145,6 @@ jobs:
           - "unc_longleaf"
           - "uod_hpc"
           - "uppmax"
-          - "utd_europa"
           - "utd_ganymede"
           - "uw_hyak_pedslabs"
           - "uzh"

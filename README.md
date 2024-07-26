@@ -195,7 +195,6 @@ Currently documentation is available for the following systems:
 - [UNIBE_IBU](docs/unibe_ibu.md)
 - [UOD_HPC](docs/uod_hpc.md)
 - [UPPMAX](docs/uppmax.md)
-- [UTD_EUROPA](docs/utd_europa.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
 - [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
 - [UZH](docs/uzh.md)
