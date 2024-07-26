@@ -147,7 +147,6 @@ jobs:
           - "uppmax"
           - "utd_europa"
           - "utd_ganymede"
-          - "utd_sysbio"
           - "uw_hyak_pedslabs"
           - "uzh"
           - "uzl_omics"

@@ -197,7 +197,6 @@ Currently documentation is available for the following systems:
 - [UPPMAX](docs/uppmax.md)
 - [UTD_EUROPA](docs/utd_europa.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
-- [UTD_SYSBIO](docs/utd_sysbio.md)
 - [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
 - [UZH](docs/uzh.md)
 - [UZL_OMICS](docs/uzl_omics.md)
