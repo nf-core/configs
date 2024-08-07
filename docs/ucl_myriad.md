@@ -22,6 +22,9 @@ export APPTAINER_LOCALCACHEDIR=/home/<YOUR_ID>/Scratch/.apptainer/localcache
 export APPTAINER_PULLFOLDER=/home/<YOUR_ID>/Scratch/.apptainer/pull
 ```
 
+> [!Warning]
+> You may need to outcomment any singularity environmental variables you have set previously.
+
 ### Nextflow
 
 Download the latest release of nextflow. Warning: the self-update line should update to the latest version, but sometimes not, so please check which is the latest release (https://github.com/nextflow-io/nextflow/releases), you can then manually set this by entering (`NXF_VER=XX.XX.X`).
