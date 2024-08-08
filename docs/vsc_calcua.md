@@ -16,7 +16,7 @@
 - [Overview of partition profiles and resources](#overview-of-partition-profiles-and-resources)
 - [Schedule Nextflow pipeline using Slurm](#schedule-nextflow-pipeline-using-slurm)
 - [Local Nextflow run on a single (interactive) node](#local-nextflow-run-on-a-single-interactive-node)
-- [Apptainer / Singularity environment variables for cache and tmp directories](#apptainer--singularity-environment-variables-for-cache-and-tmp-directories)
+- [Apptainer / Singularity and Nextflow environment variables for cache and tmp directories](#apptainer--singularity-and-nextflow-environment-variables-for-cache-and-tmp-directories)
 - [Troubleshooting](#troubleshooting)
   - [Failed to pull singularity image](#failed-to-pull-singularity-image)
 
@@ -114,10 +114,10 @@ nextflow run nf-core/rnaseq \
 
 1.  Set the `APPTAINER_CACHEDIR` and `APPTAINER_TMPDIR` environment variables by adding the following lines to your `.bashrc` file (or simply add them to your Slurm job script):
 
-        ```
-        export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
-        export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
-        ```
+    ```
+    export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
+    export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
+    ```
 
     When using the `~/.bashrc` method, you can ensure that the environment variables are available in your jobs by starting your scripts with the line `#! /bin/bash -l`, although this does not seem to be required (see [below](#apptainer--singularity-environment-variables-for-cache-and-tmp-directories) for more info).
 
@@ -141,11 +141,13 @@ nextflow run nf-core/rnaseq \
 
 ## Location of output and work directory
 
+> **NB:** The Nextflow `work` directory is located in `$VSC_SCRATCH/work` by default, but this can be changed by using the `-work-dir` in your `nextflow run` command.
+
+> **NB:** The work directory is cleaned automatically after a successful pipeline run, unless the `debug` profile is provided (e.g., `-profile debug,vsc_calcua,broadwell_slurm`).
+
 By default, Nextflow stores all of the intermediate files required to run the pipeline in the `work` directory. It is generally recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway. That's why this config contains a `cleanup` command that removes the `work` directory automatically once the pipeline has completed successfully.
 
 If the run does not complete successfully then the `work` directory should be removed manually to save storage space. The default work directory is set to `$VSC_SCRATCH/work` per this configuration. You can also use the [`nextflow clean` command](https://www.nextflow.io/docs/latest/cli.html#clean) to clean up all files related to a specific run (including not just the `work` directory, but also log files and the `.nextflow` cache directory).
-
-> **NB:** The Nextflow `work` directory for any pipeline is located in `$VSC_SCRATCH/work` by default and is cleaned automatically after a success pipeline run, unless the `debug` profile is provided.
 
 ### Debug mode
 
