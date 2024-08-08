@@ -52,6 +52,7 @@ module load Nextflow
 # These lines can be omitted if the variables are already set in your `~/.bashrc` file.
 export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
 export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
+export NXF_APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/nextflow_cache"
 
 # Launch Nextflow head process.
 # Provide a partition profile name to choose a particular partition queue, which
@@ -225,22 +226,22 @@ The `nextflow run ...` command that launches the head process, can be invoked ei
 
 > **NB:** The single node profiles **do not** automatically set the pipeline's CPU/RAM resource limits to those of a full node, but instead dynamically set them based on those allocated by Slurm, i.e. those requested via the `sbatch`. However, in many cases, it likely is a good idea to simply request a full node.
 
-## Apptainer / Singularity environment variables for cache and tmp directories
+## Apptainer / Singularity and Nextflow environment variables for cache and tmp directories
 
-> **NB:** The default directory where Nextflow will cache container images is `$VSC_SCRATCH/apptainer/nextflow_cache`.
+> **NB:** The default directory where Nextflow will cache container images is set to `$VSC_SCRATCH/apptainer/nextflow_cache` for this config.
 
-> **NB:** The recommended directories for apptainer/singularity's cache and tmp directories are `$VSC_SCRATCH/apptainer/cache` (cache directory for images layers) and `$VSC_SCRATCH/apptainer/tmp` (temporary directory used during build or docker conversion) respectively, to avoid filling up your home storage and/or job node's SSDs (since the default locations when unset are `$HOME/.apptainer/cache` and `/tmp` respectively).
+> **NB:** The recommended directories for apptainer/singularity's cache and tmp directories are `$VSC_SCRATCH/apptainer/cache` (cache directory for images layers) and `$VSC_SCRATCH/apptainer/tmp` (temporary directory used during build or docker conversion) respectively, to avoid filling up your home storage and/or job node's SSDs (since the default locations when unset are `$HOME/.apptainer/cache` and `/tmp` respectively). These environment variables cannot be set automatically by the config, so warnings will be displayed when launching runs without them being set.
 
 [Apptainer](https://apptainer.org/) is an open-source fork of [Singularity](https://sylabs.io/singularity/), which is an alternative container runtime to Docker. It is more suitable to usage on HPCs because it can be run without root privileges and does not use a dedicated daemon process. More info on the usage of Apptainer/Singularity on the VSC HPC can be found [here](https://docs.vscentrum.be/software/singularity.html).
 
-When executing Nextflow pipelines using Apptainer/Singularity, the container image files will by default be cached inside the pipeline work directory (which for the `vsc_calcua` config would by default be set to `$VSC_SCRATCH/work`). The CalcUA config profile instead sets the [singularity.cacheDir setting](https://www.nextflow.io/docs/latest/singularity.html#singularity-docker-hub) to a central location on your scratch space (`$VSC_SCRATCH/apptainer/nextflow_cache`), in order to reuse them between different pipelines even when cleaning the work directory. If the `NXF_APPTAINER_CACHEDIR`/`NXF_SINGULARITY_CACHEDIR` environment variables are set manually, they will take precedence over this default setting.
+When executing Nextflow pipelines using Apptainer/Singularity, the container image files will by default be cached inside the pipeline work directory. The CalcUA config profile instead sets the [singularity.cacheDir setting](https://www.nextflow.io/docs/latest/singularity.html#singularity-docker-hub) to a central location on your scratch space (`$VSC_SCRATCH/apptainer/nextflow_cache`), in order to reuse them between different pipelines even when cleaning the work directory. If the `NXF_APPTAINER_CACHEDIR`/`NXF_SINGULARITY_CACHEDIR` environment variables are set manually, they will take precedence over this default setting.
 
 Apptainer/Singularity makes use of two additional environment variables, `APPTAINER_CACHEDIR`/`SINGULARITY_CACHEDIR` and `APPTAINER_TMPDIR`/`SINGULARITY_TMPDIR`. As recommended by the [VSC documentation on containers](https://docs.vscentrum.be/software/singularity.html#building-on-vsc-infrastructure), these should be set to a location on the scratch system, to avoid exceeding the quota on your home directory file system.
 
 > **NB:** The cachedir and tmpdir are only used when new images are built or converted from existing docker images. For most nf-core pipelines this does not happen, since they will instead try to directly pull pre-built singularity images from [Galaxy Depot](https://depot.galaxyproject.org/singularity/)
 
 - The [cache directory](https://apptainer.org/docs/user/main/build_env.html#cache-folders) `APPTAINER_CACHEDIR`/`SINGULARITY_CACHEDIR` is used to store files and layers used during image creation (or conversion of Docker/OCI images). Its default location is `$HOME/.apptainer/cache`, but we recommended changing it to `$VSC_SCRATCH/apptainer/cache` (or another location in scratch) on the CalcUA HPC instead, to avoid exceeding the quota in the home file system.
-- The [temporary directory](https://apptainer.org/docs/user/main/build_env.html#temporary-folders) `APPTAINER_TMPDIR`/`SINGULARITY_TMPDIR` is used to store temporary files when building an image (or converting a Docker/OCI source). The directory must have enough free space to hold the entire uncompressed image during all steps of the build process. Its default location is `/tmp` (or more accurately, `$TMPDIR` in the environment of the nextflow head process), but we recommended changing it to `$VSC_SCRATCH/apptainer/tmp` (or another location in scratch) on the CalcUA HPC instead. The reason being that the default `/tmp` would refer to a directory on the the compute node running the master nextflow process, which are [small SSDs on CalcUA](https://docs.vscentrum.be/antwerp/tier2_hardware/uantwerp_storage.html) that could get filled up.
+- The [temporary directory](https://apptainer.org/docs/user/main/build_env.html#temporary-folders) `APPTAINER_TMPDIR`/`SINGULARITY_TMPDIR` is used to store temporary files when building an image (or converting a Docker/OCI source). The directory must have enough free space to hold the entire uncompressed image during all steps of the build process. Its default location is `/tmp` (or more accurately, `$TMPDIR` in the environment of the nextflow head process), but we recommended changing it to `$VSC_SCRATCH/apptainer/tmp` (or another location in scratch) on the CalcUA HPC instead. The reason being that the default `/tmp` would refer to a directory on the the compute node running the nextflow head process, which are [small SSDs on CalcUA](https://docs.vscentrum.be/antwerp/tier2_hardware/uantwerp_storage.html) that could get filled up otherwise.
 
   > **NB:** The tmp directory needs to be created manually beforehand, otherwise pipelines that need to pull in and convert docker images, or the manual building of images yourself, will fail.
 
