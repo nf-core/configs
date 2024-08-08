@@ -122,6 +122,7 @@ Currently documentation is available for the following systems:
 - [EBC](docs/ebc.md)
 - [EBI_CODON](docs/ebi_codon.md)
 - [EBI_CODON_SLURM](docs/ebi_codon_slurm.md)
+- [EDDIE_ROSLIN](docs/eddie_roslin.md)
 - [EINSTEIN](docs/einstein.md)
 - [EMBL HD](docs/embl_hd.md)
 - [Engaging](docs/engaging.md)
