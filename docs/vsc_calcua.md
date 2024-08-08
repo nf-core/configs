@@ -16,7 +16,7 @@
 - [Overview of partition profiles and resources](#overview-of-partition-profiles-and-resources)
 - [Schedule Nextflow pipeline using Slurm](#schedule-nextflow-pipeline-using-slurm)
 - [Local Nextflow run on a single (interactive) node](#local-nextflow-run-on-a-single-interactive-node)
-- [Apptainer / Singularity environment variables for cache and tmp directories](#apptainer--singularity-environment-variables-for-cache-and-tmp-directories)
+- [Apptainer / Singularity and Nextflow environment variables for cache and tmp directories](#apptainer--singularity-and-nextflow-environment-variables-for-cache-and-tmp-directories)
 - [Troubleshooting](#troubleshooting)
   - [Failed to pull singularity image](#failed-to-pull-singularity-image)
 
@@ -52,6 +52,7 @@ module load Nextflow
 # These lines can be omitted if the variables are already set in your `~/.bashrc` file.
 export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
 export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
+export NXF_APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/nextflow_cache"
 
 # Launch Nextflow head process.
 # Provide a partition profile name to choose a particular partition queue, which
@@ -113,10 +114,10 @@ nextflow run nf-core/rnaseq \
 
 1.  Set the `APPTAINER_CACHEDIR` and `APPTAINER_TMPDIR` environment variables by adding the following lines to your `.bashrc` file (or simply add them to your Slurm job script):
 
-        ```
-        export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
-        export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
-        ```
+    ```
+    export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
+    export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
+    ```
 
     When using the `~/.bashrc` method, you can ensure that the environment variables are available in your jobs by starting your scripts with the line `#! /bin/bash -l`, although this does not seem to be required (see [below](#apptainer--singularity-environment-variables-for-cache-and-tmp-directories) for more info).
 
@@ -140,11 +141,13 @@ nextflow run nf-core/rnaseq \
 
 ## Location of output and work directory
 
+> **NB:** The Nextflow `work` directory is located in `$VSC_SCRATCH/work` by default, but this can be changed by using the `-work-dir` in your `nextflow run` command.
+
+> **NB:** The work directory is cleaned automatically after a successful pipeline run, unless the `debug` profile is provided (e.g., `-profile debug,vsc_calcua,broadwell_slurm`).
+
 By default, Nextflow stores all of the intermediate files required to run the pipeline in the `work` directory. It is generally recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway. That's why this config contains a `cleanup` command that removes the `work` directory automatically once the pipeline has completed successfully.
 
 If the run does not complete successfully then the `work` directory should be removed manually to save storage space. The default work directory is set to `$VSC_SCRATCH/work` per this configuration. You can also use the [`nextflow clean` command](https://www.nextflow.io/docs/latest/cli.html#clean) to clean up all files related to a specific run (including not just the `work` directory, but also log files and the `.nextflow` cache directory).
-
-> **NB:** The Nextflow `work` directory for any pipeline is located in `$VSC_SCRATCH` by default and is cleaned automatically after a success pipeline run, unless the `debug` profile is provided.
 
 ### Debug mode
 
@@ -225,22 +228,22 @@ The `nextflow run ...` command that launches the head process, can be invoked ei
 
 > **NB:** The single node profiles **do not** automatically set the pipeline's CPU/RAM resource limits to those of a full node, but instead dynamically set them based on those allocated by Slurm, i.e. those requested via the `sbatch`. However, in many cases, it likely is a good idea to simply request a full node.
 
-## Apptainer / Singularity environment variables for cache and tmp directories
+## Apptainer / Singularity and Nextflow environment variables for cache and tmp directories
 
-> **NB:** The default directory where Nextflow will cache container images is `$VSC_SCRATCH/apptainer/nextflow_cache`.
+> **NB:** The default directory where Nextflow will cache container images is set to `$VSC_SCRATCH/apptainer/nextflow_cache` for this config.
 
-> **NB:** The recommended directories for apptainer/singularity's cache and tmp directories are `$VSC_SCRATCH/apptainer/cache` (cache directory for images layers) and `$VSC_SCRATCH/apptainer/tmp` (temporary directory used during build or docker conversion) respectively, to avoid filling up your home storage and/or job node's SSDs (since the default locations when unset are `$HOME/.apptainer/cache` and `/tmp` respectively).
+> **NB:** The recommended directories for apptainer/singularity's cache and tmp directories are `$VSC_SCRATCH/apptainer/cache` (cache directory for images layers) and `$VSC_SCRATCH/apptainer/tmp` (temporary directory used during build or docker conversion) respectively, to avoid filling up your home storage and/or job node's SSDs (since the default locations when unset are `$HOME/.apptainer/cache` and `/tmp` respectively). These environment variables cannot be set automatically by the config, so warnings will be displayed when launching runs without them being set.
 
 [Apptainer](https://apptainer.org/) is an open-source fork of [Singularity](https://sylabs.io/singularity/), which is an alternative container runtime to Docker. It is more suitable to usage on HPCs because it can be run without root privileges and does not use a dedicated daemon process. More info on the usage of Apptainer/Singularity on the VSC HPC can be found [here](https://docs.vscentrum.be/software/singularity.html).
 
-When executing Nextflow pipelines using Apptainer/Singularity, the container image files will by default be cached inside the pipeline work directory. The CalcUA config profile instead sets the [singularity.cacheDir setting](https://www.nextflow.io/docs/latest/singularity.html#singularity-docker-hub) to a central location on your scratch space (`$VSC_SCRATCH/apptainer/nextflow_cache`), in order to reuse them between different pipelines. This is equivalent to setting the `NXF_APPTAINER_CACHEDIR`/`NXF_SINGULARITY_CACHEDIR` environment variables manually (but note that the `cacheDir` defined in the config file takes precedence and cannot be overwritten by setting the environment variable).
+When executing Nextflow pipelines using Apptainer/Singularity, the container image files will by default be cached inside the pipeline work directory. The CalcUA config profile instead sets the [singularity.cacheDir setting](https://www.nextflow.io/docs/latest/singularity.html#singularity-docker-hub) to a central location on your scratch space (`$VSC_SCRATCH/apptainer/nextflow_cache`), in order to reuse them between different pipelines even when cleaning the work directory. If the `NXF_APPTAINER_CACHEDIR`/`NXF_SINGULARITY_CACHEDIR` environment variables are set manually, they will take precedence over this default setting.
 
 Apptainer/Singularity makes use of two additional environment variables, `APPTAINER_CACHEDIR`/`SINGULARITY_CACHEDIR` and `APPTAINER_TMPDIR`/`SINGULARITY_TMPDIR`. As recommended by the [VSC documentation on containers](https://docs.vscentrum.be/software/singularity.html#building-on-vsc-infrastructure), these should be set to a location on the scratch system, to avoid exceeding the quota on your home directory file system.
 
 > **NB:** The cachedir and tmpdir are only used when new images are built or converted from existing docker images. For most nf-core pipelines this does not happen, since they will instead try to directly pull pre-built singularity images from [Galaxy Depot](https://depot.galaxyproject.org/singularity/)
 
-- The [cache directory](https://apptainer.org/docs/user/main/build_env.html#cache-folders) `APPTAINER_CACHEDIR`/`SINGULARITY_CACHEDIR` is used to store files and layers used during image creation (or conversion of Docker/OCI images). Its default location is `$HOME/.apptainer/cache`, but it is recommended to change this to `$VSC_SCRATCH/apptainer/cache` on the CalcUA HPC instead.
-- The [temporary directory](https://apptainer.org/docs/user/main/build_env.html#temporary-folders) `APPTAINER_TMPDIR`/`SINGULARITY_TMPDIR` is used to store temporary files when building an image (or converting a Docker/OCI source). The directory must have enough free space to hold the entire uncompressed image during all steps of the build process. Its default location is `/tmp`, but it is recommended to change this to `$VSC_SCRATCH/apptainer/tmp` on the CalcUA HPC instead. The reason being that the default `/tmp` would refer to a directory on the the compute node running the master nextflow process, which are [small SSDs on CalcUA](https://docs.vscentrum.be/antwerp/tier2_hardware/uantwerp_storage.html).
+- The [cache directory](https://apptainer.org/docs/user/main/build_env.html#cache-folders) `APPTAINER_CACHEDIR`/`SINGULARITY_CACHEDIR` is used to store files and layers used during image creation (or conversion of Docker/OCI images). Its default location is `$HOME/.apptainer/cache`, but we recommended changing it to `$VSC_SCRATCH/apptainer/cache` (or another location in scratch) on the CalcUA HPC instead, to avoid exceeding the quota in the home file system.
+- The [temporary directory](https://apptainer.org/docs/user/main/build_env.html#temporary-folders) `APPTAINER_TMPDIR`/`SINGULARITY_TMPDIR` is used to store temporary files when building an image (or converting a Docker/OCI source). The directory must have enough free space to hold the entire uncompressed image during all steps of the build process. Its default location is `/tmp` (or more accurately, `$TMPDIR` in the environment of the nextflow head process), but we recommended changing it to `$VSC_SCRATCH/apptainer/tmp` (or another location in scratch) on the CalcUA HPC instead. The reason being that the default `/tmp` would refer to a directory on the the compute node running the nextflow head process, which are [small SSDs on CalcUA](https://docs.vscentrum.be/antwerp/tier2_hardware/uantwerp_storage.html) that could get filled up otherwise.
 
   > **NB:** The tmp directory needs to be created manually beforehand, otherwise pipelines that need to pull in and convert docker images, or the manual building of images yourself, will fail.
 
@@ -252,7 +255,7 @@ These two variables can be set in several different ways:
 - Passed to `sbatch` as a parameter or on a `#SBATCH` line in the job script (e.g., `--export=APPTAINER_CACHEDIR=${VSC_SCRATCH}/apptainer/cache,APPTAINER_TMPDIR=${VSC_SCRATCH}/apptainer/tmp`).
 - Directly in your job script (e.g., `export APPTAINER_CACHEDIR=${VSC_SCRATCH}/apptainer/cache APPTAINER_TMPDIR=${VSC_SCRATCH}/apptainer/tmp`).
 
-However, note that for the `.bashrc` option to work, the environment need to be passed on to the slurm jobs. Currently, this seems to happen by default (i.e., variables defined in `~/.bashrc` are propagated), but there exist methods to enforce this more strictly. E.g., job scripts that start with `#!/bin/bash -l`, will ensure that jobs [launch using your login environment](https://docs.vscentrum.be/leuven/slurm_specifics.html#job-shell). Similarly, the `sbatch` options `[--get-user-env`](https://slurm.schedmd.com/sbatch.html#OPT_get-user-env) or [`--export=`](https://slurm.schedmd.com/sbatch.html#OPT_export) can be used. Also [see the CalcUA-specific](https://docs.vscentrum.be/jobs/slurm_pbs_comparison.html#main-differences-between-slurm-and-torque) and the [general VSC documentation for more info](https://docs.vscentrum.be/jobs/job_submission.html#the-job-environment).
+However, note that for the `.bashrc` option to work, the environment need to be passed on to the slurm jobs. Currently, this seems to happen by default (i.e., variables defined in `~/.bashrc` are propagated, as per [the VSC docs](https://docs.vscentrum.be/leuven/slurm_specifics.html#environment-propagation)), but there also exist methods to enforce this more strictly. E.g., job scripts that start with `#!/bin/bash -l`, will ensure that jobs [launch using your login environment](https://docs.vscentrum.be/leuven/slurm_specifics.html#job-shell). Similarly, the `sbatch` options [`--get-user-env`](https://slurm.schedmd.com/sbatch.html#OPT_get-user-env) or [`--export=`](https://slurm.schedmd.com/sbatch.html#OPT_export) can be used. Also [see the CalcUA-specific](https://docs.vscentrum.be/jobs/slurm_pbs_comparison.html#main-differences-between-slurm-and-torque) and the [general VSC documentation for more info](https://docs.vscentrum.be/jobs/job_submission.html#the-job-environment).
 
 Lastly, note that this config file currently uses the Singularity engine rather than the Apptainer one (see [`singularity` directive: `enabled = true`](https://www.nextflow.io/docs/latest/config.html#scope-singularity)). The reason is that, for the time being, using the apptainer engine in nf-core pipelines will result in docker images being pulled and converted to apptainer ones, rather than making use of pre-built singularity images (see [nf-core documentation](https://nf-co.re/docs/usage/installation#pipeline-software)). Conversely, when making use of the singularity engine, pre-built images are downloaded and Apptainer will still be used in the background for running these, since the installation of `apptainer` will by default create an alias for `singularity` (and this is also the case on CalcUA).
 
