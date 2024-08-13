@@ -180,7 +180,7 @@ Before it can be used, you will still need to load the Java module in your job s
 The CalcUA config is built to work with the following partitions:
 
 | Partition     | Cluster                   | Profiles               | Type                        | Max memory               | Max CPU              | Max wall time | Example usage                                   |
-|---------------|---------------------------|------------------------|-----------------------------|--------------------------|----------------------|---------------|-------------------------------------------------|
+| ------------- | ------------------------- | ---------------------- | --------------------------- | ------------------------ | -------------------- | ------------- | ----------------------------------------------- |
 | zen2          | Vaughan                   | vsc_calcua             | Slurm scheduler             | 240 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run  -profile vsc_calcua`             |
 | zen2          | Vaughan                   | vsc_calcua,single_node | Single node local execution | 240 GB (or as requested) | 64 (or as requested) | 3 days        | `nextflow run  -profile vsc_calcua,single_node` |
 | zen3          | Vaughan                   | vsc_calcua             | Slurm scheduler             | 240 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run  -profile vsc_calcua`             |
