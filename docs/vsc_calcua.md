@@ -1,20 +1,20 @@
 # nf-core/configs: CalcUA - UAntwerp Tier-2 High Performance Computing Infrastructure (VSC)
 
-> **NB:** You will need an [account](https://docs.vscentrum.be/access/vsc_account.html) to use the CalcUA VSC HPC cluster to run the pipeline.
+> **NB:** You will need an [account](https://docs.vscentrum.be/access/vsc_account.html) to use the CalcUA VSC HPC to run the pipeline.
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [Quickstart](#quickstart)
-  - [Slurm-scheduled pipeline](#slurm-scheduled-pipeline)
-  - [Running pipeline in a single Slurm job](#running-pipeline-in-a-single-slurm-job)
+- [Quick start](#quick-start)
+  - [Slurm-scheduled pipeline run](#slurm-scheduled-pipeline-run)
+  - [Single node pipeline run](#single-node-pipeline-run)
 - [Step-by-step instructions](#step-by-step-instructions)
 - [Location of output and work directory](#location-of-output-and-work-directory)
   - [Debug mode](#debug-mode)
 - [Availability of Nextflow](#availability-of-nextflow)
-- [Overview of partition profiles and resources](#overview-of-partition-profiles-and-resources)
-- [Schedule Nextflow pipeline using Slurm](#schedule-nextflow-pipeline-using-slurm)
+- [Overview of partitions and resources](#overview-of-partitions-and-resources)
+- [Schedule Nextflow pipeline tasks using Slurm](#schedule-nextflow-pipeline-tasks-using-slurm)
 - [Local Nextflow run on a single (interactive) node](#local-nextflow-run-on-a-single-interactive-node)
 - [Apptainer / Singularity and Nextflow environment variables for cache and tmp directories](#apptainer--singularity-and-nextflow-environment-variables-for-cache-and-tmp-directories)
 - [Troubleshooting](#troubleshooting)
@@ -22,13 +22,13 @@
 
 <!-- /code_chunk_output -->
 
-## Quickstart
+## Quick start
 
 To get started with running nf-core pipelines on CalcUA, you can use one of the example templates below. For more detailed info, see the extended explanations further below.
 
-### Slurm-scheduled pipeline
+### Slurm-scheduled pipeline run
 
-Example `job_script.slurm` to run the pipeline using the Slurm job scheduler to queue the individual tasks making up the pipeline. Note that the head nextflow process used to launch the pipeline does not need to request many resources.
+Example `job_script.slurm` to run the pipeline using the Slurm job scheduler to queue the individual tasks making up the pipeline. Note that the head Nextflow process used to launch the pipeline does not need to request many resources, 1 CPU and 4 GB should be adequate. The wall clock should be set so that it is long enough for all pipeline tasks to complete.
 
 ```bash
 #!/bin/bash -l
@@ -37,7 +37,7 @@ Example `job_script.slurm` to run the pipeline using the Slurm job scheduler to 
 #SBATCH --nodes=1                      # node count
 #SBATCH --cpus-per-task=1              # only 1 cpu cores is needed to run the nextflow head process
 #SBATCH --mem-per-cpu=4G               # memory per cpu (4G is default for most partitions)
-#SBATCH --time=00:02:00                # total run time limit (HH:MM:SS)
+#SBATCH --time=00:05:00                # total run time limit (HH:MM:SS)
 #SBATCH --account=<project-account>    # set project account
 
 # Load the available Nextflow module.
@@ -52,29 +52,23 @@ module load Nextflow
 # These lines can be omitted if the variables are already set in your `~/.bashrc` file.
 export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
 export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
-export NXF_APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/nextflow_cache"
+# optional - set by default in the config already
+# export NXF_APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/nextflow_cache"
 
 # Launch Nextflow head process.
-# Provide a partition profile name to choose a particular partition queue, which
-# will determine the available resources for each individual task in the pipeline.
-# Note that the profile name ends with a `*_slurm` suffix, which indicates
-# that this pipeline will submit each task to the Slurm job scheduler.
+# Provide the vsc_calcua profile to use this config and let Nextflow schedule tasks
+# using the Slurm job scheduler. For local execution on a single node, see below.
+# Note that multiple profiles can be stacked, and here we use the built-in test profile
+# of the nf-core/rnaseq pipeline for demonstration purposes.
 nextflow run nf-core/rnaseq \
-  -profile test,vsc_calcua,broadwell_slurm \
-  -with-report report.html \
-  --outdir test_output
-
-# Alternatively, use the generic slurm profile to let Nextflow submit tasks
-# to different partitions, depending on their requirements.
-nextflow run nf-core/rnaseq \
-  -profile test,vsc_calcua,slurm \
+  -profile test,vsc_calcua \
   -with-report report.html \
   --outdir test_output
 ```
 
-### Running pipeline in a single Slurm job
+### Single node pipeline run
 
-Example `job_script.slurm` to run the pipeline on a single node in local execution mode, only making use of the resources allocated by `sbatch`.
+Example `job_script.slurm` to run the pipeline on a single node in local execution mode, only making use of the resources allocated by `sbatch`, instead of submitting each Nextflow task as a new Slurm job. Note that in this case we need to request as many resources as are necessary for the pipeline.
 
 ```bash
 #!/bin/bash -l
@@ -83,7 +77,7 @@ Example `job_script.slurm` to run the pipeline on a single node in local executi
 #SBATCH --nodes=1                      # node count
 #SBATCH --cpus-per-task=28             # request a full node for local execution (broadwell nodes have 28 cpus)
 #SBATCH --mem=112G                     # total memory (e.g., 112G max for broadwell) - can be omitted to use default (= max / # cores)
-#SBATCH --time=00:02:00                # total run time limit (HH:MM:SS)
+#SBATCH --time=00:05:00                # total run time limit (HH:MM:SS)
 #SBATCH --account=<project-account>    # set project account
 
 # Load the available Nextflow module.
@@ -98,44 +92,51 @@ module load Nextflow
 # These lines can be omitted if the variables are already set in your `~/.bashrc` file.
 export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
 export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
+# optional - set by default in the config already
+# export NXF_APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/nextflow_cache"
 
-# Launch Nextflow head process.
-# Provide a partition profile name to choose a particular partition queue, which
-# will determine the available resources for each individual task in the pipeline.
-# Note that the profile name ends with a `*_local` suffix, which indicates
-# that this pipeline will run in local execution mode on the submitted node.
+# Launch Nextflow head process that will run on the same node as the pipeline tasks.
+# Append the single_node profile after the vsc_calcua one, to make Nextflow schedule
+# all jobs on the same local node. Note: don't do this on the login nodes!
 nextflow run nf-core/rnaseq \
-  -profile test,vsc_calcua,broadwell_local \
+  -profile test,vsc_calcua,single_node \
   -with-report report.html \
   --outdir test_output
 ```
 
 ## Step-by-step instructions
 
-1.  Set the `APPTAINER_CACHEDIR` and `APPTAINER_TMPDIR` environment variables by adding the following lines to your `.bashrc` file (or simply add them to your Slurm job script):
+1.  Set the `APPTAINER_CACHEDIR`, `APPTAINER_TMPDIR` and `NXF_APPTAINER_CACHEDIR` environment variables by adding the following lines to your `.bashrc` file (or simply add them to your Slurm job script):
 
     ```
     export APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/cache"
     export APPTAINER_TMPDIR="${VSC_SCRATCH}/apptainer/tmp"
+    # optional - set by default in the config already
+    # export NXF_APPTAINER_CACHEDIR="${VSC_SCRATCH}/apptainer/nextflow_cache"
     ```
 
-    When using the `~/.bashrc` method, you can ensure that the environment variables are available in your jobs by starting your scripts with the line `#! /bin/bash -l`, although this does not seem to be required (see [below](#apptainer--singularity-environment-variables-for-cache-and-tmp-directories) for more info).
+    When using the `~/.bashrc` method, you can ensure that the environment variables are available in your jobs by starting your scripts with the line `#! /bin/bash -l`, although this does not always seem to be required (initial testing: required to propagate PATH, but not for other env vars?). See [below](#apptainer--singularity-and-nextflow-environment-variables-for-cache-and-tmp-directories) for more info.
 
 2.  Load Nextflow in your job script via the command: `module load Nextflow/23.04.2`. Alternatively, when using [your own version of Nextflow](#availability-of-nextflow), use `module load Java`.
 
-3.  Choose whether you want to run in [local execution mode on a single node](#local-nextflow-run-on-a-single-interactive-node) or make use of the [Slurm job scheduler to queue individual pipeline tasks](#schedule-nextflow-pipeline-using-slurm).
+3.  Choose whether you want to use the [Slurm job scheduler to queue individual pipeline tasks](#schedule-nextflow-pipeline-using-slurm) (default mode) or if you prefer [local execution on a single node](#local-nextflow-run-on-a-single-interactive-node).
 
-    - For Slurm scheduling, choose a partition profile ending in `*_slurm`. E.g., `nextflow run pipeline -profile vsc_calcua,broadwell_slurm`.
-    - For local execution mode on a single node, choose a partition profile ending in `*_local`. E.g., `nextflow run pipeline -profile vsc_calcua,broadwell_local`.
+    - For Slurm scheduling, you only need to specify the `vsc_calcua` profile. E.g., `nextflow run pipeline -profile vsc_calcua`. Nextflow tasks will be scheduled as Slurm jobs to your current partition (or the one defined via `sbatch --partion=<partition-name>`).
+    - For local execution mode on a single node, you need to append an additional sub-profile. E.g., `nextflow run pipeline -profile vsc_calcua,single_node`.
 
-    Note that the `-profile` option can take multiple values, the first one always being `vsc_calcua` and the second one a partition plus execution mode.
+    Note that the `-profile` option can take multiple values, the first one always being `vsc_calcua` and the second `single_node` one being optional.
 
-4.  Specify the _partition_ that you want to run the pipeline on using the [`sbatch` command's `--partition=<name>` option](https://docs.vscentrum.be/jobs/job_submission.html#specifying-a-partition) and how many _resources_ should be allocated. See the [overview of partitions and their resources](#overview-of-partition-profiles-and-resources) below, or refer to [the CalcUA documentation](https://docs.vscentrum.be/antwerp/tier2_hardware.html) for more info.
+4.  Specify the _partition_ that you want to run the pipeline on using the [`sbatch` command's `--partition=<name>` option](https://docs.vscentrum.be/jobs/job_submission.html#specifying-a-partition) and how many _resources_ should be allocated. See the [overview of partitions and their resources](#overview-of-partitions-and-resources) below, or refer to [the CalcUA documentation](https://docs.vscentrum.be/antwerp/tier2_hardware.html) for more info.
 
-    - For Slurm scheduling, the partition on which the head process runs has no effect on the resources allocated to the actual pipeline tasks. The head process only requires minimal resources (e.g., 1 CPU and 4 GB RAM).
-    - For local execution mode on a single node, the partition selected via `sbatch` must match the one selected with nextflow's `-profile` option, otherwise the pipeline will not launch. It is probably convenient to simply request a full node (e.g., `--cpus-per-task=28` and `--mem=112G` for broadwell). Omitting `--mem-per-cpu` or `--mem` will [allocate the default memory value](https://docs.vscentrum.be/jobs/job_submission.html#requesting-memory), which is the total available memory divided by the number of cores, e.g., `28 * 4 GB = 112 GB` for broadwell (`128 GB - 16 GB buffer`).
+    - For the default Slurm scheduling, the partition on which the head process runs has no effect on the resources allocated to the actual pipeline tasks; these will instead be requested by Nextflow depending on the particular process' requirements and limited by the maximum thresholds set for each partition in this config.
+    - For local execution mode on a single node, it is probably convenient to simply request a full node (e.g., `--cpus-per-task=28` and `--mem=112G` for broadwell), but if fewer resources are requested, these limits will be passed on the Nextflow too.
+    - Omitting `--mem-per-cpu` or `--mem` will [allocate the default memory value](https://docs.vscentrum.be/jobs/job_submission.html#requesting-memory), which is the total available memory divided by the number of cores, e.g., `28 * 4 GB = 112 GB` for broadwell (`128 GB - 16 GB buffer`).
+
+> **NB:** The head process only requires minimal resources (e.g., 1 CPU and 4 GB RAM).
 
 5.  Submit the job script containing your full `nextflow run` command via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session).
+
+> For more background info on how Slurm and Nextflow interact, you can read more in the [Nextflow training docs](https://training.nextflow.io/basic_training/executors/#submit-nextflow-as-a-job) and in this [Nextflow blog post](https://www.nextflow.io/blog/2023/best-practices-deploying-pipelines-with-hpc-workload-managers.html).
 
 ---
 
@@ -143,61 +144,60 @@ nextflow run nf-core/rnaseq \
 
 > **NB:** The Nextflow `work` directory is located in `$VSC_SCRATCH/work` by default, but this can be changed by using the `-work-dir` in your `nextflow run` command.
 
-> **NB:** The work directory is cleaned automatically after a successful pipeline run, unless the `debug` profile is provided (e.g., `-profile debug,vsc_calcua,broadwell_slurm`).
+By default, Nextflow stores all of the intermediate files required to run the pipeline in the `work` directory. The default work directory is set to `$VSC_SCRATCH/work` in this config.
 
-By default, Nextflow stores all of the intermediate files required to run the pipeline in the `work` directory. It is generally recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway. That's why this config contains a `cleanup` command that removes the `work` directory automatically once the pipeline has completed successfully.
+It is generally recommended to delete this directory after the pipeline has finished successfully, because it can grow quite large, and all of the main output files will be saved in the `results/` directory anyway. That's why this config contains a `cleanup` command that removes the `work` directory automatically once the pipeline has completed successfully.
 
-If the run does not complete successfully then the `work` directory should be removed manually to save storage space. The default work directory is set to `$VSC_SCRATCH/work` per this configuration. You can also use the [`nextflow clean` command](https://www.nextflow.io/docs/latest/cli.html#clean) to clean up all files related to a specific run (including not just the `work` directory, but also log files and the `.nextflow` cache directory).
+If the run does not complete successfully, then the `work` directory is not deleted and pipelines can be re-submitted using the `-resume` flag to re-use any cached files. If runs are abandoned, the directory should be cleaned manually to save storage space.
+
+You can also use the [`nextflow clean` command](https://www.nextflow.io/docs/latest/cli.html#clean) to clean up all files related to a specific run (including not just the `work` directory, but also log files and the `.nextflow` cache directory).
 
 ### Debug mode
 
-Debug mode can be enabled to always retain the `work` directory instead of cleaning it. To use it, pass `debug` as an additional value to the `-profile` option:
+> **NB:** The work directory is cleaned automatically after a successful pipeline run to avoid going over the storage quotas, but the `debug` profile can be provided to retain them in case you need to inspect any intermediate files (e.g., `-profile vsc_calcua,debug`).
 
-`nextflow run <pipeline> -profile vsc_calcua,broadwell_local,debug`
+Debug mode can be enabled to always retain the `work` directory instead of cleaning it. To use it, pass `debug` as an additional value to the `-profile` option (the order is important, later entries overwrite earlier ones!):
 
-Note that this is a core config provided by nf-core pipelines, not something built into the VSC CalcUA config.
+`nextflow run <pipeline> -profile vsc_calcua,debug`
+
+Note that this is a core config provided by nf-core pipelines, not something built into the VSC CalcUA config directly.
 
 ## Availability of Nextflow
 
 Nextflow has been made available on CalcUA as a module. You can find out which versions are available by using `module av nextflow`.
 
-If you need to use a specific version of Nextflow that is not available, you can of course manually install it to your home directory and add the executable to your `PATH`:
+If you need to use a specific or more recent version of Nextflow that is not available, you can of course manually install it to your home directory and add the executable to your `PATH`:
 
 ```
 curl -s https://get.nextflow.io | bash
 mkdir -p ~/.local/bin/ && mv nextflow ~/.local/bin/
 ```
 
-Before it can be used, you will still need to load the Java module in your job scripts: `module load Java`.
+Before it can be used, you will still need to load the Java module in your job scripts: `module load Java`. Also make sure that you pass your PATH to your job scripts by starting them with `#!/bin/bash -l` or use the full path to the Nextflow binary instead of just calling `nextflow`.
 
-## Overview of partition profiles and resources
+## Overview of partitions and resources
 
-> **NB:** Aside from the profiles defined in the table below, one additional profile is available, named `slurm`. It automatically lets Nextflow choose the most appropriate Slurm partition to submit each pipeline task to based on the task's requirements (CPU, memory and run time).
-> Example usage: `nextflow run -profile vsc_calcua,slurm`.
+The CalcUA config is built to work with the following partitions:
 
-The CalcUA config defines two types of profiles for each of the following partitions:
+| Partition     | Cluster                   | Profiles               | Type                        | Max memory               | Max CPU              | Max wall time | Example usage                                   |
+|---------------|---------------------------|------------------------|-----------------------------|--------------------------|----------------------|---------------|-------------------------------------------------|
+| zen2          | Vaughan                   | vsc_calcua             | Slurm scheduler             | 240 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run  -profile vsc_calcua`             |
+| zen2          | Vaughan                   | vsc_calcua,single_node | Single node local execution | 240 GB (or as requested) | 64 (or as requested) | 3 days        | `nextflow run  -profile vsc_calcua,single_node` |
+| zen3          | Vaughan                   | vsc_calcua             | Slurm scheduler             | 240 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run  -profile vsc_calcua`             |
+| zen3          | Vaughan                   | vsc_calcua,single_node | Single node local execution | 240 GB (or as requested) | 64 (or as requested) | 3 days        | `nextflow run  -profile vsc_calcua,single_node` |
+| zen3_512      | Vaughan                   | vsc_calcua             | Slurm scheduler             | 496 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run  -profile vsc_calcua`             |
+| zen3_512      | Vaughan                   | vsc_calcua,single_node | Single node local execution | 496 GB (or as requested) | 64 (or as requested) | 3 days        | `nextflow run  -profile vsc_calcua,single_node` |
+| broadwell     | Leibniz                   | vsc_calcua             | Slurm scheduler             | 112 GB (per task)        | 28 (per task)        | 3 days        | `nextflow run  -profile vsc_calcua`             |
+| broadwell     | Leibniz                   | vsc_calcua,single_node | Single node local execution | 112 GB (or as requested) | 28 (or as requested) | 3 days        | `nextflow run  -profile vsc_calcua,single_node` |
+| broadwell_256 | Leibniz                   | vsc_calcua             | Slurm scheduler             | 240 GB (per task)        | 28 (per task)        | 3 days        | `nextflow run  -profile vsc_calcua`             |
+| broadwell_256 | Leibniz                   | vsc_calcua,single_node | Single node local execution | 240 GB (or as requested) | 28 (or as requested) | 3 days        | `nextflow run  -profile vsc_calcua,single_node` |
+| skylake       | Breniac (formerly Hopper) | vsc_calcua             | Slurm scheduler             | 176 GB (per task)        | 28 (per task)        | 7 days        | `nextflow run  -profile vsc_calcua`             |
+| skylake       | Breniac (formerly Hopper) | vsc_calcua,single_node | Single node local execution | 176 GB (or as requested) | 28 (or as requested) | 7 days        | `nextflow run  -profile vsc_calcua,single_node` |
 
-| Partition     | Cluster                   | Profile name        | Type                 | Max memory               | Max CPU              | Max wall time | Example usage                                                     |
-| ------------- | ------------------------- | ------------------- | -------------------- | ------------------------ | -------------------- | ------------- | ----------------------------------------------------------------- |
-| zen2          | Vaughan                   | zen2_slurm          | Slurm scheduler      | 240 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,zen2_slurm`          |
-| zen2          | Vaughan                   | zen2_local          | Local node execution | 240 GB (or as requested) | 64 (or as requested) | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,zen2_local`          |
-| zen3          | Vaughan                   | zen3_slurm          | Slurm scheduler      | 240 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,zen3_slurm`          |
-| zen3          | Vaughan                   | zen3_local          | Local node execution | 240 GB (or as requested) | 64 (or as requested) | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,zen3_local`          |
-| zen3_512      | Vaughan                   | zen3_512_slurm      | Slurm scheduler      | 496 GB (per task)        | 64 (per task)        | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,zen3_512_slurm`      |
-| zen3_512      | Vaughan                   | zen3_512_local      | Local node execution | 496 GB (or as requested) | 64 (or as requested) | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,zen3_512_local`      |
-| broadwell     | Leibniz                   | broadwell_slurm     | Slurm scheduler      | 112 GB (per task)        | 28 (per task)        | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,broadwell_slurm`     |
-| broadwell     | Leibniz                   | broadwell_local     | Local node execution | 112 GB (or as requested) | 28 (or as requested) | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,broadwell_local`     |
-| broadwell_256 | Leibniz                   | broadwell_256_slurm | Slurm scheduler      | 240 GB (per task)        | 28 (per task)        | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,broadwell_256_slurm` |
-| broadwell_256 | Leibniz                   | broadwell_256_local | Local node execution | 240 GB (or as requested) | 28 (or as requested) | 3 days        | `nextflow run <pipeline> -profile vsc_calcua,broadwell_256_local` |
-| skylake       | Breniac (formerly Hopper) | skylake_slurm       | Slurm scheduler      | 176 GB (per task)        | 28 (per task)        | 7 days        | `nextflow run <pipeline> -profile vsc_calcua,skylake_slurm`       |
-| skylake       | Breniac (formerly Hopper) | skylake_local       | Local node execution | 176 GB (or as requested) | 28 (or as requested) | 7 days        | `nextflow run <pipeline> -profile vsc_calcua,skylake_local`       |
-| all           | /                         | slurm               | Slurm scheduler      | /                        | /                    | /             | `nextflow run <pipeline> -profile vsc_calcua,slurm`               |
+For more information on the difference between the [Slurm scheduling](#schedule-nextflow-pipeline-tasks-using-slurm) and [Single node local execution mode](#local-nextflow-run-on-a-single-interactive-node), see below. Briefly,
 
-For more information on the difference between the [\*\_slurm-type](#schedule-nextflow-pipeline-using-slurm) and [\*\_local-type](#local-nextflow-run-on-a-single-interactive-node) profiles, see below. Briefly,
-
-- Slurm profiles submit each pipeline task to the Slurm job scheduler using a particular partition.
-  - The generic `slurm` profile also submits jobs to the Slurm job scheduler, but it can stage them across different partitions simultaneously depending on the tasks' requirements.
-- Local profiles run pipeline tasks on the local node, using only the resource that were requested by `sbatch` (or `srun` in interactive mode).
+- The default `vsc_calcua` profile submits each pipeline task to the Slurm job scheduler using the current partition (where the job was launched or the value supplied to `sbatch --partition=<name>`).
+- The optional `single_node` profile runs pipeline tasks on the same single local node, using only the resource that were requested by `sbatch` (or `srun` in interactive mode).
 
 The max memory for the Slurm partitions is set to the [available amount of memory for each partition](https://docs.vscentrum.be/antwerp/tier2_hardware.html) minus 16 GB (which is the amount reserved for the OS and file system buffers, [see slide 63 of this CalcUA introduction course](https://calcua.uantwerpen.be/courses/hpc-intro/IntroductionHPC-20240226.pdf)). For the local profiles the resources are set dynamically based on those requested by `sbatch`.
 
@@ -205,28 +205,23 @@ More information on the hardware differences between the partitions can be found
 
 > **NB:** Do not launch nextflow jobs directly from a login node. Not only will this occupy considerable resources on the login nodes (the nextflow master process/head job can still use considerable amounts of RAM, see [https://nextflow.io/blog/2024/optimizing-nextflow-for-hpc-and-cloud-at-scale.html](https://nextflow.io/blog/2024/optimizing-nextflow-for-hpc-and-cloud-at-scale.html)), but the command might get cancelled (since there is a wall time for the login nodes too).
 
-## Schedule Nextflow pipeline using Slurm
+## Schedule Nextflow pipeline tasks using Slurm
 
-The `*_slurm` (and `slurm`) profiles allow Nextflow to use the Slurm job scheduler to queue each pipeline task as a separate job. The main job that you manually submit using `sbatch` will run the head Nextflow process (`nextflow run ...`), which acts as a governor and monitoring job, and spawn new Slurm jobs for the different tasks in the pipeline. Each task will request the appropriate amount of resources defined by the pipeline (up to a threshold set in the given partition's profile) and will be run as an individual Slurm job. This means that each task will be placed in the scheduling queue individually and [all the standard priority rules](https://docs.vscentrum.be/jobs/why_doesn_t_my_job_start.html#why-doesn-t-my-job-start) will apply to each of them.
+The default behaviour of the `vsc_calcua` profile allows Nextflow to use the Slurm job scheduler to queue each pipeline task as a separate job. The main job that you manually submit using `sbatch` will run the head Nextflow process (`nextflow run ...`), which acts as a governor and monitoring job, and spawn new Slurm jobs for the different tasks in the pipeline. Each task will request the appropriate amount of resources defined by the pipeline (up to a threshold set per partition in this config) and will be run as an individual Slurm job. This means that each task will be placed in the scheduling queue individually and [all the standard priority rules](https://docs.vscentrum.be/jobs/why_doesn_t_my_job_start.html#why-doesn-t-my-job-start) will apply to each of them.
 
-The `nextflow run ...` command that launches the head process, can be invoked either via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session), but it **does NOT need to request the total amount of resources that would be required for the full pipeline!**
+The `nextflow run ...` command that launches the head process, can be invoked either via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session), but it **does NOT need to request the total amount of resources that would be required by the full pipeline!**
 
-> **NB:** When using the slurm-type profiles, the initial job that launches the master nextflow process does not need many resources to run. Therefore, use the #SBATCH options to limit its requested to a small sensible amount (e.g., 2 CPUs and 4 GB RAM), regardless of how computationally intensive the actual pipeline is.
+> **NB:** When using the default `vsc_calcua` profile, the initial job that launches the master nextflow process does not need many resources to run. Therefore, use the #SBATCH options to limit its requested to a small sensible amount (e.g., 1-2 CPUs and 4 GB RAM), regardless of how computationally intensive the actual pipeline is.
 
 > **NB:** The wall time of the Nextflow head process will ultimately determine how long the pipeline can run for.
 
 ## Local Nextflow run on a single (interactive) node
 
-In contrast to the `*_slurm` profiles, the `*_local` profiles instead run in Nextflow's _local execution mode_, which means that they do not make use of the Slurm job scheduler. Instead, the head Nextflow process (`nextflow run ...`) will run on the allocated compute node and spawn all of sub-processes for the individual tasks in the pipeline on that same node (i.e., similar to running a pipeline on your own machine). The available resources are determined by the [`#SBATCH` options passed to Slurm](https://docs.vscentrum.be/jobs/job_submission.html#requesting-compute-resources) as usual and are shared among all tasks.
+By adding the `single_node` profile, Nextflow will run in _local execution mode_, which means that it will not make use of the Slurm job scheduler. Instead, the head Nextflow process (`nextflow run ...`) will run on the allocated compute node and spawn all sub-processes for the individual tasks in the pipeline on that same node (i.e., similar to running a pipeline on your own machine). The available resources are determined by the [`#SBATCH` options passed to Slurm](https://docs.vscentrum.be/jobs/job_submission.html#requesting-compute-resources) as usual and are shared among all tasks. The thresholds for the amount of resources that can be requested are automatically set to those that were requested during job submission (and will otherwise default to those of the partition).
 
 The `nextflow run ...` command that launches the head process, can be invoked either via `sbatch` or from an an interactive `srun` session launched via `screen` or `tmux` (to avoid the process from stopping when you disconnect your SSH session) and it **DOES need to request the total amount of resources that are required by the full pipeline!**
 
-> **NB:** When using one of the single node profiles, make sure that you launch the job on the same partition as the one specified by the `-profile vsc_calcua,<partition>` option of your `nextflow run` command, either by launching it from the matching login node or by using the `sbatch` option `--partition=<partition>`. E.g., a job script containing the following nextflow command:
-> `nextflow run <pipeline> -profile vsc_calcua,broadwell_local`
-> should be launched from a [Leibniz login node](https://docs.vscentrum.be/antwerp/tier2_hardware/leibniz_hardware.html#login-infrastructure) or via the following `sbatch` command:
-> `sbatch --account <project_account> --partition broadwell script.slurm`
-
-> **NB:** The single node profiles **do not** automatically set the pipeline's CPU/RAM resource limits to those of a full node, but instead dynamically set them based on those allocated by Slurm, i.e. those requested via the `sbatch`. However, in many cases, it likely is a good idea to simply request a full node.
+> **NB:** `-profile vsc_calcua,single_node` **does not** automatically set the pipeline's CPU/RAM resource limits to those of a full node, but instead dynamically set them based on those allocated by Slurm, i.e. those requested via the `sbatch`. However, in many cases, it likely is a good idea to simply request a full node.
 
 ## Apptainer / Singularity and Nextflow environment variables for cache and tmp directories
 
