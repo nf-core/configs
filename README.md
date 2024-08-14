@@ -155,6 +155,7 @@ Currently documentation is available for the following systems:
 - [MEDAIR](docs/medair.md)
 - [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
 - [MPCDF](docs/mpcdf.md)
+- [MPCDF_VIPER](docs/mpcdf_viper.md)
 - [MUNIN](docs/munin.md)
 - [NCI GADI](docs/nci_gadi.md)
 - [NU_GENOMICS](docs/nu_genomics.md)
