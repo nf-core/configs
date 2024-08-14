@@ -4,7 +4,7 @@ All nf-core pipelines have been successfully configured for use on the HPCs at [
 
 > :warning: these profiles are not officially supported by the MPCDF.
 
-To run Nextflow, the `jdk` module must be loaded.
+To run Nextflow, the `jdk` and `apptainer` modules must be loaded.
 
 This `mpcdf_viper` config is for `viper`. For `raven` see the [`mpcdf`](mpcdf.md) profile.
 
