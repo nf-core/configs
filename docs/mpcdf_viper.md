@@ -14,4 +14,7 @@ To prevent repeatedly downloading the same apptainer image for every pipeline ru
 > [!TIP]
 > If you have issues pulling the apptainer image, with errors such as `apptainer unable to create new build:`, you may need to create the directory the error refers to (i.e., directory with a `-temp` suffix)
 
+> [!WARNING]
+> Do not set the `NXF_APPTAINER_LIBRARYDIR`, this will prevent images from being correctly pulled.
+
 > NB: Nextflow will need to submit the jobs via SLURM to the clusters and as such the commands above will have to be executed on one of the head nodes. Check the [MPCDF documentation](https://www.mpcdf.mpg.de/services/computing).
