@@ -2,6 +2,11 @@ name: Configs tests
 
 on: [pull_request, push]
 
+# Cancel if a newer run is started
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test_all_profiles:
     runs-on: ubuntu-latest
@@ -33,11 +38,13 @@ jobs:
           - "adcra"
           - "alice"
           - "apollo"
+          - "arcc"
           - "aws_tower"
           - "awsbatch"
           - "azurebatch"
           - "bi"
           - "bigpurple"
+          - "bih"
           - "binac"
           - "biohpc_gen"
           - "biowulf"
@@ -63,7 +70,9 @@ jobs:
           - "ebi_codon"
           - "ebi_codon_slurm"
           - "eddie"
+          - "embl_hd"
           - "engaging"
+          - "einstein"
           - "ethz_euler"
           - "eva"
           - "fgcz"
@@ -87,15 +96,19 @@ jobs:
           - "janelia"
           - "jax"
           - "jex"
-          - "ku_sund_dangpu"
+          - "ku_sund_danhead"
           - "leicester"
           - "lugh"
+          - "m3c"
           - "maestro"
           - "mana"
+          - "marjorie"
           - "marvin"
+          - "mccleary"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
+          - "mpcdf_viper"
           - "munin"
           - "nci_gadi"
           - "nu_genomics"
@@ -133,9 +146,7 @@ jobs:
           - "unc_longleaf"
           - "uod_hpc"
           - "uppmax"
-          - "utd_europa"
           - "utd_ganymede"
-          - "utd_sysbio"
           - "uw_hyak_pedslabs"
           - "uzh"
           - "uzl_omics"
@@ -151,9 +162,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "latest-everything"
       - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
