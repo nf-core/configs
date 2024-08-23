@@ -6,6 +6,8 @@ To use, run the pipeline with `-profile m3c`. This will download and launch the 
 
 Before running the pipeline you will need to install Nextflow on the M3 cluster. You can do this by following the instructions [here](https://www.nextflow.io/).
 
+A local copy of the [AWS-iGenomes](https://registry.opendata.aws/aws-igenomes/) resource has been made available on M3C so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline. You can do this by simply using the `--genome <GENOME_ID>` parameter.
+
 > [!Note]
 > You will need an account to use the M3 HPC cluster in order to run the pipeline. If in doubt contact IT.
 > [!Note]

@@ -66,3 +66,13 @@ process {
 ```
 
 And specify this config when running the pipeline with `-c pipeline_options.config`
+
+# Multiple project membership and setting up emails
+
+If you are a member of multiple projects you can add the below code to your pipeline_options.config file inside the process scope to tell SLURM which SBATCH options to use.
+
+```
+process {
+  clusterOptions = '--account scwxxxx --mail-type ALL --mail-user yourusername@bangor.ac.uk'
+}
+```
