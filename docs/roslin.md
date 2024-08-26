@@ -91,16 +91,13 @@ To reconnect to an existing screen session, use:
 screen -r <session_name>
 ```
 
-
 ### On the wild west node
 
 Wild West node has relaxed restriction compared to regular nodes, which allows the execution of Nextflow.
 The access to Wild West node must be requested to [Andy Law](andy.law@roslin.ed.ac.uk) and IS.
 Similarly to the qlogin option, it is advised to run Nextflow within a screen session.
 
-
 ## Using iGenomes references
 
 A local copy of the iGenomes resource has been made available on the Eddie HPC for those with access to `/exports/igmm/eddie/BioinformaticsResources` so you should be able to run the pipeline against any reference available in the `igenomes.config`.
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
-
