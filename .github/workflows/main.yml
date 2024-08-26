@@ -108,6 +108,7 @@ jobs:
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
+          - "mpcdf_viper"
           - "munin"
           - "nci_gadi"
           - "nu_genomics"
