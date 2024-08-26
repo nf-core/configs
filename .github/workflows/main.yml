@@ -124,6 +124,7 @@ jobs:
           - "qmul_apocrita"
           - "rosalind"
           - "rosalind_uge"
+          - "roslin"
           - "sage"
           - "sahmri"
           - "sanger"

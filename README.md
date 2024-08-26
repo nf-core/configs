@@ -175,6 +175,7 @@ Currently documentation is available for the following systems:
 - [QMUL_APOCRITA](docs/qmul_apocrita.md)
 - [ROSALIND](docs/rosalind.md)
 - [ROSALIND_UGE](docs/rosalind_uge.md)
+- [ROSLIN](docs/roslin.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
 - [SEATTLECHILDRENS](docs/seattlechildrens.md)
