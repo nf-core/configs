@@ -48,6 +48,7 @@ jobs:
           - "binac"
           - "biohpc_gen"
           - "biowulf"
+          - "bluebear"
           - "cambridge"
           - "cbe"
           - "ccga_dx"
