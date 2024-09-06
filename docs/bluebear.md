@@ -50,6 +50,11 @@ nextflow run nf-core/_pipeline_ -profile bluebear --outdir results -resume
 
 in a new job with more time requested.
 
+Nextflow creates a working directory to store files while the pipeline is running. We have configured Nextflow to clean
+the contents of this directory after a successful run. The `-resume` option will only work after an unsuccessful run.
+If you want to keep the working directory contents, add the `debug` profile to your run command (e.g.
+`-profile bluebear,debug`).
+
 ## Example
 
 Here is an example job submission script. This job runs the `nf-core/rnaseq` pipeline tests with the BlueBEAR config
@@ -73,31 +78,6 @@ module load Nextflow/24.04.2
 export NXF_SINGULARITY_CACHEDIR="/rds/projects/_initial_/_project_/.apptainer"
 
 nextflow run nf-core/rnaseq -profile bluebear,test --outdir test_results
-```
-
-## Clean work directory
-
-Nextflow caches pipeline files in a work directory (default is `work`). This is useful if you need to resume a job
-after a failure (using the `-resume` option). However, the `work` directory can fill up quickly. Regularly cleaning the
-work directory avoids filling up your project quota.
-
-For example, the following command will show cached files for all
-runs before the last run,
-
-```bash
-nextflow clean -n -before last
-```
-
-Then, to forcibly remove these files, execute the following command,
-
-```bash
-nextflow clean -f -before last
-```
-
-If you also want to remove cached files for the last run, execute,
-
-```bash
-nextflow clean -f last
 ```
 
 ## Troubleshooting
