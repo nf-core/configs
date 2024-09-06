@@ -16,13 +16,16 @@ module load Nextflow/24.04.2
 BlueBEAR comes with Apptainer installed for running processes inside containers. Our configuration makes use of this
 when executing processes.
 
-We advise you create a directory in which to cache images using the following environment variable. For example,
+We advise you create a directory in which to cache images using the `NXF_SINGULARITY_CACHEDIR` environment variable.
+For example,
 
 ```bash
 export NXF_SINGULARITY_CACHEDIR="/rds/projects/_initial_/_project_/.apptainer"
 ```
 
-where `_project_` is your project code and `_initial_` is its initial letter.
+where `_project_` is your project code and `_initial_` is its initial letter. Edit and add the above line to the
+`.bashrc` file in your home directory. If this variable is not defined, Nextflow will store images in the pipeline
+working directory which is cleaned after each successful run.
 
 You may notice that our nf-core configuration file enables Singularity, not Apptainer, for use with Nextflow. Due to
 their similarities (see [this announcement](https://apptainer.org/news/community-announcement-20211130/)), Apptainer
@@ -74,9 +77,6 @@ module purge; module load bluebear
 module load bear-apps/2022b
 module load Nextflow/24.04.2
 
-# Directory in which to cache apptainer/singularity images
-export NXF_SINGULARITY_CACHEDIR="/rds/projects/_initial_/_project_/.apptainer"
-
 nextflow run nf-core/rnaseq -profile bluebear,test --outdir test_results
 ```
 
@@ -122,9 +122,6 @@ module load bear-apps/2022b
 module load Nextflow/24.04.2
 module load Python/3.10.8-GCCcore-12.2.0
 
-# Directory in which to cache apptainer images
-export NXF_SINGULARITY_CACHEDIR="/rds/projects/_initial_/_project_/.apptainer"
-
 # Path to Python virtual environment with nf-core tools
 VENV_DIR="/path/to/virtual/environments"
 VENV_PATH="${VENV_DIR}/nf-core-${BB_CPU}"
@@ -157,5 +154,5 @@ downloaded pipeline.
 nextflow run /path/to/outdir/3_14_0 -profile bluebear,test --outdir test_results
 ```
 
-**Note:** Make sure that the `NXF_SINGULARITY_CACHEDIR` environment variable is the same in both scripts for Nextflow
-to see the pre-downloaded images.
+**Note:** Make sure that the `NXF_SINGULARITY_CACHEDIR` environment variable defined (e.g. in your `.bashrc` file) and
+takes the same value when downloading and running the pipeline.
