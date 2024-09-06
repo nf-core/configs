@@ -121,7 +121,11 @@ by the pipeline using `nf-core` tools to
 nf-core download _pipeline_ -o /path/to/outdir --container-system singularity --container-cache-utilisation amend
 ```
 
-or in a Slurm job. Here is an example job script which downloads version 3.14.0 of the `nf-core/rnaseq` pipeline.
+or in a Slurm job.
+
+**Note:** `nf-core` tools is a Python package which needs to be installed first.
+
+Here is an example Slurm job script which downloads version 3.14.0 of the `nf-core/rnaseq` pipeline.
 
 ```bash
 #!/bin/bash
