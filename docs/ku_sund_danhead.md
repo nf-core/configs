@@ -6,7 +6,7 @@ The server consists of two computing nodes and one GPU node.
 
 To use the institution profile, run the pipeline with `-profile ku_sund_danhead`.
 This will download and launch the [`ku_sund_danhead.config`](../conf/ku_sund_danhead.config)
-which has been pre-configured with a setup suitable for the DANGPU.
+which has been pre-configured with a setup suitable for the DAN System.
 
 ## Environment variables
 
@@ -18,7 +18,7 @@ To download and test a pipeline for the first time, use the `-profile test` and
 specify `--outdir`. It is a good practice to use the pipeline version with
 specifying `-r` each time you run a pipeline. `-r` refers to a revision version
 and is useful to ensure reproducibility when rerunning the pipeline. You can read
-more on nf-core pipeline reproducibility [here](https://nf-co.re/rnaseq/3.10.1/usage#reproducibility).
+more on nf-core pipeline reproducibility [here](https://nf-co.re/rnaseq/3.10.1/docs/usage#reproducibility).
 
 For example to run `nf-core/rnaseq` on **dancmpn01fl**:
 
