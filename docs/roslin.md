@@ -60,7 +60,7 @@ If you wish, you place this variable declaration in your `.bashrc` file located 
 
 ## Nodes exclusion
 
-The roslin profile excludes some specific nodes.  
+The roslin profile excludes some specific nodes.
 The superdome node is reserved for special applications, and the access must be requested.
 Eddie's nodes are being migrated to Rocky Linux 9 and some of them are already online. These are not fully set up yet and jobs have troubles to run on them.
 Until those nodes are stable, we exclude them.
