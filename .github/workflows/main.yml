@@ -2,12 +2,17 @@ name: Configs tests
 
 on: [pull_request, push]
 
+# Cancel if a newer run is started
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test_all_profiles:
     runs-on: ubuntu-latest
     name: Check if all profiles are tested
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Check whether profiles are all tested
         run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
 
@@ -15,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if nextflow config runs in repository root
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Install Nextflow
         run: |
           wget -qO- get.nextflow.io | bash
@@ -32,13 +37,18 @@ jobs:
           - "abims"
           - "adcra"
           - "alice"
+          - "apollo"
+          - "arcc"
           - "aws_tower"
           - "awsbatch"
           - "azurebatch"
           - "bi"
           - "bigpurple"
+          - "bih"
           - "binac"
           - "biohpc_gen"
+          - "biowulf"
+          - "bluebear"
           - "cambridge"
           - "cbe"
           - "ccga_dx"
@@ -49,70 +59,114 @@ jobs:
           - "cfc_dev"
           - "cheaha"
           - "computerome"
+          - "create"
           - "crg"
           - "crick"
           - "crukmi"
+          - "csiro_petrichor"
+          - "daisybio"
           - "denbi_qbic"
           - "dkfz"
           - "ebc"
+          - "ebi_codon"
+          - "ebi_codon_slurm"
           - "eddie"
+          - "embl_hd"
           - "engaging"
+          - "einstein"
+          - "ethz_euler"
           - "eva"
           - "fgcz"
+          - "fub_curta"
           - "genotoul"
           - "genouest"
           - "gis"
           - "google"
+          - "googlebatch"
+          - "googlels"
           - "hasta"
           - "hki"
+          - "hypatia"
           - "icr_davros"
           - "ifb_core"
+          - "imb"
+          - "ilifu"
           - "imperial"
+          - "incliva"
           - "ipop_up"
+          - "janelia"
           - "jax"
-          - "ku_sund_dangpu"
+          - "jex"
+          - "ku_sund_danhead"
           - "leicester"
           - "lugh"
+          - "m3c"
           - "maestro"
           - "mana"
+          - "marjorie"
           - "marvin"
+          - "mccleary"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
+          - "mpcdf_viper"
           - "munin"
-          - "nihbiowulf"
+          - "nci_gadi"
           - "nu_genomics"
+          - "nygc"
+          - "nyu_hpc"
           - "oist"
           - "pasteur"
+          - "pawsey_nimbus"
+          - "pawsey_setonix"
+          - "pdc_kth"
           - "phoenix"
-          - "prince"
           - "psmn"
+          - "qmul_apocrita"
           - "rosalind"
+          - "rosalind_uge"
+          - "roslin"
           - "sage"
           - "sahmri"
           - "sanger"
-          - "sbc_sharc"
           - "scw"
           - "seawulf"
+          - "self_hosted_runner"
           - "seg_globe"
+          - "software_license"
           - "tigem"
+          - "tubingen_apg"
+          - "tufts"
+          - "tuos_stanage"
+          - "ucl_cscluster"
           - "ucl_myriad"
           - "uct_hpc"
+          - "ucd_sonic"
+          - "uge"
           - "unibe_ibu"
+          - "unc_lccc"
+          - "unc_longleaf"
+          - "uod_hpc"
           - "uppmax"
           - "utd_ganymede"
-          - "utd_sysbio"
+          - "uw_hyak_pedslabs"
           - "uzh"
+          - "uzl_omics"
           - "vai"
+          - "vsc_calcua"
+          - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
+          - "wustl_htcf"
+          - "xanadu"
+          - "york_viking"
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "latest-everything"
       - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
