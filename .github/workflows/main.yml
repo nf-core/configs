@@ -39,7 +39,6 @@ jobs:
           - "alice"
           - "apollo"
           - "arcc"
-          - "aws_tower"
           - "awsbatch"
           - "azurebatch"
           - "bi"

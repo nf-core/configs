@@ -93,7 +93,6 @@ Currently documentation is available for the following systems:
 - [APOLLO](docs/apollo.md)
 - [ARCC](docs/arcc.md)
 - [AWSBATCH](docs/awsbatch.md)
-- [AWS_TOWER](docs/aws_tower.md)
 - [AZUREBATCH](docs/azurebatch.md)
 - [BIGPURPLE](docs/bigpurple.md)
 - [BI](docs/bi.md)
@@ -261,10 +260,12 @@ Currently documentation is available for the following pipelines within specific
 - ampliseq
   - [BINAC](docs/pipeline/ampliseq/binac.md)
   - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
+- atacseq
+  - [SBC_SHARC](docs/pipeline/atacseq/sbc_sharc.md)
+- chipseq
+  - [SBC_SHARC](docs/pipeline/chipseq/sbc_sharc.md)
 - cutandrun
   - [UNC_LONGLEAF](docs/pipeline/cutandrun/unc_longleaf.md)
-- demultiplex
-  - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
 - eager
   - [EVA](docs/pipeline/eager/eva.md)
 - funcscan
