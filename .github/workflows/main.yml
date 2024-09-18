@@ -34,6 +34,7 @@ jobs:
     strategy:
       matrix:
         profile:
+          - "uondrs_ada"
           - "abims"
           - "adcra"
           - "alice"
