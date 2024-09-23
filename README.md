@@ -179,6 +179,7 @@ Currently documentation is available for the following systems:
 - [SEG_GLOBE](docs/seg_globe.md)
 - [self-hosted-runner](docs/self-hosted-runner.md)
 - [Super Computing Wales](docs/scw.md)
+- [GA4GH TES](docs/tes.md)
 - [TIGEM](docs/tigem.md)
 - [TUBINGEN_APG](docs/tubingen_apg.md)
 - [TUFTS](docs/tufts.md)
