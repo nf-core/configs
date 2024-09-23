@@ -101,6 +101,7 @@ Currently documentation is available for the following systems:
 - [BINAC](docs/binac.md)
 - [BIOHPC_GEN](docs/biohpc_gen.md)
 - [BIOWULF](docs/biowulf.md)
+- [BLUEBEAR](docs/bluebear.md)
 - [CAMBRIDGE](docs/cambridge.md)
 - [CBE](docs/cbe.md)
 - [CCGA_DX](docs/ccga_dx.md)
