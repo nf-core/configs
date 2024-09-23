@@ -26,7 +26,7 @@ In addition, job submissions are assigned the appropriate quality of service (QO
 
 Institute-specific pipeline profiles exists for:
 
-- [methylseq](https://github.com/wassimsalam01/configs/blob/master/docs/pipeline/methylseq/fub_curta.md)
+- [methylseq](https://github.com/nf-core/configs/blob/master/docs/pipeline/methylseq/fub_curta.md)
 
 ## debug profile
 
