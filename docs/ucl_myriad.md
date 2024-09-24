@@ -2,28 +2,34 @@
 
 All nf-core pipelines have been successfully configured for use on UCL's myriad cluster [University College London](https://www.rc.ucl.ac.uk/docs/Clusters/Myriad/).
 
-To use, run the pipeline with `-profile ucl_myriad`. This will download and launch the [`ucl_myriad.config`](../conf/ucl_myriad.config) which has been pre-configured with a setup suitable for the myriad cluster.
-
 ## Using Nextflow on Myriad
 
-Before running the pipeline you will need to configure Apptainer and install+configure Nextflow.
+Before running an nf-core pipeline you will need to configure the container engine (Apptainer/Singularity) environmental variables and install Nextflow. 
 
-### Apptainer
+### Apptainer/Singularity
 
-This can be done with the following commands:
-
-Set the correct configuration of the cache directories, where <YOUR_ID> is replaced with you credentials which you can find by entering `whoami` into the terminal once you are logged into Myriad. Once you have added your credentials save these lines into your `.bash_profile` file in your home directory (e.g. `/home/<YOUR_ID>/.bash_profile`):
+Set the correct configuration of the cache directories. Save the following lines into your `.bash_profile` file in your home directory (e.g. `/home/<YOUR_ID>/.bash_profile`):
 
 ```bash
 # Set all the Apptainer environment variables
-export APPTAINER_CACHEDIR=/home/<YOUR_ID>/Scratch/.apptainer/
-export APPTAINER_TMPDIR=/home/<YOUR_ID>/Scratch/.apptainer/tmp
-export APPTAINER_LOCALCACHEDIR=/home/<YOUR_ID>/Scratch/.apptainer/localcache
-export APPTAINER_PULLFOLDER=/home/<YOUR_ID>/Scratch/.apptainer/pull
+export APPTAINER_CACHEDIR=$HOME/Scratch/.apptainer/
+export APPTAINER_TMPDIR=$HOME/Scratch/.apptainer/tmp
+export APPTAINER_LOCALCACHEDIR=$HOME/Scratch/.apptainer/localcache
+export APPTAINER_PULLFOLDER=$HOME/Scratch/.apptainer/pull
 ```
 
-> [!Warning]
-> You may need to outcomment any singularity environmental variables you have set previously.
+Plus:
+
+```bash
+
+# Set all Singularity environmental variables
+export SINGULARITY_CACHEDIR=$HOME/Scratch/.singularity/
+export SINGULARITY_TMPDIR=$HOME/Scratch/.singularity/tmp
+export SINGULARITY_LOCALCACHEDIR=$HOME/Scratch/.singularity/localcache
+export SINGULARITY_PULLFOLDER=$HOME/Scratch/.singularity/pull
+export NXF_SINGULARITY_CACHEDIR=$HOME/Scratch/.singularity/
+export SINGULARITY_BINDPATH=/scratch/scratch/$USER,/tmpdir,$SINGULARITY_BINDPATH
+```
 
 ### Nextflow
 
@@ -42,4 +48,14 @@ Then make sure that your bin PATH is executable, by placing the following line i
 
 ```bash
 export PATH=$PATH:/home/<YOUR_ID>/bin
+```
+
+## Running an nf-core pipeline
+
+To run the pipeline, make sure to add `-profile ucl_myriad,singularity`. This will download and launch the [`ucl_myriad.config`](../conf/ucl_myriad.config) which has been pre-configured with a setup suitable for the myriad cluster, as well as use the correct container engine for myriad.
+
+Singularity points to a copy of Apptainer, but you should always tell nextflow to run with `-profile singularity`.
+
+```bash
+/usr/bin/singularity -> apptainer
 ```
