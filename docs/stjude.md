@@ -23,7 +23,7 @@ conda/mamba install nextflow={VERSION}
 ```
 
 
-The `codna` or `mamba`  will automatically sets up the necessary environment for `Nextflow` execution.
+The `codna` or `mamba` will automatically sets up the necessary environment for `Nextflow` execution.
 
 ## Resource Allocation
 
