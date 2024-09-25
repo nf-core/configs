@@ -1,6 +1,7 @@
 # nf-core/configs: St. Jude HPCF Configuration
 
 All nf-core pipelines have been successfully configured for use on the High Performance Research Cluster (HPCF) at St. Jude Children's Research Hospital.
+The HPCF cluster is using IBM Spectrum LSF for workload management and job scheduling.
 
 To use, run the pipeline with `-profile stjude`. This will download and launch the [`stjude.config`](../conf/stjude.config) which has been pre-configured with a setup suitable for the St. Jude HPCF cluster. Using this profile, a Singularity image containing all of the required software will be used for execution of the pipeline.
 
@@ -10,7 +11,7 @@ Before running the pipeline, you will need to prepare a `NextFlow` runtime envir
 You can do this by issuing the command below (not recommended):
 
 ```bash
-## Load Singularity environment module
+## Load nextflow module
 module load nextflow/23.10.0
 ```
 
