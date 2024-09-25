@@ -4,7 +4,7 @@ All nf-core pipelines have been successfully configured for use on UCL's myriad 
 
 ## Using Nextflow on Myriad
 
-Before running an nf-core pipeline you will need to configure the container engine (Apptainer/Singularity) environmental variables and install Nextflow. 
+Before running an nf-core pipeline you will need to configure the container engine (Apptainer/Singularity) environmental variables and install Nextflow.
 
 ### Apptainer/Singularity
 
