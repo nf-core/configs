@@ -52,8 +52,9 @@ To use GPUs in your pipeline:
 ```bash
 containerOptions = {
     workflow.containerEngine == "singularity" ? '--nv':
-        ( workflow.containerEngine == "docker" ? '--gpus all': null ) ```
+        ( workflow.containerEngine == "docker" ? '--gpus all': null )
 }
+```
 
 ## Singularity Configuration
 
