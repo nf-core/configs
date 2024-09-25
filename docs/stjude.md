@@ -22,8 +22,7 @@ easily installed via `conda` or `mamba` using the following command:
 conda/mamba install nextflow={VERSION}
 ```
 
-
-The `codna` or `mamba` will automatically sets up the necessary environment for `Nextflow` execution.
+The `conda` or `mamba` will automatically sets up the necessary environment for `Nextflow` execution.
 
 ## Resource Allocation
 
