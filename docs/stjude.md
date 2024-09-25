@@ -64,13 +64,11 @@ Singularity is enabled by default with the following settings:
 - Environment variables whitelist: SINGULARITY_TMPDIR, TMPDIR, CUDA_VISIBLE_DEVICES
 - Pull timeout: 3 hours
 
-:::note
-You will need an account to use the HPC cluster at St. Jude Children's Research Hospital in order to run the pipeline. If in doubt, contact IT.
-:::
+> [!NOTE]
+> You will need an account to use the HPC cluster at St. Jude Children's Research Hospital in order to run the pipeline. If in doubt, contact IT.
 
-:::note
-Nextflow will need to submit the jobs via the LSF job scheduler to the HPC cluster, and as such, the commands above will have to be executed on one of the login nodes. If in doubt, contact IT.
-:::
+> [!NOTE]
+> Nextflow will need to submit the jobs via the LSF job scheduler to the HPC cluster, and as such, the commands above will have to be executed on one of the login nodes. If in doubt, contact IT.
 
 ## Support
 
