@@ -24,7 +24,7 @@ conda activate nextflow
 ## To exit: conda deactivate
 ```
 
-The `conda` or `mamba` will automatically sets up the necessary environment for `Nextflow` execution.
+The `conda` or `mamba` will automatically sets up the necessary environment for `nextflow` execution.
 
 ## Resource Allocation
 
