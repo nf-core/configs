@@ -4,34 +4,19 @@ All nf-core pipelines have been successfully configured for use on UCL's myriad 
 
 ## Using Nextflow on Myriad
 
-Before running an nf-core pipeline you will need to configure the container engine (Apptainer/Singularity) environmental variables and install Nextflow.
+Before running an nf-core pipeline you will need to set up the requirements and install Nextflow.
 
-### Apptainer/Singularity
+### Requirements
 
-Set the correct configuration of the cache directories. Save the following lines into your `.bash_profile` file in your home directory (e.g. `/home/<YOUR_ID>/.bash_profile`):
+You will need the java 11 or later to install and run Nextflow. Different java versions are available in the cluster. To avoid any compatibily issues, use the latest version of ``java/temurin``. You can do this by placing the next line inside your ``.bashrc``:
 
-```bash
-# Set all the Apptainer environment variables
-export APPTAINER_CACHEDIR=$HOME/Scratch/.apptainer/
-export APPTAINER_TMPDIR=$HOME/Scratch/.apptainer/tmp
-export APPTAINER_LOCALCACHEDIR=$HOME/Scratch/.apptainer/localcache
-export APPTAINER_PULLFOLDER=$HOME/Scratch/.apptainer/pull
+```
+module load java/temurin-17/17.0.2_8
 ```
 
-Plus:
+You can check for other java version using the ``module avail java`` command, and load the correspoding version by including ``module load java/your-version`` inside your ``.bashrc``.
 
-```bash
-
-# Set all Singularity environmental variables
-export SINGULARITY_CACHEDIR=$HOME/Scratch/.singularity/
-export SINGULARITY_TMPDIR=$HOME/Scratch/.singularity/tmp
-export SINGULARITY_LOCALCACHEDIR=$HOME/Scratch/.singularity/localcache
-export SINGULARITY_PULLFOLDER=$HOME/Scratch/.singularity/pull
-export NXF_SINGULARITY_CACHEDIR=$HOME/Scratch/.singularity/
-export SINGULARITY_BINDPATH=/scratch/scratch/$USER,/tmpdir,$SINGULARITY_BINDPATH
-```
-
-### Nextflow
+### Install Nextflow
 
 Download the latest release of nextflow. Warning: the self-update line should update to the latest version, but sometimes not, so please check which is the latest release (https://github.com/nextflow-io/nextflow/releases), you can then manually set this by entering (`NXF_VER=XX.XX.X`).
 
@@ -47,15 +32,19 @@ mv nextflow ~/bin/nextflow
 Then make sure that your bin PATH is executable, by placing the following line in your `.bash_profile`:
 
 ```bash
-export PATH=$PATH:/home/<YOUR_ID>/bin
+export PATH=$PATH:$HOME/bin
 ```
 
 ## Running an nf-core pipeline
 
-To run the pipeline, make sure to add `-profile ucl_myriad,singularity`. This will download and launch the [`ucl_myriad.config`](../conf/ucl_myriad.config) which has been pre-configured with a setup suitable for the myriad cluster, as well as use the correct container engine for myriad.
+To run the pipeline, make sure to add `-profile ucl_myriad`. This will download and launch the [`ucl_myriad.config`](../conf/ucl_myriad.config) which has been pre-configured with a setup suitable for the myriad cluster, as well as use the correct container engine for myriad.
 
-Singularity points to a copy of Apptainer, but you should always tell nextflow to run with `-profile singularity`.
+```
+nextflow run nf-core/your-pipeline -profile ucl_myriad --outdir your/output/directory
+```
 
-```bash
-/usr/bin/singularity -> apptainer
+You can check your set up is correct by using ``-profile test`` before running the pipeline with your own data.
+
+```
+nextflow run nf-core/your-pipeline -profile test,ucl_myriad --outdir your/output/directory
 ```
