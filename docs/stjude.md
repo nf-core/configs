@@ -15,7 +15,7 @@ You can do this by issuing the command below (not recommended):
 module load nextflow/23.10.0
 ```
 
-You can also use the `NextFlow` installed in your own environment for better control of software version. `Nextflow` can be
+You can also use a `Nextflow` binary installed in your own environment for better control of software version. `Nextflow` can be
 easily installed via `conda` or `mamba` using the following command:
 
 ```bash
