@@ -32,6 +32,7 @@ The St. Jude HPCF configuration includes the following resource limits:
 
 - Max CPUs: 32
 - Max Memory: 1024 GB
+- Max Accelerator (NVIDIA TESLA GPU): 8
 - Max Time: 240 hours (10 days)
 
 ## Queue Selection
@@ -48,8 +49,7 @@ The configuration automatically selects the appropriate queue based on your task
 To use GPUs in your pipeline:
 
 1. Set the `accelerator` option in your process directives.
-2. Use the `--num_gpus` parameter when running your pipeline to specify the number of GPUs needed.
-3. (Optional) If you want to use docker (unsupported) or singularity (supported) on HPCF, you need to add the following container options:
+2. (Optional) If you want to use docker (unsupported) or singularity (supported) on HPCF, you need to add the following container options:
 
 ```bash
 containerOptions = {
