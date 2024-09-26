@@ -19,7 +19,9 @@ You can also use a `Nextflow` binary installed in your own environment for bette
 easily installed via `conda` or `mamba` using the following command:
 
 ```bash
-conda/mamba install nextflow={VERSION}
+<conda/mamba> create -n nextflow -c bioconda nextflow={VERSION}
+conda activate nextflow
+## To exit: conda deactivate
 ```
 
 The `conda` or `mamba` will automatically sets up the necessary environment for `Nextflow` execution.
