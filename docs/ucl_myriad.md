@@ -8,13 +8,13 @@ Before running an nf-core pipeline you will need to set up the requirements and 
 
 ### Requirements
 
-You will need the java 11 or later to install and run Nextflow. Different java versions are available in the cluster. To avoid any compatibily issues, use the latest version of ``java/temurin``. You can do this by placing the next line inside your ``.bashrc``:
+You will need the java 11 or later to install and run Nextflow. Different java versions are available in the cluster. To avoid any compatibily issues, use the latest version of `java/temurin`. You can do this by placing the next line inside your `.bashrc`:
 
 ```
 module load java/temurin-17/17.0.2_8
 ```
 
-You can check for other java version using the ``module avail java`` command, and load the correspoding version by including ``module load java/your-version`` inside your ``.bashrc``.
+You can check for other java versions using the `module avail java` command, and load the corresponding version by including `module load java/your-version` inside your `.bashrc`.
 
 ### Install Nextflow
 
