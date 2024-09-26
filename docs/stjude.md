@@ -7,7 +7,7 @@ To use, run the pipeline with `-profile stjude`. This will download and launch t
 
 ## Running the Pipeline
 
-Before running the pipeline, you will need to prepare a `NextFlow` runtime environment to launch the workflow.
+Before running the pipeline, you will need to prepare a `Nextflow` runtime environment to launch the workflow.
 You can do this by issuing the command below (not recommended):
 
 ```bash
