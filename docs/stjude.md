@@ -46,9 +46,14 @@ The configuration automatically selects the appropriate queue based on your task
 
 ## GPU Usage
 
+In St. Jude's HPCF cluster, the GPU jobs will be dispatched the `gpu` queue.
 To use GPUs in your pipeline:
 
-1. Set the `accelerator` option in your process directives.
+1. Set the `accelerator` option in your process directives. This can configured by:
+
+- Adding directives in each process specifically, or
+- Using `process {}`-based label selectors (e.g. label 'process_gpu')
+
 2. (Optional) If you want to use docker (unsupported) or singularity (supported) on HPCF, you need to add the following container options:
 
 ```bash
@@ -65,6 +70,14 @@ Singularity is enabled by default with the following settings:
 - Auto-mounts enabled
 - Environment variables whitelist: SINGULARITY_TMPDIR, TMPDIR, CUDA_VISIBLE_DEVICES
 - Pull timeout: 3 hours
+
+### Singularity Cache Directory
+
+There is no institution-level directory setup for caching singularity images. To set the cache directory, you
+can try the following two ways:
+
+1. Add `singularity.cacheDir = /path/to/your/singularity/cache` in your nextflow config file.
+2. Set nextflow's environment variable: `export NXF_SINGULARITY_CACHE=/path/to/your/singularity/cache` in your shell's profile file (e.g. `~/<.bashrc/.zshrc>`).
 
 > [!NOTE]
 > You will need an account to use the HPC cluster at St. Jude Children's Research Hospital in order to run the pipeline. If in doubt, contact IT.
