@@ -120,6 +120,7 @@ jobs:
           - "pawsey_nimbus"
           - "pawsey_setonix"
           - "pdc_kth"
+          - "pe2"
           - "phoenix"
           - "psmn"
           - "qmul_apocrita"

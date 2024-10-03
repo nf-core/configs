@@ -171,6 +171,7 @@ Currently documentation is available for the following systems:
 - [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
 - [PAWSEY SETONIX](docs/pawsey_setonix.md)
 - [PDC](docs/pdc_kth.md)
+- [PE2](docs/pe2.md)
 - [PHOENIX](docs/phoenix.md)
 - [PSMN](docs/psmn.md)
 - [QMUL_APOCRITA](docs/qmul_apocrita.md)
