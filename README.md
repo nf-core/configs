@@ -184,6 +184,7 @@ Currently documentation is available for the following systems:
 - [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)
 - [self-hosted-runner](docs/self-hosted-runner.md)
+- [SHU_BMRC](docs/shu_bmrc.md)
 - [StJude](docs/stjude.md)
 - [Super Computing Wales](docs/scw.md)
 - [GA4GH TES](docs/tes.md)
