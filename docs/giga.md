@@ -4,7 +4,7 @@ This configuration provides sensible default parameters to run nf-core pipelines
 To use it, add `-profile giga` when running a pipeline.
 This will automatically download the [`giga.config`](../conf/giga.config).
 
-The configuraiton sets `slurm` as the default executor and enables `singularity` as container runner.
+The configuration sets `slurm` as the default executor and enables `singularity` as container runner.
 
 ## Loading the required modules
 
