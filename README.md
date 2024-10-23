@@ -134,6 +134,7 @@ Currently documentation is available for the following systems:
 - [FUB Curta](docs/fub_curta.md)
 - [GENOTOUL](docs/genotoul.md)
 - [GENOUEST](docs/genouest.md)
+- [GIGA](docs/giga.md)
 - [GIS](docs/gis.md)
 - [GOOGLE](docs/google.md)
 - [GOOGLEBATCH](docs/googlebatch.md)
