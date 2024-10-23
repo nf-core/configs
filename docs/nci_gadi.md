@@ -50,7 +50,7 @@ This config uses the PBS environmental variable `$PROJECT` to assign a project c
 echo $PROJECT
 ```
 
-The version of Nextflow installed on Gadi has been modified to make it easier to specify resource options for jobs submitted to the cluster. See NCI's [Gadi user guide](https://opus.nci.org.au/display/DAE/Nextflow) for more details. You can manually override the $PROJECT specification by editing your local copy of the `nci_gadi.config` and replacing $PROJECT with your project code. For example:
+The version of Nextflow installed on Gadi has been modified to make it easier to specify resource options for jobs submitted to the cluster. See NCI's [Gadi user guide](https://opus.nci.org.au/display/DAE/Nextflow) for more details. You can manually override the `$PROJECT` specification by editing your local copy of the `nci_gadi.config` and replacing `$PROJECT` with your project code. For example:
 
 ```nextflow
 process {
