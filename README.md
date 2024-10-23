@@ -106,6 +106,8 @@ Currently documentation is available for the following systems:
 - [CBE](docs/cbe.md)
 - [CCGA_DX](docs/ccga_dx.md)
 - [CCGA_MED](docs/ccga_med.md)
+- [CÉCI_DRAGON2](docs/ceci_dragon2.md)
+- [CÉCI_NIC5](docs/ceci_nic5.md)
 - [Cedars-Sinai](docs/cedars.md)
 - [Ceres](docs/ceres.md)
 - [CFC](docs/cfc.md)
