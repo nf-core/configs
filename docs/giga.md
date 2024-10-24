@@ -26,4 +26,5 @@ module load 'nextflow/24.04.4'
 ```
 
 ---
-*Built with* ❤️ *by the [GIGA Bioinformatics Team](https://www.gigabioinformatics.uliege.be/cms/c_8464757/en/gigabioinformatics)*
+
+_Built with_ ❤️ _by the [GIGA Bioinformatics Team](https://www.gigabioinformatics.uliege.be/cms/c_8464757/en/gigabioinformatics)_
