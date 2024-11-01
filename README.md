@@ -203,6 +203,7 @@ Currently documentation is available for the following systems:
 - [UNC_LONGLEAF](docs/unc_longleaf.md)
 - [UGE](docs/uge.md)
 - [UNIBE_IBU](docs/unibe_ibu.md)
+- [Unity](docs/unity.md)
 - [UOD_HPC](docs/uod_hpc.md)
 - [UPPMAX](docs/uppmax.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
