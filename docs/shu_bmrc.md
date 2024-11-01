@@ -49,11 +49,11 @@ The configuration has been tailored for the BMRC HPC, providing preset values fo
 
 Each nf-core workflows will automatically receive the following default resource maxima:
 
-| Resource   | Setting      |
-|------------|--------------|
-| CPUs       | 64           |
-| Memory     | 1007 GB      |
-| Time       | 999 hours    |
+| Resource | Setting   |
+| -------- | --------- |
+| CPUs     | 64        |
+| Memory   | 1007 GB   |
+| Time     | 999 hours |
 
 ### Container Support
 
