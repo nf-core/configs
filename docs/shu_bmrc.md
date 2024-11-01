@@ -30,7 +30,7 @@ The cluster configuration:
 To use this configuration, you must have:
 
 - **Access to BMRC HPC**: Ensure your user account is enabled for HPC access at Sheffield Hallam University. The **GlobalProtect VPN** is required for remote access. For setup instructions, refer to [SHU VPN Guide](https://www.shu.ac.uk/digital-skills/programs-and-applications/virtual-private-network-vpn).
-- **Nextflow**: Version 20.10.0 or later is recommended for optimal compatibility.
+- **Nextflow**: Version 22.10.6 or later is recommended for optimal compatibility.
 
 For a detailed guide to setting up Nextflow and running nf-core pipelines on the BMRC cluster, refer to [Running nf-core Pipelines on SHU BMRC Cluster](https://bmrc-hpc-documentation.readthedocs.io/en/latest/nfcore/index.html).
 
