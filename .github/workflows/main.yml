@@ -2,6 +2,11 @@ name: Configs tests
 
 on: [pull_request, push]
 
+# Cancel if a newer run is started
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test_all_profiles:
     runs-on: ubuntu-latest
@@ -33,18 +38,23 @@ jobs:
           - "adcra"
           - "alice"
           - "apollo"
+          - "arcc"
           - "aws_tower"
           - "awsbatch"
           - "azurebatch"
           - "bi"
           - "bigpurple"
+          - "bih"
           - "binac"
           - "biohpc_gen"
           - "biowulf"
+          - "bluebear"
           - "cambridge"
           - "cbe"
           - "ccga_dx"
           - "ccga_med"
+          - "ceci_dragon2"
+          - "ceci_nic5"
           - "cedars"
           - "ceres"
           - "cfc"
@@ -63,13 +73,16 @@ jobs:
           - "ebi_codon"
           - "ebi_codon_slurm"
           - "eddie"
+          - "embl_hd"
           - "engaging"
+          - "einstein"
           - "ethz_euler"
           - "eva"
           - "fgcz"
           - "fub_curta"
           - "genotoul"
           - "genouest"
+          - "giga"
           - "gis"
           - "google"
           - "googlebatch"
@@ -87,15 +100,19 @@ jobs:
           - "janelia"
           - "jax"
           - "jex"
-          - "ku_sund_dangpu"
+          - "ku_sund_danhead"
           - "leicester"
           - "lugh"
+          - "m3c"
           - "maestro"
           - "mana"
+          - "marjorie"
           - "marvin"
+          - "mccleary"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
+          - "mpcdf_viper"
           - "munin"
           - "nci_gadi"
           - "nu_genomics"
@@ -106,21 +123,29 @@ jobs:
           - "pawsey_nimbus"
           - "pawsey_setonix"
           - "pdc_kth"
+          - "pe2"
           - "phoenix"
           - "psmn"
+          - "qmul_apocrita"
           - "rosalind"
           - "rosalind_uge"
+          - "roslin"
           - "sage"
           - "sahmri"
           - "sanger"
           - "scw"
           - "seawulf"
-          - "self_hosted_runner"
           - "seg_globe"
+          - "self_hosted_runner"
+          - "shu_bmrc"
           - "software_license"
+          - "stjude"
+          - "tes"
           - "tigem"
           - "tubingen_apg"
+          - "tufts"
           - "tuos_stanage"
+          - "ucl_cscluster"
           - "ucl_myriad"
           - "uct_hpc"
           - "ucd_sonic"
@@ -131,23 +156,24 @@ jobs:
           - "uod_hpc"
           - "uppmax"
           - "utd_ganymede"
-          - "utd_sysbio"
           - "uw_hyak_pedslabs"
           - "uzh"
           - "uzl_omics"
           - "vai"
+          - "vsc_calcua"
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
           - "wustl_htcf"
           - "xanadu"
+          - "york_viking"
 
     steps:
       - uses: actions/checkout@v4
       - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "latest-everything"
       - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
