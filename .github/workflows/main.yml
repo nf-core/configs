@@ -100,6 +100,7 @@ jobs:
           - "janelia"
           - "jax"
           - "jex"
+          - "unsw_katana"
           - "ku_sund_danhead"
           - "leicester"
           - "lugh"
