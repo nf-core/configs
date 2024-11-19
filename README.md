@@ -152,6 +152,7 @@ Currently documentation is available for the following systems:
 - [Janelia Research Campus](docs/janelia.md)
 - [JAX](docs/jax.md)
 - [Jex](docs/jex.md)
+- [UNSW_Katana](docs/unsw_katana.md)
 - [KU SUND DANHEAD](docs/ku_sund_danhead.md)
 - [LUGH](docs/lugh.md)
 - [M3C](docs/m3c.md)
