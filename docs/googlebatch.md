@@ -27,7 +27,6 @@ Defines which provisioning model to be used. When set to false, standard VM inst
 
 Defines the size of boot disk on compute instances. Defaults to `100GB`.
 
-
 ### `--workers_service_account`
 
 Defines which service account will be used by Compute instances running the pipeline. If not specified, the default compute service account of the project will be used.
