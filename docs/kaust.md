@@ -1,4 +1,5 @@
 # nf-core/configs: KAUST Configuration
+manage the pipeline jobs via the nf-core/configs: KAUST Configuration
 
 The purpose of this custom configurations is to streamline executing nf-core pipelines on the KAUST Ibex cluster.
 
