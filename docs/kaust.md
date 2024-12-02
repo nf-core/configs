@@ -29,7 +29,10 @@ Using the KAUST profile, `Docker` image(s) containing required software(s) will 
 The KAUST profile makes running the nf-core workflows as simple as:
 
 ```bash
+
 module load nextflow
+module load singularity
+
 # Launch nf-core pipeline with the kaust profile, e.g. for analyzing human data:
 $ nextflow run nf-core/<PIPELINE> -profile kaust -r <PIPELINE_VERSION> --genome GRCh38.p14 --samplesheet input.csv [...]
 ```
