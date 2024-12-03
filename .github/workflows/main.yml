@@ -102,6 +102,7 @@ jobs:
           - "jex"
           - "unsw_katana"
           - "ku_sund_danhead"
+          - "kaust"
           - "leicester"
           - "lugh"
           - "m3c"
