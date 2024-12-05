@@ -154,6 +154,7 @@ Currently documentation is available for the following systems:
 - [Jex](docs/jex.md)
 - [UNSW_Katana](docs/unsw_katana.md)
 - [KU SUND DANHEAD](docs/ku_sund_danhead.md)
+- [KAUST](docs/kaust.md)
 - [LUGH](docs/lugh.md)
 - [M3C](docs/m3c.md)
 - [MAESTRO](docs/maestro.md)
