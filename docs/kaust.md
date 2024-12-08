@@ -26,14 +26,18 @@ This will download and launch the [`kaust.config`](../conf/kaust.config) which h
 It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job scheduler and `Singularity` to run the tasks.
 Using the KAUST profile, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline. To avoid downloading same images by multiple users, we provide a singularity `libraryDir` that is configured to use images already downloaded in our central container library. Images missing from our library will be downloaded to the user's directory as defined by `cacheDir`.
 
-### Accessing Reference Genomes on Ibex
+### Accessing reference genomes on Ibex
+
 We provide a collection of reference genomes, enabling users to run workflows seamlessly without needing to download the files. To enable access to this resource, simply add the `includeConfig` line in the script below to a `nextflow.config` file under the launch directory.
 
+### Run workflows on Ibex
 
 The KAUST profile makes running the nf-core workflows as simple as:
 
 ```bash
 
+# Load Nextflow and Singularity modules
+module purge
 module load nextflow
 module load singularity
 
@@ -47,7 +51,8 @@ $ nextflow run nf-core/<PIPELINE> -profile kaust -r <PIPELINE_VERSION> --genome 
 Where `input_csv` contains information about the samples and datafile paths.
 
 Remember to use `-bg` to launch `Nextflow` in the background, so that the pipeline doesn't exit if you leave your terminal session.
-Alternatively, you can also launch `Nextflow` in a `tmux` or a `screen` session.
+Alternatively, you can also launch a `tmux` or a `screen` session to run the commands above. Another good way, is to run it as an independent sbatch job as [explained here](https://bclwiki.kaust.edu.sa/en/bix/analysis/public/bioinformatics-workflows#run-workflow-using-sbatch).
 
 ### Workflow specific profiles
-In addition to this general config profile that should work for most pipelines, we also add pipeline-specific config files that will automatically be loaded specifying resources when running particular tasks, e.g. [MEGAHIT in metagenomics](https://github.com/nf-core/configs/blob/master/conf/pipeline/mag/kaust.config). Please let us know if there are particular process that continously fail so that we modify the defaults in the corresponding profile. 
+
+In addition to this general config profile that should work for most pipelines, we also add pipeline-specific config files that will automatically be loaded specifying resources when running particular tasks, e.g. [MEGAHIT in metagenomics](https://github.com/nf-core/configs/blob/master/conf/pipeline/mag/kaust.config). Please let us know if there are particular processes that continously fail so that we modify the defaults in the corresponding profile. 
