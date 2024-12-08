@@ -27,7 +27,7 @@ It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job schedu
 Using the KAUST profile, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline. To avoid downloading same images by multiple users, we provide a singularity `libraryDir` that is configured to use images already downloaded in our central container library. Images missing from our library will be downloaded to the user's directory as defined by `cacheDir`.
 
 ### Accessing Reference Genomes on Ibex
-We provide a collection of reference genomes, enabling users to run workflows seamlessly without needing to download the files. To enable access to this resource, simply add the include con line in the script below to a nextflow.config file under the launch directory.
+We provide a collection of reference genomes, enabling users to run workflows seamlessly without needing to download the files. To enable access to this resource, simply add the `includeConfig` line in the script below to a `nextflow.config` file under the launch directory.
 
 
 The KAUST profile makes running the nf-core workflows as simple as:
