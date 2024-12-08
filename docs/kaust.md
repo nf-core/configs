@@ -55,4 +55,4 @@ Alternatively, you can also launch a `tmux` or a `screen` session to run the com
 
 ### Workflow specific profiles
 
-In addition to this general config profile that should work for most pipelines, we also add pipeline-specific config files that will automatically be loaded specifying resources when running particular tasks, e.g. [MEGAHIT in metagenomics](../conf/pipeline/mag/kaust.config). Please let us know if there are particular processes that continously fail so that we modify the defaults in the corresponding profile. 
+In addition to this general config profile that should work for most pipelines, we also add pipeline-specific config files that will automatically be loaded specifying resources when running particular tasks, e.g. [MEGAHIT in metagenomics](../conf/pipeline/mag/kaust.config). Please let us know if there are particular processes that continously fail so that we modify the defaults in the corresponding profile.
