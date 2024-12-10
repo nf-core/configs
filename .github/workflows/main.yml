@@ -100,7 +100,9 @@ jobs:
           - "janelia"
           - "jax"
           - "jex"
+          - "unsw_katana"
           - "ku_sund_danhead"
+          - "kaust"
           - "leicester"
           - "lugh"
           - "m3c"
@@ -170,7 +172,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install Nextflow
+      - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+      - name: Set up Nextflow
         uses: nf-core/setup-nextflow@v2
         with:
           version: "latest-everything"
