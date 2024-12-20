@@ -28,14 +28,14 @@ export NXF_CONDA_CACHEDIR="$VSC_SCRATCH/miniconda3/envs"
 
 # Optional tower key
 # export TOWER_ACCESS_TOKEN="<your_tower_access_token>"
-# export NXF_VER="<version>"      # make sure it's larger then 24.04.0
+# export NXF_VER="<version>"      # make sure it's larger then 24.10.1
 ```
 
 :::warning
-The current config is setup with array jobs. Make sure nextflow version >= 24.04.0, read [array jobs in nextflow](https://www.nextflow.io/docs/latest/process.html#array) you can do this in
+The current config is setup with array jobs. Make sure nextflow version >= 24.10.1, read [array jobs in nextflow](https://www.nextflow.io/docs/latest/process.html#array) you can do this in
 
 ```bash
-export NXF_VER=24.04.0
+export NXF_VER=24.10.1
 ```
 
 :::
@@ -64,10 +64,13 @@ nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> <Add your other para
 Here the cluster options are:
 
 - genius
+- genius_gpu
 - wice
+- wice_gpu
 - superdome
 
-> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. Should you require resources outside of these limits (e.g.gpus) you will need to provide a custom config specifying an appropriate SLURM partition (e.g. 'gpu\*').
+> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. The profile will select to its best ability the most appropriate partition for the job. Including modules with a label containing `gpu`will be allocated to a gpu partition when the 'normal' `genius` profile is selected. Select the `genius_gpu` or `wice_gpu` profile to force the job to be allocated to a gpu partition.
+> **NB:** If the module does not have `accelerator` set, it will determine the number of GPUs based on the requested resources.
 
 Use the `--cluster` option to specify the cluster you intend to use when submitting the job:
 
