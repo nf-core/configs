@@ -21,7 +21,7 @@ Apptainer module will look for a cache directory with the name `.apptainer/cache
 
 ## iGenome database
 
-A local copy of the iGenomes resource has been made available on UNITY CLUSTER so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline.
+A local copy of the iGenomes resource has been made available on UNITY CLUSTER so you should be able to run a pipeline supporting this against any reference available in the `igenomes.config` specific to the nf-core pipeline.
 You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
 :::note
