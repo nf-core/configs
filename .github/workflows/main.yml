@@ -153,6 +153,7 @@ jobs:
           - "ucd_sonic"
           - "uge"
           - "unibe_ibu"
+          - "unity"
           - "unc_lccc"
           - "unc_longleaf"
           - "uod_hpc"
