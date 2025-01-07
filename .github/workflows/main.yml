@@ -153,6 +153,7 @@ jobs:
           - "ucd_sonic"
           - "uge"
           - "unibe_ibu"
+          - "unity"
           - "unc_lccc"
           - "unc_longleaf"
           - "uod_hpc"
@@ -172,7 +173,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Install Nextflow
+      - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+      - name: Set up Nextflow
         uses: nf-core/setup-nextflow@v2
         with:
           version: "latest-everything"

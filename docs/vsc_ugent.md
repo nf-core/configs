@@ -5,7 +5,8 @@
 > [!IMPORTANT]
 > You will need an [account](https://www.ugent.be/hpc/en/access/faq/access) to use the HPC cluster to run the pipeline.
 
-Regarding environment variables in `~/.bashrc`, make sure you have a setup similar to the one below. If you're already part of a VO, ask for one or use `VSC_DATA_USER` instead of `VSC_DATA_VO_USER`.
+Make sure you have an environment variable setup similar to the one below in `~/.bashrc`. If you're not already part of a VO, ask your admin to add you or use `VSC_DATA_USER` instead of `VSC_DATA_VO_USER`.
+For more installation help, read the documentation of a Nextflow workshop on VSC infrastructure like [this one](https://vibbits-nextflow-workshop.readthedocs.io/en/latest/installations.html).
 
 ```bash
 # Needed for Tier1 accounts, not for Tier2
@@ -15,8 +16,8 @@ export SBATCH_ACCOUNT=$SLURM_ACCOUNT
 # Needed for running Nextflow jobs
 export NXF_HOME=$VSC_DATA_VO_USER/.nextflow
 # Needed for running Apptainer containers
-export APPTAINER_CACHEDIR=$VSC_DATA_VO_USER/.apptainer/cache
-export APPTAINER_TMPDIR=$VSC_DATA_VO_USER/.apptainer/tmp
+export APPTAINER_CACHEDIR=$VSC_SCRATCH_VO_USER/.apptainer/cache
+export APPTAINER_TMPDIR=$VSC_SCRATCH_VO_USER/.apptainer/tmp
 ```
 
 First you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space on this [link](https://shieldon.ugent.be:8083/pbsmon-web-users/). Use the following commands to easily switch between clusters:
@@ -55,8 +56,11 @@ qsub <script name>.pbs
 
 ## Use Apptainer containers
 
-The VSC does [not support](https://docs.hpc.ugent.be/Linux/apptainer/) Apptainer containers provided via a URL (e.g., shub://... or docker://...).
-One solution is to download all the containers beforehand, like in [this pipeline](https://github.com/saeyslab/spotless-benchmark).
+The VSC does [not support](https://docs.hpc.ugent.be/Linux/apptainer/) Apptainer containers provided via a URL (e.g., shub://... or docker://...). Normally with the right Apptainer cache directory in a SCRATCH folder, you will not see the error `apptainer image is not in an allowed configured path`. If you do have this error, you can ensure the container images are in the correct folder manually in two ways:
+
+One solution is to use [nf-core download](https://nf-co.re/docs/nf-core-tools/pipelines/download). Make sure the cache directory points to a SCRATCH folder and you amend images instead of copying out of the SCRATCH folder.
+
+Another solution is to download all the containers beforehand, like in [this pipeline](https://github.com/saeyslab/spotless-benchmark).
 
 First get the containers.json file from the pipeline you want to run:
 
