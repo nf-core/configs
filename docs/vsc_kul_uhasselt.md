@@ -14,8 +14,16 @@ A nextflow module is available that can be loaded `module load Nextflow` but it 
 
 2. Set up the environment variables in `~/.bashrc` or `~/.bash_profile`:
 
+:::note
+If you have access to dedicated nodes, you can export these as a command separated list. These queues will only be used if specified task requirements are not available in the normal partitions but they are available in dedicated partitions.
+:::
+
 ```bash
 export SLURM_ACCOUNT="<your-credential-account>"
+
+# Comma-separated list of available dedicated partitions (if any)
+# For example: export VSC_DEDICATED_QUEUES="dedicated_big_bigmem,dedicated_big_gpu"
+export VSC_DEDICATED_QUEUES="<available-dedicated-partitions>"
 
 # Needed for running Nextflow jobs
 export NXF_HOME="$VSC_SCRATCH/.nextflow"
