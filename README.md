@@ -155,6 +155,7 @@ Currently documentation is available for the following systems:
 - [UNSW_Katana](docs/unsw_katana.md)
 - [KU SUND DANHEAD](docs/ku_sund_danhead.md)
 - [KAUST](docs/kaust.md)
+- [KI_LURIA](docs/ki_luria.md)
 - [LUGH](docs/lugh.md)
 - [M3C](docs/m3c.md)
 - [MAESTRO](docs/maestro.md)
