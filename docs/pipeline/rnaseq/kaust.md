@@ -1,6 +1,6 @@
 # nf-core/configs: kaust rnaseq specific configuration
 
-Specific configuration for [nf-co.re/rnaseq](https://nf-co.re/rnaseq) pipeline
+Specific configuration for [nf-co.re/rnaseq](https://nf-co.re/rnaseq) pipeline.
 
 ## Usage
 
@@ -12,4 +12,4 @@ Example: `nextflow run nf-core/rnaseq -profile kaust`
 
 ## rnaseq specific configurations for kaust
 
-Specific configurations for kaust has been made for rnaseq, primarily increasing the default resource allocations especeially for high demand processes. 
+Specific configurations for kaust has been made for rnaseq, primarily increasing the default resource allocations especeially for high demand processes.
