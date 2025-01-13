@@ -31,7 +31,6 @@ Additionally, institute-specific pipeline profiles exists for:
 - mag
 - rnaseq
 
-
 ### Accessing reference genomes on Ibex
 
 We provide a collection of reference genomes, enabling users to run workflows seamlessly without needing to download the files. To enable access to this resource, simply add the `includeConfig` line in the script below to a `nextflow.config` file under the launch directory.
