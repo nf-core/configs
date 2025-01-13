@@ -26,6 +26,12 @@ This will download and launch the [`kaust.config`](../conf/kaust.config) which h
 It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job scheduler and `Singularity` to run the tasks.
 Using the KAUST profile, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline. To avoid downloading same images by multiple users, we provide a singularity `libraryDir` that is configured to use images already downloaded in our central container library. Images missing from our library will be downloaded to the user's directory as defined by `cacheDir`.
 
+Additionally, institute-specific pipeline profiles exists for:
+
+- mag
+- rnaseq
+
+
 ### Accessing reference genomes on Ibex
 
 We provide a collection of reference genomes, enabling users to run workflows seamlessly without needing to download the files. To enable access to this resource, simply add the `includeConfig` line in the script below to a `nextflow.config` file under the launch directory.
