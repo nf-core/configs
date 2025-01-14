@@ -33,7 +33,7 @@ Additionally, institute-specific pipeline profiles exists for:
 
 ### Accessing reference genomes on Ibex
 
-We provide a collection of reference genomes, enabling users to run workflows seamlessly without needing to download the files. To enable access to this resource, simply add the `includeConfig` line in the script below to a `nextflow.config` file under the launch directory.
+We provide a collection of reference genomes, enabling users to run workflows seamlessly without the need to download the files. To enable access to this resource, add the species name with the `--genome` parameter.
 
 ### Run workflows on Ibex
 
@@ -46,9 +46,6 @@ module purge
 module load nextflow
 module load singularity
 
-# Utilize the existing genome resources
-echo "includeConfig '/biocorelab/BIX/resources/configs/genomes.yaml'" >> nextflow.config
-
 # Launch nf-core pipeline with the kaust profile, e.g. for analyzing human data:
 $ nextflow run nf-core/<PIPELINE> -profile kaust -r <PIPELINE_VERSION> --genome GRCh38.p14 --samplesheet input.csv [...]
 ```
@@ -60,4 +57,4 @@ Alternatively, you can also launch a `tmux` or a `screen` session to run the com
 
 ### Workflow specific profiles
 
-In addition to this general config profile that should work for most pipelines, we also add pipeline-specific config files that will automatically be loaded specifying resources when running particular tasks, e.g. [MEGAHIT in metagenomics](../conf/pipeline/mag/kaust.config). Please let us know if there are particular processes that continously fail so that we modify the defaults in the corresponding profile.
+Please let us know if there are particular processes that continously fail so that we modify the defaults in the corresponding pipeline profile.
