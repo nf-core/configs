@@ -7,7 +7,7 @@ Note that, at present, this config has only been tested with `nf-core/viralrecon
 To use, run the pipeline with `-profile fgcz`. This will download and launch the profile.config which has been pre-configured with a setup suitable for the FGCZ cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to an apptainer image before execution of the pipeline. **This requires a local installation of apptainer**. It is easiest to submit the pipeline from a compute node. Once the image is cached, you can also submit from the login node.
 The config places the apptainer cache in your `/srv/GT/software/apptainer/cache` directory for access by all projects.
 
-Example:
+For example:
 
 ```shell
 nextflow run -profile fgcz ...
