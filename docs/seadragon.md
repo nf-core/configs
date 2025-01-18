@@ -14,7 +14,6 @@ module load Nextflow
 
 A local copy of the iGenomes resource is available on Seadragon `/rsrch3/scratch/reflib/REFLIB_data/AWS-iGenomes/` . You can reference it by using the `--genome <GENOME_ID>` parameter in your nf-core pipeline. This ensures that all genome-specific references are correctly configured and optimized for the cluster.
 
-
 ## Notes
 
 - **Data Storage**: All intermediate files will be stored in the `work/` directory within the job's launch directory. These files can consume significant space, so it is recommended to delete this directory after the pipeline completes successfully.
