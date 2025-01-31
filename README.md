@@ -186,6 +186,7 @@ Currently documentation is available for the following systems:
 - [ROSLIN](docs/roslin.md)
 - [SAGE BIONETWORKS](docs/sage.md)
 - [SANGER](docs/sanger.md)
+- [SEADRAGON](docs/seadragon.md)
 - [SEATTLECHILDRENS](docs/seattlechildrens.md)
 - [SEAWULF](docs/seawulf.md)
 - [SEG_GLOBE](docs/seg_globe.md)

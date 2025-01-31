@@ -137,6 +137,7 @@ jobs:
           - "sahmri"
           - "sanger"
           - "scw"
+          - "seadragon"
           - "seawulf"
           - "seg_globe"
           - "self_hosted_runner"
