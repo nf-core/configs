@@ -6,7 +6,7 @@ Extra specific configuration for proteinfold pipeline
 
 To use, run the pipeline with `-profile nci_gadi`.
 
-This will download and launch the proteinfold specific [`nci_gadi.config`](../../../conf/pipeline/proteinfold/nci_gadi.config) which has been pre-configured with a setup suitable for the  NCI Gadi HPC cluster.
+This will download and launch the proteinfold specific [`nci_gadi.config`](../../../conf/pipeline/proteinfold/nci_gadi.config) which has been pre-configured with a setup suitable for the NCI Gadi HPC cluster.
 
 Example: `nextflow run nf-core/proteinfold -profile nci_gadi`
 
@@ -31,24 +31,26 @@ process {
     ...
 }
 ```
+
 or export specification manually
+
 ```
 export $PROJECT = '<abc>'
 ```
 
-### Storage considerations 
+### Storage considerations
 
 When running proteinfold on NCI Gadi it is expected that all your data will be contained within the projects `/scratch` and `/g/data` directories, as specified in `$PROJECT` . However, if you are working across multiple project codes, you will need to manually edit this line in the `nci_gadi.config` to reflect this:
 
 ```bash
 storage = "scratch/<abc>+gdata/<def>"
-``` 
+```
 
 Alternatively, you can use the `--storage_account "scratch/abc+gdata/def"` parameter to specify access to storage as required.
 
-### ⚠️ Expected Warnings  
+### ⚠️ Expected Warnings
 
-When running the pipeline, you may encounter the following warnings:  
+When running the pipeline, you may encounter the following warnings:
 
 ```
 WARN: The following invalid input values have been detected:
