@@ -20,8 +20,8 @@ export APPTAINER_LOCALCACHEDIR=/data/scratch/<YOUR_ID>/.apptainer/localcache
 export APPTAINER_PULLFOLDER=/data/scratch/<YOUR_ID>/.apptainer/pull
 ```
 
->[!WARNING]
->You need to make sure that all these folders actually exist before running for the first time.
+> [!WARNING]
+> You need to make sure that all these folders actually exist before running for the first time.
 
 ### Nextflow
 
