@@ -20,6 +20,9 @@ export APPTAINER_LOCALCACHEDIR=/data/scratch/<YOUR_ID>/.apptainer/localcache
 export APPTAINER_PULLFOLDER=/data/scratch/<YOUR_ID>/.apptainer/pull
 ```
 
+>[!WARNING]
+>You need to make sure that all these folders actually exist before running for the first time.
+
 ### Nextflow
 
 Download the latest release of nextflow. _Warning:_ the `self-update` line should update to the latest version, but sometimes not, so please check which is the latest release (https://github.com/nextflow-io/nextflow/releases), you can then manually set this by entering (`NXF_VER=XX.XX.X`).
