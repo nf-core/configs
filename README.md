@@ -304,6 +304,7 @@ Currently documentation is available for the following pipelines within specific
   - [hasta](docs/pipeline/taxprofiler/hasta.md)
 - proteinfold
   - [CRG](docs/pipeline/proteinfold/crg.md)
+  - [nci_gadi](docs/pipeline/proteinfold/nci_gadi.md)
 
 ### Pipeline-specific documentation
 
