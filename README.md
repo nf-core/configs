@@ -286,6 +286,8 @@ Currently documentation is available for the following pipelines within specific
   - [EVA](docs/pipeline/mag/eva.md)
 - methylseq
   - [FUB Curta](docs/pipeline/methylseq/fub_curta.md)
+- multiplesequencealign
+  - [CRG](docs/pipeline/multiplesequencealign/crg.md)
 - rnafusion
   - [HASTA](docs/pipeline/rnafusion/hasta.md)
   - [MUNIN](docs/pipeline/rnafusion/munin.md)
@@ -303,6 +305,7 @@ Currently documentation is available for the following pipelines within specific
   - [hasta](docs/pipeline/taxprofiler/hasta.md)
 - proteinfold
   - [CRG](docs/pipeline/proteinfold/crg.md)
+  - [nci_gadi](docs/pipeline/proteinfold/nci_gadi.md)
 
 ### Pipeline-specific documentation
 
