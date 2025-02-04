@@ -16,7 +16,7 @@ A local copy of the iGenomes resource is available on Seadragon `/rsrch3/scratch
 
 ## Notes
 
-- **Data Storage**: All intermediate files will be stored in the `work/` directory within the job's launch directory. These files can consume significant space, so it is recommended to delete this directory after the pipeline completes successfully.
+- **Data Storage**: All intermediate files will be stored in the `work/` directory within the job's launch directory. On a successful completion of a run, these will be automatically deleted as these files can consume significant space. If a pipeline run fails, it will not be deleted. You can preserve all intermediate files by using `-profile debug,seadragon`.
 - **User Access**: Ensure that you have an active account to use Seadragon. If unsure, contact the HPC support team at The University of Texas MD Anderson Cancer Center.
 - **Job Submission**: Nextflow jobs must be submitted from the login nodes of Seadragon. If in doubt, refer to the cluster documentation or contact support.
 
