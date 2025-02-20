@@ -14,9 +14,9 @@ mamba activate mamba_nf
 
 Singularity is installed on the compute nodes of Alma, but not the login nodes. There is no module for Singularity.
 
-All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large.
+All of the intermediate files required to run the pipeline will be stored in the `work/` directory. Using the `icr_alma` profile, the Work directory will be deleted upon the successful completion of the run.
 
-> NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster. This can be done from an interactive or normal job. If in doubt contact Scientific Computing.
+> NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster. This can be done from an interactive or a normal job. If in doubt contact Scientific Computing.
 
 Alma has a master-worker partition for the long running nextflow manager which spawns jobs to the compute node. A typical nextflow job will run a batch script thorugh sbatch which will run on the master-worker thread spawning the jobs.
 
@@ -37,5 +37,5 @@ Contents of my-nextflow.sh
 #SBATCH --time=1:00:00
 #SBATCH --mem-per-cpu=4000
 
-nextflow run nf-core/sarek  -profile singularity,test -profile icr_alma
+nextflow run nf-core/sarek  -profile icr_alma,test --outdir ./results
 ```
