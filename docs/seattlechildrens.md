@@ -1,4 +1,4 @@
-# nf-core/configs: PROFILE Configuration
+# nf-core/configs: Seattle Children's Research Institute Configuration
 
 All nf-core pipelines have been successfully configured for use on the the Sasquatch HPC at Seattle Children Research Institude (SCRI), Seattle, WA.
 
