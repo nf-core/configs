@@ -60,11 +60,13 @@ mamba activate nextflow
 # To list all the accounts you are authorized on HPC. For example if you have an account cpu-mylab-sponsored, your association is "mylab".
 sshare -o "Account,Partition%20"
 
+# Set your association as an environmental variable
+export ASSOC="your_association_name"
+
 # example to run nextflow pipeline (please replace with your own association, module, and temp directory)
 nextflow run \
     [nf-core/module_name] \
     -profile seattlechildrens \
-    --assoc ["your_association_name"] \
     -workDir /data/hps/assoc/private/mylab/user/mmouse/temp_rnaseq \
 ```
 
