@@ -139,6 +139,7 @@ jobs:
           - "sanger"
           - "scw"
           - "seadragon"
+          - "seattlechildrens"
           - "seawulf"
           - "seg_globe"
           - "self_hosted_runner"
