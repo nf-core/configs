@@ -4,6 +4,11 @@ nf-core pipelines have been successfully configured for use on the PDC
 cluster dardel. No other clusters have yet been tested, but support can be
 added if needed.
 
+## Getting help
+
+We have a channel dedicated to assist Swedish HPC users users on the nf-core
+Slack: [https://nfcore.slack.com/channels/helpdesk-hpc-sweden](https://nfcore.slack.com/channels/helpdesk-hpc-sweden)
+
 ## Getting started
 
 The base java installation on dardel is Java 11. By loading the `PDC`
