@@ -44,4 +44,6 @@ These are then available as modules (please confirm the module name using module
 module load nextflow/24.04.2-gcc12 charliecloud/0.35-gcc12
 ```
 
-> NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes.
+> NB: bioHPC compute nodes are submit hosts. This means you can submit the nextflow head job via sbatch.
+
+> NB: Sometimes you may want to have jobs submitted 'locally' in a large nextflow job. Details on this can be found here https://doku.lrz.de/nextflow-on-hpc-systems-test-operation-788693597.html
