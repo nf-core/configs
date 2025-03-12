@@ -46,7 +46,7 @@ To do so make a shell script with a similar structure to the following code and 
 #SBATCH --mem 8G
 #SBATCH -p cpuq
 
-module load Nextflow/24.10.4 #Change this to other version if needed
+module load nextflow/24.10.4 #Change this to other version if needed
 
 export NXF_ANSI_LOG=false
 export NXF_OPTS="-Xms8G -Xmx8G -Dnxf.pool.maxThreads=2000"
