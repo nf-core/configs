@@ -4,7 +4,8 @@ All nf-core pipelines have been successfully configured for use on the Swedish U
 
 ## Getting help
 
-We have a Slack channel dedicated to UPPMAX users on the nf-core Slack: [https://nfcore.slack.com/channels/uppmax](https://nfcore.slack.com/channels/uppmax)
+We have a Slack channel dedicated to assist Swedich HPC users on the nf-core
+Slack: [https://nfcore.slack.com/channels/helpdesk-hpc-sweden](https://nfcore.slack.com/channels/helpdesk-hpc-sweden)
 
 ## Using the UPPMAX config profile
 

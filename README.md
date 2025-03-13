@@ -144,6 +144,7 @@ Currently documentation is available for the following systems:
 - [HYPATIA](docs/hypatia.md)
 - [HUMAN TECHNOPOLE](docs/humantechnopole.md)
 - [ICR_DAVROS](docs/icr_davros.md)
+- [ICR_ALMA](docs/icr_alma.md)
 - [IFB](docs/ifb_core.md)
 - [ILIFU](docs/ilifu.md)
 - [IMPERIAL](docs/imperial.md)
