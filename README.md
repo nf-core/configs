@@ -142,6 +142,7 @@ Currently documentation is available for the following systems:
 - [HASTA](docs/hasta.md)
 - [HKI](docs/hki.md)
 - [HYPATIA](docs/hypatia.md)
+- [HUMAN TECHNOPOLE](docs/humantechnopole.md)
 - [ICR_DAVROS](docs/icr_davros.md)
 - [ICR_ALMA](docs/icr_alma.md)
 - [IFB](docs/ifb_core.md)
