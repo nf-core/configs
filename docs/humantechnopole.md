@@ -6,7 +6,7 @@ This configuration is tested for Nextflow 23.10 and above.
 
 ## Before you use this profile
 
-1. This profile automatically load Singularity module before the script using `beforeScript` directive. Hence, when you set for example `-profile singularity`, you should be able to use singularity containers without any additional configuration.
+1. This profile automatically load Singularity module before the script using `beforeScript` directive. Hence, when you set for example `-profile humantechnopole,singularity`, you should be able to use singularity containers without any additional configuration.
 2. It is suggested to always use `/scratch` space for the working directory. Hence, you should add something like `-w /scratch/$USER/your_work_dir` to set the working directory to some folder inside your scratch space in the HPC. If you don't set a specific work directory the pipeline work dir will be created in the current working directory as usual.
 3. The `/localscratch` folder is automatically mounted in the container when using Singularity to ensure you have access to the `$TMPDIR` when running commands on the compute nodes
 4. If you need to set a specific folder to store singularity images downloaded during the workflow execution you can set the `NXF_SINGULARITY_CACHEDIR` environment variable. You can also set `NXF_SINGULARITY_LIBRARYDIR` environmental library to read images from a central location if your images are centrally managed.
@@ -47,9 +47,10 @@ To do so make a shell script with a similar structure to the following code and 
 #SBATCH -p cpuq
 
 module load nextflow/24.10.4 #Change this to other version if needed
+module load singularity
 
 export NXF_ANSI_LOG=false
-export NXF_OPTS="-Xms8G -Xmx8G -Dnxf.pool.maxThreads=2000"
+export NXF_OPTS="-Xms2G -Xmx7G -Dnxf.pool.maxThreads=2000"
 
 # You can enventually set env variables to configure singularity chace and library
 # Cache folder is where singularity images downloaded during the workflow will be stored
