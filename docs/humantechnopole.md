@@ -2,7 +2,7 @@
 
 To use, run the pipeline with `-profile humantechnopole`. This will download and launch the [`humantechnopole.config`](../conf/humantechnopole.config) which has been pre-configured with a setup suitable for the Human Technopole SLURM cluster.
 
-This configuration is tested for Nextflow 23.10 and above. 
+This configuration is tested for Nextflow 23.10 and above.
 
 ## Before you use this profile
 
@@ -11,12 +11,11 @@ This configuration is tested for Nextflow 23.10 and above.
 3. The `/localscratch` folder is automatically mounted in the container when using Singularity to ensure you have access to the `$TMPDIR` when running commands on the compute nodes
 4. If you need to set a specific folder to store singularity images downloaded during the workflow execution you can set the `NXF_SINGULARITY_CACHEDIR` environment variable. You can also set `NXF_SINGULARITY_LIBRARYDIR` environmental library to read images from a central location if your images are centrally managed.
 
-
 ## Enable GPU support
 
 You can use the `gpu` label in your process definition to enable GPU support. This will automatically trigger all the necessary settings.
 
-You can use the [`accelerator` directive](https://www.nextflow.io/docs/latest/reference/process.html#accelerator) in your process to eventually request multiple GPUs. When this is absent the default is to request 1 GPU. 
+You can use the [`accelerator` directive](https://www.nextflow.io/docs/latest/reference/process.html#accelerator) in your process to eventually request multiple GPUs. When this is absent the default is to request 1 GPU.
 
 For example to request 2 GPUs you can use something like this.
 
@@ -40,7 +39,7 @@ To do so make a shell script with a similar structure to the following code and 
 
 ```bash
 #!/bin/bash
-#SBATCH -J job_name 
+#SBATCH -J job_name
 #SBATCH -o /path/to/a/log/%x_%A.log
 #SBATCH -c 1
 #SBATCH --mem 8G
@@ -65,5 +64,5 @@ nextflow run \
 /path/to/nf-core/pipeline/main.nf \
 -profile humantechnopole,singularity \
 -w /scratch/$USER/nf-work \
--c my_specific.config 
+-c my_specific.config
 ```
