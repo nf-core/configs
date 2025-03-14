@@ -8,9 +8,9 @@ Prior to using nextflow, please follow the instructions on the [help pages for i
 
 We advise either creating a conda environment containing nextflow, or installing nextflow in your base environment if this is not possible.
 
-## Apptainer/Singularity and Conda
+## Software sources
 
-Apptainer/Singularity and Conda are both available on the HPC and are both enabled in this config. If you have a choice we recommend Apptainer/Singularity due to previously reported performance issues with Conda.
+We recommend using the config as default to use Singularity. However, if you wish to override Singularity and use the conda, use the `-profile cropdiversityhpc,conda` flag. 
 
 ## Run
 
