@@ -64,6 +64,7 @@ jobs:
           - "create"
           - "crg"
           - "crick"
+          - "cropdiversityhpc"
           - "crukmi"
           - "csiro_petrichor"
           - "daisybio"
