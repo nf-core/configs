@@ -116,6 +116,7 @@ Currently documentation is available for the following systems:
 - [CREATE](docs/create.md)
 - [CRG](docs/crg.md)
 - [CRICK](docs/crick.md)
+- [CropDiversityHPC](docs/cropdiversityhpc.md)
 - [Cancer Research UK Manchester Institute](docs/crukmi.md)
 - [CSIRO PETRICHOR](docs/csiro_petrichor.md)
 - [CZBIOHUB_AWS](docs/czbiohub.md)
