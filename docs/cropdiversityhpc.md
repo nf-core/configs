@@ -1,6 +1,6 @@
 # nf-core/configs: Crop Diversity HPC Configuration
 
-Configuration for the Crop Diversity high perofrmance computing (HPC) cluster.
+Configuration for the Crop Diversity high performance computing (HPC) cluster.
 
 ## Setup
 
