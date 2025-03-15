@@ -10,7 +10,7 @@ We advise either creating a conda environment containing nextflow, or installing
 
 ## Software sources
 
-We recommend using the config as default to use Singularity. However, if you wish to override Singularity and use the conda, use the `-profile cropdiversityhpc,conda` flag. 
+We recommend using the config as default to use Singularity. However, if you wish to override Singularity and use the conda, use the `-profile cropdiversityhpc,conda` flag.
 
 ## Run
 
