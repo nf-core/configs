@@ -132,6 +132,7 @@ Currently documentation is available for the following systems:
 - [ETH Zurich Euler](docs/ethz_euler.md)
 - [EVA](docs/eva.md)
 - [FGCZ](docs/fgcz.md)
+- [FSU_DRACO](docs/fsu_draco.md)
 - [FUB Curta](docs/fub_curta.md)
 - [GENOTOUL](docs/genotoul.md)
 - [GENOUEST](docs/genouest.md)
