@@ -15,7 +15,7 @@ conda create -n nextflow -c bioconda nextflow
 ## You can use below lines for your sbatch script.
 export NXF_OPTS='-Dhttp.proxyHost=http://internet4nzm.rz.uni-jena.de:3128 -Dhttps.proxyHost=http://internet4nzm.rz.uni-jena.de:3128'
 
-## Activate the Conda environment to have nextflow available. 
+## Activate the Conda environment to have nextflow available.
 eval "$(conda shell.bash hook)"
 conda activate nextflow
 
@@ -44,7 +44,7 @@ export NXF_OPTS='-Dhttp.proxyHost=http://internet4nzm.rz.uni-jena.de:3128 -Dhttp
 
 eval "$(conda shell.bash hook)"
 
-conda activate nextflow 
+conda activate nextflow
 
 nextflow run nf-core/funcscan \
        -r 2.1.0 \
