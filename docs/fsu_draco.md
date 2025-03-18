@@ -15,7 +15,7 @@ conda create -n nextflow -c bioconda nextflow
 ## You can use below lines for your sbatch script.
 export NXF_OPTS='-Dhttp.proxyHost=http://internet4nzm.rz.uni-jena.de:3128 -Dhttps.proxyHost=http://internet4nzm.rz.uni-jena.de:3128'
 
-## Activate the Conda environment to have nextflow available. 
+## Activate the Conda environment to have nextflow available.
 eval "$(conda shell.bash hook)"
 conda activate nextflow
 
@@ -44,7 +44,7 @@ export NXF_OPTS='-Dhttp.proxyHost=http://internet4nzm.rz.uni-jena.de:3128 -Dhttp
 
 eval "$(conda shell.bash hook)"
 
-conda activate nextflow 
+conda activate nextflow
 
 nextflow run nf-core/funcscan \
     -r 2.1.0 \
@@ -55,10 +55,9 @@ conda deactivate
 ```
 
 :::note
-You will need an account and VPN access to use the Draco HPC cluster in order to run the pipeline.
-Nextflow will need to submit the jobs via the job scheduler SLURM to the Draco HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt check the abovementioned [tutorial](https://zaki-eah.gitpages.uni-jena.de/informationssammlung/Tutorials/HPC_HandsOn) or contact IT support via the [FSU Service Desk Portal](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/121?requestGroup=305).
+You will need an account and VPN access to use the Draco HPC cluster in order to run the pipeline. Nextflow will need to submit the jobs via the job scheduler SLURM to the Draco HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt check the abovementioned [tutorial](https://zaki-eah.gitpages.uni-jena.de/informationssammlung/Tutorials/HPC_HandsOn) or contact IT support via the [FSU Service Desk Portal](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/121?requestGroup=305).
 :::
 
 :::note
-Note: All of the intermediate files required to run the pipeline will be stored in the `work/` directory. By default, it will be deleted after the pipeline has finished successfully because it can get quite large and all of the main output files will be saved in the `results/` directory anyway. If you want to keep the intermediate files as well, you can additionally use the `debug` profile as in `-profile fsu_draco,debug`.
+All of the intermediate files required to run the pipeline will be stored in the `work/` directory. By default, it will be deleted after the pipeline has finished successfully because it can get quite large and all of the main output files will be saved in the `results/` directory anyway. If you want to keep the intermediate files as well, you can additionally use the `debug` profile as in `-profile fsu_draco,debug`.
 :::
