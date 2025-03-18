@@ -29,7 +29,7 @@ Singularity is installed on all nodes. Feel free to read about additional mount 
 
 Example sbatch script specifying the `long` partition which is suited for jobs that run for up to 14 days (e.g. the long-running Nextflow manager job which spawns jobs to the compute nodes):
 
-```
+```bash
 #!/bin/bash
 
 #SBATCH --job-name=funcscan
@@ -47,21 +47,18 @@ eval "$(conda shell.bash hook)"
 conda activate nextflow 
 
 nextflow run nf-core/funcscan \
-       -r 2.1.0 \
-       -profile fsu_draco,test \
-       --outdir ./results/ \
+    -r 2.1.0 \
+    -profile fsu_draco,test \
+    --outdir ./results/ \
 
 conda deactivate
 ```
 
 :::note
-You will need an account and VPN access to use the Draco HPC cluster in order to run the pipeline. If in doubt contact IT.
+You will need an account and VPN access to use the Draco HPC cluster in order to run the pipeline.
+Nextflow will need to submit the jobs via the job scheduler SLURM to the Draco HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt check the abovementioned [tutorial](https://zaki-eah.gitpages.uni-jena.de/informationssammlung/Tutorials/HPC_HandsOn) or contact IT support via the [FSU Service Desk Portal](https://servicedesk.uni-jena.de/plugins/servlet/desk/portal/121?requestGroup=305).
 :::
 
 :::note
-Nextflow will need to submit the jobs via the job scheduler SLURM to the Draco HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
-:::
-
-:::note
-Note: All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully (or use `cleanup = true` in a custom configuration file) because it can get quite large and all of the main output files will be saved in the `results/` directory anyway.
+Note: All of the intermediate files required to run the pipeline will be stored in the `work/` directory. By default, it will be deleted after the pipeline has finished successfully because it can get quite large and all of the main output files will be saved in the `results/` directory anyway. If you want to keep the intermediate files as well, you can additionally use the `debug` profile as in `-profile fsu_draco,debug`.
 :::
