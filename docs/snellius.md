@@ -57,7 +57,12 @@ mkdir $NXF_WORK
 
 module load 2024
 
-# optional, load the environment in which you installed nf-core tools python modules
-# module load Mamba/24.9.0-0
-# mamba activate ${PROJECTSPACE}/nextflow/env_nf
-# submitting an nf-core pipeline will consume 16 SBU / h due to the smallest possible share on a node
+- optional, load the environment in which you installed nf-core tools python modules
+- module load Mamba/24.9.0-0
+- mamba activate ${PROJECTSPACE}/nextflow/env_nf
+- submitting an nf-core pipeline will consume 16 SBU / h due to the smallest possible share on a node
+
+## todo
+
+- add configuration for high_mem nodes
+- add confiuguration for gpu nodes
