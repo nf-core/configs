@@ -1,10 +1,10 @@
 # nf-core/configs: Snellius HPC Configuration for the MAG pipeline
 
-
 - You will need to specify an Apptainer cache directory in your ~./bashrc. This will store your container images in this cache directory without repeatedly downloading them every time you run a pipeline. Since space on home directory is limited, using lustre file system is recommended. e.g. somewhere in your project space.
 - You can also use environment variables in you sbatch script
 
 ## sbatch example
+
 ```
 #!/bin/bash
 #-----------------------------Mail address-----------------------------
@@ -74,3 +74,4 @@ nextflow run nf-core/mag \
    -profile snellius \
    -resume \
    -work-dir ${WORKDIR}
+```

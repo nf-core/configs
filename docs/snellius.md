@@ -5,9 +5,11 @@ To use, run the pipeline with `-profile snellius`. This will download and launch
 - The nfcore pipeline MAG has been tested on Snellius
 
 ## snellius documentation
+
 - https://servicedesk.surf.nl/wiki/display/WIKI/System+details
 
-##  accounting information used in this config
+## accounting information used in this config
+
 - https://servicedesk.surf.nl/wiki/display/WIKI/Snellius+partitions+and+accounting
 
 ## Before running a pipeline
@@ -24,12 +26,12 @@ $ java -version
 
 - optional: install nf-core tools in your own environment
 
-
-
 ```
 $ module load 2024
 ```
+
 ## snellius specific scratch config
+
 - Don't store intermediate files in your project space, use the scratch
 - You will need to specify some environment variables to specify scratch and temporary locations
 - You will need to specify an Apptainer cache directory in your ~./bashrc. This will store your container images in this cache directory without repeatedly downloading them every time you run a pipeline. Since space on home directory is limited, using your project file system is recommended. e.g. somewhere in your project space.
@@ -66,3 +68,4 @@ module load 2024
 
 - add configuration for high_mem nodes
 - add confiuguration for gpu nodes
+```
