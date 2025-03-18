@@ -80,6 +80,7 @@ jobs:
           - "ethz_euler"
           - "eva"
           - "fgcz"
+          - "fsu_draco"
           - "fub_curta"
           - "genotoul"
           - "genouest"
