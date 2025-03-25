@@ -50,6 +50,7 @@ jobs:
           - "biowulf"
           - "bluebear"
           - "cambridge"
+          - "cannon"
           - "cbe"
           - "ccga_dx"
           - "ccga_med"
