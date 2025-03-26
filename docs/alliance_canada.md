@@ -6,3 +6,6 @@ You also need to supply the name of the group under which you are working or who
 
 For detailed information on running nf-core pipelines on Alliance clusters, please visit the documentation:
 https://docs.alliancecan.ca/wiki/Nextflow
+
+If you run into issues, please contact Alliance Support:
+https://docs.alliancecan.ca/wiki/Technical_support 
