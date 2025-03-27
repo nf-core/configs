@@ -8,4 +8,4 @@ For detailed information on running nf-core pipelines on Alliance clusters, plea
 https://docs.alliancecan.ca/wiki/Nextflow
 
 If you run into issues, please contact Alliance Support:
-https://docs.alliancecan.ca/wiki/Technical_support 
+https://docs.alliancecan.ca/wiki/Technical_support
