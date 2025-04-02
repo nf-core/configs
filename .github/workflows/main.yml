@@ -37,6 +37,7 @@ jobs:
           - "abims"
           - "adcra"
           - "alice"
+          - "alliance_canada"
           - "apollo"
           - "arcc"
           - "aws_tower"

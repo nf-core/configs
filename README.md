@@ -90,6 +90,7 @@ Currently documentation is available for the following systems:
 - [ABIMS](docs/abims.md)
 - [ADCRA](docs/adcra.md)
 - [ALICE](docs/alice.md)
+- [ALLIANCE_CANADA](docs/alliance_canada.md)
 - [APOLLO](docs/apollo.md)
 - [ARCC](docs/arcc.md)
 - [AWSBATCH](docs/awsbatch.md)
