@@ -7,7 +7,7 @@ Run the pipeline with `-profile mssm`. This will download and launch the [`mssm.
 ## Contact Information
 
 **HPC Support:** hpchelp@hpc.mssm.edu
-**Author:** Christopher Tastad - Judy Cho Lab  
+**Author:** Christopher Tastad - Judy Cho Lab
 **Email:** christopher.tastad@mssm.edu
 
 ## Required Environment Setup
