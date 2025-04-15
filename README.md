@@ -103,6 +103,7 @@ Currently documentation is available for the following systems:
 - [BIOHPC_GEN](docs/biohpc_gen.md)
 - [BIOWULF](docs/biowulf.md)
 - [BLUEBEAR](docs/bluebear.md)
+- [BRAIN](docs/brain.md)
 - [CAMBRIDGE](docs/cambridge.md)
 - [CANNON](docs/cannon.md)
 - [CBE](docs/cbe.md)
