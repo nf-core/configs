@@ -47,6 +47,7 @@ jobs:
           - "bigpurple"
           - "bih"
           - "binac"
+          - "binac2"
           - "biohpc_gen"
           - "biowulf"
           - "bluebear"
