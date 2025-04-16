@@ -18,6 +18,13 @@ conda activate nextflow
 
 Apptainer is installed on every login and compute node.
 
+You can specify which compute project to use for resource accounting with the `--project` parameter.
+If omitted, the default compute project will be used.
+
+```
+nextflow run nf-core/rnaseq -profile binac2 --project bw16f003
+```
+
 ## Below are non-mandatory information on iGenomes specific configuration
 
 A local copy of the iGenomes resource has been made available on BinAC 2 so you should be able to run the pipeline against any reference available in the `igenomes.config` specific to the nf-core pipeline.
