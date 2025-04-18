@@ -50,6 +50,7 @@ jobs:
           - "biohpc_gen"
           - "biowulf"
           - "bluebear"
+          - "brain"
           - "cambridge"
           - "cannon"
           - "cbe"
