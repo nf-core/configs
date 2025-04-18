@@ -21,5 +21,5 @@ For example, run the following Nextflow command on a compute node with submit ho
 nextflow run \\
 nf-core/chipseq \\
 -resume \\
--profile test,brain
+-profile test,brain,compute
 ```
