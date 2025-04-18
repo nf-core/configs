@@ -14,7 +14,7 @@ Nextflow manages each process as a separate job that is submitted to the cluster
 
 Nextflow shouldn't run directly on a login node but on a compute node, so the `nextflow run` command should be also submitted using an `sbatch` command itself.
 
-1. Run nextflow on a compute node with submit host capability:
+For example, run the following Nextflow command on a compute node with submit host capability:
 
 ```bash
 # Run nextflow workflow
