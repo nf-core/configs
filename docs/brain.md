@@ -12,7 +12,7 @@ Nextflow is not installed by default on the Brain Image Library Analysis Ecosyst
 
 Nextflow manages each process as a separate job that is submitted to the cluster by using the `sbatch` command.
 
-Nextflow shouldin't run directly on a login node but on a compute node.
+Nextflow shouldn't run directly on a login node but on a compute node, so the `nextflow run` command should be also submitted using an `sbatch` command itself.
 
 1. Run nextflow on a compute node with submit host capability:
 
