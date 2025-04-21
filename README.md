@@ -217,6 +217,7 @@ Currently documentation is available for the following systems:
 - [UOD_HPC](docs/uod_hpc.md)
 - [UPPMAX](docs/uppmax.md)
 - [UTD_GANYMEDE](docs/utd_ganymede.md)
+- [UTD_JUNO](docs/utd_juno.md)
 - [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
 - [UZH](docs/uzh.md)
 - [UZL_OMICS](docs/uzl_omics.md)
