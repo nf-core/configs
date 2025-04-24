@@ -21,7 +21,7 @@ Apptainer is installed on every login and compute node.
 You can specify which compute project to use for resource accounting with the `--project` parameter.
 If omitted, the default compute project will be used.
 
-```
+```bash
 nextflow run nf-core/rnaseq -profile binac2 --project bw16f003
 ```
 
