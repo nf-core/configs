@@ -37,4 +37,3 @@ process NVIDIA_SMI {
     """
 }
 ```
-
