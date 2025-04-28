@@ -100,6 +100,7 @@ Currently documentation is available for the following systems:
 - [BI](docs/bi.md)
 - [BIH](docs/bih.md)
 - [BINAC](docs/binac.md)
+- [BinAC 2](docs/binac2.md)
 - [BIOHPC_GEN](docs/biohpc_gen.md)
 - [BIOWULF](docs/biowulf.md)
 - [BLUEBEAR](docs/bluebear.md)
