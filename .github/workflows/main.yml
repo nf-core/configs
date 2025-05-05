@@ -123,6 +123,7 @@ jobs:
           - "mjolnir_globe"
           - "mpcdf"
           - "mpcdf_viper"
+          - "mssm"
           - "munin"
           - "nci_gadi"
           - "nu_genomics"
