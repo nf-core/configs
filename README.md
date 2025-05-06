@@ -260,7 +260,7 @@ Please request review from @nf-core/maintainers and/or on #request-review on the
 
 > [!NOTE]
 > Once you get approval, you as the pull request author MUST merge the pull request.
-> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author be the person to merge in the config.
+> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author should be the person to merge in the config.
 > If you do not see the 'merge' button at the bottom of the PR, ensure you're in nf-core GitHub organisation!
 > More information on joining can be found [here](https://nf-co.re/join).
 
@@ -398,7 +398,7 @@ Both PRs will need to be merged at the approximately the same time.
 
 > [!NOTE]
 > Once you get approval, you as the pull request author MUST merge the pull request.
-> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author be the person to merge in the config.
+> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author should be the person to merge in the config.
 > If you do not see the 'merge' button at the bottom of the PR, ensure you're in nf-core GitHub organisation!
 > More information on joining can be found [here](https://nf-co.re/join).
 
