@@ -233,6 +233,10 @@ Currently documentation is available for the following systems:
 
 ### Uploading to `nf-core/configs`
 
+> [!WARNING]
+> Before you start, make sure you are a part of the nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
+
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 Within the local clone of your fork:
 
@@ -254,7 +258,17 @@ Commit and push these changes to your local clone on GitHub, and then [create a 
 
 Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 
+> [!NOTE]
+> Once you get approval, you as the pull request author MUST merge the pull request. 
+> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author be the person to merge in the config.
+> If you do not see the 'merge' button at the bottom of the PR, ensure you're in nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
+
 ## Adding a new pipeline-specific config
+
+> [!WARNING]
+> Before you start, make sure you are a part of the nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
 
 Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline.
 Such options should not be added to the main institutional config, as this will be applied to all pipelines.
@@ -262,7 +276,8 @@ Instead, we can create a pipeline-specific institutional config file.
 
 > The following steps are similar to the instructions for standard institutional config, however using `pipeline` variants of folders e.g., `conf/pipeline/` or under `pipeline/`
 
-:warning: Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
+>[!WARNING]
+> Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
 
 Institutional configs work because the pipeline `nextflow.config` file loads the [`nf-core/configs/nfcore_custom.config` config file](https://github.com/nf-core/configs/blob/master/nfcore_custom.config), which in turn loads the institutional configuration file based on the profile `<PROFILE>` supplied on the command line.
 
@@ -324,7 +339,9 @@ Currently documentation is available for the following pipeline:
 
 ### Enabling pipeline-specific configs within a pipeline
 
-:warning: **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
+
+>[!WARNING]
+> **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/<PIPELINE>` repository to your own GitHub account.
 Within the local clone of your fork, if not already present, add the following to `nextflow.config` **after** the code that loads the generic nf-core/configs config file:
@@ -344,7 +361,9 @@ We will be notified automatically when you have created your pull request, and p
 
 ### Create the pipeline-specific `nf-core/configs` files
 
-:warning: This has to be done on a fork of the [`nf-core/configs`](https://github.com/nf-core/configs/) repository.
+
+>[!WARNING]
+> This has to be done on a fork of the [`nf-core/configs`](https://github.com/nf-core/configs/) repository.
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 And add or edit the following files in the local clone of your fork.
@@ -376,8 +395,15 @@ Edit this file, and add the new pipeline-specific institutional profile to the l
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 In the pull-request description, add a link to the repository specific pull-request(s) that use this new code.
+
 Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 Both PRs will need to be merged at the approximately the same time.
+
+> [!NOTE]
+> Once you get approval, you as the pull request author MUST merge the pull request. 
+> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author be the person to merge in the config.
+> If you do not see the 'merge' button at the bottom of the PR, ensure you're in nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
 
 ## Help
 
