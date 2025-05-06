@@ -113,7 +113,7 @@ Within the local clone of your fork:
 1.  **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory
 2.  **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory
 3.  **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone
-4.  **add** add your profile name to GitHub Actions YAML `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml).
+4.  **add** your profile name to GitHub Actions YAML `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml).
 
     - If you forget to do this the tests will fail with the error in GitHub Actions:
 
