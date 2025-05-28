@@ -55,7 +55,7 @@ jobs:
           - "cannon"
           - "cbe"
           - "ccga_dx"
-          - "ccga_med"
+          - "ccga_cau"
           - "ceci_dragon2"
           - "ceci_nic5"
           - "cedars"
