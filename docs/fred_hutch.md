@@ -18,3 +18,5 @@ nextflow run -profile fred_hutch ...
 
 # Additional resources
 
+https://sciwiki.fredhutch.org/datascience/using_workflows/
+https://sciwiki.fredhutch.org/compdemos/nextflow/
