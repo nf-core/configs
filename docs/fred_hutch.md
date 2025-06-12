@@ -4,10 +4,11 @@ Configuration file to run nf-core pipelines on the cluster of the [Fred Hutchins
 
 # Before running the pipeline
 
-You may need to load the Nextflow module or otherwise have a Nextflow executable in your path. Apptainer is also required, but is specified in the default `beforeScript` of this configuration, so you shouldn't need to load the module manually, but if you encounter issues with containers, consider loading it yourself.
+You need to have Nextflow and Apptainer available in your path. The easiest way to do this is through modules. 
 
 ```shell
 module load Nextflow
+module load Apptainer
 ```
 
 # Quick start
