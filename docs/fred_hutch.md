@@ -4,7 +4,7 @@ Configuration file to run nf-core pipelines on the cluster of the [Fred Hutchins
 
 # Before running the pipeline
 
-You need to have Nextflow and Apptainer available in your path. The easiest way to do this is through modules. 
+You need to have Nextflow and Apptainer available in your path. The easiest way to do this is through modules.
 
 ```shell
 module load Nextflow
