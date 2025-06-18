@@ -12,7 +12,7 @@ Slack: [https://nfcore.slack.com/channels/helpdesk-hpc-sweden](https://nfcore.sl
 ## Getting started
 
 The base java installation on dardel is Java 11. By loading the `PDC`
-and `Java` module, different versions (e.g. 17) are available.
+and `java` module, different versions (e.g. 17) are available.
 
 To pull new singularity images, singularity must be available
 (e.g. through the module system) to the nextflow monitoring process,
@@ -20,12 +20,12 @@ suggested preparatory work before launching nextflow is:
 
 ```shell
 
-module load PDC Java singularity
+module load PDC java singularity
 ```
 
 (for reproducibility, it may be a good idea to check what versions you
 have loaded with `module list` and using those afterwards, e.g.
-`module load PDC/22.06 singularity/3.10.4-cpeGNU-22.06 Java/17.0.4`.)
+`module load PDC/22.06 singularity/3.10.4-cpeGNU-22.06 java/17.0.4`.)
 
 No singularity images or nextflow versions are currently preloaded on
 dardel, to get started you can e.g. download nextflow through
