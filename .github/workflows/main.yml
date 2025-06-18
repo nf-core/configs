@@ -82,6 +82,7 @@ jobs:
           - "einstein"
           - "ethz_euler"
           - "eva"
+          - "eva_grace"
           - "fgcz"
           - "fsu_draco"
           - "fub_curta"
