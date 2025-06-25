@@ -33,6 +33,7 @@ nextflow run <nf-core_pipeline>/main.nf \
 ### Cluster considerations
 
 #### External network access
+
 Please be aware that as of June 2025, NCI Gadi HPC compute nodes **do not** have external network access. This means you will not be able to pull the workflow code base or containers if you submit your `nextflow run` command as a job on any of the standard job queues. NCI currently recommends you run your Nextflow head job in a [persistent session](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) from the login node or submit it as a job to the [copyq](https://opus.nci.org.au/display/Help/Queue+Structure). See the [nf-core documentation](https://nf-co.re/docs/usage/offline) for instructions on running pipelines offline.
 
 #### Downloading containers
@@ -40,7 +41,7 @@ Please be aware that as of June 2025, NCI Gadi HPC compute nodes **do not** have
 This config requires Nextflow to use [Singularity](https://www.nextflow.io/docs/latest/container.html#singularity) to execute processes. Before a process can be executed, any nf-core pipeline you run will download that container to a local cache. This config file specifies the download and storage location with:
 
 ```
-cacheDir = "/scratch/params.project/$(whoami)/singularity_cache"
+cacheDir = "/scratch/${params.project}/singularity"
 ```
 
 Additionally, the project parameter is defined using the PBS environmental variable `$PROJECT`:
