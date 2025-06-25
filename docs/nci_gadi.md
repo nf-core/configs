@@ -12,11 +12,11 @@ Please be aware that you will need to have a user account, be a member of an Gad
 
 ### Prerequisites
 
-Before running the pipeline you will need to load Nextflow and Singularity, both of which are globally installed modules on Gadi. You can do this by running the commands below:
+Before running the pipeline you will need to load Nextflow, both of which are globally installed modules on Gadi (see `/apps`). You can do this by running the commands below:
 
 ```bash
 module purge
-module load nextflow singularity
+module load nextflow
 ```
 
 ### Execution command
@@ -32,7 +32,7 @@ nextflow run <nf-core_pipeline>/main.nf \
 
 ### Cluster considerations
 
-Please be aware that as of July 2023, NCI Gadi HPC queues **do not** have external network access. This means you will not be able to pull the workflow code base or containers if you submit your `nextflow run` command as a job on any of the standard job queues. NCI currently recommends you run your Nextflow head job either in a GNU screen or tmux session from the login node or submit it as a job to the [copyq](https://opus.nci.org.au/display/Help/Queue+Structure). See the [nf-core documentation](https://nf-co.re/docs/usage/offline) for instructions on running pipelines offline.
+Please be aware that as of June 2025, NCI Gadi HPC compute nodes **do not** have external network access. This means you will not be able to pull the workflow code base or containers if you submit your `nextflow run` command as a job on any of the standard job queues. NCI currently recommends you run your Nextflow head job either in a [persistent session](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) from the login node or submit it as a job to the [copyq](https://opus.nci.org.au/display/Help/Queue+Structure). See the [nf-core documentation](https://nf-co.re/docs/usage/offline) for instructions on running pipelines offline.
 
 This config currently determines which Gadi queue to submit your task jobs to based on the amount of memory required. For the sake of resource and cost (service unit) efficiency, the following rules are applied by this config:
 
