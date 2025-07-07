@@ -8,5 +8,7 @@ To use, run the pipeline with `-profile cfc_dev`. This will download and launch 
 
 Before running the pipeline you will need to install Nextflow on the CFC cluster. You can do this by following the instructions [here](https://www.nextflow.io/).
 
+This config includes the necessary parameters for estimating the CO2 footprint via the [nf-co2footprint plugin](https://github.com/nextflow-io/nf-co2footprint) of any pipeline run on the cluster. The parameters are the cluster-specific power usage effectiveness (PUE) of `1.3` and the location of the cluster in Germany(`DE`).
+
 > NB: You will need an account to use the HPC cluster CFC in order to run the pipeline. If in doubt contact IT.
 > NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes. If in doubt contact IT.
