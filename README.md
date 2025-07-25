@@ -2,7 +2,7 @@
 
 [![Lint Status](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)](https://github.com/nf-core/configs/workflows/Configs%20tests/badge.svg)
 
-A repository for hosting Nextflow configuration files containing custom parameters required to run nf-core pipelines at different Institutions.
+A repository for hosting Nextflow configuration files containing custom parameters required to run nf-core pipelines at [different institutions](https://nf-co.re/configs).
 
 ## Table of contents <!-- omit in toc -->
 
@@ -23,13 +23,20 @@ A repository for hosting Nextflow configuration files containing custom paramete
 ## Using an existing config
 
 The Nextflow [`-c`](https://www.nextflow.io/docs/latest/config.html) parameter can be used with nf-core pipelines in order to load custom config files that you have available locally.
+
 However, if you or other people within your organisation are likely to be running nf-core pipelines regularly it may be a good idea to use/create a custom config file that defines some generic settings unique to the computing environment within your organisation.
+
+This is where nf-core/configs comes in.
+No need to write a custom config, simply run `nextflow run <nf-core pipeline> -profile <hpc_name>` and everything is configured for you!
+
+All currently supported HPCs and infrastructure can be seen on the [nf-core website](https://nf-co.re/configs).
 
 ### Configuration and parameters
 
-The config files hosted in this repository define a set of parameters which are specific to compute environments at different Institutions but generic enough to be used with all nf-core pipelines.
+The config files hosted in this repository define a set of parameters which are specific to compute environments at different institutions but generic enough to be used with all nf-core pipelines.
 
 All nf-core pipelines inherit the functionality provided by Nextflow, and as such custom config files can contain parameters/definitions that are available to both.
+
 For example, if you have the ability to use [Singularity](https://sylabs.io/singularity/) on your HPC you can add and customize the Nextflow [`singularity`](https://www.nextflow.io/docs/latest/config.html#scope-singularity) scope in your config file.
 Similarly, you can define a Nextflow [`executor`](https://www.nextflow.io/docs/latest/executor.html) depending on the job submission process available on your cluster.
 In contrast, the `params` section in your custom config file will typically define parameters that are specific to nf-core pipelines.
@@ -59,15 +66,24 @@ If required, you can instead download the nf-core/configs files yourself and cus
 ## Adding a new config
 
 If you decide to upload your custom config file to `nf-core/configs` then this will ensure that your custom config file will be automatically downloaded, and available at run-time to all nf-core pipelines, and to everyone within your organisation.
+
 You will simply have to specify `-profile <config_name>` in the command used to run the pipeline.
 See [`nf-core/configs`](https://github.com/nf-core/configs/tree/master/conf) for examples.
 
 Before adding your config file to nf-core/configs, we highly recommend writing and testing your own custom config file (as described [above](https://github.com/nf-core/configs#using-an-existing-config)), and then continuing with the next steps.
 
-N.B. In your config file, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
-Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
+> [!WARNING]
+> In the near future, nf-core/configs will require adherence to Nextflow's 'strict' syntax.
+> Ensure you read the documentation [here](https://www.nextflow.io/docs/latest/config.html#config-syntax) and [here](https://www.nextflow.io/docs/latest/strict-syntax.html#configuration-syntax) on how to correctly write and format your config.
+> Use of the [language server](https://github.com/nextflow-io/language-server) through the [VSCode Extension](https://nextflow.io/docs/latest/vscode.html) can be helpful for identifying syntax errors.
 
-N.B. If you try to specify a shell environment variable within your profile, in some cases you may get an error during testing of something like `Unknown config attribute env.USER_SCRATCH -- check config file: /home/runner/work/configs/configs/nextflow.config` (where the bash environment variable is `$USER_SCRATCH`). This is because the github runner will not have your institutional environment variables set. To fix this you can define this as an internal variable, and set a fallback value for that variable. A good example is in the [VSC_UGENT profile](`https://github.com/nf-core/configs/blob/69468e7ca769643b151a6cfd1ab24185fc341c06/conf/vsc_ugent.config#L2`).
+> [!NOTE]
+> In your config file, please also make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` and `params.config_profile_url` set to reasonable values.
+> Users will get information on who wrote the configuration profile then when executing a nf-core pipeline and can report back if there are things missing for example.
+
+> [!NOTE]
+> If you try to specify a shell environment variable within your profile, in some cases you may get an error during testing of something like `Unknown config attribute env.USER_SCRATCH -- check config file: /home/runner/work/configs/configs/nextflow.config` (where the bash environment variable is `$USER_SCRATCH`).
+> This is because the GitHub runner used for CI testing will not have your institutional environment variables set. To fix this you can define this as an internal variable, and set a fallback value for that variable. A good example is in the [VSC_UGENT profile](`https://github.com/nf-core/configs/blob/69468e7ca769643b151a6cfd1ab24185fc341c06/conf/vsc_ugent.config#L2`).
 
 ### Testing
 
@@ -85,161 +101,59 @@ You might orientate yourself using the [Template](docs/template.md) that we prov
 
 See [`nf-core/configs/docs`](https://github.com/nf-core/configs/tree/master/docs) for examples.
 
-Currently documentation is available for the following systems:
-
-- [ABIMS](docs/abims.md)
-- [ADCRA](docs/adcra.md)
-- [ALICE](docs/alice.md)
-- [APOLLO](docs/apollo.md)
-- [ARCC](docs/arcc.md)
-- [AWSBATCH](docs/awsbatch.md)
-- [AWS_TOWER](docs/aws_tower.md)
-- [AZUREBATCH](docs/azurebatch.md)
-- [BIGPURPLE](docs/bigpurple.md)
-- [BI](docs/bi.md)
-- [BINAC](docs/binac.md)
-- [BIOHPC_GEN](docs/biohpc_gen.md)
-- [BIOWULF](docs/biowulf.md)
-- [CAMBRIDGE](docs/cambridge.md)
-- [CBE](docs/cbe.md)
-- [CCGA_DX](docs/ccga_dx.md)
-- [CCGA_MED](docs/ccga_med.md)
-- [Cedars-Sinai](docs/cedars.md)
-- [Ceres](docs/ceres.md)
-- [CFC](docs/cfc.md)
-- [CHEAHA](docs/cheaha.md)
-- [Computerome](docs/computerome.md)
-- [CREATE](docs/create.md)
-- [CRG](docs/crg.md)
-- [CRICK](docs/crick.md)
-- [Cancer Research UK Manchester Institute](docs/crukmi.md)
-- [CSIRO PETRICHOR](docs/csiro_petrichor.md)
-- [CZBIOHUB_AWS](docs/czbiohub.md)
-- [DaiSyBio](docs/daisybio.md)
-- [DENBI_QBIC](docs/denbi_qbic.md)
-- [DKFZ](docs/dkfz.md)
-- [EBC](docs/ebc.md)
-- [EBI_CODON](docs/ebi_codon.md)
-- [EBI_CODON_SLURM](docs/ebi_codon_slurm.md)
-- [EINSTEIN](docs/einstein.md)
-- [Engaging](docs/engaging.md)
-- [ETH Zurich Euler](docs/ethz_euler.md)
-- [EVA](docs/eva.md)
-- [FGCZ](docs/fgcz.md)
-- [FUB Curta](docs/fub_curta.md)
-- [GENOTOUL](docs/genotoul.md)
-- [GENOUEST](docs/genouest.md)
-- [GIS](docs/gis.md)
-- [GOOGLE](docs/google.md)
-- [GOOGLEBATCH](docs/googlebatch.md)
-- [GOOGLELS](docs/googlels.md)
-- [HASTA](docs/hasta.md)
-- [HKI](docs/hki.md)
-- [HYPATIA](docs/hypatia.md)
-- [ICR_DAVROS](docs/icr_davros.md)
-- [IFB](docs/ifb_core.md)
-- [ILIFU](docs/ilifu.md)
-- [IMPERIAL](docs/imperial.md)
-- [IMB](docs/imb.md)
-- [INCLIVA](docs/incliva.md)
-- [iPOP-UP](docs/ipop_up.md)
-- [Janelia Research Campus](docs/janelia.md)
-- [JAX](docs/jax.md)
-- [Jex](docs/jex.md)
-- [KU SUND DANGPU](docs/ku_sund_dangpu.md)
-- [LUGH](docs/lugh.md)
-- [M3C](docs/m3c.md)
-- [MAESTRO](docs/maestro.md)
-- [Mana](docs/mana.md)
-- [MARJORIE](docs/marjorie.md)
-- [MARVIN](docs/marvin.md)
-- [MCCLEARY](docs/mccleary.md)
-- [MEDAIR](docs/medair.md)
-- [MJOLNIR_GLOBE](docs/mjolnir_globe.md)
-- [MPCDF](docs/mpcdf.md)
-- [MUNIN](docs/munin.md)
-- [NCI GADI](docs/nci_gadi.md)
-- [NU_GENOMICS](docs/nu_genomics.md)
-- [NYGC](docs/nygc.md)
-- [NYU_HPC](docs/nyu_hpc.md)
-- [OIST](docs/oist.md)
-- [PASTEUR](docs/pasteur.md)
-- [PAWSEY NIMBUS](docs/pawsey_nimbus.md)
-- [PAWSEY SETONIX](docs/pawsey_setonix.md)
-- [PDC](docs/pdc_kth.md)
-- [PHOENIX](docs/phoenix.md)
-- [PSMN](docs/psmn.md)
-- [QMUL_APOCRITA](docs/qmul_apocrita.md)
-- [ROSALIND](docs/rosalind.md)
-- [ROSALIND_UGE](docs/rosalind_uge.md)
-- [SAGE BIONETWORKS](docs/sage.md)
-- [SANGER](docs/sanger.md)
-- [SEATTLECHILDRENS](docs/seattlechildrens.md)
-- [SEAWULF](docs/seawulf.md)
-- [SEG_GLOBE](docs/seg_globe.md)
-- [self-hosted-runner](docs/self-hosted-runner.md)
-- [Super Computing Wales](docs/scw.md)
-- [TIGEM](docs/tigem.md)
-- [TUBINGEN_APG](docs/tubingen_apg.md)
-- [TUFTS](docs/tufts.md)
-- [TUOS_STANAGE](docs/tuos_stanage.md)
-- [UCD_SONIC](docs/ucd_sonic.md)
-- [UCL_CSCLUSTER](docs/ucl_cscluster.md)
-- [UCL_MYRIAD](docs/ucl_myriad.md)
-- [UCT_HPC](docs/uct_hpc.md)
-- [UNC_LCCC](docs/unc_lccc.md)
-- [UNC_LONGLEAF](docs/unc_longleaf.md)
-- [UGE](docs/uge.md)
-- [UNIBE_IBU](docs/unibe_ibu.md)
-- [UOD_HPC](docs/uod_hpc.md)
-- [UPPMAX](docs/uppmax.md)
-- [UTD_EUROPA](docs/utd_europa.md)
-- [UTD_GANYMEDE](docs/utd_ganymede.md)
-- [UTD_SYSBIO](docs/utd_sysbio.md)
-- [UW_HYAK_PEDSLABS](docs/uw_hyak_pedslabs.md)
-- [UZH](docs/uzh.md)
-- [UZL_OMICS](docs/uzl_omics.md)
-- [VAI](docs/vai.md)
-- [VSC_CALCUA](docs/vsc_calcua.md)
-- [VSC_KUL_UHASSELT](docs/vsc_kul_uhasselt.md)
-- [VSC_UGENT](docs/vsc_ugent.md)
-- [WEHI](docs/wehi.md)
-- [WUSTL_HTCF](docs/wustl_htcf.md)
-- [XANADU](docs/xanadu.md)
-- [YORK_VIKING](docs/york_viking.md)
-
 ### Uploading to `nf-core/configs`
+
+> [!WARNING]
+> Before you start, make sure you are a part of the nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
 Within the local clone of your fork:
 
-- **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory
-- **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory
-- **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone
-- **edit** and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone
+1.  **add** the custom config file to the [`conf/`](https://github.com/nf-core/configs/tree/master/conf) directory
+2.  **add** the documentation file to the [`docs/`](https://github.com/nf-core/configs/tree/master/docs) directory
+3.  **edit** and add your custom profile to the [`nfcore_custom.config`](https://github.com/nf-core/configs/blob/master/nfcore_custom.config) file in the top-level directory of the clone
+4.  **add** your profile name to GitHub Actions YAML `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml).
 
-In order to ensure that the config file is tested automatically with GitHub Actions please add your profile name to the `profile:` scope (under strategy matrix) in [`.github/workflows/main.yml`](.github/workflows/main.yml). If you forget to do this the tests will fail with the error:
+    - If you forget to do this the tests will fail with the error in GitHub Actions:
 
-```bash
-Run python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
-Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.
-set(['<profile_name>'])
-##[error]Process completed with exit code 1.
-```
+          ```bash
+          Tests don't seem to test these profiles properly. Please check whether you added the profile to the Github Actions testing YAML.
+          set(['<profile_name>'])
+          ##[error]Process completed with exit code 1.
+          ```
 
-Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
+> [!WARNING]
+> In the near future, nf-core/configs will require adherence to Nextflow's 'strict' syntax.
+> Ensure you read the documentation [here](https://www.nextflow.io/docs/latest/config.html#config-syntax) and [here](https://www.nextflow.io/docs/latest/strict-syntax.html#configuration-syntax) on how to correctly write and format your config.
+> Use of the [language server](https://github.com/nextflow-io/language-server) through the [VSCode Extension](https://nextflow.io/docs/latest/vscode.html) can be helpful for identifying syntax errors.
+
+Once all the files have been added and updated, commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 
 Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 
+> [!NOTE]
+> Once you get approval, you as the pull request author MUST merge the pull request.
+> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author should be the person to merge in the config.
+> If you do not see the 'merge' button at the bottom of the PR, ensure you're in nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
+
 ## Adding a new pipeline-specific config
+
+> [!WARNING]
+> Before you start, make sure you are a part of the nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
 
 Sometimes it may be desirable to have configuration options for an institute that are specific to a single nf-core pipeline.
 Such options should not be added to the main institutional config, as this will be applied to all pipelines.
 Instead, we can create a pipeline-specific institutional config file.
 
+Existing pipeline-specific HPC and infrastructure configs can be seen on the [nf-core website](https://nf-co.re/configs) under the 'pipeline configs column.
+
 > The following steps are similar to the instructions for standard institutional config, however using `pipeline` variants of folders e.g., `conf/pipeline/` or under `pipeline/`
 
-:warning: Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
+> [!WARNING]
+> Remember to replace the `<PIPELINE>` and `<PROFILE>` placeholders with the pipeline name and profile name in the following examples
 
 Institutional configs work because the pipeline `nextflow.config` file loads the [`nf-core/configs/nfcore_custom.config` config file](https://github.com/nf-core/configs/blob/master/nfcore_custom.config), which in turn loads the institutional configuration file based on the profile `<PROFILE>` supplied on the command line.
 
@@ -251,53 +165,9 @@ Each configuration file will add new params and overwrite the params already exi
 
 Note that pipeline-specific configs are not required and should only be added if needed.
 
-### Pipeline-specific institutional documentation
-
-Currently documentation is available for the following pipelines within specific profiles:
-
-- ampliseq
-  - [BINAC](docs/pipeline/ampliseq/binac.md)
-  - [UPPMAX](docs/pipeline/ampliseq/uppmax.md)
-- cutandrun
-  - [UNC_LONGLEAF](docs/pipeline/cutandrun/unc_longleaf.md)
-- demultiplex
-  - [AWS_TOWER](docs/pipeline/demultiplex/aws_tower.md)
-- eager
-  - [EVA](docs/pipeline/eager/eva.md)
-- funcscan
-  - [HKI](docs/pipeline/funcscan/hki.md)
-- mag
-  - [Engaging](docs/pipeline/mag/engaging.md)
-  - [EVA](docs/pipeline/mag/eva.md)
-- methylseq
-  - [FUB Curta](docs/pipeline/methylseq/fub_curta.md)
-- rnafusion
-  - [HASTA](docs/pipeline/rnafusion/hasta.md)
-  - [MUNIN](docs/pipeline/rnafusion/munin.md)
-- rnaseq
-  - [AZUREBATCH](docs/pipeline/rnaseq/azurebatch.md)
-- rnavar
-  - [MUNIN](docs/pipeline/rnavar/munin.md)
-- sarek
-  - [EVA](docs/pipeline/sarek/eva.md)
-  - [MUNIN](docs/pipeline/sarek/munin.md)
-  - [UPPMAX](docs/pipeline/sarek/uppmax.md)
-- taxprofiler
-  - [EVA](docs/pipeline/taxprofiler/eva.md)
-  - [hasta](docs/pipeline/taxprofiler/hasta.md)
-- proteinfold
-  - [CRG](docs/pipeline/proteinfold/crg.md)
-
-### Pipeline-specific documentation
-
-Currently documentation is available for the following pipeline:
-
-- viralrecon
-  - [genomes](docs/pipeline/viralrecon/genomes.md)
-
 ### Enabling pipeline-specific configs within a pipeline
 
-:warning: **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
+> [!WARNING] > **This has to be done on a fork of the `nf-core/<PIPELINE>` repository.**
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the `nf-core/<PIPELINE>` repository to your own GitHub account.
 Within the local clone of your fork, if not already present, add the following to `nextflow.config` **after** the code that loads the generic nf-core/configs config file:
@@ -317,40 +187,50 @@ We will be notified automatically when you have created your pull request, and p
 
 ### Create the pipeline-specific `nf-core/configs` files
 
-:warning: This has to be done on a fork of the [`nf-core/configs`](https://github.com/nf-core/configs/) repository.
+> [!WARNING]
+> This has to be done on a fork of the [`nf-core/configs`](https://github.com/nf-core/configs/) repository.
 
 [Fork](https://help.github.com/articles/fork-a-repo/) the [`nf-core/configs`](https://github.com/nf-core/configs/) repository to your own GitHub account.
-And add or edit the following files in the local clone of your fork.
+
+And add or edit the following files in the local clone of your fork:
 
 - `pipeline/<PIPELINE>.config`
 
-If not already created, create the `pipeline/<PIPELINE>.config` file, and add your custom profile to the profile scope
+  If not already created, create the `pipeline/<PIPELINE>.config` file, and add your custom profile to the profile scope
 
-```Groovy
-profiles {
-  <PROFILE> { includeConfig "${params.custom_config_base}/conf/pipeline/<PIPELINE>/<PROFILE>.config" }
-}
-```
+  ```Groovy
+  profiles {
+    <PROFILE> { includeConfig "${params.custom_config_base}/conf/pipeline/<PIPELINE>/<PROFILE>.config" }
+  }
+  ```
 
 - `conf/pipeline/<PIPELINE>/<PROFILE>.config`
 
-Add the custom configuration file to the `conf/pipeline/<PIPELINE>/` directory.
-Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` to the top of `pipeline/<PIPELINE>.config` and set to reasonable values.
-Users will get information on who wrote the pipeline-specific configuration profile then when executing the nf-core pipeline and can report back if there are things missing for example.
+  Add the custom configuration file to the `conf/pipeline/<PIPELINE>/` directory.
+  Make sure to add an extra `params` section with `params.config_profile_description`, `params.config_profile_contact` to the top of `pipeline/<PIPELINE>.config` and set to reasonable values.
+  Users will get information on who wrote the pipeline-specific configuration profile then when executing the nf-core pipeline and can report back if there are things missing for example.
 
 - `docs/pipeline/<PIPELINE>/<PROFILE>.md`
 
-Add the documentation file to the `docs/pipeline/<PIPELINE>/` directory.
-You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
+  Add the documentation file to the `docs/pipeline/<PIPELINE>/` directory.
+  You will also need to edit and add your custom profile to the [`README.md`](https://github.com/nf-core/configs/blob/master/README.md) file in the top-level directory of the clone.
 
-- `README.md`
-
-Edit this file, and add the new pipeline-specific institutional profile to the list in the section Pipeline specific documentation
+> [!WARNING]
+> In the near future, nf-core/configs will require adherence to Nextflow's 'strict' syntax.
+> Ensure you read the documentation [here](https://www.nextflow.io/docs/latest/config.html#config-syntax) and [here](https://www.nextflow.io/docs/latest/strict-syntax.html#configuration-syntax) on how to correctly write and format your config.
+> Use of the [language server](https://github.com/nextflow-io/language-server) through the [VSCode Extension](https://nextflow.io/docs/latest/vscode.html) can be helpful for identifying syntax errors.
 
 Commit and push these changes to your local clone on GitHub, and then [create a pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) on the `nf-core/configs` GitHub repo with the appropriate information.
 In the pull-request description, add a link to the repository specific pull-request(s) that use this new code.
+
 Please request review from @nf-core/maintainers and/or on #request-review on the nf-core slack, and providing that everything adheres to nf-core guidelines we will endeavour to approve your pull request as soon as possible.
 Both PRs will need to be merged at the approximately the same time.
+
+> [!NOTE]
+> Once you get approval, you as the pull request author MUST merge the pull request.
+> Community members cannot be held responsible for the use config on your infrastructure as they do not have permission to test on your infrastructure, therefore the PR author should be the person to merge in the config.
+> If you do not see the 'merge' button at the bottom of the PR, ensure you're in nf-core GitHub organisation!
+> More information on joining can be found [here](https://nf-co.re/join).
 
 ## Help
 

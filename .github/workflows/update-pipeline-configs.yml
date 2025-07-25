@@ -17,6 +17,7 @@ jobs:
           curl -o pipeline_names.json https://nf-co.re/pipeline_names.json
 
       - name: Check pipeline names and add missing configs
+        id: check-pipelines
         run: |
           pipeline=$(jq -r '.pipeline[]' pipeline_names.json)
           for pipeline in $pipeline; do
@@ -36,6 +37,8 @@ jobs:
           profiles {
           }
           EOF
+
+            echo "changed=true" >> $GITHUB_OUTPUT
             fi
           done
 
@@ -45,6 +48,7 @@ jobs:
 
       - name: Commit & push changes
         id: commit-and-push
+        if: steps.check-pipelines.outputs.changed == 'true'
         run: |
           git config user.email "core@nf-co.re"
           git config user.name "nf-core-bot"
@@ -54,6 +58,7 @@ jobs:
 
       - name: Create PR
         uses: peter-evans/create-pull-request@70a41aba780001da0a30141984ae2a0c95d8704e # v6
+        if: steps.check-pipelines.outputs.changed == 'true'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update pipeline configs
@@ -64,3 +69,7 @@ jobs:
           delete-branch: true
           base: "master"
           draft: false
+          reviewers: |
+            "mashehu"
+            "jfy133"
+            "maxulysse"
