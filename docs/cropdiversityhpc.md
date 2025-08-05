@@ -25,4 +25,4 @@ To use this profile, simply pass Nextflow the -profile cropdiversityhpc flag eg.
 nextflow run nf-core/_pipeline_ -profile cropdiversityhpc --outdir results
 ```
 
-In case of issues, please feel free to reach out to me (Thomas Adams) on the Crop Diversity HPC Slack.
+In case of issues, please feel free to reach out to one of the maintainers (Thomas Adams, Moray Smith and Miriam Schreiber) on the Crop Diversity HPC Slack.
