@@ -34,7 +34,7 @@ module load igmm/bac/nextflow/24.04.2
 
 This config enables Nextflow to manage the pipeline jobs via the SGE job scheduler and using Singularity for software management.
 
-## Singularity set up
+## Singularity / apptainer set up
 
 The roslin profile is set to use `/exports/cmvm/eddie/eb/groups/alaw3_eb_singularity_cache` as the singularity cache directory. This directory is put at the disposition of roslin institute nextflow/nf-core users by the Roslin Bioinformatics group led by Andy Law. All new container will be cached in this directory writable by all. If you face any problem with singularity cache, please contact [Sébastien Guizard](sguizard@ed.ac.uk), [Donald Dunbar](donald.dunbar@ed.ac.uk) and [Andy Law](andy.law@roslin.ed.ac.uk) with the [Roslin Bioinformatics](roslin.bioinformatics@roslin.ed.ac.uk) group in CC.
 
