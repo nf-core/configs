@@ -7,8 +7,8 @@ nf-core pipelines sarek, rnaseq, chipseq, mag, differentialabundance and isoseq 
 
 There is a Teams group dedicated to Nextflow users: [Nextflow Teams](https://teams.microsoft.com/l/team/19%3A7e957d32ce1345b8989af14564547690%40thread.tacv2/conversations?groupId=446c509d-b8fd-466c-a66f-52122f0a2fcc&tenantId=2e9f06b0-1669-4589-8789-10a06934dc61)
 Also, you can find at the coding club held each Wednesday: [Code Club Teams](https://teams.microsoft.com/l/channel/19%3A1bf9220112e445c382b6beb660ffb61a%40thread.tacv2/Coding%20Club?groupId=cc7a1113-38a1-48f6-9fc6-14700c8da27e&tenantId=2e9f06b0-1669-4589-8789-10a06934dc61)
-Please also contact the Roslin Bioinformatics team with questions and we'll try to help: https://www.wiki.ed.ac.uk/spaces/RosBio/pages/602179073/Roslin+Bioinformatics+Home 
-We also have some notes on running the rnaseq pipeline (and of course much applies to all nf-core pipelines) here: https://www.wiki.ed.ac.uk/spaces/RosBio/pages/649925054/Nextflow+and+nf-core 
+Please also contact the Roslin Bioinformatics team with questions and we'll try to help: https://www.wiki.ed.ac.uk/spaces/RosBio/pages/602179073/Roslin+Bioinformatics+Home
+We also have some notes on running the rnaseq pipeline (and of course much applies to all nf-core pipelines) here: https://www.wiki.ed.ac.uk/spaces/RosBio/pages/649925054/Nextflow+and+nf-core
 
 ## Using the Roslin config profile
 
@@ -99,4 +99,3 @@ screen -r <session_name>
 Wild West node has relaxed restriction compared to regular nodes, which allows the execution of Nextflow.
 The access to Wild West node must be requested to [Andy Law](andy.law@roslin.ed.ac.uk) and IS.
 Similarly to the qlogin option, it is advised to run Nextflow within a screen session.
-
