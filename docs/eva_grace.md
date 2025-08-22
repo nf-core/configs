@@ -12,7 +12,7 @@ Before running `nextflow run...` make sure to activate either the singularity (o
 module load singularity
 ```
 
-or 
+or
 
 ```bash
 module load apptainer
