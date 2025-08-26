@@ -6,16 +6,16 @@ Before running any pipeline in Novo Nordisk's Lovelace cluster, `Nextflow` will 
  (`module load nextflow`) or installed in the conda environment being used.
 
 To use, run the pipeline with `-profile lovelace` (one hyphen).
-This will download and launch the [`lovelace.config`](../conf/lovelace.config) 
+This will download and launch the [`lovelace.config`](../conf/lovelace.config)
 which has been pre-configured with a setup suitable for the Lovelace server.
 It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job scheduler.
 
-Using this profile, Docker image(s) containing required software(s) will be downloaded 
+Using this profile, Docker image(s) containing required software(s) will be downloaded
 from the in-house Docker repository, and converted to `Apptainer` image(s) if needed before execution of the pipeline.
 
 ## Below are non-mandatory information on e.g., required modules
 
-Before running the pipeline you will need to have a working Nextflow installation 
+Before running the pipeline you will need to have a working Nextflow installation
 and load apptainer using the environment module system on the Lovelace cluster. You can do this by doing for example:
 
 ```bash
@@ -24,7 +24,7 @@ module load nextflow
 module load apptainer
 ```
 
-It is best practices to set the environment variables when running on the HPC, 
+It is best practices to set the environment variables when running on the HPC,
 by adding the following to your `~./bashrc` profile:
 
 ```bash
