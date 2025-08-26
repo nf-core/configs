@@ -3,7 +3,7 @@
 ## Using the Dirac config profile
 
 Before running any pipeline in Novo Nordisk's Dirac cluster, `Nextflow` will need to be loaded as a module
- (`module load nextflow`) or installed in the conda environment being used.
+(`module load nextflow`) or installed in the conda environment being used.
 
 To use, run the pipeline with `-profile dirac` (one hyphen).
 This will download and launch the [`dirac.config`](../conf/dirac.config)

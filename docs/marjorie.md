@@ -3,7 +3,7 @@
 ## Using the Marjorie config profile
 
 Before running any pipeline in Novo Nordisk's Marjorie cluster, `Nextflow` will need to be loaded as a module
- (`module load nextflow`) or installed in the conda environment being used.
+(`module load nextflow`) or installed in the conda environment being used.
 
 To use, run the pipeline with `-profile marjorie` (one hyphen).
 This will download and launch the [`marjorie.config`](../conf/marjorie.config)

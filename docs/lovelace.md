@@ -3,7 +3,7 @@
 ## Using the Lovelace config profile
 
 Before running any pipeline in Novo Nordisk's Lovelace cluster, `Nextflow` will need to be loaded as a module
- (`module load nextflow`) or installed in the conda environment being used.
+(`module load nextflow`) or installed in the conda environment being used.
 
 To use, run the pipeline with `-profile lovelace` (one hyphen).
 This will download and launch the [`lovelace.config`](../conf/lovelace.config)
