@@ -13,7 +13,7 @@ It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job schedu
 Using this profile, Docker image(s) containing required software(s) will be downloaded
 from the in-house Docker repository, and converted to `Apptainer` image(s) if needed before execution of the pipeline.
 
-## Below are non-mandatory information on e.g., required modules
+## Below are information on required modules on HPC and Nextflow environment variables
 
 Before running the pipeline you will need to have a working Nextflow installation
 and load apptainer using the environment module system on the Dirac cluster. You can do this by doing for example:
