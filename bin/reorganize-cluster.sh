@@ -41,10 +41,22 @@ REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 # Change to repository root
 cd "$REPO_ROOT"
 
-# Validate that the cluster directory exists
-if [ ! -d "conf/${CLUSTER_NAME}" ]; then
-    echo "Error: Cluster directory conf/${CLUSTER_NAME} does not exist"
+# Check if cluster config exists (either as directory or single file)
+if [ ! -d "conf/${CLUSTER_NAME}" ] && [ ! -f "conf/${CLUSTER_NAME}.config" ]; then
+    echo "Error: Neither conf/${CLUSTER_NAME}/ directory nor conf/${CLUSTER_NAME}.config file exists"
     exit 1
+fi
+
+# Create cluster directory if it doesn't exist
+if [ ! -d "conf/${CLUSTER_NAME}" ]; then
+    echo "  📁 Creating conf/${CLUSTER_NAME}/ directory"
+    mkdir -p "conf/${CLUSTER_NAME}"
+    
+    # Move the single config file into the directory
+    if [ -f "conf/${CLUSTER_NAME}.config" ]; then
+        echo "  ✅ Moving conf/${CLUSTER_NAME}.config → conf/${CLUSTER_NAME}/nextflow.config"
+        mv "conf/${CLUSTER_NAME}.config" "conf/${CLUSTER_NAME}/nextflow.config"
+    fi
 fi
 
 echo "🔄 Reorganizing ${CLUSTER_NAME} cluster configuration..."
