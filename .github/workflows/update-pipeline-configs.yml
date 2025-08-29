@@ -22,8 +22,8 @@ jobs:
           pipeline=$(jq -r '.pipeline[]' pipeline_names.json)
           for pipeline in $pipeline; do
             printf "Checking pipeline: %s\n" $pipeline
-            if [ ! -f "pipeline/${pipeline}.config" ]; then
-              cat << EOF > "pipeline/${pipeline}.config"
+            if [ ! -f "conf/pipeline/${pipeline}.config" ]; then
+              cat << EOF > "conf/pipeline/${pipeline}.config"
           /*
           * -------------------------------------------------
           *  nfcore/${pipeline} custom profile Nextflow config file
