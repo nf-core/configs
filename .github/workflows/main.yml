@@ -94,6 +94,7 @@ jobs:
           - "googlebatch"
           - "hasta"
           - "hki"
+          - "hki_genie"
           - "hypatia"
           - "humantechnopole"
           - "icr_alma"
