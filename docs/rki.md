@@ -1,8 +1,8 @@
-# nf-core/configs: PROFILE Configuration
+# nf-core/configs: RKI Configuration
 
-All nf-core pipelines have been successfully configured for use on the HPC at RKI.
+Configuration file to run nf-core pipelines on the HPC at RKI.
 
-To use, run the pipeline with `-profile PROFILENAME`. This will download and launch the [`profile.config`](../conf/profile.config) which has been pre-configured with a setup suitable for the HPC. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile rki,<singularity|mamba|conda>`. This will download and launch the [`rki.config`](../conf/rki.config) which has been pre-configured with a setup suitable for the HPC. When using `-profile rki,singularity`, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 ## Before running the pipeline
 
