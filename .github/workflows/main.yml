@@ -93,7 +93,6 @@ jobs:
           - "gis"
           - "googlebatch"
           - "hasta"
-          - "hki"
           - "hki_genie"
           - "hypatia"
           - "humantechnopole"
