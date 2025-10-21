@@ -4,7 +4,7 @@ All nf-core pipelines have been successfully configured for use on the 'genie' c
 
 To use, run the pipeline with `-profile hki_genie`. You can further with optimise submissions by specifying which cluster queue you are using e,g, `-profile hki_genie`. This will download and launch the [`hki_genie.config`](../conf/hki_genie.config) which has been pre-configured with a setup suitable.
 
-> ![NOTE]
+> [!NOTE]
 > This is an unofficial profile written and curated by the community, and the HKI IT team cannot provide support for it!
 
 The configuration file is set to remove intermediate files on successful completion of the pipeline, to save space on the cluster.
