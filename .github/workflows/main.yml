@@ -140,6 +140,7 @@ jobs:
           - "phoenix"
           - "psmn"
           - "qmul_apocrita"
+          - "rki"
           - "rosalind"
           - "rosalind_uge"
           - "roslin"
