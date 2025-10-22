@@ -76,6 +76,12 @@ To have access to specific other mount point you can add a config profile file w
 singularity.runOptions = '-B /directory/to/mount'
 ```
 
+or
+
+```bash
+apptainer.runOptions = '-B /directory/to/mount'
+```
+
 ## Databanks
 
 A local copy of several genomes are available in `/bank` directory. See
