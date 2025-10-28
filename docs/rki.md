@@ -6,6 +6,17 @@ To use, run the pipeline with `-profile rki,<singularity|mamba|conda>`. This wil
 
 ## Before running the pipeline
 
+### Conda/Mamba
+
+We highly recommend specifying a location of a cache directory to store singularity images (so you re-use them across runs, and not pull each time), by specifying the location with the `$NXF_CONDA_CACHEDIR` bash environment variable in your `~/.bashrc`, or in your current session:
+
+```bash
+# as environment variable
+export NXF_CONDA_CACHEDIR="/path/to/your/singularity/image/cache"
+# or for one nextflow run
+NXF_CONDA_CACHEDIR='/path/to/your/singularity/image/cache' nextflow run <...>
+```
+
 ### Singularity
 
 We highly recommend specifying a location of a cache directory to store singularity images (so you re-use them across runs, and not pull each time), by specifying the location with the `$NXF_SINGULARITY_CACHEDIR` bash environment variable in your `~/.bashrc`, or in your current session:
