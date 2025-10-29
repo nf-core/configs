@@ -59,7 +59,7 @@ qsub <script name>.pbs
 You can monitor the CO2 usage of your pipeline using the [nf-co2footprint plugin](https://nextflow-io.github.io/nf-co2footprint/) using a nextflow version =>24.10.6. Monitoring the CO2 usage is fully optional and will only be activated when running the following command-line.
 
 ```bash
-nextflow run main.nf -profile vsc_ugent -plugins nf-co2footprint@1.0.0 --outdir your_output_folder
+nextflow run <pipeline> -profile vsc_ugent -plugins nf-co2footprint@1.0.0 --outdir your_output_folder <Add your other parameters>
 ``` 
 
 ## Use Apptainer containers
