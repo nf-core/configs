@@ -12,7 +12,7 @@ To correctly submit jobs into the `biohpc_gen` cluster the `SLURM_CLUSTERS` vari
 export SLURM_CLUSTERS=biohpc_gen
 ```
 
-We recommend using nextflow >= 25.04.2 and apptainer (1.3.4). 
+We recommend using nextflow >= 25.04.2 and apptainer (1.3.4).
 These are then available as modules (please confirm the module name using module avail):
 
 ```bash
