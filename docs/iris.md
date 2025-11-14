@@ -157,9 +157,9 @@ Runtime limits are increased for time-related failures:
 
 **Formula**: `new_time = previous_time + (multiplier × attempt) + base_increment`
 
-### Example Retry Scenarios
+### Example Retries
 
-#### Scenario 1: Out of Memory Failure
+#### Out of Memory Failure
 
 A `process_medium` job (6 CPUs, 36 GB, 8h) runs out of memory:
 
@@ -169,36 +169,17 @@ Attempt 2: 6 CPUs, 46 GB, 8h    → Out of Memory (exit 137)
 Attempt 3: 6 CPUs, 56 GB, 8h    → Success
 ```
 
-```mermaid
-xychart-beta
-    title "Scenario 1: Out of Memory Failure - Resource Scaling"
-    x-axis "Attempt" [1, 2, 3]
-    y-axis "Resources" 0 --> 60
-    line "Memory (GB)" [36, 46, 56]
-    line "CPUs" [6, 6, 6]
-    line "Time (hours)" [8, 8, 8]
-```
-
-#### Scenario 2: Out of Time Failure
+#### Out of Time Failure
 
 A `process_low` job (2 CPUs, 12 GB, 2h) exceeds time limit:
 
 ```
 Attempt 1: 2 CPUs, 12 GB, 2h     → Out of Time (exit 140)
-Attempt 2: 3 CPUs, 16 GB, 14h    → Success
+Attempt 2: 3 CPUs, 16 GB, 14h    → Out of Time (exit 140)
+Attempt 3: 5 CPUs, 24 GB, 38h    → Success
 ```
 
-```mermaid
-xychart-beta
-    title "Scenario 2: Out of Time Failure - Resource Scaling"
-    x-axis "Attempt" [1, 2]
-    y-axis "Resources" 0 --> 20
-    line "Memory (GB)" [12, 16]
-    line "CPUs" [2, 3]
-    line "Time (hours)" [2, 14]
-```
-
-#### Scenario 3: Complex Multi-Failure Path
+#### Complex Multi-Failure Path
 
 A job experiences multiple failure types across retries:
 
@@ -209,13 +190,74 @@ Attempt 3: 7 CPUs, 50 GB, 20h    → Success
 ```
 
 ```mermaid
-xychart-beta
-    title "Scenario 3: Complex Multi-Failure Path - Resource Scaling"
-    x-axis "Attempt" [1, 2, 3]
-    y-axis "Resources" 0 --> 60
-    line "Memory (GB)" [36, 46, 50]
-    line "CPUs" [6, 6, 7]
-    line "Time (hours)" [8, 8, 20]
+---
+config:
+    radar:
+        width: 400
+        height: 400
+    themeVariables:
+        cScale0: "#D3212C"
+        cScale1: "#FF681E"
+        cScale2: "#006B3D"
+        radar:
+            curveOpacity: .10
+            curveStrokeWidth: 2
+---
+radar-beta
+  title Out of Memory
+  axis m["Memory"], s["Cpu"], e["Time"]
+  curve a["Attempt 1"]{36,6, 8}
+  curve b["Attempt 2"]{46,6, 8}
+  curve c["Attempt 3"]{56,6, 8}
+  graticule polygon
+  ticks 3
+```
+
+```mermaid
+---
+config:
+    radar:
+        width: 400
+        height: 400
+    themeVariables:
+        cScale0: "#D3212C"
+        cScale1: "#FF681E"
+        cScale2: "#006B3D"
+        radar:
+            curveOpacity: .10
+            curveStrokeWidth: 2
+---
+radar-beta
+  title Out of Time
+  axis m["Memory"], s["Cpu"], e["Time"]
+  curve a["Attempt 1"]{12,2, 2}
+  curve b["Attempt 2"]{16,3, 14}
+  curve c["Attempt 3"]{24,5, 38}
+  ticks 3
+```
+
+```mermaid
+---
+config:
+    radar:
+        width: 400
+        height: 400
+    themeVariables:
+        cScale0: "#D3212C"
+        cScale1: "#FF681E"
+        cScale2: "#006B3D"
+        radar:
+            curveOpacity: .10
+            curveStrokeWidth: 2
+---
+radar-beta
+  title Multi-Failure
+  axis m["Memory"], s["Cpu"], e["Time"]
+  curve a["Attempt 1"]{36,6, 8}
+  curve b["Attempt 2"]{46,6, 8}
+  curve c["Attempt 3"]{50,7, 20}
+
+  ticks 3
 ```
 
 ### Proactive Resource Detection
