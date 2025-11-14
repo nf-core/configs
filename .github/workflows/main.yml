@@ -112,6 +112,7 @@ jobs:
           - "kaust"
           - "ki_luria"
           - "leicester"
+          - "lrz_cm4"
           - "lugh"
           - "m3c"
           - "maestro"
