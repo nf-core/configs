@@ -109,16 +109,125 @@ The config includes support for GPU jobs. Processes labeled with `process_gpu` o
 
 ## Automatic Resource Management
 
-The IRIS config includes intelligent retry logic that automatically adjusts resources when jobs fail:
+The IRIS config includes intelligent retry logic that automatically adjusts resources when jobs fail. The system monitors job execution and dynamically scales resources based on failure patterns and resource utilization.
 
-### Retry Strategy
+### Retry Strategy Overview
 
 - Jobs are automatically retried up to 3 times on failure
-- Resources are dynamically increased based on the failure type:
-  - **Out of Memory** (exit codes 125, 137): Memory increased by 10 GB
-  - **Out of Time** (exit codes 15, 140): Time increased by 12 hours, memory by 4 GB
-  - **Near resource limits**: Proactive increases to prevent future failures
-  - **CPU starvation**: Additional CPUs allocated
+- Resources are dynamically increased based on the failure type and attempt number
+- The system uses both **multiplicative** (scales with attempt) and **additive** (fixed increment) strategies
+
+### Resource Scaling Logic
+
+#### Memory Scaling
+
+Memory is increased based on the failure type:
+
+| Failure Condition                  | Attempt 2        | Attempt 3        | Attempt 4+       |
+| ---------------------------------- | ---------------- | ---------------- | ---------------- |
+| **Out of Memory** (exit 125, 137)  | Previous + 10 GB | Previous + 20 GB | Previous + 30 GB |
+| **Out of Time** (exit 15, 140)     | Previous + 4 GB  | Previous + 8 GB  | Previous + 12 GB |
+| **Near Out of Memory** (≥80% used) | Previous + 4 GB  | Previous + 8 GB  | Previous + 12 GB |
+| **Other failures**                 | Previous + 2 GB  | Previous + 4 GB  | Previous + 10 GB |
+
+**Formula**: `new_memory = previous_memory + (multiplier × attempt) + base_increment`
+
+#### CPU Scaling
+
+CPUs are increased when jobs are time-constrained or CPU-starved:
+
+| Failure Condition                | Attempt 2    | Attempt 3    | Attempt 4+   |
+| -------------------------------- | ------------ | ------------ | ------------ |
+| **Out of Time** (exit 15, 140)   | Previous + 1 | Previous + 2 | Previous + 3 |
+| **Near Out of Time** (≥80% used) | Previous + 1 | Previous + 2 | Previous + 3 |
+| **CPU Starved** (≥80% CPU usage) | Previous + 2 | Previous + 4 | Previous + 5 |
+| **Other failures**               | Previous + 0 | Previous + 0 | Previous + 1 |
+
+**Formula**: `new_cpus = previous_cpus + (multiplier × attempt) + base_increment`
+
+#### Time Scaling
+
+Runtime limits are increased for time-related failures:
+
+| Failure Condition                | Attempt 2       | Attempt 3       | Attempt 4+      |
+| -------------------------------- | --------------- | --------------- | --------------- |
+| **Out of Time** (exit 15, 140)   | Previous + 12 h | Previous + 24 h | Previous + 36 h |
+| **Near Out of Time** (≥80% used) | Previous + 12 h | Previous + 24 h | Previous + 36 h |
+| **Other failures**               | Previous + 2 h  | Previous + 4 h  | Previous + 1 d  |
+
+**Formula**: `new_time = previous_time + (multiplier × attempt) + base_increment`
+
+### Example Retry Scenarios
+
+#### Scenario 1: Out of Memory Failure
+
+A `process_medium` job (6 CPUs, 36 GB, 8h) runs out of memory:
+
+```
+Attempt 1: 6 CPUs, 36 GB, 8h    → Out of Memory (exit 137)
+Attempt 2: 6 CPUs, 46 GB, 8h    → Out of Memory (exit 137)
+Attempt 3: 6 CPUs, 56 GB, 8h    → Success ✓
+```
+
+```mermaid
+graph LR
+    A[Attempt 1<br/>36 GB] -->|OOM +10GB| B[Attempt 2<br/>46 GB]
+    B -->|OOM +10GB| C[Attempt 3<br/>56 GB]
+    C -->|Success| D[Complete]
+    style A fill:#ffcccc
+    style B fill:#ffcccc
+    style C fill:#ccffcc
+    style D fill:#ccffcc
+```
+
+#### Scenario 2: Out of Time Failure
+
+A `process_low` job (2 CPUs, 12 GB, 2h) exceeds time limit:
+
+```
+Attempt 1: 2 CPUs, 12 GB, 2h     → Out of Time (exit 140)
+Attempt 2: 3 CPUs, 16 GB, 14h    → Success ✓
+```
+
+```mermaid
+graph LR
+    A[Attempt 1<br/>2 CPUs, 12 GB, 2h] -->|Timeout<br/>+1 CPU, +4GB, +12h| B[Attempt 2<br/>3 CPUs, 16 GB, 14h]
+    B -->|Success| C[Complete]
+    style A fill:#ffcccc
+    style B fill:#ccffcc
+    style C fill:#ccffcc
+```
+
+#### Scenario 3: Complex Multi-Failure Path
+
+A job experiences multiple failure types across retries:
+
+```
+Attempt 1: 6 CPUs, 36 GB, 8h     → Out of Memory (exit 137)
+Attempt 2: 6 CPUs, 46 GB, 8h     → Out of Time (exit 140)
+Attempt 3: 7 CPUs, 50 GB, 20h    → Success ✓
+```
+
+```mermaid
+graph TD
+    A[Attempt 1<br/>6 CPUs, 36 GB, 8h] -->|OOM<br/>+10GB| B[Attempt 2<br/>6 CPUs, 46 GB, 8h]
+    B -->|Timeout<br/>+1 CPU, +4GB, +12h| C[Attempt 3<br/>7 CPUs, 50 GB, 20h]
+    C -->|Success| D[Complete]
+    style A fill:#ffcccc
+    style B fill:#ffcccc
+    style C fill:#ccffcc
+    style D fill:#ccffcc
+```
+
+### Proactive Resource Detection
+
+The system also monitors resource usage patterns to prevent failures:
+
+- **Near Out of Memory**: When peak RSS reaches ≥80% of allocated memory
+- **Near Out of Time**: When realtime reaches ≥80% of allocated time
+- **CPU Starved**: When CPU usage reaches ≥80% of available CPU capacity
+
+These conditions trigger proactive resource increases even if the job completes successfully, helping prevent failures in subsequent similar jobs.
 
 ### Process Labels
 
