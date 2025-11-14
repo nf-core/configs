@@ -161,7 +161,7 @@ Runtime limits are increased for time-related failures:
 
 #### Out of Memory Failure
 
-A `process_medium` job (6 CPUs, 36 GB, 8h) runs out of memory:
+A `process_medium` job runs out of memory:
 
 ```
 Attempt 1: 6 CPUs, 36 GB, 8h    → Out of Memory (exit 137)
@@ -169,32 +169,9 @@ Attempt 2: 6 CPUs, 46 GB, 8h    → Out of Memory (exit 137)
 Attempt 3: 6 CPUs, 56 GB, 8h    → Success
 ```
 
-#### Out of Time Failure
-
-A `process_low` job (2 CPUs, 12 GB, 2h) exceeds time limit:
-
-```
-Attempt 1: 2 CPUs, 12 GB, 2h     → Out of Time (exit 140)
-Attempt 2: 3 CPUs, 16 GB, 14h    → Out of Time (exit 140)
-Attempt 3: 5 CPUs, 24 GB, 38h    → Success
-```
-
-#### Complex Multi-Failure Path
-
-A job experiences multiple failure types across retries:
-
-```
-Attempt 1: 6 CPUs, 36 GB, 8h     → Out of Memory (exit 137)
-Attempt 2: 6 CPUs, 46 GB, 8h     → Out of Time (exit 140)
-Attempt 3: 7 CPUs, 50 GB, 20h    → Success
-```
-
 ```mermaid
 ---
 config:
-    radar:
-        width: 400
-        height: 400
     themeVariables:
         cScale0: "#D3212C"
         cScale1: "#FF681E"
@@ -213,12 +190,19 @@ radar-beta
   ticks 3
 ```
 
+#### Out of Time Failure
+
+A `process_low` job exceeds the time limit:
+
+```
+Attempt 1: 2 CPUs, 12 GB, 2h     → Out of Time (exit 140)
+Attempt 2: 3 CPUs, 16 GB, 14h    → Out of Time (exit 140)
+Attempt 3: 5 CPUs, 24 GB, 38h    → Success
+```
+
 ```mermaid
 ---
 config:
-    radar:
-        width: 400
-        height: 400
     themeVariables:
         cScale0: "#D3212C"
         cScale1: "#FF681E"
@@ -236,12 +220,19 @@ radar-beta
   ticks 3
 ```
 
+#### Complex Multi-Failure Path
+
+A job experiences multiple failure types across retries:
+
+```
+Attempt 1: 6 CPUs, 36 GB, 8h     → Out of Memory (exit 137)
+Attempt 2: 6 CPUs, 46 GB, 8h     → Out of Time (exit 140)
+Attempt 3: 7 CPUs, 50 GB, 20h    → Success
+```
+
 ```mermaid
 ---
 config:
-    radar:
-        width: 400
-        height: 400
     themeVariables:
         cScale0: "#D3212C"
         cScale1: "#FF681E"
