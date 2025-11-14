@@ -141,7 +141,7 @@ CPUs are increased when jobs are time-constrained or CPU-starved:
 | **Out of Time** (exit 15, 140)   | Previous + 1 | Previous + 2 | Previous + 3 |
 | **Near Out of Time** (≥80% used) | Previous + 1 | Previous + 2 | Previous + 3 |
 | **CPU Starved** (≥80% CPU usage) | Previous + 2 | Previous + 4 | Previous + 5 |
-| **Other failures**               | Previous + 0 | Previous + 0 | Previous + 1 |
+| **Other failures**               | Previous     | Previous     | Previous + 1 |
 
 **Formula**: `new_cpus = previous_cpus + (multiplier × attempt) + base_increment`
 
@@ -166,18 +166,16 @@ A `process_medium` job (6 CPUs, 36 GB, 8h) runs out of memory:
 ```
 Attempt 1: 6 CPUs, 36 GB, 8h    → Out of Memory (exit 137)
 Attempt 2: 6 CPUs, 46 GB, 8h    → Out of Memory (exit 137)
-Attempt 3: 6 CPUs, 56 GB, 8h    → Success ✓
+Attempt 3: 6 CPUs, 56 GB, 8h    → Success
 ```
 
 ```mermaid
 graph LR
     A[Attempt 1<br/>36 GB] -->|OOM +10GB| B[Attempt 2<br/>46 GB]
     B -->|OOM +10GB| C[Attempt 3<br/>56 GB]
-    C -->|Success| D[Complete]
     style A fill:#ffcccc
     style B fill:#ffcccc
     style C fill:#ccffcc
-    style D fill:#ccffcc
 ```
 
 #### Scenario 2: Out of Time Failure
@@ -186,16 +184,14 @@ A `process_low` job (2 CPUs, 12 GB, 2h) exceeds time limit:
 
 ```
 Attempt 1: 2 CPUs, 12 GB, 2h     → Out of Time (exit 140)
-Attempt 2: 3 CPUs, 16 GB, 14h    → Success ✓
+Attempt 2: 3 CPUs, 16 GB, 14h    → Success
 ```
 
 ```mermaid
 graph LR
     A[Attempt 1<br/>2 CPUs, 12 GB, 2h] -->|Timeout<br/>+1 CPU, +4GB, +12h| B[Attempt 2<br/>3 CPUs, 16 GB, 14h]
-    B -->|Success| C[Complete]
     style A fill:#ffcccc
     style B fill:#ccffcc
-    style C fill:#ccffcc
 ```
 
 #### Scenario 3: Complex Multi-Failure Path
@@ -205,18 +201,16 @@ A job experiences multiple failure types across retries:
 ```
 Attempt 1: 6 CPUs, 36 GB, 8h     → Out of Memory (exit 137)
 Attempt 2: 6 CPUs, 46 GB, 8h     → Out of Time (exit 140)
-Attempt 3: 7 CPUs, 50 GB, 20h    → Success ✓
+Attempt 3: 7 CPUs, 50 GB, 20h    → Success
 ```
 
 ```mermaid
 graph TD
     A[Attempt 1<br/>6 CPUs, 36 GB, 8h] -->|OOM<br/>+10GB| B[Attempt 2<br/>6 CPUs, 46 GB, 8h]
     B -->|Timeout<br/>+1 CPU, +4GB, +12h| C[Attempt 3<br/>7 CPUs, 50 GB, 20h]
-    C -->|Success| D[Complete]
     style A fill:#ffcccc
     style B fill:#ffcccc
     style C fill:#ccffcc
-    style D fill:#ccffcc
 ```
 
 ### Proactive Resource Detection
@@ -257,7 +251,7 @@ The config uses Singularity for containerization with the following settings:
 
 ## Working Directory
 
-- If the working directory is not set it is automatically configured based on your group (via --group <YOUR_GROUP>).
+- If the working directory is not set it is automatically configured based on your group (via --group `<YOUR_GROUP>`).
 - Otherwise, the work directory is `./work` in your current directory
 - Automatic cleanup is enabled when using `/scratch` to save space
 
