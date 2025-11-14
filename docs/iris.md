@@ -186,7 +186,6 @@ radar-beta
   curve a["Attempt 1"]{36,6, 8}
   curve b["Attempt 2"]{46,6, 8}
   curve c["Attempt 3"]{56,6, 8}
-  graticule polygon
   ticks 3
 ```
 
