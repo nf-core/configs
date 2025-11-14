@@ -107,6 +107,48 @@ The config includes support for GPU jobs. Processes labeled with `process_gpu` o
 - Use appropriate GPU queues (`gpu` or `gpushort`)
 - Enable GPU support in Singularity containers (`--nv` flag)
 
+### Proactive Resource Detection
+
+The system also monitors resource usage patterns to prevent failures:
+
+- **Near Out of Memory**: When peak RSS reaches ≥80% of allocated memory
+- **Near Out of Time**: When realtime reaches ≥80% of allocated time
+- **CPU Starved**: When CPU usage reaches ≥80% of available CPU capacity
+
+These conditions trigger proactive resource increases even if the job completes successfully, helping prevent failures in subsequent similar jobs.
+
+### Process Labels
+
+The config defines several process labels with default resources that scale automatically:
+
+| Label                 | CPUs | Memory | Time |
+| --------------------- | ---- | ------ | ---- |
+| `process_single`      | 1    | 1 GB   | 4 h  |
+| `process_low`         | 2    | 12 GB  | 2 h  |
+| `process_medium`      | 6    | 36 GB  | 8 h  |
+| `process_high`        | 12   | 72 GB  | 16 h |
+| `process_long`        | 2    | 12 GB  | 20 h |
+| `process_high_memory` | 6    | 200 GB | 8 h  |
+| `process_gpu`         | 6    | 25 GB  | 8 h  |
+| `process_gpu_low`     | 6    | 25 GB  | 2 h  |
+
+These are starting values that will be automatically increased on retry if needed.
+
+## Singularity Configuration
+
+The config uses Singularity for containerization with the following settings:
+
+- **Cache Directory**: Automatically set based on working directory or `$NXF_SINGULARITY_CACHEDIR`
+- **Library Directory**: Uses the shared library, `/data1/core006/resources/singularity_image_library` (or `$NXF_SINGULARITY_LIBRARYDIR`)
+- **Auto-mounting**: Enabled for seamless file access
+- **Scratch Space**: Uses `/localscratch` when available
+
+## Working Directory
+
+- If the working directory is not set it is automatically configured based on your group (via --group `<YOUR_GROUP>`).
+- Otherwise, the work directory is `./work` in your current directory
+- Automatic cleanup is enabled when using `/scratch` to save space
+
 ## Automatic Resource Management
 
 The IRIS config includes intelligent retry logic that automatically adjusts resources when jobs fail. The system monitors job execution and dynamically scales resources based on failure patterns and resource utilization.
@@ -249,48 +291,6 @@ radar-beta
 
   ticks 3
 ```
-
-### Proactive Resource Detection
-
-The system also monitors resource usage patterns to prevent failures:
-
-- **Near Out of Memory**: When peak RSS reaches ≥80% of allocated memory
-- **Near Out of Time**: When realtime reaches ≥80% of allocated time
-- **CPU Starved**: When CPU usage reaches ≥80% of available CPU capacity
-
-These conditions trigger proactive resource increases even if the job completes successfully, helping prevent failures in subsequent similar jobs.
-
-### Process Labels
-
-The config defines several process labels with default resources that scale automatically:
-
-| Label                 | CPUs | Memory | Time |
-| --------------------- | ---- | ------ | ---- |
-| `process_single`      | 1    | 1 GB   | 4 h  |
-| `process_low`         | 2    | 12 GB  | 2 h  |
-| `process_medium`      | 6    | 36 GB  | 8 h  |
-| `process_high`        | 12   | 72 GB  | 16 h |
-| `process_long`        | 2    | 12 GB  | 20 h |
-| `process_high_memory` | 6    | 200 GB | 8 h  |
-| `process_gpu`         | 6    | 25 GB  | 8 h  |
-| `process_gpu_low`     | 6    | 25 GB  | 2 h  |
-
-These are starting values that will be automatically increased on retry if needed.
-
-## Singularity Configuration
-
-The config uses Singularity for containerization with the following settings:
-
-- **Cache Directory**: Automatically set based on working directory or `$NXF_SINGULARITY_CACHEDIR`
-- **Library Directory**: Uses the shared library, `/data1/core006/resources/singularity_image_library` (or `$NXF_SINGULARITY_LIBRARYDIR`)
-- **Auto-mounting**: Enabled for seamless file access
-- **Scratch Space**: Uses `/localscratch` when available
-
-## Working Directory
-
-- If the working directory is not set it is automatically configured based on your group (via --group `<YOUR_GROUP>`).
-- Otherwise, the work directory is `./work` in your current directory
-- Automatic cleanup is enabled when using `/scratch` to save space
 
 ## Getting Help
 
