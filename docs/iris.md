@@ -170,12 +170,13 @@ Attempt 3: 6 CPUs, 56 GB, 8h    → Success
 ```
 
 ```mermaid
-graph LR
-    A[Attempt 1<br/>36 GB] -->|OOM +10GB| B[Attempt 2<br/>46 GB]
-    B -->|OOM +10GB| C[Attempt 3<br/>56 GB]
-    style A fill:#ffcccc
-    style B fill:#ffcccc
-    style C fill:#ccffcc
+xychart-beta
+    title "Scenario 1: Out of Memory Failure - Resource Scaling"
+    x-axis "Attempt" [1, 2, 3]
+    y-axis "Resources" 0 --> 60
+    line "Memory (GB)" [36, 46, 56]
+    line "CPUs" [6, 6, 6]
+    line "Time (hours)" [8, 8, 8]
 ```
 
 #### Scenario 2: Out of Time Failure
@@ -188,10 +189,13 @@ Attempt 2: 3 CPUs, 16 GB, 14h    → Success
 ```
 
 ```mermaid
-graph LR
-    A[Attempt 1<br/>2 CPUs, 12 GB, 2h] -->|Timeout<br/>+1 CPU, +4GB, +12h| B[Attempt 2<br/>3 CPUs, 16 GB, 14h]
-    style A fill:#ffcccc
-    style B fill:#ccffcc
+xychart-beta
+    title "Scenario 2: Out of Time Failure - Resource Scaling"
+    x-axis "Attempt" [1, 2]
+    y-axis "Resources" 0 --> 20
+    line "Memory (GB)" [12, 16]
+    line "CPUs" [2, 3]
+    line "Time (hours)" [2, 14]
 ```
 
 #### Scenario 3: Complex Multi-Failure Path
@@ -205,12 +209,13 @@ Attempt 3: 7 CPUs, 50 GB, 20h    → Success
 ```
 
 ```mermaid
-graph TD
-    A[Attempt 1<br/>6 CPUs, 36 GB, 8h] -->|OOM<br/>+10GB| B[Attempt 2<br/>6 CPUs, 46 GB, 8h]
-    B -->|Timeout<br/>+1 CPU, +4GB, +12h| C[Attempt 3<br/>7 CPUs, 50 GB, 20h]
-    style A fill:#ffcccc
-    style B fill:#ffcccc
-    style C fill:#ccffcc
+xychart-beta
+    title "Scenario 3: Complex Multi-Failure Path - Resource Scaling"
+    x-axis "Attempt" [1, 2, 3]
+    y-axis "Resources" 0 --> 60
+    line "Memory (GB)" [36, 46, 50]
+    line "CPUs" [6, 6, 7]
+    line "Time (hours)" [8, 8, 20]
 ```
 
 ### Proactive Resource Detection
