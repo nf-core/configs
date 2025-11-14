@@ -6,7 +6,7 @@ To use, run the pipeline with `-profile iris`. This will download and launch the
 
 ## Before running the pipeline
 
-Before running a pipeline for the first time, you will need to ensure that right version of Java, Nextflow and Singularity are available on the cluster. The IRIS cluster uses the SLURM job scheduler, and Nextflow will automatically submit jobs via SLURM.
+Before running a pipeline for the first time, you will need to ensure that right version of Java, Nextflow and Singularity are available on the cluster. The IRIS cluster uses the `SLURM` job scheduler, and Nextflow will automatically submit jobs via SLURM.
 
 ### Load Java and Singularity
 
@@ -96,7 +96,7 @@ The config automatically selects appropriate SLURM queues based on job requireme
 - **gpushort**: GPU jobs with runtime ≤ 2 hours
 - **gpu**: Regular GPU jobs
 - **cpu_highmem**: Jobs requiring ≥ 512 GB memory or ≥ 50 GB per CPU
-- **preemptable**: First-attempt jobs when `--preemptable true` is set
+- **preemptable**: Use the preemptable queue when `--preemptable true` is set
 - **cpu**: Default queue for standard CPU jobs
 
 ### GPU Support
