@@ -22,7 +22,7 @@ module load nextflow/25.04.2 apptainer/1.3.4
 
 > NB:  Please note that using nextflow with the SLURM executor on the serial partition is not permitted.
 
-Instead of having `nextflow` submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, is run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. By default, this uses the `flux` executor, if you would prefer to use the `local` executor, please use `-profile lrz_cm4,local`.
+Instead of having `nextflow` submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, is run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. By default, this uses the `flux` executor, if you would prefer to use the `local` executor, please use `-profile lrz_cm4,local`. Independent of the executor used, task memory will be limited through apptainer.
 
 ### Serial / cm4_tiny / terramem
 
@@ -34,10 +34,11 @@ In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of
 #SBATCH -D . 
 #SBATCH -J nextflow_run
 #SBATCH --get-user-env 
-#SBATCH -M cm4       # for serial: serial here; for terramem: inter
-#SBATCH -p cm4_tiny  # for serial: serial here; for terramem: terramem_inter
-#SBATCH --cpu 100    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
-#SBATCH --mem 96G    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH -M cm4                  # for serial: serial here; for terramem: inter
+#SBATCH -p cm4_tiny             # for serial: serial here; for terramem: terramem_inter
+#SBATCH --cpu-per-task=100      # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --mem=96G               # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --ntasks=1
 #SBATCH --export=NONE 
 #SBATCH --time=24:00:00   
 
@@ -55,10 +56,11 @@ In case the scheduling should not be done via flux, but local, please use:
 #SBATCH -D . 
 #SBATCH -J nextflow_run
 #SBATCH --get-user-env 
-#SBATCH -M cm4       # for serial: serial here; for terramem: inter
-#SBATCH -p cm4_tiny  # for serial: serial here; for terramem: terramem_inter
-#SBATCH --cpu 100    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
-#SBATCH --mem 96G    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH -M cm4                  # for serial: serial here; for terramem: inter
+#SBATCH -p cm4_tiny             # for serial: serial here; for terramem: terramem_inter
+#SBATCH --cpu-per-task=100      # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --mem=96G               # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --ntasks=1
 #SBATCH --export=NONE 
 #SBATCH --time=24:00:00   
 
@@ -75,10 +77,10 @@ On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are sche
 #SBATCH -D .
 #SBATCH -J nextflow_run
 #SBATCH --get-user-env
-#SBATCH -M cm4          #    if cores <= 112 go to cm4_tiny
-#SBATCH -p cm4_std      #    if cores <= 112 go to cm4_tiny
-#SBATCH --qos=cm4_std   #    if tiny, QOS is not required
-#SBATCH --nodes=2       #    2 nodes (maximum: 4)
+#SBATCH -M cm4              # if cores <= 112 go to cm4_tiny
+#SBATCH -p cm4_std          # if cores <= 112 go to cm4_tiny
+#SBATCH --qos=cm4_std       # if tiny, QOS is not required
+#SBATCH --nodes=2           # 2 nodes (maximum: 4)
 #SBATCH --ntasks-per-node=1
 #SBATCH --export=NONE
 #SBATCH --time=24:00:00
