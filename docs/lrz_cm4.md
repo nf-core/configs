@@ -8,7 +8,7 @@ All nf-core pipelines have been successfully configured for use on the CoolMuc4 
 
 ## Usage
 
-To use, run the pipeline with `-profile lrz_cm4,<tiny_flux,std_flux,serial_slurm,terramem_flux>`. This will download and launch the [`lrz_cm4.config`](../conf/lrz_cm4.config), together with the specific sub-profile.
+To use, run the pipeline with `-profile lrz_cm4`. This will download and launch the [`lrz_cm4.config`](../conf/lrz_cm4.config).
 
 We recommend using nextflow >= 25.04.2 with apptainer (1.3.4) for containerization.
 These are available as modules (please confirm the module name using `module avail`):
