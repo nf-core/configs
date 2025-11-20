@@ -8,7 +8,7 @@ All nf-core pipelines have been successfully configured for use on the CoolMuc4 
 
 ## Usage
 
-To use, run the pipeline with `-profile lrz_cm4,<tiny_flux,std_flux,serial_slurm,terramem_flux>`. This will download and launch the [`biohpc_gen.config`](../conf/biohpc_gen.config), together with the specific sub-profile.
+To use, run the pipeline with `-profile lrz_cm4,<tiny_flux,std_flux,serial_slurm,terramem_flux>`. This will download and launch the [`lrz_cm4.config`](../conf/lrz_cm4.config), together with the specific sub-profile.
 
 We recommend using nextflow >= 25.04.2 with apptainer (1.3.4) for containerization.
 These are available as modules (please confirm the module name using `module avail`):
@@ -20,31 +20,55 @@ module load nextflow/25.04.2 apptainer/1.3.4
 
 ## Details
 
-### Serial
+> NB:  Please note that using nextflow with the SLURM executor on the serial partition is not permitted.
 
-CM4 contains a `serial` cluster, which allows for up to 16 physical CPUs and up to 24 hours (`serial_std`) or 7 days (`serial_long`) of job walltime.
-The `serial` profile (`-profile lrz_cm4,serial`) will handle submission into the correct partition based on requested time. In this profile, `SLURM` is used for scheduling of the individual tasks, and the `nextflow` head job needs to run persistently on the login node, to be able to submit jobs. Please limit resource usage by the `nextflow` head-job, limits can be set through the environment: i.e. `export NXF_OPTS='-Xms1g -Xmx4g'`.
-`serial` has a maximum queue size of 96 running and 200 submitted jobs.
+Instead of having `nextflow` submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, is run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. By default, this uses the `flux` executor, if you would prefer to use the `local` executor, please use `-profile lrz_cm4,local`.
 
-Example command:
+### Serial / cm4_tiny / terramem
+
+Run nextflow inside a SLURM job using either `local` or `flux` for job scheduling within the SLURM allocation. 
+In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of `serial` cluster, or `terramem` partition of the `inter` cluster is to be used (i.e. if the job requires less 1 full node) please prepare a script similar to the one below:
 
 ```bash
-nextflow run nf-core/rnaseq -profile test,lrz_cm4,serial`
+#! /bin/bash
+#SBATCH -D . 
+#SBATCH -J nextflow_run
+#SBATCH --get-user-env 
+#SBATCH -M cm4       # for serial: serial here; for terramem: inter
+#SBATCH -p cm4_tiny  # for serial: serial here; for terramem: terramem_inter
+#SBATCH --cpu 100    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --mem 96G    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --export=NONE 
+#SBATCH --time=24:00:00   
+
+module load flux
+
+flux start 
+nextflow run nf-core/rnaseq \
+    -profile test,lrz_cm4
 ```
 
-There are situations where 16 CPUs per job are insufficient. For these, the `cm4` cluster can be used, although this requires a different setup.
+In case the scheduling should not be done via flux, but local, please use:
 
-### CM4
+```bash
+#! /bin/bash
+#SBATCH -D . 
+#SBATCH -J nextflow_run
+#SBATCH --get-user-env 
+#SBATCH -M cm4       # for serial: serial here; for terramem: inter
+#SBATCH -p cm4_tiny  # for serial: serial here; for terramem: terramem_inter
+#SBATCH --cpu 100    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --mem 96G    # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
+#SBATCH --export=NONE 
+#SBATCH --time=24:00:00   
 
-Running `nextflow` on the `cm4` cluster, which is designed to handle large, potentially node-spanning jobs, requires a different approach.
-
-Instead of having `nextflow` submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, is run inside a (large) `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` executor. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html).
-
-This means that `nextflow` is not invoked on the login-node, but submitted via SLURM. Below are example scripts for the different clusters:
+nextflow run nf-core/rnaseq \
+    -profile test,lrz_cm4,local
+```
 
 #### std
 
-On `cm4_std` full (exclusive) nodes are scheduled. Use `-profile lrz_cm4,exclusive`
+On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are scheduled. Use 
 
 ```bash
 #! /bin/bash
@@ -63,57 +87,10 @@ module load flux
 
 flux start
 nextflow run nf-core/rnaseq \
-    -profile test,lrz_cm4,exclusive
+    -profile test,lrz_cm4
 ```
 
 this script is to be submitted via `sbatch`.
 The correct resource limits are applied based on the number of requested nodes (which are fetched from the environment).
 
 CPU in the table above refers to logical cores.
-
-#### tiny
-
-In case the `tiny` partition of `CM4` is to be used (i.e. if the job requires less 1 full node), this uses the same 'flux-in-slurm' setup, but requires the `shared` profile. Below is an example sbatch script:
-
-```bash
-#! /bin/bash
-#SBATCH -D .
-#SBATCH -J nextflow_run
-#SBATCH --get-user-env
-#SBATCH -M cm4_tiny
-#SBATCH -p cm4_tiny
-#SBATCH --cpu 100 # Can be 17-112
-#SBATCH --mem 96G # Can be up to 488, or left empty for 2.1G / CPU
-#SBATCH --export=NONE
-#SBATCH --time=24:00:00
-
-module load flux
-
-flux start
-nextflow run nf-core/rnaseq \
-    -profile test,lrz_cm4,shared
-```
-
-### Terramem
-
-`terramem` is part of the `inter` cluster, and accepts only a single job, with node shared, making submission via `SLURM` impractical.
-The `lrz_cm4,shared` profile can be used to run workflows on the terramem node, similar to cm4_tiny:
-
-```bash
-#! /bin/bash
-#SBATCH -D .
-#SBATCH -J nextflow_run
-#SBATCH --get-user-env
-#SBATCH -M inter
-#SBATCH -p terramem_inter
-#SBATCH --cpu 12 # Can be 1-96 (physical; each with 2 threads)
-#SBATCH --mem 20000G # Can be up to 5.9 TB (around 6 TB/cpu)
-#SBATCH --export=NONE
-#SBATCH --time=24:00:00 # Can be up to 240h
-
-module load flux
-
-flux start
-nextflow run nf-core/rnaseq \
-    -profile test,lrz_cm4,shared
-```
