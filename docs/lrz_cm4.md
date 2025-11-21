@@ -20,31 +20,31 @@ module load nextflow/25.04.2 apptainer/1.3.4
 
 ## Details
 
-> NB:  Please note that running nextflow on a login node is not permitted.
+> NB: Please note that running nextflow on a login node is not permitted.
 
 Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, has to run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. By default, this uses the `flux` executor, if you would prefer to use the `local` executor, please use `-profile lrz_cm4,local`. Independent of the executor used, task memory limits will be set through apptainer.
 
 ### Serial / cm4_tiny / terramem
 
-Run nextflow inside a SLURM job using either `local` or `flux` for job scheduling within the SLURM allocation. 
+Run nextflow inside a SLURM job using either `local` or `flux` for job scheduling within the SLURM allocation.
 In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of `serial` cluster, or `terramem` partition of the `inter` cluster is to be used (i.e. if the job requires less 1 full node) please prepare a script similar to the one below:
 
 ```bash
 #! /bin/bash
-#SBATCH -D . 
+#SBATCH -D .
 #SBATCH -J nextflow_run
-#SBATCH --get-user-env 
+#SBATCH --get-user-env
 #SBATCH -M cm4                  # for serial: serial here; for terramem: inter
 #SBATCH -p cm4_tiny             # for serial: serial here; for terramem: terramem_inter
 #SBATCH --cpu-per-task=100      # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
 #SBATCH --mem=96G               # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
 #SBATCH --ntasks=1
-#SBATCH --export=NONE 
-#SBATCH --time=24:00:00   
+#SBATCH --export=NONE
+#SBATCH --time=24:00:00
 
 module load flux
 
-flux start 
+flux start
 nextflow run nf-core/rnaseq \
     -profile test,lrz_cm4
 ```
@@ -53,16 +53,16 @@ In case the scheduling should not be done via flux, but local, please use:
 
 ```bash
 #! /bin/bash
-#SBATCH -D . 
+#SBATCH -D .
 #SBATCH -J nextflow_run
-#SBATCH --get-user-env 
+#SBATCH --get-user-env
 #SBATCH -M cm4                  # for serial: serial here; for terramem: inter
 #SBATCH -p cm4_tiny             # for serial: serial here; for terramem: terramem_inter
 #SBATCH --cpu-per-task=100      # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
 #SBATCH --mem=96G               # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
 #SBATCH --ntasks=1
-#SBATCH --export=NONE 
-#SBATCH --time=24:00:00   
+#SBATCH --export=NONE
+#SBATCH --time=24:00:00
 
 nextflow run nf-core/rnaseq \
     -profile test,lrz_cm4,local
@@ -72,7 +72,7 @@ nextflow run nf-core/rnaseq \
 
 > NB: If more than one node is used, make sure to use flux for execution.
 
-On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are scheduled. Use 
+On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are scheduled. Use
 
 ```bash
 #! /bin/bash
