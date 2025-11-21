@@ -22,6 +22,8 @@ module load nextflow/25.04.2 apptainer/1.3.4
 
 > NB: Please note that running nextflow on a login node is not permitted.
 
+> NB: Please note that it is not possible to run nextflow with the SLURM executor in a job, compute nodes cannot submit jobs.
+
 Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, has to run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. By default, this uses the `flux` executor, if you would prefer to use the `local` executor, please use `-profile lrz_cm4,local`. Independent of the executor used, task memory limits will be set through apptainer.
 
 ### Serial / cm4_tiny / terramem
