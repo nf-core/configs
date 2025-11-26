@@ -31,6 +31,8 @@ Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` 
 Run nextflow inside a SLURM job using either `local` or `flux` for job scheduling within the SLURM allocation.
 In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of `serial` cluster, or `terramem` partition of the `inter` cluster is to be used (i.e. if the job requires less 1 full node) please prepare a script similar to the one below:
 
+> NB: This config assumes that memory is not requested explicitly, and computes the memory resourceLimit as 4.5GB * number of CPUs
+
 ```bash
 #! /bin/bash
 #SBATCH -D .
@@ -39,7 +41,6 @@ In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of
 #SBATCH -M cm4                  # for serial: serial here; for terramem: inter
 #SBATCH -p cm4_tiny             # for serial: serial here; for terramem: terramem_inter
 #SBATCH --cpu-per-task=100      # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
-#SBATCH --mem=96G               # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
 #SBATCH --ntasks=1
 #SBATCH --export=NONE
 #SBATCH --time=24:00:00
@@ -61,7 +62,6 @@ In case the scheduling should not be done via flux, but local, please use:
 #SBATCH -M cm4                  # for serial: serial here; for terramem: inter
 #SBATCH -p cm4_tiny             # for serial: serial here; for terramem: terramem_inter
 #SBATCH --cpu-per-task=100      # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
-#SBATCH --mem=96G               # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
 #SBATCH --ntasks=1
 #SBATCH --export=NONE
 #SBATCH --time=24:00:00
