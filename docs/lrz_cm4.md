@@ -52,11 +52,11 @@ nextflow run nf-core/rnaseq \
 
 > NB: If more than one node is used, flux is used as the executor.
 
-On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are scheduled. 
+On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are scheduled.
 Due to differences in how `flux` and `SLURM` treat CPU, to make full use of all logical CPU, run with:
 
-    - `--ntasks-per-node=2` to start two flux brokers per node, each seeing half of the logical CPU
-    - `-n 112 * number of nodes` to give full nodes. 112 physical CPU, times 2 (logical CPU per physical), times number of nodes to allocate the full number of logical CPU. 
+    - `--ntasks-per-node=2` to start two flux brokers per node, each seeing half of the logical CPU.
+    - `-n 112 * number of nodes` to give full nodes. 112 physical CPU, times 2 (logical CPU per physical), times number of nodes to allocate the full number of logical CPU.
 
 Since the flux resources brokers each only see the number of physical cores, the nextflow CPU `resourceLimit` corresponds to the number of physical CPU.
 
@@ -65,14 +65,13 @@ Since the flux resources brokers each only see the number of physical cores, the
 #SBATCH -D .
 #SBATCH -J nextflow_run
 #SBATCH --get-user-env
-#SBATCH -M cm4              
-#SBATCH -p cm4_std         
-#SBATCH --qos=cm4_std       
+#SBATCH -M cm4
+#SBATCH -p cm4_std
+#SBATCH --qos=cm4_std
 #SBATCH --nodes=2           # 2 nodes (maximum: 4)
 #SBATCH -c 224              # Number of logical CPU across 2 nodes
-#SBATCH --ntasks-per-node=2 
+#SBATCH --ntasks-per-node=2
 #SBATCH --time=24:00:00
-
 module load flux
 
 srun flux start
