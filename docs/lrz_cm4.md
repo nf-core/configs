@@ -56,9 +56,9 @@ On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are sche
 Due to differences in how `flux` and `SLURM` treat CPU, to make full use of all logical CPU, run with:
 
     - `--ntasks-per-node=2` to start two flux brokers per node, each seeing half of the logical CPU.
-    - `-n 112 * number of nodes` to give full nodes. 112 physical CPU, times 2 (logical CPU per physical), times number of nodes to allocate the full number of logical CPU.
+    - `-c 112 * number of nodes` to give full nodes. 112 physical CPU, times number of nodes to allocate the full number of logical CPU. As this specifies number of cpus **per task** and two tasks run on each node, the number of logical CPU (twice that that of physical CPU) will be allocated.
 
-Since the flux resources brokers each only see the number of physical cores, the nextflow CPU `resourceLimit` corresponds to the number of physical CPU.
+This will stark two flux resource brokers per node. Since the flux resources brokers each only "see" the number of physical cores, the nextflow CPU `resourceLimit` corresponds to the number of physical CPU. This means that for the workflow the total number of logical CPU across all nodes are available, but the CPU limit of each _task_ is the number of physical CPU.
 
 ```bash
 #! /bin/bash
