@@ -29,19 +29,19 @@ To list versions:
 module avail -C Nextflow
 ```
 
-To load the most recent version (15/08/2024):
+To load the most recent version (28/10/2015):
 
 ```bash
-module load roslin/nextflow/24.10.2
+module load roslin/nextflow/25.04.6
 ```
 
 This config enables Nextflow to manage the pipeline jobs via the SGE job scheduler and using Singularity / apptainer for software management.
 
-## Singularity / apptainer set up
+## Apptainer (/Singularity) set up
 
-We have now (from August 2025) configured the roslin profile to use apptainer rather than singularity in the worker node jobs. This works better for us on Eddie with Nextflow and the nf-core pipelines. The roslin profile is set to use `/exports/cmvm/eddie/eb/groups/alaw3_eb_singularity_cache` as the singularity cache directory. This directory is put at the disposition of roslin institute nextflow/nf-core users by the Roslin Bioinformatics group led by Andy Law. All new containers will be cached in this directory writable by all. If you face any problem with singularity cache, please contact [Sébastien Guizard](sguizard@ed.ac.uk), [Donald Dunbar](donald.dunbar@ed.ac.uk) and [Andy Law](andy.law@roslin.ed.ac.uk) with the [Roslin Bioinformatics](roslin.bioinformatics@roslin.ed.ac.uk) group in CC.
+We have now (from August 2025) configured the roslin profile to use apptainer rather than singularity in the worker node jobs. This works better for us on Eddie with Nextflow and the nf-core pipelines. The roslin profile is set to use `/exports/cmvm/eddie/eb/groups/alaw3_eb_singularity_cache` as the apptainer (/singularity) cache directory. This directory is put at the disposition of roslin institute nextflow/nf-core users by the Roslin Bioinformatics group led by Andy Law. If an SGE project code is setup (see next section for more information), all new containers will be cached in this directory. Otherwise, the apptainers containers will be stored in the work directory created when Nextflow is run. If you face any problem with singularity cache, please contact [Sébastien Guizard](sguizard@ed.ac.uk), [Donald Dunbar](donald.dunbar@ed.ac.uk) and [Andy Law](andy.law@roslin.ed.ac.uk) with the [Roslin Bioinformatics](roslin.bioinformatics@roslin.ed.ac.uk) group in CC.
 
-Singularity/apptainer will by default create a directory `.singularity` in your `$HOME` directory on eddie. Space on `$HOME` is very limited, so it is a good idea to create a directory somewhere else with more room and link the locations.
+Apptainer/Singularity will by default create a directory `.singularity` in your `$HOME` directory on eddie. Space on `$HOME` is very limited, so it is a good idea to create a directory somewhere else with more room and link the locations.
 
 ```bash
 cd $HOME
@@ -51,7 +51,7 @@ ln -s /exports/eddie/path/to/my/area/.singularity .singularity
 
 ## SGE project set up
 
-By default, users’ jobs are started with the `uoe_baseline` project that gives access to free nodes. If you have a project code that gives you access to paid nodes, it can be used by jobs submitted by Nextflow. To do so, you need to set up an environment variable called `NFX_SGE_PROJECT`:
+By default, users’ jobs are started with the `uoe_baseline` project that gives access to free nodes. If you have a project code that gives you access to paid nodes. It can be used by jobs submitted by Nextflow. To do so, you need to set up an environment variable called `NFX_SGE_PROJECT`:
 
 ```bash
 export NFX_SGE_PROJECT="<PROJECT_NAME_HERE>"
