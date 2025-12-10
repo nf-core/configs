@@ -2,20 +2,35 @@
 
 ## About
 
-All nf-core pipelines have been successfully configured for use on the CoolMuc4 cluster that is provided by the [Leibniz Rechenzentrum (LRZ)](https://lrz.de/) of the Bavarian Academy of Sciences, located in Garching, Germany..
+All nf-core pipelines have been successfully configured for use on the CoolMuc4 cluster that is provided by the [Leibniz Rechenzentrum (LRZ)](https://lrz.de/) of the Bavarian Academy of Sciences, located in Garching, Germany.
 
 > NB: You will need an account to use the LRZ Linux cluster.
 
-## Usage
+## Setup
 
 To use, run the pipeline with `-profile lrz_cm4`. This will download and launch the [`lrz_cm4.config`](../conf/lrz_cm4.config).
 
 We recommend using nextflow >= 25.04.2 with apptainer (1.3.4) for containerization.
+
 These are available as modules (please confirm the module name using `module avail`):
 
 ```bash
 ## Load Nextflow and apptainer environment modules
 module load nextflow/25.04.2 apptainer/1.3.4
+```
+
+In case additional flexibility is needed, a conda environment containing the required packages is also an option.
+This could be done as follows:
+
+```bash
+module load micromamba
+export ENV_PATH=$SCRATCH_DSS/env_nfcore # Adjust path as desired
+micromamba create \
+    -p $ENV_PATH \ 
+    -c conda-forge \
+    -c bioconda \
+    nextflow nf-core apptainer flux-core flux-sched
+micromamba activate $ENV_PATH 
 ```
 
 ## Details
@@ -24,7 +39,11 @@ module load nextflow/25.04.2 apptainer/1.3.4
 
 > NB: Please note that it is not possible to run nextflow with the SLURM executor in a job, compute nodes cannot submit jobs.
 
-Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, has to run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. This profile uses the `flux` executor if more than one node was allocated, and the `local` executor if <= 1 node was allocated.
+Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, has to run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. This profile detects if the `flux` executor has been started, and will switch executor accordingly. Example `sbatch` scripts are provided below.
+
+## Considerations
+
+While testing can be done with partial nodes, or interactive jobs, we recommend requesting at least one full node for production runs. Both `local` and `flux` executor can be used for single-node runs, multi-node runs **must** use `flux` to make use of the resources. Please note that during testing, we observed that the same test-run of `nf-core/rnaseq` took around 11h with the `local` executor, and 8h with the `flux` executor, which we largely attribute to more efficient scheduling.
 
 ### Serial / cm4_tiny / terramem
 
