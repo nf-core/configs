@@ -34,11 +34,11 @@ This could be done as follows for a temporary environment on `SCRATCH_DSS`:
 module load micromamba
 export ENV_PATH=$SCRATCH_DSS/env_nfcore # Adjust path as desired
 micromamba create \
-    -p $ENV_PATH \ 
+    -p $ENV_PATH \
     -c conda-forge \
     -c bioconda \
     nextflow nf-core apptainer flux-core flux-sched
-micromamba activate $ENV_PATH 
+micromamba activate $ENV_PATH
 ```
 
 For a more persistant environment in `$HOME` consider:
@@ -46,7 +46,7 @@ For a more persistant environment in `$HOME` consider:
 ```bash
 module load micromamba
 micromamba create \
-    -n nf-env \ 
+    -n nf-env \
     -c conda-forge \
     -c bioconda \
     nextflow nf-core apptainer flux-core flux-sched
@@ -63,21 +63,22 @@ While testing can be done with partial nodes, or interactive jobs, we recommend 
 The test was performed using the `test_full` profile of `nf-core/rnaseq`, with a customized samplesheet, containing a total of 24 samples.
 We compared the performance of `local` and `flux` on a single node, and scaling of flux across 1, 2, or 4 nodes.
 
-| Executor   |       # Nodes   |    Time         |
-| ---        |         ---     |  ---            |
-| local      |            1    |  11:06:57       |
-| flux       |            1    |  08:15:11       | 
-| flux       |            2    |  04:45:39       |
-| flux       |            4    |  03:36:09       |
+| Executor | # Nodes | Time     |
+| -------- | ------- | -------- |
+| local    | 1       | 11:06:57 |
+| flux     | 1       | 08:15:11 |
+| flux     | 2       | 04:45:39 |
+| flux     | 4       | 03:36:09 |
 
 This is a short summary of a more extensive test, kindly conducted by Martin Ohlerich at LRZ. If you would like to learn more, please take a look [here](https://doku.lrz.de/nf-core-experience-report-2238563906.html)
+
 </details>
 
 ## Examples
 
 ### Full node(s)
 
-When running a nextflow pipeline on one or more full node(s), we advise to use `flux`. 
+When running a nextflow pipeline on one or more full node(s), we advise to use `flux`.
 There are some specific settings required to make `flux` use all available logical processing units when running inside a `SLURM` job, which are set correctly in the example script. The script below requests 4 nodes.
 
 ```bash
@@ -121,9 +122,9 @@ srun --export=all --mpi=none flux start ./workflow.sh
 
 By default, `flux` discovers physical CPU. To make use of the logical CPU available, the following settings are required:
 
-  - `SLURM` has to use multithreading
-  - two `flux`-brokers are required per node, each serving half of the logical CPU (there are two logical per physical CPU). For this reason, we start with `--ntasks-per-node=2`
-  - `flux` must not be cpu-bound by `SLURM`/`srun`.
+- `SLURM` has to use multithreading
+- two `flux`-brokers are required per node, each serving half of the logical CPU (there are two logical per physical CPU). For this reason, we start with `--ntasks-per-node=2`
+- `flux` must not be cpu-bound by `SLURM`/`srun`.
 
 </details>
 
@@ -142,7 +143,7 @@ In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of
 #SBATCH -M cm4
 #SBATCH -p cm4_tiny
 #SBATCH --qos=cm4_tiny
-#SBATCH -c 24 
+#SBATCH -c 24
 #SBATCH --hint=multithread
 #SBATCH --export=none
 #SBATCH --time=1-00:00:00 # Max of 2 days
