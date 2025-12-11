@@ -4,7 +4,15 @@
 
 All nf-core pipelines have been successfully configured for use on the CoolMuc4 cluster that is provided by the [Leibniz Rechenzentrum (LRZ)](https://lrz.de/) of the Bavarian Academy of Sciences, located in Garching, Germany.
 
-> NB: You will need an account to use the LRZ Linux cluster.
+> NB: You will need an [account to use the LRZ Linux cluster](https://doku.lrz.de/access-and-login-to-the-linux-cluster-10745974.html).
+
+## General usage
+
+> NB: Please note that running nextflow on a login node is not permitted.
+
+> NB: Please note that it is not possible to run nextflow with the SLURM executor in a job, compute nodes cannot submit jobs.
+
+Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, has to run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. This profile detects if the `flux` executor has been started, and will switch executor accordingly. Example `sbatch` scripts are provided [below](#examples).
 
 ## Setup
 
@@ -19,7 +27,7 @@ These are available as modules (please confirm the module name using `module ava
 module load nextflow/25.04.2 apptainer/1.3.4 flux
 ```
 
-In case additional flexibility is needed, a conda environment containing the required packages is also an option.
+In case additional flexibility / other versions are needed, a conda environment containing the required packages is also an option.
 This could be done as follows for a temporary environment on `SCRATCH_DSS`:
 
 ```bash
@@ -45,14 +53,6 @@ micromamba create \
 micromamba activate nf-env
 ```
 
-## Details
-
-> NB: Please note that running nextflow on a login node is not permitted.
-
-> NB: Please note that it is not possible to run nextflow with the SLURM executor in a job, compute nodes cannot submit jobs.
-
-Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` scheduler, the `nextflow` head job, coordinating the workflow, has to run inside a `SLURM`-job and job scheduling is done 'inside' the `SLURM` job using the `flux` or `local` executors. This is outlined [here](https://doku.lrz.de/job-farming-with-slurm-11481293.html) and implemented in `-profile lrz_cm4`. This profile detects if the `flux` executor has been started, and will switch executor accordingly. Example `sbatch` scripts are provided below.
-
 ## Considerations
 
 While testing can be done with partial nodes, or interactive jobs, we recommend requesting at least one full node for production runs. Both `local` and `flux` executor can be used for single-node runs, multi-node runs **must** use `flux` to make use of the additional resources. Please note that during testing, we observed that the same test-run of `nf-core/rnaseq` took around 11h with the `local` executor, and 8h with the `flux` executor, which we largely attribute to more efficient scheduling.
@@ -70,61 +70,83 @@ We compared the performance of `local` and `flux` on a single node, and scaling 
 | flux       |            2    |  04:45:39       |
 | flux       |            4    |  03:36:09       |
 
+This is a short summary of a more extensive test, kindly conducted by Martin Ohlerich at LRZ. If you would like to learn more, please take a look [here](https://doku.lrz.de/nf-core-experience-report-2238563906.html)
+</details>
+
+## Examples
+
+### Full node(s)
+
+When running a nextflow pipeline on one or more full node(s), we advise to use `flux`. 
+There are some specific settings required to make `flux` use all available logical processing units when running inside a `SLURM` job, which are set correctly in the example script. The script below requests 4 nodes.
+
+```bash
+#SBATCH -D .
+#SBATCH -o log.%x.%j
+#SBATCH -J nf_flux_hwt_4N
+#SBATCH --get-user-env
+#SBATCH -M cm4
+#SBATCH -p cm4_std
+#SBATCH --qos=cm4_std
+#SBATCH --nodes=4-4 # 1-1, 2-2, 3-3, or 4-4
+#SBATCH --ntasks-per-node=2
+#SBATCH -c 112
+#SBATCH --hint=multithread
+#SBATCH --export=none
+#SBATCH --time=1-00:00:00 # Max of 2 days
+
+module load nextflow/25.04.2 apptainer/1.3.4 flux
+# OR
+# Please use either modules or a conda environment
+conda activate nf-env
+
+# Write commands to heredoc to pass to flux start
+# For runs that are not using the test profile, modify accordingly.
+# The complete nextflow command needs to be here.
+
+cat > workflow.sh << EOT
+nextflow run nf-core/rnaseq \
+    -profile test,lrz_cm4
+EOT
+
+# Make file executable
+chmod u+x workflow.sh
+
+# Start flux via srun
+srun --export=all --mpi=none flux start ./workflow.sh
+```
+
+<details markdown="1">
+<summary>Usage of logical CPU with flux</summary>
+
+By default, `flux` discovers physical CPU. To make use of the logical CPU available, the following settings are required:
+
+  - `SLURM` has to use multithreading
+  - two `flux`-brokers are required per node, each serving half of the logical CPU (there are two logical per physical CPU). For this reason, we start with `--ntasks-per-node=2`
+  - `flux` must not be cpu-bound by `SLURM`/`srun`.
 
 </details>
 
-### Serial / cm4_tiny / terramem
+### Partial node
 
-Run nextflow inside a SLURM job using either `local` or `flux` for job scheduling within the SLURM allocation.
+Run nextflow inside a SLURM job using either `local` or `flux` for job scheduling within the SLURM allocation. We recommend runs on less than 1 full node only for testing purposes.
 In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of `serial` cluster, or `terramem` partition of the `inter` cluster is to be used (i.e. if the job requires less 1 full node) please prepare a script similar to the one below:
 
 > NB: This config assumes that memory is not requested explicitly, and computes the memory resourceLimit as 4.5GB \* number of CPUs
 
 ```bash
-#! /bin/bash
 #SBATCH -D .
-#SBATCH -J nextflow_run
-#SBATCH --get-user-env
-#SBATCH -M cm4                  # for serial: serial here; for terramem: inter
-#SBATCH -p cm4_tiny             # for serial: serial here; for terramem: terramem_inter
-#SBATCH --cpu-per-task=100      # Please see https://doku.lrz.de/job-processing-on-the-linux-cluster-10745970.html for partition limits
-#SBATCH --ntasks=1
-#SBATCH --export=NONE
-#SBATCH --time=24:00:00
-nextflow run nf-core/rnaseq \
-    -profile test,lrz_cm4
-```
-
-#### cm4_std
-
-> NB: If more than one node is used, flux is used as the executor.
-
-On the `cm4_std` partition of the `cm4` cluster, full (exclusive) nodes are scheduled.
-Due to differences in how `flux` and `SLURM` treat CPU, to make full use of all logical CPU, run with:
-
-    - `--ntasks-per-node=2` to start two flux brokers per node, each seeing half of the logical CPU.
-    - `-c 112 * number of nodes` to give full nodes. 112 physical CPU, times number of nodes to allocate the full number of logical CPU. As this specifies number of cpus **per task** and two tasks run on each node, the number of logical CPU (twice that that of physical CPU) will be allocated.
-
-This will stark two flux resource brokers per node. Since the flux resources brokers each only "see" the number of physical cores, the nextflow CPU `resourceLimit` corresponds to the number of physical CPU. This means that for the workflow the total number of logical CPU across all nodes are available, but the CPU limit of each _task_ is the number of physical CPU.
-
-```bash
-#! /bin/bash
-#SBATCH -D .
-#SBATCH -J nextflow_run
+#SBATCH -o log.%x.%j
+#SBATCH -J nf_flux_hwt_4N
 #SBATCH --get-user-env
 #SBATCH -M cm4
-#SBATCH -p cm4_std
-#SBATCH --qos=cm4_std
-#SBATCH --nodes=2           # 2 nodes (maximum: 4)
-#SBATCH -c 224              # Number of logical CPU across 2 nodes
-#SBATCH --ntasks-per-node=2
-#SBATCH --time=24:00:00
-module load flux
+#SBATCH -p cm4_tiny
+#SBATCH --qos=cm4_tiny
+#SBATCH -c 24 
+#SBATCH --hint=multithread
+#SBATCH --export=none
+#SBATCH --time=1-00:00:00 # Max of 2 days
 
-srun flux start
 nextflow run nf-core/rnaseq \
     -profile test,lrz_cm4
 ```
-
-this script is to be submitted via `sbatch`.
-The correct resource limits are applied based on the number of requested nodes (which are fetched from the environment).
