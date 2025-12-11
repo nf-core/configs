@@ -38,3 +38,13 @@ Then make sure that your bin PATH is executable, by placing the following line i
 ```bash
 export PATH=$PATH:/home/<YOUR_ID>/bin
 ```
+
+### CS specific information
+
+Finally, we have been asked on this cluster to run nextflow on a special login node. So once you are logged into CS cluster, do,
+
+```bash
+ssh askey
+```
+
+And run your nextflow jobs from there using of course: `-profile ucl_cscluster` in you command.
