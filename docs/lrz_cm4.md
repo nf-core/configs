@@ -138,7 +138,7 @@ In case the `cm4_tiny` partition of the `cm4` cluster, the `serial` partition of
 ```bash
 #SBATCH -D .
 #SBATCH -o log.%x.%j
-#SBATCH -J nf_flux_hwt_4N
+#SBATCH -J nf_partial_node
 #SBATCH --get-user-env
 #SBATCH -M cm4
 #SBATCH -p cm4_tiny
