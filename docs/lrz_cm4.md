@@ -41,7 +41,7 @@ micromamba create \
 micromamba activate $ENV_PATH
 ```
 
-For a more persistant environment in `$HOME` consider:
+For a more persistent environment in `$HOME` consider:
 
 ```bash
 module load micromamba
