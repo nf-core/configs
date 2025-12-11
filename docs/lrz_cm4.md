@@ -10,17 +10,17 @@ All nf-core pipelines have been successfully configured for use on the CoolMuc4 
 
 To use, run the pipeline with `-profile lrz_cm4`. This will download and launch the [`lrz_cm4.config`](../conf/lrz_cm4.config).
 
-We recommend using nextflow >= 25.04.2 with apptainer (1.3.4) for containerization.
+We recommend using nextflow >= 25.04.2 with apptainer (>=1.3.4) for containerization.
 
 These are available as modules (please confirm the module name using `module avail`):
 
 ```bash
-## Load Nextflow and apptainer environment modules
-module load nextflow/25.04.2 apptainer/1.3.4
+## Load Nextflow, apptainer, and flux environment modules
+module load nextflow/25.04.2 apptainer/1.3.4 flux
 ```
 
 In case additional flexibility is needed, a conda environment containing the required packages is also an option.
-This could be done as follows:
+This could be done as follows for a temporary environment on `SCRATCH_DSS`:
 
 ```bash
 module load micromamba
@@ -33,6 +33,18 @@ micromamba create \
 micromamba activate $ENV_PATH 
 ```
 
+For a more persistant environment in `$HOME` consider:
+
+```bash
+module load micromamba
+micromamba create \
+    -n nf-env \ 
+    -c conda-forge \
+    -c bioconda \
+    nextflow nf-core apptainer flux-core flux-sched
+micromamba activate nf-env
+```
+
 ## Details
 
 > NB: Please note that running nextflow on a login node is not permitted.
@@ -43,7 +55,23 @@ Instead of having `nextflow` run on a login node and submit jobs to the `SLURM` 
 
 ## Considerations
 
-While testing can be done with partial nodes, or interactive jobs, we recommend requesting at least one full node for production runs. Both `local` and `flux` executor can be used for single-node runs, multi-node runs **must** use `flux` to make use of the resources. Please note that during testing, we observed that the same test-run of `nf-core/rnaseq` took around 11h with the `local` executor, and 8h with the `flux` executor, which we largely attribute to more efficient scheduling.
+While testing can be done with partial nodes, or interactive jobs, we recommend requesting at least one full node for production runs. Both `local` and `flux` executor can be used for single-node runs, multi-node runs **must** use `flux` to make use of the additional resources. Please note that during testing, we observed that the same test-run of `nf-core/rnaseq` took around 11h with the `local` executor, and 8h with the `flux` executor, which we largely attribute to more efficient scheduling.
+
+<details markdown="1">
+<summary>Test setup</summary>
+
+The test was performed using the `test_full` profile of `nf-core/rnaseq`, with a customized samplesheet, containing a total of 24 samples.
+We compared the performance of `local` and `flux` on a single node, and scaling of flux across 1, 2, or 4 nodes.
+
+| Executor   |       # Nodes   |    Time         |
+| ---        |         ---     |  ---            |
+| local      |            1    |  11:06:57       |
+| flux       |            1    |  08:15:11       | 
+| flux       |            2    |  04:45:39       |
+| flux       |            4    |  03:36:09       |
+
+
+</details>
 
 ### Serial / cm4_tiny / terramem
 
