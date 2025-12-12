@@ -104,6 +104,7 @@ jobs:
           - "imperial"
           - "incliva"
           - "ipop_up"
+          - "iris"
           - "janelia"
           - "jax"
           - "jex"
