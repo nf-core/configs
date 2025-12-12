@@ -8,9 +8,10 @@ Before running the pipeline you will need to install Nextflow into a conda envir
 
 ```bash
 ## Load Nextflow and Singularity environment modules
-module load anaconda3/personal
+module load miniforge/3
 miniforge-setup
 eval "$(~/miniforge3/bin/conda shell.bash hook)"
+conda create -n nextflow -c bioconda  nextflow
 ```
 
 > NB: You will need an Imperial account to use any HPC cluster managed by the RCS team. If in doubt contact the [`RCS team`](https://icl-rcs-user-guide.readthedocs.io/en/latest/support/)
