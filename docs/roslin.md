@@ -61,7 +61,6 @@ If you wish, you place this variable declaration in your `.bashrc` file located 
 
 **NB:** This will work only with the roslin profile.
 
-
 ## Excluding problematic node
 
 Eddie is a fragile little thing. Time to time, some nodes might struggle to run singularity. The most common error message is: `env: ‘singularity’: No such file or directory`. The reason why this error occurs is still obscure, but we suspect network problems around network disks.
@@ -79,7 +78,6 @@ Then, you can set up an environment variable called `NFX_NODE_EXCLUSION` and cop
 ```bash
 export NFX_NODE_EXCLUSION="<FORMATED_LIST_OF_NODES_TO_EXCLUDE>"
 ```
-
 
 ## Running Nextflow
 
