@@ -71,10 +71,11 @@ Similarly to the project code variable (see above), we implemented a detection o
 
 Finding those nodes can be done by extracting the job ids from the execution trace file, then request job information with qacct. To facilitate this search, we wrote a bash script that will list the nodes and print it to screen. You can find it and copy it on Eddie from [here](https://git.ecdf.ed.ac.uk/easter-bush-bioinformatics/nextflow_configurations/-/raw/main/debug_scripts/get_fail_jobs_nodes.sh?ref_type=heads) (do not forget to make it executable `chmod a+x get_fail_jobs_nodes.sh`).
 
-The script as input an execution trace file via the `--file` option. It reads it, find the failed jobs, extract job ids, request info to scheduler, extract the execution nodes and format the names before printing.
+The script take as input an execution trace file via the `--file` option. It reads it, find the failed jobs, extract job ids, request info to scheduler, extract the execution nodes and format the names before printing.
 `get_fail_jobs_nodes.sh --file execution_trace_2026-01-20_09-32-27.txt`.
 
-Then, you can set up an environment variable called `NFX_NODE_EXCLUSION`
+Then, you can set up an environment variable called `NFX_NODE_EXCLUSION` and copy/paste the printed node list.
+
 ```bash
 export NFX_NODE_EXCLUSION="<FORMATED_LIST_OF_NODES_TO_EXCLUDE>"
 ```
