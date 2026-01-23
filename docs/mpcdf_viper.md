@@ -9,7 +9,7 @@ To run Nextflow, the `jdk` and `apptainer` modules must be loaded.
 This `mpcdf_viper` config is for `viper`. For `raven` see the [`mpcdf`](mpcdf.md) profile.
 
 All profiles use `apptainer/1.4.3` as the corresponding containerEngine.
-Make sure to `module load apptainer/1.4.3` in the environent you execute `nextflow run`.
+Make sure to `module load apptainer/1.4.3` in the environment where you execute `nextflow run`.
 To prevent repeatedly downloading the same apptainer image for every pipeline run, for all profiles we recommend specifying a cache location in your `~/.bash_profile` with the `$NXF_APPTAINER_CACHEDIR` bash variable.
 
 > [!TIP]
