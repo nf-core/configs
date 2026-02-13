@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if all profiles are tested
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Check whether profiles are all tested
         run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
 
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if nextflow config runs in repository root
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install Nextflow
         run: |
           wget -qO- get.nextflow.io | bash
@@ -29,9 +29,10 @@ jobs:
 
   profile_test:
     runs-on: ubuntu-latest
-    name: Run ${{ matrix.profile }} profile
+    name: Run ${{ matrix.profile }} profile | ${{ matrix.NXF_VER }}
     needs: test_all_profiles
     strategy:
+      fail-fast: false
       matrix:
         profile:
           - "abims"
@@ -187,17 +188,19 @@ jobs:
           - "wustl_htcf"
           - "xanadu"
           - "york_viking"
+        NXF_VER:
+          - "25.04.8"
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
         with:
           distribution: "temurin"
           java-version: "17"
       - name: Set up Nextflow
-        uses: nf-core/setup-nextflow@v2
+        uses: nf-core/setup-nextflow@561fcfc7146dcb12e3871909b635ab092a781f34 # v2.0.0
         with:
-          version: "latest-everything"
+          version: ${{ matrix.NXF_VER }}
       - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
