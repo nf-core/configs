@@ -31,6 +31,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.nf_core_bot_auth_token }}
 
+      # Setup nextflow for the linting step
+      - uses: nf-core/setup-nextflow@v2
+
       # Install and run pre-commit
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
