@@ -190,28 +190,6 @@ jobs:
           - "york_viking"
         NXF_VER:
           - "25.04.8"
-        include:
-          # Test latest-everything with a representative subset of 10 profiles
-          - profile: "uppmax"
-            NXF_VER: "latest-everything"
-          - profile: "awsbatch"
-            NXF_VER: "latest-everything"
-          - profile: "googlebatch"
-            NXF_VER: "latest-everything"
-          - profile: "crick"
-            NXF_VER: "latest-everything"
-          - profile: "denbi_qbic"
-            NXF_VER: "latest-everything"
-          - profile: "pasteur"
-            NXF_VER: "latest-everything"
-          - profile: "phoenix"
-            NXF_VER: "latest-everything"
-          - profile: "jax"
-            NXF_VER: "latest-everything"
-          - profile: "imperial"
-            NXF_VER: "latest-everything"
-          - profile: "eddie"
-            NXF_VER: "latest-everything"
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -224,7 +202,6 @@ jobs:
         with:
           version: ${{ matrix.NXF_VER }}
       - name: Check ${{ matrix.profile }} profile
-        continue-on-error: ${{ matrix.NXF_VER == 'latest-everything' }}
         env:
           SCRATCH: "~"
           NXF_GLOBAL_CONFIG: awsbatch.config
