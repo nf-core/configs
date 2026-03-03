@@ -37,6 +37,16 @@ If you need to override the GPU partition name:
 
 > Note: Whether GPU jobs are used depends on the pipeline and tool configuration. Many nf-core pipelines are CPU-only unless explicitly configured to run GPU-enabled tools.
 
+## Debugging (keep `work/` directory)
+
+By default, this profile enables Nextflow cleanup on successful completion, which removes intermediate files in the `work/` directory to save space.
+
+To keep the `work/` directory for debugging, disable cleanup:
+
+`nextflow run <pipeline> -profile tufts --disable_cleanup true`
+
+This is useful if you need to inspect intermediate files, reproduce errors, or re-run specific steps manually.
+
 ## Environment module
 
 Before running the pipeline, you will need to load the Nextflow module by:
