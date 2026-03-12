@@ -31,6 +31,12 @@ nextflow run <nf-core_pipeline>/main.nf \
   <additional flags>
 ```
 
+### Specifying a partition
+
+By default the `reannz_mahuika` profile will use both the Genoa and Milan partitions.
+To specify a partition you can add its name as an additional profile.
+For example, to run exclusively on the Genoa partition `-profile reannz_mahuika,genoa`.
+
 ### Additional information
 
 More information about running Nextflow on Mahuika can be found on the [Nextflow page in the documentation](https://docs.nesi.org.nz/Software/Available_Applications/Nextflow).
