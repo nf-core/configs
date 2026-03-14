@@ -116,6 +116,7 @@ jobs:
           - "lugh"
           - "m3c"
           - "maestro"
+          - "mahuika"
           - "mana"
           - "marjorie"
           - "lovelace"
