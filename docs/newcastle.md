@@ -91,7 +91,7 @@ This is passed to Slurm as:
 
 Inside your Slurm script:
 
-    nextflow run  nf-core/hello \
+    nextflow run  nf-core/fetchngs \
       -profile newcastle,test \
       --account bioinf_project \
       --outdir results \
