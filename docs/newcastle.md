@@ -1,46 +1,117 @@
 # nf-core/configs: Newcastle HPC Configuration
 
-Configuration for the Newcastle high performance computing (HPC) cluster.
+Configuration for the Newcastle University HPC cluster (Slurm scheduler).
+
+## ⚠️ Important usage note
+
+**Do not run Nextflow on the login/head node.**
+
+All nf-core pipelines must be launched **from within a Slurm job** using `sbatch`. Running on the login node can overload shared resources and may result in your job being terminated. See Submit the Job section.
 
 ## Setup
 
-To install nextflow we first need to get the prequisite java from module avail:
+### 1. Load Java
 
-`module load Java/17.0.6`
+Nextflow requires Java. On Newcastle HPC:
 
-Then installing Nextflow using the standard install options:
-https://www.nextflow.io/docs/latest/install.html
+    module load Java/17.0.6
 
-`curl -s https://get.nextflow.io | bash`
+To make this persistent, add it to your `~/.bash_profile`:
 
-Make Nextflow executable:
+    # Load Java for Nextflow
+    module load Java/17.0.6
 
-`chmod +x nextflow`
+### 2. Install Nextflow
 
-Then move Nextflow into an executable path. For example:
+Install Nextflow using the official method:
 
-`mkdir -p $HOME/bin/`
-`mv nextflow $HOME/bin/`
+    curl -s https://get.nextflow.io | bash
+    chmod +x nextflow
 
-To ensure this works every time you login to the cluster, put inside your `~/.bash_profile` the java install:
+Move it to a directory in your `$PATH`:
 
-`nano ~/.bash_profile`
+    mkdir -p $HOME/bin
+    mv nextflow $HOME/bin/
 
-Then paste in the line for the java install:
+Ensure `$HOME/bin` is in your `PATH` (add to `~/.bash_profile` if needed):
 
-```
-#Java module add v17:
-module load Java/17.0.6
-```
+    export PATH="$HOME/bin:$PATH"
 
-Exit nano with, control-X, then y to save, then enter to confirm
+### 3. Container system (Singularity / Apptainer)
 
-## Run
+nf-core pipelines use containers for reproducibility.
 
-To use this profile, simply pass Nextflow the -profile newcastle flag eg.
+On most HPC systems, **Apptainer (formerly Singularity)** is already installed. Check with:
 
-```bash
-nextflow run nf-core/_pipeline_ -profile newcastle --outdir results
-```
+    module avail apptainer
 
-In case of issues, please feel free to reach out to one of the maintainers (Chris Wyatt or Fernando Duarte) at ecoflow.ucl@gmail.com . We are based at UCL, but helped set up this config, and are happy to help.
+or:
+
+    module avail singularity
+
+Then load it (example):
+
+    module load Apptainer
+
+If neither is available, contact HPC support.
+
+## Running pipelines
+
+### 1. Create a Slurm submission script
+
+Create a file, e.g. `run_nfcore.sh`:
+
+    #!/bin/bash
+    #SBATCH --job-name=nfcore_run
+    #SBATCH --account=YOUR_ACCOUNT
+    #SBATCH --time=24:00:00
+    #SBATCH --cpus-per-task=4
+    #SBATCH --mem=8G
+
+    module load Java/17.0.6
+    module load Apptainer
+
+    nextflow run nf-core/_pipeline_ \
+      -profile newcastle \
+      --account YOUR_ACCOUNT \
+      --outdir results \
+      -resume
+
+### 2. Submit the job
+
+    sbatch run_nfcore.sh
+
+## Configuration options
+
+### `--account`
+
+You **must** provide a Slurm account when running:
+
+    --account YOUR_PROJECT_CODE
+
+This is passed to Slurm as:
+
+    #SBATCH --account=YOUR_PROJECT_CODE
+
+## Example command
+
+Inside your Slurm script:
+
+    nextflow run nf-core/rnaseq \
+      -profile newcastle \
+      --account bioinf_project \
+      --outdir results \
+      -resume
+
+## Troubleshooting
+
+- Jobs fail immediately → check `--account` is valid  
+- Nextflow not found → ensure `$HOME/bin` is in your `PATH`  
+- Container errors → ensure Apptainer module is loaded  
+- Jobs not starting → check Slurm queue limits (`squeue`, `sacct`)  
+
+## Support
+
+For issues with this configuration, please contact:
+
+- Chris Wyatt (@chriswyatt1)  Email: ecoflow.ucl@gmail.com  
