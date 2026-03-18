@@ -87,13 +87,25 @@ This is passed to Slurm as:
 
     #SBATCH --account=YOUR_PROJECT_CODE
 
-## Example command
+## Example command to test nextflow is working (run this command, it should work!)
 
 Inside your Slurm script:
 
-    nextflow run nf-core/rnaseq \
+    nextflow run  nf-core/hello \
+      -profile newcastle,test \
+      --account bioinf_project \
+      --outdir results \
+      -resume
+
+## Example "real" command (will not work, just for demonstration)
+
+    nextflow run  nf-core/rnaseq \
       -profile newcastle \
       --account bioinf_project \
+      --input input_samplesheet.csv \
+      --aligner hisat2 \
+      --fasta mygenome.fasta \
+      --gtf myannotation.gtf \
       --outdir results \
       -resume
 
