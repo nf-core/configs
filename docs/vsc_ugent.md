@@ -54,6 +54,14 @@ qsub <script name>.pbs
 > [!NOTE]
 > The default directory where the `work/` and `singularity/` (cache directory for images) is located in `$VSC_SCRATCH_VO_USER` (when you are part of a VO) or `$VSC_SCRATCH` (when you are not part of a VO) for tier2 clusters and `$VSC_SCRATCH_PROJECTS_BASE/<tier1_project_name>` for tier1 clusters.
 
+## Optional use nf-co2footprint
+
+You can monitor the CO2 usage of your pipeline using the [nf-co2footprint plugin](https://nextflow-io.github.io/nf-co2footprint/) using a nextflow version =>24.10.6. Monitoring the CO2 usage is fully optional and will only be activated when running the following command-line.
+
+```bash
+nextflow run <pipeline> -profile vsc_ugent -plugins nf-co2footprint@1.0.0 --outdir your_output_folder <Add your other parameters>
+```
+
 ## Use Apptainer containers
 
 The VSC does [not support](https://docs.hpc.ugent.be/Linux/apptainer/) Apptainer containers provided via a URL (e.g., shub://... or docker://...). Normally with the right Apptainer cache directory in a SCRATCH folder, you will not see the error `apptainer image is not in an allowed configured path`. If you do have this error, you can ensure the container images are in the correct folder manually in two ways:
