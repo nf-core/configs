@@ -37,23 +37,17 @@ Ensure `$HOME/bin` is in your `PATH` (add to `~/.bash_profile` if needed):
 
     export PATH="$HOME/bin:$PATH"
 
-### 3. Container system (Singularity / Apptainer)
+### 3. Container system (Apptainer)
 
 nf-core pipelines use containers for reproducibility.
 
-On most HPC systems, **Apptainer (formerly Singularity)** is already installed. Check with:
+On comet, **Apptainer (formerly Singularity)** is already installed. Check with:
 
     module avail apptainer
-
-or:
-
-    module avail singularity
 
 Then load it (example):
 
     module load Apptainer
-
-If neither is available, contact HPC support.
 
 ## Running pipelines
 
