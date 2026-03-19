@@ -1,1 +1,6 @@
 printWidth: 120
+tabWidth: 4
+overrides:
+  - files: "**/*.{md,yml,yaml}"
+    options:
+      tabWidth: 2
