@@ -32,6 +32,7 @@ jobs:
     name: Run ${{ matrix.profile }} profile
     needs: test_all_profiles
     strategy:
+      fail-fast: false
       matrix:
         profile:
           - "abims"
