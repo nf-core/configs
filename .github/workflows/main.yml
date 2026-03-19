@@ -23,7 +23,7 @@ jobs:
       fail-fast: false
       matrix:
         NXF_VER:
-          - 25.10.2
+          - 25.04.0
           - latest-everything
     steps:
         - uses: actions/checkout@v4
