@@ -32,6 +32,7 @@ jobs:
     name: Run ${{ matrix.profile }} profile
     needs: test_all_profiles
     strategy:
+      fail-fast: false
       matrix:
         profile:
           - "abims"
@@ -46,7 +47,6 @@ jobs:
           - "bi"
           - "bigpurple"
           - "bih"
-          - "binac"
           - "binac2"
           - "biohpc_gen"
           - "biowulf"
@@ -138,7 +138,6 @@ jobs:
           - "pawsey_nimbus"
           - "pawsey_setonix"
           - "pdc_kth"
-          - "pe2"
           - "phoenix"
           - "psmn"
           - "qmul_apocrita"
