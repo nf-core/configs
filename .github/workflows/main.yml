@@ -21,11 +21,12 @@ jobs:
     name: Check if nextflow config runs in repository root
     steps:
       - uses: actions/checkout@v4
-      - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "latest-everything"
       - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+      - run: nextflow lint ${GITHUB_WORKSPACE}
 
   profile_test:
     runs-on: ubuntu-latest
