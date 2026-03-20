@@ -2,6 +2,8 @@
 
 Configuration for the University of Newcastle upon Tyne HPC cluster (Slurm scheduler).
 
+Check out the docs [here](https://hpc.researchcomputing.ncl.ac.uk/calc/resources/)
+
 ## ⚠️ Important usage note
 
 **Do not run Nextflow on the login/head node.**
