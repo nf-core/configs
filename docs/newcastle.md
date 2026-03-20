@@ -1,6 +1,6 @@
-# nf-core/configs: Newcastle HPC Configuration
+# nf-core/configs: Newcastle University (UK, Comet) HPC Configuration
 
-Configuration for the Newcastle University HPC cluster (Slurm scheduler).
+Configuration for the University of Newcastle upon Tyne HPC cluster (Slurm scheduler).
 
 ## ⚠️ Important usage note
 
