@@ -17,6 +17,10 @@ Access key to Azure blob storage account. `--storage_key` or `--storage_sas` are
 
 SAS for access to Azure blob storage account (see relevant permissions on Nextflow documentation). `--storage_key` or `--storage_sas` are required, but not both.
 
+### --storage_duration
+
+The duration of the shared access signature token created by Nextflow when the `--storage_sas` option is not specified (default: `48h`). Make sure to increase this for large and expensive workflows!
+
 ### `--az_location`
 
 The Azure Batch region where the computation is executed in VMs. Default (`westus2`).

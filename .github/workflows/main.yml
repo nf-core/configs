@@ -1,6 +1,11 @@
 name: Configs tests
-
-on: [pull_request, push]
+on:
+  pull_request:
+    branches:
+      - "*"
+  push:
+    branches:
+      - master
 
 # Cancel if a newer run is started
 concurrency:
@@ -17,26 +22,35 @@ jobs:
         run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
 
   check_nextflow_config:
-    runs-on: ubuntu-latest
     name: Check if nextflow config runs in repository root
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        NXF_VER:
+          - 25.04.0
+          - latest-everything
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
-      - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+        - uses: actions/checkout@v4
+        - name: Set up Nextflow
+          uses: nf-core/setup-nextflow@v2
+          with:
+            version: ${{ matrix.NXF_VER }}
+        - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+        - run: nextflow lint ${GITHUB_WORKSPACE}
 
   profile_test:
     runs-on: ubuntu-latest
     name: Run ${{ matrix.profile }} profile
     needs: test_all_profiles
     strategy:
+      fail-fast: false
       matrix:
         profile:
           - "abims"
           - "adcra"
           - "alice"
+          - "alliance_canada"
           - "apollo"
           - "arcc"
           - "aws_tower"
@@ -45,14 +59,15 @@ jobs:
           - "bi"
           - "bigpurple"
           - "bih"
-          - "binac"
+          - "binac2"
           - "biohpc_gen"
           - "biowulf"
           - "bluebear"
           - "cambridge"
+          - "cannon"
           - "cbe"
           - "ccga_dx"
-          - "ccga_med"
+          - "ccga_cau"
           - "ceci_dragon2"
           - "ceci_nic5"
           - "cedars"
@@ -64,6 +79,7 @@ jobs:
           - "create"
           - "crg"
           - "crick"
+          - "cropdiversityhpc"
           - "crukmi"
           - "csiro_petrichor"
           - "daisybio"
@@ -78,18 +94,21 @@ jobs:
           - "einstein"
           - "ethz_euler"
           - "eva"
+          - "eva_grace"
           - "fgcz"
+          - "fred_hutch"
+          - "fsu_draco"
           - "fub_curta"
           - "genotoul"
           - "genouest"
           - "giga"
           - "gis"
-          - "google"
           - "googlebatch"
-          - "googlels"
           - "hasta"
-          - "hki"
+          - "hki_genie"
           - "hypatia"
+          - "humantechnopole"
+          - "icr_alma"
           - "icr_davros"
           - "ifb_core"
           - "imb"
@@ -97,6 +116,7 @@ jobs:
           - "imperial"
           - "incliva"
           - "ipop_up"
+          - "iris"
           - "janelia"
           - "jax"
           - "jex"
@@ -105,17 +125,22 @@ jobs:
           - "kaust"
           - "ki_luria"
           - "leicester"
+          - "lrz_cm4"
           - "lugh"
           - "m3c"
           - "maestro"
+          - "mahuika"
           - "mana"
           - "marjorie"
+          - "lovelace"
+          - "dirac"
           - "marvin"
           - "mccleary"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
           - "mpcdf_viper"
+          - "mssm"
           - "munin"
           - "nci_gadi"
           - "nu_genomics"
@@ -126,10 +151,10 @@ jobs:
           - "pawsey_nimbus"
           - "pawsey_setonix"
           - "pdc_kth"
-          - "pe2"
           - "phoenix"
           - "psmn"
           - "qmul_apocrita"
+          - "rki"
           - "rosalind"
           - "rosalind_uge"
           - "roslin"
@@ -138,6 +163,7 @@ jobs:
           - "sanger"
           - "scw"
           - "seadragon"
+          - "seattlechildrens"
           - "seawulf"
           - "seg_globe"
           - "self_hosted_runner"
@@ -161,6 +187,7 @@ jobs:
           - "uod_hpc"
           - "uppmax"
           - "utd_ganymede"
+          - "utd_juno"
           - "uw_hyak_pedslabs"
           - "uzh"
           - "uzl_omics"
