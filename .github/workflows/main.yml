@@ -38,6 +38,14 @@ jobs:
             version: ${{ matrix.NXF_VER }}
         - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
         - run: nextflow lint ${GITHUB_WORKSPACE}
+        - name: Check for 'config_profile_contact' in config files
+          run: |
+            missing_files=$(grep -L 'config_profile_contact' conf/*.config)
+            if [ -n "$missing_files" ]; then
+              echo "The following config files are missing 'config_profile_contact':"
+              echo "$missing_files"
+              exit 1
+            fi
 
   profile_test:
     runs-on: ubuntu-latest
