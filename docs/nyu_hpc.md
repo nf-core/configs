@@ -4,7 +4,7 @@ All nf-core pipelines have been successfully configured for use on the HPC Clust
 
 To use, run the pipeline with `-profile nyu_hpc`. This will download and launch the [`nyu_hpc.config`](../conf/nyu_hpc.config) which has been pre-configured with a setup suitable for the NYU HPC cluster.
 
-Before running the pipeline you will need to load Nextflow using the environment module system on NYU HPC. 
+Before running the pipeline you will need to load Nextflow using the environment module system on NYU HPC.
 
 ```bash
 ## See available nextflow versions
