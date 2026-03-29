@@ -45,16 +45,20 @@ Apptainer/Singularity will by default create a directory `.singularity` in your 
 
 ```bash
 cd $HOME
+
+mkdir /exports/eddie/path/to/my/area/.apptainer
+ln -s /exports/eddie/path/to/my/area/.apptainer .apptainer
+
 mkdir /exports/eddie/path/to/my/area/.singularity
 ln -s /exports/eddie/path/to/my/area/.singularity .singularity
 ```
 
 ## SGE project set up
 
-By default, users’ jobs are started with the `uoe_baseline` project that gives access to free nodes. If you have a project code that gives you access to paid nodes. It can be used by jobs submitted by Nextflow. To do so, you need to set up an environment variable called `NFX_SGE_PROJECT`:
+By default, users’ jobs are started with the `uoe_baseline` project that gives access to free nodes. If you have a project code that gives you access to paid nodes. It can be used by jobs submitted by Nextflow. To do so, you need to set up an environment variable called `NXF_SGE_PROJECT`:
 
 ```bash
-export NFX_SGE_PROJECT="<PROJECT_NAME_HERE>"
+export NXF_SGE_PROJECT="<PROJECT_NAME_HERE>"
 ```
 
 If you wish, you place this variable declaration in your `.bashrc` file located in your home directory to automatically set it up each time you log on Eddie.
@@ -73,10 +77,10 @@ Finding those nodes can be done by extracting the job ids from the execution tra
 The script take as input an execution trace file via the `--file` option. It reads it, find the failed jobs, extract job ids, request info to scheduler, extract the execution nodes and format the names before printing.
 `get_fail_jobs_nodes.sh --file execution_trace_2026-01-20_09-32-27.txt`.
 
-Then, you can set up an environment variable called `NFX_NODE_EXCLUSION` and copy/paste the printed node list.
+Then, you can set up an environment variable called `NXF_NODE_EXCLUSION` and copy/paste the printed node list.
 
 ```bash
-export NFX_NODE_EXCLUSION="<FORMATED_LIST_OF_NODES_TO_EXCLUDE>"
+export NXF_NODE_EXCLUSION="<FORMATED_LIST_OF_NODES_TO_EXCLUDE>"
 ```
 
 ## Running Nextflow
