@@ -2,12 +2,16 @@
 
 All nf-core pipelines have been successfully configured for use on the HPC Cluster at New York University.
 
-To use, run the pipeline with `-profile nyu_hpc`. This will download and launch the [`nyu_hpc.config`](../conf/nyu_hpc.config) which has been pre-configured with a setup suitable for the NYU HPC cluster. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
+To use, run the pipeline with `-profile nyu_hpc`. This will download and launch the [`nyu_hpc.config`](../conf/nyu_hpc.config) which has been pre-configured with a setup suitable for the NYU HPC cluster.
 
-Before running the pipeline you will need to load Nextflow using the environment module system on NYU HPC. You can do this by issuing the commands below:
+Before running the pipeline you will need to load Nextflow using the environment module system on NYU HPC. 
 
 ```bash
-## Load Nextflow modules
-module purge
-module load nextflow/23.04.1
+## See available nextflow versions
+$ module avail nextflow
+--- /share/apps/modulefiles ----
+  nextflow/25.04.7    nextflow/25.10.2
+
+## Load desired nextflow
+$ module load nextflow/25.10.2
 ```
