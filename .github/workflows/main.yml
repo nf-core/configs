@@ -37,6 +37,22 @@ jobs:
         with:
           version: ${{ matrix.NXF_VER }}
       - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+
+  lint_nextflow_config:
+    name: Check if nextflow config runs in repository root
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        NXF_VER:
+          - 25.04.0
+          - latest-everything
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: ${{ matrix.NXF_VER }}
       - run: nextflow lint ${GITHUB_WORKSPACE}
 
   profile_test:
