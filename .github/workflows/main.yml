@@ -226,7 +226,7 @@ jobs:
         uses: nf-core/setup-nextflow@v2
         with:
           version: "latest-everything"
-      - name: Check ${{ matrix.profile }} profile
+      - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
           NXF_GLOBAL_CONFIG: awsbatch.config
