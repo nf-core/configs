@@ -31,13 +31,13 @@ jobs:
           - 25.04.0
           - latest-everything
     steps:
-        - uses: actions/checkout@v4
-        - name: Set up Nextflow
-          uses: nf-core/setup-nextflow@v2
-          with:
-            version: ${{ matrix.NXF_VER }}
-        - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
-        - run: nextflow lint ${GITHUB_WORKSPACE}
+      - uses: actions/checkout@v4
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: ${{ matrix.NXF_VER }}
+      - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+      - run: nextflow lint ${GITHUB_WORKSPACE}
 
   profile_test:
     runs-on: ubuntu-latest
