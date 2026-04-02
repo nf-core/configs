@@ -39,7 +39,7 @@ jobs:
       - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
 
   lint_nextflow_config:
-    name: Check if nextflow config runs in repository root
+    name: Check if nextflow files are valid with nextflow lint
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
