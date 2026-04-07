@@ -45,21 +45,43 @@ Apptainer/Singularity will by default create a directory `.singularity` in your 
 
 ```bash
 cd $HOME
+
+mkdir /exports/eddie/path/to/my/area/.apptainer
+ln -s /exports/eddie/path/to/my/area/.apptainer .apptainer
+
 mkdir /exports/eddie/path/to/my/area/.singularity
 ln -s /exports/eddie/path/to/my/area/.singularity .singularity
 ```
 
 ## SGE project set up
 
-By default, users’ jobs are started with the `uoe_baseline` project that gives access to free nodes. If you have a project code that gives you access to paid nodes. It can be used by jobs submitted by Nextflow. To do so, you need to set up an environment variable called `NFX_SGE_PROJECT`:
+By default, users’ jobs are started with the `uoe_baseline` project that gives access to free nodes. If you have a project code that gives you access to paid nodes. It can be used by jobs submitted by Nextflow. To do so, you need to set up an environment variable called `NXF_SGE_PROJECT`:
 
 ```bash
-export NFX_SGE_PROJECT="<PROJECT_NAME_HERE>"
+export NXF_SGE_PROJECT="<PROJECT_NAME_HERE>"
 ```
 
 If you wish, you place this variable declaration in your `.bashrc` file located in your home directory to automatically set it up each time you log on Eddie.
 
 **NB:** This will work only with the roslin profile.
+
+## Excluding problematic node
+
+Eddie is a fragile little thing. Time to time, some nodes might struggle to run singularity. The most common error message is: `env: ‘singularity’: No such file or directory`. The reason why this error occurs is still obscure, but we suspect network problems around network disks.
+
+A temporary solution is to exclude the problematic nodes in job requirements.
+Similarly to the project code variable (see above), we implemented a detection of a specific variable containing the list of nodes to exclude.
+
+Finding those nodes can be done by extracting the job ids from the execution trace file, then request job information with qacct. To facilitate this search, we wrote a bash script that will list the nodes and print it to screen. You can find it and copy it on Eddie from [here](https://git.ecdf.ed.ac.uk/easter-bush-bioinformatics/nextflow_configurations/-/raw/main/debug_scripts/get_fail_jobs_nodes.sh?ref_type=heads) (do not forget to make it executable `chmod a+x get_fail_jobs_nodes.sh`).
+
+The script take as input an execution trace file via the `--file` option. It reads it, find the failed jobs, extract job ids, request info to scheduler, extract the execution nodes and format the names before printing.
+`get_fail_jobs_nodes.sh --file execution_trace_2026-01-20_09-32-27.txt`.
+
+Then, you can set up an environment variable called `NXF_NODE_EXCLUSION` and copy/paste the printed node list.
+
+```bash
+export NXF_NODE_EXCLUSION="<FORMATED_LIST_OF_NODES_TO_EXCLUDE>"
+```
 
 ## Running Nextflow
 
