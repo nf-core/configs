@@ -28,8 +28,8 @@ It is best practices to set the environment variables when running on the HPC,
 by adding the following to your `~./bashrc` profile:
 
 ```bash
-export NXF_CACHE_DIR=/scratch/${System.getenv('USER')}
-export NXF_WORK=/scratch/${System.getenv('USER')}
-export APPTAINER_CACHEDIR=/scratch/${System.getenv('USER')}
+export NXF_CACHE_DIR=/scratch/${USER}
+export NXF_WORK=/scratch/${USER}
+export APPTAINER_CACHEDIR=/scratch/${USER}
 export NXF_APPTAINER_CACHEDIR=$APPTAINER_CACHEDIR
 ```
