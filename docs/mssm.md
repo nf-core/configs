@@ -105,7 +105,7 @@ cd $PROJ_DIR
 nextflow run $NFC_PIPE \
     -r $NFC_VER \
     -profile $NFC_PROFILE \
-    -w /sc/arion/scratch/${System.getenv('USER')}/work \
+    -w /sc/arion/scratch/${USER}/work \
     -c $PROJ_DIR/custom.config \
     --input $SAMPLESHEET \
     --outdir $OUTDIR \
