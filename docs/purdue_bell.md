@@ -1,94 +1,75 @@
-// nf-core/configs: Purdue RCAC Bell cluster profile
-// Bell: AMD EPYC 7662 (Rome), 128 cores / 256 GB per node
-// <https://www.rcac.purdue.edu/knowledge/bell>
+# nf-core/configs: Purdue RCAC Bell
 
-nextflowVersion = '>=24.04.0'
+The `purdue_bell` profile configures nf-core pipelines to run on the Bell cluster operated by the Rosen Center for Advanced Computing (RCAC) at Purdue University.
 
-params {
-config_profile_description = 'Purdue RCAC Bell cluster profile (CPU-only nf-core pipelines).'
-config_profile_contact = 'Arun Seetharam (@aseetharam)'
-config_profile_url = '<https://www.rcac.purdue.edu/knowledge/bell>'
+Bell is an AMD EPYC 7662 (Rome) cluster with 128 cores and 256 GB RAM per standard node. See the [RCAC Bell user guide](https://www.rcac.purdue.edu/compute/bell) for hardware and policy details.
 
-    // Shared iGenomes mirror (identical path on Bell, Negishi, Gautschi)
-    igenomes_base = '/depot/itap/datasets/igenomes'
+## Prerequisites
 
-    // REQUIRED. Run `slist` on Bell to list your accounts.
-    cluster_account = null
+```bash
+module purge
+module load nextflow
+```
 
-    // Opt-in: route eligible (non-highmem) jobs through the 4 h standby QoS
-    use_standby = false
+The `nextflow` module pulls in a compatible JDK (`openjdk/17.0.2_8` is available on Bell). Apptainer is system-wide; `/usr/bin/singularity` is a symlink to `apptainer`.
 
-}
+## Required parameter: `--cluster_account`
 
-// Tell nf-core schema validation to ignore our custom param
-validation {
-defaultIgnoreParams = ['cluster_account']
-}
+RCAC Slurm jobs must specify an account. List yours with `slist`, then pass it to Nextflow:
 
-// Validate required params
-if (!params.cluster_account) {
-throw new Exception(
-"purdue_bell requires --cluster_account=<slurm_account>. " +
-"Run 'slist' on a Bell login node to list your available accounts."
-)
-}
+```bash
+slist
 
-// Hostname safety check (warn only). Bell login nodes: bell-fe0N.rcac.purdue.edu
-try {
-def \_hn = "hostname".execute().text.trim()
-if (\_hn && !(\_hn ==~ /._bell._/)) {
-System.err.println(
-"[purdue_bell] WARNING: current host '${\_hn}' does not look like a Bell node."
-)
-}
-} catch (Exception ignored) { }
+nextflow run nf-core/<pipeline> \
+    -profile purdue_bell \
+    --cluster_account <your_account> \
+    --input samplesheet.csv \
+    --outdir results
+```
 
-process {
-executor = 'slurm'
+The profile will refuse to submit jobs if `--cluster_account` is unset.
 
-    // Global ceiling for the cpu partition
-    resourceLimits = [
-        cpus  : 128,
-        memory: 256.GB,
-        time  : 336.h
-    ]
+## Partition routing
 
-    // Default routing: cpu partition
-    queue          = 'cpu'
-    clusterOptions = { "--account=${params.cluster_account}" + (params.use_standby ? ' --qos=standby' : '') }
+| nf-core label         | Partition | Notes                                            |
+| --------------------- | --------- | ------------------------------------------------ |
+| _default_             | `cpu`     | 128 cores, 256 GB, up to 14 d                    |
+| `process_long`        | `cpu`     | 14 d max                                         |
+| `process_high_memory` | `highmem` | 1 TB nodes, jobs forced to >= 65 cores, 24 h cap |
 
-    withLabel: process_long {
-        queue = 'cpu'
-        time  = 336.h
-    }
+GPU partitions on Bell are AMD MI50 (`gpu`) and MI60 (`multigpu`), both ROCm-based. They are **not exposed** by this profile because nf-core GPU pipelines are CUDA-only.
 
-    // High-memory: 1 TB nodes, jobs MUST request > 64 cores, 24 h cap.
-    // We claim the full node (128 cores) since highmem jobs are
-    // effectively node-exclusive on memory.
-    withLabel: process_high_memory {
-        queue          = 'highmem'
-        cpus           = 128
-        resourceLimits = [ cpus: 128, memory: 1000.GB, time: 24.h ]
-        clusterOptions = { "--account=${params.cluster_account}" }
-    }
+## Standby queue (optional)
 
-}
+Bell offers a 4 h standby QoS for short jobs. Opt in with:
 
-executor {
-queueSize = 50
-pollInterval = '30 sec'
-queueStatInterval = '5 min'
-submitRateLimit = '10 sec'
-}
+```bash
+nextflow run ... -profile purdue_bell --use_standby true ...
+```
 
-apptainer {
-enabled = true
-autoMounts = true
-cacheDir = "${System.getenv('RCAC_SCRATCH') ?: System.getenv('SCRATCH') ?: System.getProperty('user.home')}/.apptainer/cache"
-}
+`standby` is not permitted on `highmem`, so high-memory steps remain on the normal QoS even when this flag is set.
 
-// Reports (pipeline places these under params.outdir/pipeline_info by default)
-trace { enabled = true; overwrite = true }
-report { enabled = true; overwrite = true }
-timeline { enabled = true; overwrite = true }
-dag { enabled = true; overwrite = true }
+## Reference data
+
+A shared iGenomes mirror is mounted at `/depot/itap/datasets/igenomes` and the profile sets `params.igenomes_base` accordingly. Use the standard nf-core `--genome` keys (e.g. `--genome GRCh38`).
+
+To use your own reference instead, pass the relevant pipeline parameters explicitly (`--fasta`, `--gtf`, etc.).
+
+## Container cache and work directory
+
+```bash
+export NXF_SINGULARITY_CACHEDIR=$RCAC_SCRATCH/.apptainer/cache
+nextflow run ... -w $RCAC_SCRATCH/nextflow-work ...
+```
+
+## Tested with
+
+- Nextflow 25.10.4
+- nf-core/demo 1.1.0 (`-profile test,purdue_bell`)
+- Apptainer (system, `/usr/bin/apptainer`)
+- Last validated: 2026-04-13
+
+## Contact
+
+- Arun Seetharam, [@aseetharam](https://github.com/aseetharam), <aseethar@purdue.edu>
+- [RCAC support](https://www.rcac.purdue.edu/about/contact)
