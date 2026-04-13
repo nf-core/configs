@@ -1,0 +1,92 @@
+// nf-core/configs: Purdue RCAC Bell cluster profile
+// Bell: AMD EPYC 7662 (Rome), 128 cores / 256 GB per node
+// <https://www.rcac.purdue.edu/knowledge/bell>
+
+nextflowVersion = '>=24.04.0'
+
+params {
+    config_profile_description = 'Purdue RCAC Bell cluster profile (CPU-only nf-core pipelines).'
+    config_profile_contact     = 'Arun Seetharam (@aseetharam)'
+    config_profile_url         = '<https://www.rcac.purdue.edu/knowledge/bell>'
+
+    // Shared iGenomes mirror (identical path on Bell, Negishi, Gautschi)
+    igenomes_base = '/depot/itap/datasets/igenomes'
+
+    // REQUIRED. Run `slist` on Bell to list your accounts.
+    cluster_account = null
+
+    // Opt-in: route eligible (non-highmem) jobs through the 4 h standby QoS
+    use_standby = false
+}
+
+// Tell nf-core schema validation to ignore our custom param
+validation {
+    defaultIgnoreParams = ['cluster_account']
+}
+
+// Validate required params
+if (!params.cluster_account) {
+    throw new Exception(
+        "purdue_bell requires --cluster_account=<slurm_account>. " +
+        "Run 'slist' on a Bell login node to list your available accounts."
+    )
+}
+
+// Hostname safety check (warn only). Bell login nodes: bell-fe0N.rcac.purdue.edu
+try {
+    def _hn = "hostname".execute().text.trim()
+    if (_hn && !(_hn ==~ /.*bell.*/)) {
+        System.err.println(
+            "[purdue_bell] WARNING: current host '${_hn}' does not look like a Bell node."
+        )
+    }
+} catch (Exception ignored) { }
+
+process {
+    executor = 'slurm'
+
+    // Global ceiling for the cpu partition
+    resourceLimits = [
+        cpus  : 128,
+        memory: 256.GB,
+        time  : 336.h
+    ]
+
+    // Default routing: cpu partition
+    queue          = 'cpu'
+    clusterOptions = { "--account=${params.cluster_account}" + (params.use_standby ? ' --qos=standby' : '') }
+
+    withLabel: process_long {
+        queue = 'cpu'
+        time  = 336.h
+    }
+
+    // High-memory: 1 TB nodes, jobs MUST request > 64 cores, 24 h cap.
+    // We claim the full node (128 cores) since highmem jobs are
+    // effectively node-exclusive on memory.
+    withLabel: process_high_memory {
+        queue          = 'highmem'
+        cpus           = 128
+        resourceLimits = [ cpus: 128, memory: 1000.GB, time: 24.h ]
+        clusterOptions = { "--account=${params.cluster_account}" }
+    }
+}
+
+executor {
+    queueSize         = 50
+    pollInterval      = '30 sec'
+    queueStatInterval = '5 min'
+    submitRateLimit   = '10 sec'
+}
+
+apptainer {
+    enabled    = true
+    autoMounts = true
+    cacheDir   = "${System.getenv('RCAC_SCRATCH') ?: System.getenv('SCRATCH') ?: System.getProperty('user.home')}/.apptainer/cache"
+}
+
+// Reports (pipeline places these under params.outdir/pipeline_info by default)
+trace    { enabled = true; overwrite = true }
+report   { enabled = true; overwrite = true }
+timeline { enabled = true; overwrite = true }
+dag      { enabled = true; overwrite = true }
