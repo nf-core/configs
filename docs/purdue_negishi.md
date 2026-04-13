@@ -35,11 +35,11 @@ The profile will refuse to start if `--cluster_account` is unset.
 
 ## Partition routing
 
-| nf-core label         | Partition | Notes                                           |
-|-----------------------|-----------|-------------------------------------------------|
-| _default_             | `cpu`     | 128 cores, 256 GB, up to 14 d                  |
-| `process_long`        | `cpu`     | 14 d max                                        |
-| `process_high_memory` | `highmem` | 1 TB nodes, jobs forced to >= 65 cores, 24 h cap|
+| nf-core label         | Partition | Notes                                            |
+| --------------------- | --------- | ------------------------------------------------ |
+| _default_             | `cpu`     | 128 cores, 256 GB, up to 14 d                    |
+| `process_long`        | `cpu`     | 14 d max                                         |
+| `process_high_memory` | `highmem` | 1 TB nodes, jobs forced to >= 65 cores, 24 h cap |
 
 GPU partitions on Negishi are AMD MI210 (ROCm) and are **not exposed** by this profile because nf-core GPU pipelines are CUDA-only.
 

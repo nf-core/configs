@@ -29,12 +29,12 @@ The profile will refuse to start if `--cluster_account` is unset.
 
 ## Partition routing
 
-| nf-core label         | Partition  | Notes                                                 |
-|-----------------------|------------|-------------------------------------------------------|
-| _default_             | `cpu`      | 192 cores, 384 GB, up to 14 d                        |
-| `process_long`        | `cpu`      | 14 d max                                              |
-| `process_high_memory` | `highmem`  | 1.5 TB nodes, jobs forced to >= 49 cores, 24 h cap    |
-| `process_gpu`         | `smallgpu` (default) or `ai` | NVIDIA L40 (24 h) or H100 (14 d), see below |
+| nf-core label         | Partition                    | Notes                                              |
+| --------------------- | ---------------------------- | -------------------------------------------------- |
+| _default_             | `cpu`                        | 192 cores, 384 GB, up to 14 d                      |
+| `process_long`        | `cpu`                        | 14 d max                                           |
+| `process_high_memory` | `highmem`                    | 1.5 TB nodes, jobs forced to >= 49 cores, 24 h cap |
+| `process_gpu`         | `smallgpu` (default) or `ai` | NVIDIA L40 (24 h) or H100 (14 d), see below        |
 
 ## GPU jobs
 

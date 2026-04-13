@@ -5,9 +5,9 @@
 nextflowVersion = '>=24.04.0'
 
 params {
-    config_profile_description = 'Purdue RCAC Bell cluster profile (CPU-only nf-core pipelines).'
-    config_profile_contact     = 'Arun Seetharam (@aseetharam)'
-    config_profile_url         = '<https://www.rcac.purdue.edu/knowledge/bell>'
+config_profile_description = 'Purdue RCAC Bell cluster profile (CPU-only nf-core pipelines).'
+config_profile_contact = 'Arun Seetharam (@aseetharam)'
+config_profile_url = '<https://www.rcac.purdue.edu/knowledge/bell>'
 
     // Shared iGenomes mirror (identical path on Bell, Negishi, Gautschi)
     igenomes_base = '/depot/itap/datasets/igenomes'
@@ -17,33 +17,34 @@ params {
 
     // Opt-in: route eligible (non-highmem) jobs through the 4 h standby QoS
     use_standby = false
+
 }
 
 // Tell nf-core schema validation to ignore our custom param
 validation {
-    defaultIgnoreParams = ['cluster_account']
+defaultIgnoreParams = ['cluster_account']
 }
 
 // Validate required params
 if (!params.cluster_account) {
-    throw new Exception(
-        "purdue_bell requires --cluster_account=<slurm_account>. " +
-        "Run 'slist' on a Bell login node to list your available accounts."
-    )
+throw new Exception(
+"purdue_bell requires --cluster_account=<slurm_account>. " +
+"Run 'slist' on a Bell login node to list your available accounts."
+)
 }
 
 // Hostname safety check (warn only). Bell login nodes: bell-fe0N.rcac.purdue.edu
 try {
-    def _hn = "hostname".execute().text.trim()
-    if (_hn && !(_hn ==~ /.*bell.*/)) {
-        System.err.println(
-            "[purdue_bell] WARNING: current host '${_hn}' does not look like a Bell node."
-        )
-    }
+def \_hn = "hostname".execute().text.trim()
+if (\_hn && !(\_hn ==~ /._bell._/)) {
+System.err.println(
+"[purdue_bell] WARNING: current host '${\_hn}' does not look like a Bell node."
+)
+}
 } catch (Exception ignored) { }
 
 process {
-    executor = 'slurm'
+executor = 'slurm'
 
     // Global ceiling for the cpu partition
     resourceLimits = [
@@ -70,23 +71,24 @@ process {
         resourceLimits = [ cpus: 128, memory: 1000.GB, time: 24.h ]
         clusterOptions = { "--account=${params.cluster_account}" }
     }
+
 }
 
 executor {
-    queueSize         = 50
-    pollInterval      = '30 sec'
-    queueStatInterval = '5 min'
-    submitRateLimit   = '10 sec'
+queueSize = 50
+pollInterval = '30 sec'
+queueStatInterval = '5 min'
+submitRateLimit = '10 sec'
 }
 
 apptainer {
-    enabled    = true
-    autoMounts = true
-    cacheDir   = "${System.getenv('RCAC_SCRATCH') ?: System.getenv('SCRATCH') ?: System.getProperty('user.home')}/.apptainer/cache"
+enabled = true
+autoMounts = true
+cacheDir = "${System.getenv('RCAC_SCRATCH') ?: System.getenv('SCRATCH') ?: System.getProperty('user.home')}/.apptainer/cache"
 }
 
 // Reports (pipeline places these under params.outdir/pipeline_info by default)
-trace    { enabled = true; overwrite = true }
-report   { enabled = true; overwrite = true }
+trace { enabled = true; overwrite = true }
+report { enabled = true; overwrite = true }
 timeline { enabled = true; overwrite = true }
-dag      { enabled = true; overwrite = true }
+dag { enabled = true; overwrite = true }
