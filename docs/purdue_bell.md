@@ -31,11 +31,11 @@ The profile will refuse to submit jobs if `--cluster_account` is unset.
 
 ## Partition routing
 
-| nf-core label         | Partition | Notes                                            |
-| --------------------- | --------- | ------------------------------------------------ |
-| _default_             | `cpu`     | 128 cores, 256 GB, up to 14 d                    |
-| `process_long`        | `cpu`     | 14 d max                                         |
-| `process_high_memory` | `highmem` | 1 TB nodes, jobs forced to >= 65 cores, 24 h cap |
+| nf-core label         | Partition | Notes                                                                               |
+| --------------------- | --------- | ----------------------------------------------------------------------------------- |
+| _default_             | `cpu`     | 128 cores, 256 GB, up to 14 d                                                       |
+| `process_long`        | `cpu`     | 14 d max; always uses normal QoS (standby has a 4 h limit)                          |
+| `process_high_memory` | `highmem` | 1 TB nodes, 24 h cap; profile claims full node (128 cores) to satisfy the >64 floor |
 
 GPU partitions on Bell are AMD MI50 (`gpu`) and MI60 (`multigpu`), both ROCm-based. They are **not exposed** by this profile because nf-core GPU pipelines are CUDA-only.
 
@@ -47,7 +47,7 @@ Bell offers a 4 h standby QoS for short jobs. Opt in with:
 nextflow run ... -profile purdue_bell --use_standby true ...
 ```
 
-`standby` is not permitted on `highmem`, so high-memory steps remain on the normal QoS even when this flag is set.
+`standby` is not applied to `highmem` or `process_long` labels (their walltime exceeds the 4 h QoS cap), so those steps remain on the normal QoS even when this flag is set.
 
 ## Reference data
 
