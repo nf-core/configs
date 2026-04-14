@@ -2,7 +2,7 @@
 
 The `purdue_gautschi` profile configures nf-core pipelines to run on the Gautschi cluster operated by the Rosen Center for Advanced Computing (RCAC) at Purdue University.
 
-Gautschi is an AMD EPYC 9654 (Genoa) cluster with 192 cores and 384 GB RAM per standard CPU node, plus NVIDIA L40 and H100 GPU partitions. See the [RCAC Gautschi user guide](https://www.rcac.purdue.edu/knowledge/gautschi) for hardware and policy details.
+Gautschi is an AMD EPYC 9654 (Genoa) cluster with 192 cores and 384 GB RAM per standard CPU node, 1.5 TB highmem nodes, plus NVIDIA L40 and H100 GPU partitions. See the [RCAC Gautschi user guide](https://www.rcac.purdue.edu/knowledge/gautschi) for hardware and policy details.
 
 ## Prerequisites
 
@@ -29,12 +29,16 @@ The profile will refuse to submit jobs if `--cluster_account` is unset.
 
 ## Partition routing
 
-| nf-core label         | Partition                    | Notes                                                                                 |
-| --------------------- | ---------------------------- | ------------------------------------------------------------------------------------- |
-| _default_             | `cpu`                        | 192 cores, 384 GB, up to 14 d                                                         |
-| `process_long`        | `cpu`                        | 14 d max; always uses normal QoS (standby has a 4 h limit)                            |
-| `process_high_memory` | `highmem`                    | 1.5 TB nodes, 24 h cap; profile claims full node (192 cores) to satisfy the >48 floor |
-| `process_gpu`         | `smallgpu` (default) or `ai` | NVIDIA L40 (24 h) or H100 (14 d); see below                                           |
+CPU and high-memory jobs are routed dynamically based on the task's memory request:
+
+| Memory request | Partition | Walltime cap | Notes                                                  |
+| -------------- | --------- | ------------ | ------------------------------------------------------ |
+| `<= 384 GB`    | `cpu`     | 14 d         | Default for most pipeline steps                        |
+| `> 384 GB`     | `highmem` | 24 h         | Slurm requires `>= 49 cores` per job on this partition |
+
+If a pipeline step requests more than 384 GB RAM but fewer than 49 cores, Slurm will reject the submission. Raise the step's CPU request in a pipeline-level config, or lower its memory request if the real need is below 384 GB.
+
+GPU-labelled steps (`process_gpu`) route to the `smallgpu` partition by default. The `profiling` partition is intended for hardware performance work and is not exposed by this profile.
 
 ## GPU jobs
 
@@ -44,9 +48,7 @@ By default, `process_gpu` routes to the `smallgpu` partition (2x NVIDIA L40 per 
 nextflow run ... -profile purdue_gautschi --gpu_partition ai ...
 ```
 
-The profile derives `--gres=gpu:N` from each task's `accelerator.request` directive, so multi-GPU workflows work without further configuration. Pipelines that don't set `accelerator` get 1 GPU by default. `ai` nodes are scarce; use `smallgpu` unless your workflow specifically needs H100 throughput, NVLink, or > 48 GB GPU memory.
-
-The `profiling` partition is intended for hardware performance work and is not exposed by this profile.
+The profile derives `--gres=gpu:N` from each task's `accelerator.request` directive, so multi-GPU workflows (e.g. parabricks) work without further configuration. Pipelines that don't set `accelerator` get 1 GPU by default. `ai` nodes are scarce; use `smallgpu` unless your workflow specifically needs H100 throughput, NVLink, or > 48 GB GPU memory.
 
 ## Standby queue (optional)
 
@@ -56,7 +58,7 @@ Gautschi offers a 4 h standby QoS for short CPU jobs:
 nextflow run ... -profile purdue_gautschi --use_standby true ...
 ```
 
-`standby` does not apply to `highmem`, `process_long`, or GPU jobs.
+Jobs are routed through standby only when they fit within the QoS limits (<= 4 h walltime, <= 384 GB memory). Longer, larger, or GPU steps automatically fall back to the normal QoS.
 
 ## Reference data
 
@@ -70,13 +72,6 @@ To use your own reference instead, pass the relevant pipeline parameters explici
 export NXF_SINGULARITY_CACHEDIR=$RCAC_SCRATCH/.apptainer/cache
 nextflow run ... -w $RCAC_SCRATCH/nextflow-work ...
 ```
-
-## Tested with
-
-- Nextflow 25.10.4
-- nf-core/demo 1.1.0 (`-profile test,purdue_gautschi`)
-- Apptainer (system, `/usr/bin/apptainer`)
-- Last validated: 2026-04-13
 
 ## Contact
 
