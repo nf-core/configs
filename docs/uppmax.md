@@ -4,7 +4,7 @@ All nf-core pipelines have been successfully configured for use on the Swedish U
 
 ## Getting help
 
-We have a Slack channel dedicated to assist Swedich HPC users on the nf-core
+We have a Slack channel dedicated to assist Swedish HPC users on the nf-core
 Slack: [https://nfcore.slack.com/channels/helpdesk-hpc-sweden](https://nfcore.slack.com/channels/helpdesk-hpc-sweden)
 
 ## Using the UPPMAX config profile
@@ -14,7 +14,7 @@ available in `nf-core` on UPPMAX is to use the [module system](https://www.uppma
 
 ```bash
 # Log in to the desired cluster
-ssh <USER>@{rackham,miarka,bianca}.uppmax.uu.se
+ssh <USER>@{rackham,miarka,bianca,pelle}.uppmax.uu.se
 
 # Activate the modules, you can also choose to use a specific version with e.g. `Nextflow/21.10`.
 module load bioinfo-tools Nextflow nf-core nf-core-pipelines
@@ -23,10 +23,10 @@ module load bioinfo-tools Nextflow nf-core nf-core-pipelines
 To use, run the pipeline with `-profile uppmax` (one hyphen).
 This will download and launch the [`uppmax.config`](../conf/uppmax.config) which has been pre-configured with a setup suitable for the UPPMAX servers.
 It will enable `Nextflow` to manage the pipeline jobs via the `Slurm` job scheduler.
-Using this profile, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline.
+Using this profile, `Singularity` images will be downloaded for each process. If a `Singularity` image is not available, `Docker` image(s) containing required software(s) will be downloaded, and converted to `Singularity` image(s) if needed before execution of the pipeline. Images are converted and stored in the singularity cache. If you run out of disk space converting images set `SINGULARITY_CACHEDIR` environment variable to a location with more space.
 
-Recent version of `Nextflow` also support the environment variable `NXF_SINGULARITY_CACHEDIR` which can be used to supply images.
-Images for some `nf-core` pipelines are available under `/sw/data/ToolBox/nf-core/` and those can be used by `NXF_SINGULARITY_CACHEDIR=/sw/data/ToolBox/nf-core/; export NXF_SINGULARITY_CACHEDIR`.
+`Nextflow` also supports the environment variable `NXF_SINGULARITY_CACHEDIR` which can be used to store and supply images for repeated executions.
+The equivalent `Nextflow` config setting is `singularity.cacheDir`.
 
 In addition to this config profile, you will also need to specify an UPPMAX project id.
 You can do this with the `--project` flag (two hyphens) when launching `Nextflow`.
@@ -39,10 +39,7 @@ $ nextflow run nf-core/<PIPELINE> -profile uppmax --project snic2018-1-234 [...]
 
 > NB: If you're not sure what your UPPMAX project ID is, try running `groups` or checking SUPR.
 
-Just run `Nextflow` on a login node and it will handle everything else.
-
-Remember to use `-bg` to launch `Nextflow` in the background, so that the pipeline doesn't exit if you leave your terminal session.
-Alternatively, you can also launch `Nextflow` in a `screen` or a `tmux` session.
+Run `Nextflow` on a login node in a `screen` or a `tmux` session and it will handle everything else.
 
 ## Using AWS iGenomes references
 
@@ -51,32 +48,20 @@ You can do this by simply using the `--genome <GENOME_ID>` parameter.
 
 ## Getting more memory
 
-If your `nf-core` pipeline run is running out of memory, you can run on a fat node with more memory using the following `Nextflow` flags:
+If a task in your `nf-core` pipeline runs out of memory (exit code 137), you increase the memory request for that task by using a local config.
 
-```bash
---clusterOptions "-C mem256GB -p node" --max_memory "256GB"
+```nextflow
+// nextflow.config in your launch directory ( the directory where you run `nextflow run` )
+process {
+    withName: '<PROCESS_NAME>' {
+        memory = 256.GB
+    }
+}
 ```
 
-This raises the ceiling of available memory from the default of `128.GB` to `256.GB`.
-`rackham` has nodes with 128GB, 256GB and 1TB memory available.
+Time (exit code 140), and cpu allocations can be increased in the same way.
 
-Note that each job will still start with the same request as normal, but restarted attempts with larger requests will be able to request greater amounts of memory.
-
-All jobs will be submitted to fat nodes using this method, so it's only for use in extreme circumstances.
-
-## Different UPPMAX clusters
-
-The UPPMAX nf-core configuration profile uses the `hostname` of the active environment to automatically apply the following resource limits:
-
-- `rackham`
-  - cpus available: 20 cpus
-  - memory available: 125 GB
-- `bianca`
-  - cpus available: 16 cpus
-  - memory available: 109 GB
-- `miarka`
-  - cpus available: 48 cpus
-  - memory available: 357 GB
+The maximum allowed cpu, memory, and time allocations are determined by the `process.resourceLimits` directive. If you request more resources than the maximum they will be reduced to the limit set by this directive. We have implemented a node auto-selection system that will automatically select the best node for your job based on the resources you request.
 
 ## Development config
 
@@ -89,20 +74,20 @@ It is not suitable for use with real data.
 
 To use it, submit with `-profile uppmax,devel`.
 
-## Running on bianca
+## Running on Bianca
 
 > :warning: For more information, please follow the following guides:
 >
-> - [UPPMAX `bianca` user guide](http://uppmax.uu.se/support/user-guides/bianca-user-guide/).
+> - [UPPMAX `bianca` user guide](https://docs.uppmax.uu.se/cluster_guides/bianca/).
 > - [nf-core guide for running offline](https://nf-co.re/usage/offline)
-> - [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/tools#downloading-pipelines-for-offline-use).
-> - [UPPMAX `Singularity` guide](https://www.uppmax.uu.se/support-sv/user-guides/singularity-user-guide/).
+> - [nf-core `tools` guide for downloading pipelines for offline use](https://nf-co.re/docs/nf-core-tools/pipelines/download).
+> - [UPPMAX `Singularity` guide](https://docs.uppmax.uu.se/software/singularity/).
 
 For security reasons, there is no internet access on `bianca` so you can't download from or upload files to the cluster directly.
 Before running a nf-core pipeline on `bianca` you will first have to download the pipeline and singularity images needed elsewhere and transfer them via the `wharf` area to your own `bianca` project.
 
 In this guide, we use `rackham` to download and transfer files to the `wharf` area, but it can also be done on your own computer.
-If you use `rackham` to download the pipeline and the singularity containers, we recommend using an interactive session (cf [interactive guide](https://www.uppmax.uu.se/support/faq/running-jobs-faq/how-can-i-run-interactively-on-a-compute-node/)), which is what we do in the following guide.
+If you use `rackham` to download the pipeline and the singularity containers, we recommend using an interactive session (cf [interactive guide](https://docs.uppmax.uu.se/cluster_guides/interactive_more/)), which is what we do in the following guide.
 
 It is recommended to activate `Nextflow`, `nf-core` and your `nf-core`
 pipeline through the module system (see **Using the UPPMAX config profile**

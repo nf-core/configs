@@ -87,3 +87,11 @@ sbatch --cluster=wice|genius job.slurm 
 ```
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
+
+4. Optional use nf-co2footprint
+
+You can monitor the CO2 usage of your pipeline using the [nf-co2footprint plugin](https://nextflow-io.github.io/nf-co2footprint/) using a nextflow version =>24.10.6. Monitoring the CO2 usage is fully optional and will only be activated when running the following command-line.
+
+```bash
+nextflow run <pipeline> -profile <CLUSTER> -plugins nf-co2footprint@1.0.0 --outdir your_output_folder <Add your other parameters>
+```
