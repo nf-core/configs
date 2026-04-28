@@ -1,6 +1,6 @@
 # nf-core/configs: Super Computing Wales configuration
 
-> **Warning:** This config is unmaintained and will be removed in a year from 28/04/2026 if no new maintainer is found.
+> **Warning:** This config is unmaintained and will be removed in at the end of June 2026 if no new maintainer is found.
 > If you use this config, please consider becoming a maintainer, or contact your sysadmin team to see if they will
 > take on the burden.
 
