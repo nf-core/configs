@@ -1,6 +1,6 @@
 # nf-core/configs: Fred Hutch Cancer Center Configuration
 
-Configuration file to run nf-core pipelines on the cluster of the [Fred Hutchinson Cancer Center](https://www.fredhutch.org/).
+Configuration file to run nf-core pipelines on the cluster of the [Fred Hutchinson Cancer Center](https://www.fredhutch.org/). Note that the default `workDir` will be based on your `$TMPDIR` if available (e.g. nextflow is launched in an interactive session). This is to avoid large tmp file buildup in hidden nextflow directories, but may prevent resuming pipelines. You can override this by setting `-work-dir <your directory>` at the command line when calling nextflow run.
 
 # Before running the pipeline
 
