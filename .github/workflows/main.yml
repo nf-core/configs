@@ -152,6 +152,7 @@ jobs:
           - "dirac"
           - "marvin"
           - "mccleary"
+          - "mcw_rcc"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
