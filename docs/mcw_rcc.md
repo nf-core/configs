@@ -23,7 +23,6 @@ Concretely, before launching a pipeline:
 - `--outdir` must point under `/scratch/g/<user>/...`
 - `--input` (samplesheet) and any local reference files (FASTA, GTF,
   …) must live under `/scratch/g/<user>/...`
-- `NXF_APPTAINER_CACHEDIR` must point under `/scratch/g/<user>/...`
 
 `-profile mcw_rcc` only binds `/scratch` and `/hpc` into containers,
 not `/group`, so this constraint is enforced for image-level access
@@ -56,11 +55,11 @@ correctly too.
 The profile picks a SLURM partition per task based on the task's
 declared resources:
 
-| Partition  | Nodes × CPU × Memory      | Max walltime | When this profile uses it                                              |
-| ---------- | ------------------------- | ------------ | ---------------------------------------------------------------------- |
-| `normal`   | 60 × 48 CPU × 360 GB      | 7 days       | Default for any task at ≤ 7.5 GB / core and ≤ 360 GB / node            |
-| `bigmem`   |  2 × 48 CPU × 1.5 TB      | 7 days       | Auto-selected when memory > 360 GB or memory / cpus > 7.5 GB           |
-| `gpu`      | 11 mixed V100 / A40 / L40S | 7 days      | Tasks labeled `process_gpu`; one GPU is requested via `--gres=gpu:1`   |
+| Partition | Nodes × CPU × Memory       | Max walltime | When this profile uses it                                            |
+| --------- | -------------------------- | ------------ | -------------------------------------------------------------------- |
+| `normal`  | 60 × 48 CPU × 360 GB       | 7 days       | Default for any task at ≤ 7.5 GB / core and ≤ 360 GB / node          |
+| `bigmem`  | 2 × 48 CPU × 1.5 TB        | 7 days       | Auto-selected when memory > 360 GB or memory / cpus > 7.5 GB         |
+| `gpu`     | 11 mixed V100 / A40 / L40S | 7 days       | Tasks labeled `process_gpu`; one GPU is requested via `--gres=gpu:1` |
 
 The `normal` partition rejects allocations with more than 7680 MB per
 CPU. Rather than letting those submissions fail, the profile routes
@@ -76,26 +75,27 @@ request (e.g. via `withName: '<PROC>' { memory = '...' }` in a custom
 compatible with images built for Singularity, so nf-core images pull
 and run unchanged.
 
-**You must point three different cache variables at `/scratch` before
+**You must point two apptainer cache variables at `/scratch` before
 launching Nextflow.** Home directories on this cluster are ~94 GB and
 typically near-full; the OCI → SIF conversion that apptainer performs
 during a fresh image pull writes multi-gigabyte temp blobs and will
 exhaust home in a single run if not redirected.
 
 ```bash
-# Nextflow's persistent image store (.img files):
-export NXF_APPTAINER_CACHEDIR=/scratch/g/<user>/nf-apptainer-cache
-
 # Apptainer's own blob cache and temp dir (used during pull/build):
-export APPTAINER_CACHEDIR=/scratch/g/<user>/.apptainer/cache
-export APPTAINER_TMPDIR=/scratch/g/<user>/.apptainer/tmp
+export APPTAINER_CACHEDIR=/scratch/g/$USER/.apptainer/cache
+export APPTAINER_TMPDIR=/scratch/g/$USER/.apptainer/tmp
+
+# Create them once — apptainer fails if APPTAINER_TMPDIR doesn't exist:
+mkdir -p "$APPTAINER_CACHEDIR" "$APPTAINER_TMPDIR"
 ```
 
-The institutional profile sets `APPTAINER_CACHEDIR` / `APPTAINER_TMPDIR`
-in its `env` scope as a safety net, but that only applies to task
-environments — the up-front image pull runs in the Nextflow driver
-process, which only sees the variables you export in your submission
-script.
+The profile already sets `apptainer.cacheDir` (the persistent `.img`
+store, equivalent to `NXF_APPTAINER_CACHEDIR`) to
+`/scratch/g/$USER/nf-apptainer-cache`, so you do not need to export
+that one. The two variables above must still be exported in your
+submission script, because the driver-side pull happens before
+Nextflow's `env { }` scope takes effect.
 
 ## Running on a compute node, not the login node
 
@@ -114,15 +114,15 @@ A minimal submission script:
 module load nextflow/25.10.2
 module load apptainer/1.4.1
 
-export NXF_APPTAINER_CACHEDIR=/scratch/g/<user>/nf-apptainer-cache
-export APPTAINER_CACHEDIR=/scratch/g/<user>/.apptainer/cache
-export APPTAINER_TMPDIR=/scratch/g/<user>/.apptainer/tmp
+export APPTAINER_CACHEDIR=/scratch/g/$USER/.apptainer/cache
+export APPTAINER_TMPDIR=/scratch/g/$USER/.apptainer/tmp
+mkdir -p "$APPTAINER_CACHEDIR" "$APPTAINER_TMPDIR"
 
 nextflow run nf-core/<pipeline> \
     -profile mcw_rcc \
-    --input samplesheet.csv \
-    --outdir results/ \
-    -work-dir /scratch/g/<user>/work
+    --input /scratch/g/$USER/samplesheet.csv \
+    --outdir /scratch/g/$USER/results \
+    -work-dir /scratch/g/$USER/work
 ```
 
 Keep `-work-dir` under `/scratch` (large, fast GPFS) rather than under
