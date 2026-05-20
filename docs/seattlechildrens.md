@@ -29,8 +29,7 @@ channels:
   - conda-forge
 dependencies:
   - python>=3.9
-  - nextflow==25.04.8
-  - nf-core==3.4.1
+  - nextflow==26.04.1
   - graphviz
 ```
 
@@ -40,9 +39,9 @@ Make sure that channel priority is set to flexible using the following comments:
 
 ```bash
 # print your current conda settings
-mamba config --describe channel_priority
+conda config --describe channel_priority
 # set to flexible if not already done
-mamba config --set channel_priority flexible
+conda config --set channel_priority flexible
 ```
 
 3. Create the _Nextflow_ `mamba` environment
