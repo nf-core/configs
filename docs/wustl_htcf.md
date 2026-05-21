@@ -19,7 +19,7 @@ nextflow run nf-core/<pipeline name> -profile wustl_htcf <additional flags>
 
 If the pipeline has not yet been configured to use the nf-core/configs repository, then you will have to do it manually. Add the following lines to the end of the pipeline's `nextflow.config`
 
-```
+```bash
 // Allow the use of nf-core/configs configuration files
 includeConfig "https://raw.githubusercontent.com/nf-core/configs/master/nfcore_custom.config"
 ```
