@@ -17,7 +17,4 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - name: Install prek
-        run: curl -fsSL https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
-      - name: Run prek
-        run: prek run --all-files
+      - uses: j178/prek-action@v2

@@ -32,12 +32,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.nf_core_bot_auth_token }}
 
       # Install and run prek
-      - name: Install prek
-        run: curl -fsSL https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
-
       - name: Run prek
         id: prek
-        run: prek run --all-files
+        uses: j178/prek-action@v2
         continue-on-error: true
 
       # indication that the linting has finished
