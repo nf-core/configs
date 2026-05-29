@@ -120,14 +120,12 @@ nextflow run nf-core/rnaseq \
 2.  Load Nextflow in your job script via the command: `module load Nextflow/23.04.2`. Alternatively, when using [your own version of Nextflow](#availability-of-nextflow), use `module load Java`.
 
 3.  Choose whether you want to use the [Slurm job scheduler to queue individual pipeline tasks](#schedule-nextflow-pipeline-using-slurm) (default mode) or if you prefer [local execution on a single node](#local-nextflow-run-on-a-single-interactive-node).
-
     - For Slurm scheduling, you only need to specify the `vsc_calcua` profile. E.g., `nextflow run pipeline -profile vsc_calcua`. Nextflow tasks will be scheduled as Slurm jobs to your current partition (or the one defined via `sbatch --partion=<partition-name>`).
     - For local execution mode on a single node, you need to append an additional sub-profile. E.g., `nextflow run pipeline -profile vsc_calcua,single_node`.
 
     Note that the `-profile` option can take multiple values, the first one always being `vsc_calcua` and the second `single_node` one being optional.
 
 4.  Specify the _partition_ that you want to run the pipeline on using the [`sbatch` command's `--partition=<name>` option](https://docs.vscentrum.be/jobs/job_submission.html#specifying-a-partition) and how many _resources_ should be allocated. See the [overview of partitions and their resources](#overview-of-partitions-and-resources) below, or refer to [the CalcUA documentation](https://docs.vscentrum.be/antwerp/tier2_hardware.html) for more info.
-
     - For the default Slurm scheduling, the partition on which the head process runs has no effect on the resources allocated to the actual pipeline tasks; these will instead be requested by Nextflow depending on the particular process' requirements and limited by the maximum thresholds set for each partition in this config.
     - For local execution mode on a single node, it is probably convenient to simply request a full node (e.g., `--cpus-per-task=28` and `--mem=112G` for broadwell), but if fewer resources are requested, these limits will be passed on the Nextflow too.
     - Omitting `--mem-per-cpu` or `--mem` will [allocate the default memory value](https://docs.vscentrum.be/jobs/job_submission.html#requesting-memory), which is the total available memory divided by the number of cores, e.g., `28 * 4 GB = 112 GB` for broadwell (`128 GB - 16 GB buffer`).
