@@ -11,11 +11,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  pre-commit:
+  prek:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
-      - uses: pre-commit/action@v3.0.1
+      - name: Install prek
+        run: curl -fsSL https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
+      - name: Run prek
+        run: prek run --all-files
