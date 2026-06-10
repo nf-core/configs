@@ -121,6 +121,7 @@ jobs:
           - "gis"
           - "googlebatch"
           - "hasta"
+          - "hazel"
           - "hki_genie"
           - "hypatia"
           - "humantechnopole"
