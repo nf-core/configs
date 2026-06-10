@@ -16,19 +16,15 @@ Before running the pipeline you will need to load Nextflow and Singularity using
 
 ```bash
 ## Load Nextflow and Singularity environment modules
-module purge
+module purge                    # Optional, unload any currently loaded modules.
 module load nextflow/26.04.3
 module load singularity
-module load nf-core        # Optional, manages and downloads nf-core pipelines for common use. Requires singularity
+module load nf-core             # Optional, manages and downloads nf-core pipelines for common use. Requires singularity.
 ```
 
 ## Job submission partitions
 
-By default, using this profile will submit jobs to the `compute` partition. To specify a different partition for submission, add the `--partition <PARTITION NAME>` argument to the `nextflow run` command.
-
-Nextflow processes with the `process_gpu` label will be submitted to the `gpu` partition, and by default will run with the `--gres=gpu:h100:1` request. 
-
-To request a different GPU type, or multiple GPUs, use `--hazel_gpu 'gpu:<gpu-type>:<num-gpus>'` at runtime.
+By default, using this profile will submit jobs to the `compute` partition. To specify a different partition for submission, add the `--partition <PARTITION NAME>` argument to the `nextflow run` command. Nextflow processes with the `process_gpu` label will be submitted to the `gpu` partition, and by default will run with the `--gres=gpu:h100:1` request. To request a different GPU type, or multiple GPUs, use `--hazel_gpu 'gpu:<gpu-type>:<num-gpus>'` at runtime.
 
 
 ## Overriding Hazel config option
