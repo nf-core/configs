@@ -15,9 +15,9 @@ Running this command will download the `hazel` config from the nf-core repositor
 Before running the pipeline you will need to load Nextflow using the environment module system on hazel. Some of these modules are managed by the BRC, and are not in the default module path. See this resource for information about using these modules: https://hurwitzlab.github.io/COS_Compute_Handbook/chapters/14_loading_brc_modules.html
 
 ```bash
-## Load Nextflow and Singularity environment modules
+## Load Nextflow environment modules
 module purge                    # Optional, unload any currently loaded modules.
-module load nextflow/26.04.3
+module load nextflow/26.04.3    # Required
 module load nf-core             # Optional, manages and downloads nf-core pipelines for common use. Requires singularity.
 ```
 
