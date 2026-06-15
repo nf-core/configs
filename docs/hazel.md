@@ -29,7 +29,7 @@ By default, using this profile will submit jobs to the `compute` partition. To s
 
 ## Overriding Hazel config option
 
-Options passed to your `nextflow run` command will override options contained in the Hazel institutional profile.
+Nextflow-level options passed to your `nextflow run` command will override options contained in the Hazel institutional profile.
 
 :::note
 You will need an account to use the Hazel HPC in order to run the pipeline. If in doubt contact IT or your PI to get access.
