@@ -23,7 +23,9 @@ module load nf-core             # Optional, manages and downloads nf-core pipeli
 
 ## Job submission partitions
 
-By default, using this profile will submit jobs to the `compute` partition. To specify a different partition for submission, add `-process.queue=<PARTITION NAME>` to the `nextflow run` command. Nextflow processes with the `process_gpu` label will be submitted to the `gpu` partition, and by default will run with the `--gres=gpu:h100:1` request. To request a different GPU type, or multiple GPUs, use `--hazel_gpu 'gpu:<gpu-type>:<num-gpus>'` at runtime.
+By default, using this profile will submit jobs to the `compute` partition. To specify a different partition for submission, use `--partition <PARTITION NAME>` in the `nextflow run` command.
+
+Nextflow processes with the `process_gpu` label will be submitted to the `gpu` partition by default; override with `--gpu_partition <PARTITION NAME>`. To request a different GPU type or multiple GPUs, use `--hazel_gpu 'gpu:<gpu-type>:<num-gpus>'` at runtime.
 
 
 ## Overriding Hazel config options
