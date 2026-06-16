@@ -29,7 +29,7 @@ channels:
   - conda-forge
 dependencies:
   - python>=3.9
-  - nextflow==26.04.1
+  - nextflow==26.04.3
   - graphviz
 ```
 
