@@ -1,0 +1,6 @@
+genomes:
+  GRCh38:
+    bed12: "/proj/ngi2016003/nobackup/junw/RNAseq/genes_GRCh38.bed"
+    gtf: "/sw/data/uppnex/igenomes/Homo_sapiens/NCBI/GRCh38/Annotation/Genes.gencode/genes.gtf"
+gencode: true
+save_reference: true
