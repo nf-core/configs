@@ -9,7 +9,7 @@ Pipeline-specific parameters still need to be configured manually.
 
 ## Keep work directories
 
-Work directories will be kept at `/nfs/scratch/nf-core_work/` in a directory named after the full path of the launch directory ("." separated). Thy are automatically removed after a successful pipeline run. To keep the intermediate file, e.g. for using the `-resume` function, add `keep_work` as a profile: `-profile daisybio,<singularity/apptainer>,keep_work`.
+Work directories will be kept at `/nfs/scratch/nf-core_work/` in a directory named after the full path of the launch directory ("." separated). They are automatically removed after a successful pipeline run. To keep the intermediate files, e.g. for using the `-resume` function, add `keep_work` as a profile: `-profile daisybio,<singularity/apptainer>,keep_work`.
 
 ## GPU support
 
