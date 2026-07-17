@@ -8,7 +8,7 @@ To use, run the pipeline with `-profile pawsey_setonix`.
 
 This will download and launch the proteinfold specific [`pawsey_setonix.config`](../../../conf/pipeline/proteinfold/pawsey_setonix.config) which has been pre-configured with a setup suitable for the Pawsey Setonix HPC cluster, including GPU acceleration.
 
-Example: `nextflow run nf-core/proteinfold -profile pawsey_setonix_proteinfold`
+Example: `nextflow run nf-core/proteinfold -profile pawsey_setonix`
 
 ## proteinfold specific configurations for Pawsey Setonix
 
