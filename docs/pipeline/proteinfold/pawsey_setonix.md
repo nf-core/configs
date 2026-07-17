@@ -67,4 +67,4 @@ WARN: The following invalid input values have been detected:
 * --alphafold2_jax_compilation_cache_dir: jax_cache/alphafold2
 ```
 
-These warnings can be safely ignored. 
+These warnings can be safely ignored.
