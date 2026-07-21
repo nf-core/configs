@@ -6,14 +6,43 @@ This profile was tested with Nextflow `26.04.4` and the `nf-core/rnaseq` pipelin
 
 ## Set up Nextflow and Apptainer
 
-Nextflow and Apptainer can both be installed into a Conda or Mamba environment.
+### Option 1: Environment modules (recommended)
+
+Kelvin2 provides Nextflow and Apptainer as modules:
 
 ```bash
-# Create and activate the environment
+module load nextflow/24.07.27/java-22.0.2
+module load apps/apptainer/1.3.4
+```
+
+### Option 2: Up-to-date Nextflow binary + module Apptainer
+
+If you need a newer Nextflow than the module provides, install the Nextflow launcher onto scratch and keep using the system Apptainer module:
+
+```bash
+# Install Nextflow to a directory on scratch (example path)
+mkdir -p /mnt/scratch2/users/$USER/bin
+curl -fsSL https://get.nextflow.io -o /mnt/scratch2/users/$USER/bin/nextflow
+chmod +x /mnt/scratch2/users/$USER/bin/nextflow
+export PATH="/mnt/scratch2/users/$USER/bin:$PATH"
+
+module load apps/apptainer/1.3.4
+```
+
+### Option 3: Conda or Mamba
+
+Conda/Mamba environments are also fine on Kelvin2:
+
+```bash
 conda create --name nextflow --channel bioconda --channel conda-forge nextflow apptainer
 conda activate nextflow
+```
 
-# Confirm both tools are available
+### Confirm the install
+
+After any of these options, confirm both tools are available:
+
+```bash
 nextflow info
 apptainer --version
 ```
@@ -26,19 +55,30 @@ Launch a pipeline with the `kelvin2` profile:
 nextflow run nf-core/<PIPELINE> -profile kelvin2 --outdir <RESULTS> [other arguments]
 ```
 
-The Nextflow driver process must keep running for the whole pipeline. Two recommendations:
+The Nextflow driver process must keep running for the whole pipeline. Use a terminal multiplexer such as `tmux` or `screen` so it survives an SSH disconnect. Note which login node you are on so you can reconnect to the same one:
 
-- **Use a terminal multiplexer such as `tmux` or `screen`** so the driver survives an SSH disconnect. Note which login node you are on so you can reconnect to the same one.
+```bash
+tmux new -s nextflow        # detach: Ctrl-b then d; reattach: tmux attach -t nextflow
+```
 
-  ```bash
-  tmux new -s nextflow        # detach: Ctrl-b then d; reattach: tmux attach -t nextflow
-  ```
+Once Apptainer images are cached, the driver is light enough to run on a login node inside `tmux`. The first run of a pipeline (or any run that pulls many new images) can be CPU-heavy on the login node while container images are fetched. For those cases, start the driver on a compute node via `srun` inside `tmux`, or submit a hands-free batch job:
 
-- **Do not run heavy work on a login node.** For anything beyond a quick test with pre-cached container images, start the driver inside an interactive job (it will submit the pipeline's own jobs from there):
+```bash
+#!/usr/bin/env bash
+#SBATCH --job-name=nextflow_pipeline
+#SBATCH --partition=k2-medpri
+#SBATCH --cpus-per-task=2
+#SBATCH --mem-per-cpu=4G
+#SBATCH --time=24:00:00
+#SBATCH --output=nextflow_pipeline_%j.log
 
-  ```bash
-  srun --partition=k2-medpri --ntasks=1 --mem-per-cpu=4G --time=24:00:00 --pty bash
-  ```
+module load nextflow/24.07.27/java-22.0.2
+module load apps/apptainer/1.3.4
+
+nextflow run nf-core/<PIPELINE> -profile kelvin2 --outdir <RESULTS> [other arguments]
+```
+
+Save that as e.g. `run_nextflow.sh` and submit with `sbatch run_nextflow.sh`.
 
 ## Cluster specifications
 
