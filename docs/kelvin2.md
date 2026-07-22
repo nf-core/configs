@@ -15,6 +15,12 @@ module load nextflow/24.07.27/java-22.0.2
 module load apps/apptainer/1.3.4
 ```
 
+To run a newer Nextflow release without replacing the module launcher, set `NXF_VER` (the launcher downloads and caches that version under `$NXF_HOME`):
+
+```bash
+NXF_VER=26.04.4 nextflow info
+```
+
 ### Option 2: Up-to-date Nextflow binary + module Apptainer
 
 If you need a newer Nextflow than the module provides, install the Nextflow launcher onto scratch and keep using the system Apptainer module:
@@ -66,11 +72,11 @@ Once Apptainer images are cached, the driver is light enough to run on a login n
 ```bash
 #!/usr/bin/env bash
 #SBATCH --job-name=nextflow_pipeline
+#SBATCH --output=nextflow_pipeline_%j.log
 #SBATCH --partition=k2-medpri
+#SBATCH --time=24:00:00
 #SBATCH --cpus-per-task=2
 #SBATCH --mem-per-cpu=4G
-#SBATCH --time=24:00:00
-#SBATCH --output=nextflow_pipeline_%j.log
 
 module load nextflow/24.07.27/java-22.0.2
 module load apps/apptainer/1.3.4
