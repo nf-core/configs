@@ -140,6 +140,7 @@ jobs:
           - "unsw_katana"
           - "ku_sund_danhead"
           - "kaust"
+          - "kelvin2"
           - "ki_luria"
           - "leicester"
           - "lrz_cm4"
