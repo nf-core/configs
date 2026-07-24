@@ -126,7 +126,6 @@ jobs:
           - "hypatia"
           - "humantechnopole"
           - "icr_alma"
-          - "icr_davros"
           - "ifb_core"
           - "imb"
           - "ilifu"
