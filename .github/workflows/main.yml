@@ -126,7 +126,6 @@ jobs:
           - "hypatia"
           - "humantechnopole"
           - "icr_alma"
-          - "icr_davros"
           - "ifb_core"
           - "imb"
           - "ilifu"
@@ -182,7 +181,6 @@ jobs:
           - "sage"
           - "sahmri"
           - "sanger"
-          - "scw"
           - "seadragon"
           - "seattlechildrens"
           - "seawulf"
@@ -215,7 +213,6 @@ jobs:
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
-          - "wustl_htcf"
           - "xanadu"
           - "york_viking"
 
