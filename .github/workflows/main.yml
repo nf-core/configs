@@ -182,7 +182,6 @@ jobs:
           - "sage"
           - "sahmri"
           - "sanger"
-          - "scw"
           - "seadragon"
           - "seattlechildrens"
           - "seawulf"
