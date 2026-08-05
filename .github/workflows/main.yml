@@ -210,6 +210,7 @@ jobs:
           - "uzh"
           - "uzl_omics"
           - "vai"
+          - "verily_workbench"
           - "vsc_calcua"
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
