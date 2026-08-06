@@ -5,8 +5,9 @@
 Before running the pipeline you will need to load Nextflow and Apptainer. You can do this by including the commands below in your SLURM/sbatch script:
 
 ```bash
-## Load Nextflow environment modules
-module load nextflow/23.04.2;
+## Load Nextflow and Apptainer environment modules
+module load nextflow/25.04.7;
+module load apptainer/1.4.1;
 ```
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory, which will be generated inside the location you ran the nf-core pipeline. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway. You can also specify the working directory using the Nextflow [`-w` or `-work-dir` option](https://www.nextflow.io/docs/latest/cli.html#run).
