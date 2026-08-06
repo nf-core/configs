@@ -165,7 +165,7 @@ jobs:
           - "nygc"
           - "nyu_hpc"
           - "oist"
-	  - "palmetto"
+          - "palmetto"
           - "pasteur"
           - "pawsey_setonix"
           - "pdc_kth"
