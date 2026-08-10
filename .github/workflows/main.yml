@@ -31,13 +31,29 @@ jobs:
           - 25.04.0
           - latest-everything
     steps:
-        - uses: actions/checkout@v4
-        - name: Set up Nextflow
-          uses: nf-core/setup-nextflow@v2
-          with:
-            version: ${{ matrix.NXF_VER }}
-        - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
-        - run: nextflow lint ${GITHUB_WORKSPACE}
+      - uses: actions/checkout@v4
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: ${{ matrix.NXF_VER }}
+      - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+
+  lint_nextflow_config:
+    name: Check if nextflow files are valid with nextflow lint
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        NXF_VER:
+          - 25.04.0
+          - latest-everything
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: ${{ matrix.NXF_VER }}
+      - run: nextflow lint ${GITHUB_WORKSPACE}
 
   profile_test:
     runs-on: ubuntu-latest
@@ -105,11 +121,11 @@ jobs:
           - "gis"
           - "googlebatch"
           - "hasta"
+          - "hazel"
           - "hki_genie"
           - "hypatia"
           - "humantechnopole"
           - "icr_alma"
-          - "icr_davros"
           - "ifb_core"
           - "imb"
           - "ilifu"
@@ -123,6 +139,7 @@ jobs:
           - "unsw_katana"
           - "ku_sund_danhead"
           - "kaust"
+          - "kelvin2"
           - "ki_luria"
           - "leicester"
           - "lrz_cm4"
@@ -136,6 +153,7 @@ jobs:
           - "dirac"
           - "marvin"
           - "mccleary"
+          - "mcw_rcc"
           - "medair"
           - "mjolnir_globe"
           - "mpcdf"
@@ -147,12 +165,15 @@ jobs:
           - "nygc"
           - "nyu_hpc"
           - "oist"
+          - "palmetto"
           - "pasteur"
-          - "pawsey_nimbus"
           - "pawsey_setonix"
           - "pdc_kth"
           - "phoenix"
           - "psmn"
+          - "purdue_bell"
+          - "purdue_gautschi"
+          - "purdue_negishi"
           - "qmul_apocrita"
           - "rki"
           - "rosalind"
@@ -161,14 +182,12 @@ jobs:
           - "sage"
           - "sahmri"
           - "sanger"
-          - "scw"
           - "seadragon"
           - "seattlechildrens"
           - "seawulf"
           - "seg_globe"
           - "self_hosted_runner"
           - "shu_bmrc"
-          - "software_license"
           - "stjude"
           - "tes"
           - "tigem"
@@ -186,17 +205,16 @@ jobs:
           - "unc_longleaf"
           - "uod_hpc"
           - "uppmax"
-          - "utd_ganymede"
           - "utd_juno"
           - "uw_hyak_pedslabs"
           - "uzh"
           - "uzl_omics"
           - "vai"
+          - "verily_workbench"
           - "vsc_calcua"
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
-          - "wustl_htcf"
           - "xanadu"
           - "york_viking"
 
@@ -210,7 +228,7 @@ jobs:
         uses: nf-core/setup-nextflow@v2
         with:
           version: "latest-everything"
-      - name: Check ${{ matrix.profile }} profile
+      - name: Check ${{ matrix.profile }} profile
         env:
           SCRATCH: "~"
           NXF_GLOBAL_CONFIG: awsbatch.config
