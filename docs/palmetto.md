@@ -10,11 +10,11 @@ for questions or issues.
 
 To use this profile, specify it when running any nf-core pipeline:
 
-\```bash
+```bash
 ## Load Nextflow module
 module load nextflow
 nextflow run nf-core/<pipeline-name> -profile palmetto
-\```
+```
 
 This will automatically apply all cluster-specific settings including executor,
 resource limits, and container configurations.
@@ -27,9 +27,9 @@ The following sub-profiles are available for specialized resources:
 
 Example:
 
-\```bash
+```bash
 nextflow run nf-core/<pipeline-name> -profile palmetto,cleanup
-\```
+```
 
 ## Prerequisites
 
@@ -74,10 +74,10 @@ instead of downloading references, saving time and bandwidth.
 
 Move your work directory to `/scratch` if you exceed `/home` quota:
 
-\```bash
+```bash
 cd /scratch/$USER
 nextflow run nf-core/<pipeline-name> -profile palmetto
-\```
+```
 
 ## Support
 
