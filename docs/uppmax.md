@@ -76,15 +76,17 @@ To use it, submit with `-profile uppmax,devel`.
 
 ## Using GPUs on Pelle
 
-nf-core pipelines mark GPU-capable processes with the `process_gpu` label and only switch on the accelerator when you add nf-core's `gpu` profile (see the [nf-core GPU guidelines](https://nf-co.re/docs/developing/components/gpu-modules)). On `pelle`, the `uppmax` profile supplies a default of one `l40s` GPU for any `process_gpu` task, and derives the correct Slurm partition (`gpu` or `haswell`) and `--gpus` request from Nextflow's [`accelerator` directive](https://www.nextflow.io/docs/latest/reference/process.html#accelerator).
+nf-core pipelines mark GPU-capable processes with the `process_gpu` label and only switch on the accelerator when you add nf-core's `gpu` profile (see the [nf-core GPU guidelines](https://nf-co.re/docs/developing/components/gpu-modules)). Whatever a task's Nextflow [`accelerator` directive](https://www.nextflow.io/docs/latest/reference/process.html#accelerator) ends up being (e.g. the pipeline's own `accelerator = 1` default under `-profile gpu`), the `uppmax` profile on `pelle` derives the correct Slurm partition (`gpu` or `haswell`) and `--gpus` request from it, defaulting the GPU type to `params.pelle_gpu_type` (`l40s`) when the accelerator doesn't specify one itself.
 
 ```bash
 $ nextflow run nf-core/<PIPELINE> -profile gpu,uppmax --project <PROJECT> [...]
 ```
 
-### Requesting a different GPU type or count
+Override the default type for every otherwise-unspecified GPU task with `--pelle_gpu_type <type>`, e.g. `--pelle_gpu_type h100`.
 
-To use a GPU other than the default `l40s`, or to request more than one GPU, override the `accelerator` directive for the process(es) that need it, in your own config:
+### Requesting a different GPU type or count per process
+
+To use a GPU other than the default, or to request more than one GPU for a specific process, override the `accelerator` directive for the process(es) that need it, in your own config:
 
 ```nextflow
 // gpu_configuration.config
