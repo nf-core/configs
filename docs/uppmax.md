@@ -74,6 +74,43 @@ It is not suitable for use with real data.
 
 To use it, submit with `-profile uppmax,devel`.
 
+## Using GPUs on Pelle
+
+nf-core pipelines mark GPU-capable processes with the `process_gpu` label and only switch on the accelerator when you add nf-core's `gpu` profile (see the [nf-core GPU guidelines](https://nf-co.re/docs/developing/components/gpu-modules)). On `pelle`, the `uppmax` profile supplies a default of one `l40s` GPU for any `process_gpu` task, and derives the correct Slurm partition (`gpu` or `haswell`) and `--gpus` request from Nextflow's [`accelerator` directive](https://www.nextflow.io/docs/latest/reference/process.html#accelerator).
+
+```bash
+$ nextflow run nf-core/<PIPELINE> -profile gpu,uppmax --project <PROJECT> [...]
+```
+
+### Requesting a different GPU type or count
+
+To use a GPU other than the default `l40s`, or to request more than one GPU, override the `accelerator` directive for the process(es) that need it, in your own config:
+
+```nextflow
+// gpu_configuration.config
+process {
+    withName: 'GPU_PROCESS_ONE' {
+        accelerator = [ type: 'l40s', request: 4 ] // 4x l40s GPUs, submitted to -p gpu
+    }
+    withName: 'GPU_PROCESS_TWO' {
+        accelerator = [ type: 't4', request: 1 ] // 1x t4 GPU, submitted to -p haswell
+    }
+    withName: 'GPU_PROCESS_THREE' {
+        accelerator = null // Disable the GPU, run on CPU instead
+    }
+}
+```
+
+```bash
+$ nextflow run nf-core/<PIPELINE> -profile gpu,uppmax --project <PROJECT> -c gpu_configuration.config [...]
+```
+
+Valid GPU types on Pelle are `l40s`, `h100`, and `t4` (see [Pelle partitions](https://docs.uppmax.uu.se/cluster_guides/slurm_on_pelle/#partitions-on-pelle)); requesting any other type raises an error at submission time.
+
+### Running on a GPU node interactively
+
+The Pelle config only sets `clusterOptions` for the `slurm` executor. If you run locally on a GPU node (e.g. in an interactive session), set the `accelerator` directive as above and follow [Nextflow's local executor GPU guide](https://docs.seqera.io/nextflow/executor/local#accelerators) to make the GPU visible to the task.
+
 ## Running on Bianca
 
 > :warning: For more information, please follow the following guides:
