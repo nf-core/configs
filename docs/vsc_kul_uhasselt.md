@@ -18,11 +18,15 @@ A nextflow module is available that can be loaded `module load Nextflow` but it 
 If you have access to dedicated nodes, you can export these as a command separated list. These queues will only be used if specified task requirements are not available in the normal partitions but they are available in dedicated partitions. AMD is considered a dedicated partition.
 :::
 
+:::warning
+`dedicated_big_bigmem` exists on both `wice` and `mindwell`, but each cluster requires its own account (`lp_big_wice_cpu` and `lp_big_mindwell_cpu` respectively). The profile you select decides which account is used, so only list `dedicated_big_bigmem` in `VSC_DEDICATED_QUEUES` if you have dedicated access on the cluster whose profile you run. Slurm rejects a mismatched partition/account pair outright.
+:::
+
 ```bash
 export SLURM_ACCOUNT="<your-credential-account>"
 
 # Comma-separated list of available dedicated partitions (if any)
-# For example: export VSC_DEDICATED_QUEUES="dedicated_big_bigmem,dedicated_big_gpu"
+# For example: export VSC_DEDICATED_QUEUES="dedicated_big_bigmem,dedicated_big_gpu,dedicated_big_gpu_b200"
 export VSC_DEDICATED_QUEUES="<available-dedicated-partitions>"
 
 # Needed for running Nextflow jobs
@@ -50,7 +54,7 @@ export NXF_VER=24.10.1
 
 3. Make the submission script.
 
-> **NB:** you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius`.
+> **NB:** you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius|mindwell`.
 
 ```bash
 $ more job.pbs
@@ -75,15 +79,21 @@ Here the cluster options are:
 - genius_gpu
 - wice
 - wice_gpu
+- mindwell
+- mindwell_gpu
 - superdome
 
-> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. The profile will select to its best ability the most appropriate partition for the job. Including modules with a label containing `gpu`will be allocated to a gpu partition when the 'normal' `genius` profile is selected. Select the `genius_gpu` or `wice_gpu` profile to force the job to be allocated to a gpu partition.
+> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. The profile will select to its best ability the most appropriate partition for the job. Including modules with a label containing `gpu`will be allocated to a gpu partition when the 'normal' `genius` profile is selected. Select the `genius_gpu`, `wice_gpu` or `mindwell_gpu` profile to force the job to be allocated to a gpu partition.
 > **NB:** If the module does not have `accelerator` set, it will determine the number of GPUs based on the requested resources.
 
 Use the `--cluster` option to specify the cluster you intend to use when submitting the job:
 
 ```shell
-sbatch --cluster=wice|genius job.slurm 
+sbatch --cluster=wice|genius|mindwell job.slurm 
 ```
+
+:::warning
+`$VSC_SCRATCH` resolves to `/lustre1/scratch/...` on `genius` and `wice`, but to `/gpfs1/scratch/...` on `mindwell`, through a node-local symlink. It is expanded where the Nextflow head job runs, so a head job started on a wice node that submits with `-profile mindwell` places `NXF_WORK` and the Apptainer cache on Lustre. VSC states that compute jobs performing intensive I/O on a filesystem not associated with the cluster they run on may be cancelled without prior notice. Either run the head job on the same cluster as the pipeline tasks (`sbatch --clusters=mindwell`), or set `NXF_WORK`, `APPTAINER_CACHEDIR` and `APPTAINER_TMPDIR` explicitly to `$VSC_SCRATCH_GPFS1` for `mindwell` and `$VSC_SCRATCH_LUSTRE1` for `wice`/`genius`.
+:::
 
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
