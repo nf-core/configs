@@ -28,6 +28,10 @@ process GPU_PROCESS {
 }
 ```
 
+## Use iGenomes references
+
+In our system the iGenomes references are stored in `/processing_data/reference_datasets/iGenomes/<version>`. In case you need to use iGenomes references you can set the `ht_igenomes_version` parameter to select the iGenomes version you want to use. You can also use the `HT_IGENOME_VERSION` environment variable to set the iGenomes version. By default it is set to `2025.1`.
+
 ## Running Nextflow workflow on the Human Technopole cluster
 
 Various versions of Nextflow are available in the cluster as modules. You can see a list of available version using `module avail Nextflow` and then load your preferred Nextflow version using `module load`.
@@ -57,6 +61,10 @@ export NXF_OPTS="-Xms2G -Xmx7G -Dnxf.pool.maxThreads=2000"
 # You can uncomment the following lines and adjust them to point a singularity cache and library dir.
 # export NXF_SINGULARITY_CACHEDIR = /path/to/singularity/cache
 # export NXF_SINGULARITY_LIBRARYDIR = /path/to/singularity/library
+
+# If you need to customise the iGenomes version you can set this env variable
+# Default is 2025.1
+# export HT_IGENOME_VERSION=2025.1
 
 # Eventually set -w to a folder of your choice in your /scratch space to set the location of work dir.
 # Use -c to eventually add an additional configuration file
