@@ -2,7 +2,7 @@
 
 To use, run the pipeline with `-profile dkfz`. This will download and launch the [`dkfz.config`](../conf/dkfz.config), pre-configured for the Deutsches Krebsforschungszentrum (DKFZ) / ODCF LSF cluster in Heidelberg, Germany.
 
-This configuration is tested with Nextflow 25.10.0 (available on the cluster as a module).
+This configuration is tested with Nextflow 24.10.2 (available on the cluster as a module).
 
 The profile only configures the cluster itself (LSF executor, dynamic queue selection, scratch, resource limits and the `/omics` bind-mount). Pick a container engine on the command line, e.g. `-profile dkfz,apptainer` or `-profile dkfz,conda`.
 
@@ -13,7 +13,7 @@ The profile only configures the cluster itself (LSF executor, dynamic queue sele
 1. Load Nextflow via the environment module system on a submission host. Check the pipeline's README for the required Nextflow version:
 
    ```bash
-   module load Nextflow/25.10.0
+   module load Nextflow/24.10.2
    ```
 
 2. Submit from a submission host (`bsub01.lsf.dkfz.de` / `bsub02.lsf.dkfz.de`). Do **not** run heavy work on the login/worker nodes. Wrap the Nextflow driver itself in a `bsub` job (see below).
@@ -34,9 +34,9 @@ Queue selection is automatic, based on each task's requested `time` and `memory`
 | `medium`   | `time <= 1.h`                       | 1 hour            |
 | `long`     | `time <= 10.h`                      | 10 hours          |
 | `verylong` | `time > 10.h`                       | no hard limit     |
-| `highmem`  | `memory > 200.GB`                   | up to ~4 TB       |
+| `highmem`  | `memory > 250.GB`                   | up to ~4 TB       |
 
-Note: `highmem` is the only queue that accepts requests above 200 GB (and it rejects requests below 200 GB).
+Note: `highmem` is the only queue that accepts requests above 250 GB (and it rejects requests below 251 GB).
 
 ## Resource limits, retries and containers
 
@@ -133,7 +133,7 @@ Run the Nextflow driver inside an LSF job rather than on a submission host direc
 #BSUB -R "rusage[mem=8G]"
 #BSUB -W 10:00
 
-module load Nextflow/25.10.0
+module load Nextflow/24.10.2
 
 # Cache images on shared storage so worker nodes can reach them:
 export NXF_APPTAINER_CACHEDIR=/omics/groups/<your-group>/.../apptainer_cache
