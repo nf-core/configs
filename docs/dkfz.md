@@ -26,22 +26,12 @@ The profile only configures the cluster itself (LSF executor, dynamic queue sele
 
 ## Queues
 
-Queue selection is automatic, based on each task's requested `time` and `memory`:
-
-| Queue      | Selected when                       | Limit             |
-| ---------- | ----------------------------------- | ----------------- |
-| `short`    | no time given, or `time <= 10.min`  | 10 min            |
-| `medium`   | `time <= 1.h`                       | 1 hour            |
-| `long`     | `time <= 10.h`                      | 10 hours          |
-| `verylong` | `time > 10.h`                       | no hard limit     |
-| `highmem`  | `memory > 250.GB`                   | up to ~1 TB       |
-
-Note: `highmem` is the only queue that accepts requests above 250 GB (and it rejects requests below 251 GB).
+The profile selects an appropriate LSF queue automatically based on the task's resource requirements. See the [DKFZ Cluster Wiki](https://wiki.odcf.dkfz.de/pub/cluster/lsf/quickref#cpu_queues) for current queue and resource policies.
 
 ## Resource limits, retries and containers
 
-- Every task is capped to what the cluster can provide via `process.resourceLimits` (64 CPUs, 1000 GB memory, 720 h). Requests above these are capped automatically.
-- Unlabelled processes default to a safe 1 CPU / 6 GB / 10 min.
+- Every task is capped to what the cluster can provide via `process.resourceLimits`. Requests above these are capped automatically.
+- Unlabelled processes default to a safe minimal allocation; see the [DKFZ Cluster Wiki](https://wiki.odcf.dkfz.de/pub/cluster/lsf/quickref#cpu_queues) for the current default.
 - The shared `/omics` filesystem is bound into every container via `containerOptions`, with `--nv` added for accelerator tasks. **If one of your modules sets its own `containerOptions`, re-add `--bind /omics` there.**
 
 ## Enable GPU support
@@ -76,11 +66,7 @@ Tasks without an `accelerator` request are unaffected and run on the normal CPU 
 
 ### Choosing the GPU queue
 
-The `--dkfz_gpu_queue` parameter selects which GPU queue all GPU jobs are submitted to (default `gpu`):
-
-- `gpu` — default (RTX 2080 Ti … V100/A100-DGX), 72 h wall time
-- `gpu-lowprio` — same nodes as `gpu` but low priority; use for large job batches
-- `gpu-pro` — high-end A100/H200/L40S/GH200, 142 h wall time — **requires a separate access application to the DKFZ Data Science Board**
+The `--dkfz_gpu_queue` parameter selects which GPU queue all GPU jobs are submitted to (default `gpu`). For the current list of GPU queues, hardware, wall-time limits and access requirements, see the [DKFZ Cluster Wiki](https://wiki.odcf.dkfz.de/pub/cluster/lsf/quickref#gpu_queues).
 
 ### Number of GPUs and GPU memory per process
 
@@ -89,18 +75,7 @@ The profile builds the LSF request as `-gpu num=<n>:j_exclusive=yes[:gmem=<n>G]`
 - **Number of GPUs** — the [`accelerator` directive](https://www.nextflow.io/docs/latest/reference/process.html#accelerator) (default 1).
 - **GPU memory (optional)** — set `ext.gpu_memory` to a Nextflow memory value to pin the job to GPUs with at least that much VRAM. When `ext.gpu_memory` is unset, `gmem` is omitted and LSF assigns any free GPU.
 
-Approximate values to target each GPU tier (request at or just below the card's usable VRAM):
-
-| `ext.gpu_memory` | Targets                         | Queue              |
-| ---------------- | ------------------------------- | ------------------ |
-| `10.GB`          | RTX 2080 Ti (11 GB)             | `gpu`              |
-| `15.GB`          | V100 16 GB                      | `gpu`              |
-| `23.GB`          | TITAN RTX / Quadro RTX (24 GB)  | `gpu`              |
-| `31.GB`          | V100 32 GB                      | `gpu`              |
-| `40.GB`          | A100 40 GB                      | `gpu-pro` only     |
-| `46.GB`          | L40S                            | `gpu-pro` only     |
-| `98.GB`          | GH200                           | `gpu-pro` only     |
-| `141.GB`         | H200                            | `gpu-pro` only     |
+For approximate `ext.gpu_memory` values to target specific GPU models and which queue each requires, see the [DKFZ Cluster Wiki](https://wiki.odcf.dkfz.de/pub/cluster/lsf/gpu/start#gpu_queue_nodes).
 
 Set these directly on the process, or per process name from config (e.g. nf-core's `conf/modules.config`):
 
@@ -110,16 +85,16 @@ process {
     withName: 'FOO:BAR:ALIGN_GPU' {
         accelerator = 2
     }
-    // 1 big-memory GPU
+    // 1 big-memory GPU, needs gpu-pro - see DKFZ Cluster Wiki for current hardware tiers (https://wiki.odcf.dkfz.de/pub/cluster/lsf/gpu/start#gpu_queue_nodes)
     withName: 'FOO:BAR:FOLD' {
         accelerator    = 1
-        ext.gpu_memory = 40.GB   // -> A100/L40S/H200; also set --dkfz_gpu_queue gpu-pro
+        ext.gpu_memory = 40.GB
     }
 }
 ```
 
-> :warning: Requesting `40.GB` or more only works on `gpu-pro`. On the plain `gpu` queue such a request hangs in `PEND` forever. Use at most 12 CPUs and ~45 GB host RAM per GPU (DKFZ GPU usage policy).
-
+> :warning: A high `ext.gpu_memory` value may only be satisfiable on certain GPU queues - request too much on the wrong queue and the job hangs in `PEND` indefinitely. Check the [DKFZ Cluster Wiki](https://wiki.odcf.dkfz.de/pub/cluster/lsf/gpu/start#usage_policy) for current hardware/queue mapping and CPU/RAM-per-GPU usage limits before setting `ext.gpu_memory`.
+> 
 ## Running Nextflow on the cluster
 
 Run the Nextflow driver inside an LSF job rather than on a submission host directly. Make a script and submit it with `bsub < my_script.sh`:
