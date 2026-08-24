@@ -34,7 +34,7 @@ Queue selection is automatic, based on each task's requested `time` and `memory`
 | `medium`   | `time <= 1.h`                       | 1 hour            |
 | `long`     | `time <= 10.h`                      | 10 hours          |
 | `verylong` | `time > 10.h`                       | no hard limit     |
-| `highmem`  | `memory > 250.GB`                   | up to ~4 TB       |
+| `highmem`  | `memory > 250.GB`                   | up to ~1 TB       |
 
 Note: `highmem` is the only queue that accepts requests above 250 GB (and it rejects requests below 251 GB).
 
