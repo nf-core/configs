@@ -13,7 +13,7 @@ The profile only configures the cluster itself (LSF executor, dynamic queue sele
 1. Load Nextflow via the environment module system on a submission host. Check the pipeline's README for the required Nextflow version:
 
    ```bash
-   module load Nextflow/24.10.2
+   module load Nextflow/<version>
    ```
 
 2. Submit from a submission host (`bsub01.lsf.dkfz.de` / `bsub02.lsf.dkfz.de`). Do **not** run heavy work on the login/worker nodes. Wrap the Nextflow driver itself in a `bsub` job (see below).
@@ -133,10 +133,11 @@ Run the Nextflow driver inside an LSF job rather than on a submission host direc
 #BSUB -R "rusage[mem=8G]"
 #BSUB -W 10:00
 
-module load Nextflow/24.10.2
+# Load the Nextflow version required by the pipeline you are running:
+# module load Nextflow/<version>
 
 # Cache images on shared storage so worker nodes can reach them:
-export NXF_APPTAINER_CACHEDIR=/omics/groups/<your-group>/.../apptainer_cache
+# export NXF_APPTAINER_CACHEDIR=/omics/groups/<your-group>/.../apptainer_cache
 
 nextflow run <pipeline> \
     -profile dkfz,apptainer \
