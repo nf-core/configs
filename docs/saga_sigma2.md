@@ -48,10 +48,6 @@ RNA-seq params file example:
   "gtf": "reference.gtf",
 
   "aligner": "star_salmon",
-
-  "ncpus": 40,
-  "mem": "240.GB",
-  "time": "6.h",
   "skip_qc": false,
   "email": "ola.nordmann@example.com"
 }
