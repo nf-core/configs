@@ -32,8 +32,7 @@ export NXF_OPTS="-Xms4g -Xmx16g"
 # Pipeline command
 nextflow run nf-core/rnaseq \
         -r 3.26.0 \
-        -profile apptainer \
-        -c saga_sigma2.config \
+        -profile saga_sigma2 \
         -params-file rnaseq_params.json
 
 ```
