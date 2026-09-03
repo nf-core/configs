@@ -48,6 +48,33 @@ You can run `Nextflow` on a login node in a `screen` or a `tmux` session or in a
 (batch or interactive) and it will handle everything else. The nextflow main/monitoring
 process uses very little resources.
 
+##### GPU on arrhenius
+
+GPUs are offerend on arrhenius through GH200 "superchip" nodes, which uses
+another CPU architecture than the CPUs on normal arrhenius nodes. Since the
+actual GPU work is initiated and controlled by the CPUs, which causes a problem.
+
+So far, we haven't come up with a good solution for this. In the meantime,
+you can tell nextflow to use specific container images for the tasks requiring
+GPU resources.
+
+Recent releases of nf-core pipelines should have a file
+`conf/containers_singularity_https_arm64.config` which you can use to find the
+Nextflow processes you need to run on GPU resources and copy those clauses to
+a file `nextflow.config` in the directory you run nextflow from (which will make
+it used without you asking, see
+[Seqera documentation](https://docs.seqera.io/nextflow/config)) for other options.
+
+But from e.g. https://github.com/nf-core/funcprofiler/blob/dev/conf/containers_singularity_https_arm64.config, you can
+copy the line
+
+```nextflow
+process { withName: 'MULTIQC' { container = 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/e4/e48aa28aebc881254a499b24c3e1ce77b8df1b85a5432699ed6f72eb17ac7fb5/data' } }
+```
+
+to your own configuration to make nextflow use a compatible container image
+when running on GPU resources.
+
 ## Getting more memory
 
 If a task in your `nf-core` pipeline runs out of memory (exit code 137), you
