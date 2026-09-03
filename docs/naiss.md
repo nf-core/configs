@@ -12,11 +12,11 @@ Slack: [https://nfcore.slack.com/channels/helpdesk-hpc-sweden](https://nfcore.sl
 
 ## Using the NAISS config profile
 
-To use, run the pipeline with `-profile uppmax` (one hyphen).
+To use, run the pipeline with `-profile naiss` (one hyphen).
 This will download and launch the [`naiss.config`](../conf/naiss.config) which will provide general
 configuration and defer to more specific configurations per cluster that will be loaded automatically.
 
-### Cluster-speicifc configurations
+### Cluster-specific configurations
 
 #### arrhenius
 
@@ -25,15 +25,15 @@ providing a container image will be run using `apptainer`. Images can be native 
 `singularity` for historic reasons) or provided through `OCI`/`Docker` images.
 
 Images are downloaded and stored in a cache (usually in the `work` directory in the
-directory where you start Nextflow. If the image provided is non-native (`Docker`), it
-needds to be converted before storing. If you run out of disk space converting images set
+directory where you start Nextflow). If the image provided is non-native (`Docker`), it
+needs to be converted before storing. If you run out of disk space converting images set
 `APPTAINER_CACHEDIR` environment variable to a location with more space.
 
 `Nextflow` also supports the environment variable `NXF_APPTAINER_CACHEDIR` which can be used to
 store and supply images for repeated executions. The equivalent `Nextflow` config setting is
 `apptainer.cacheDir`.
 
-In addition to this config profile, you will also need to specify an UPPMAX project id.
+In addition to this config profile, you will also need to specify an NAISS project id.
 You can do this with the `--project` flag (two hyphens) when launching `Nextflow`.
 For example:
 
@@ -51,7 +51,7 @@ process uses very little resources.
 ## Getting more memory
 
 If a task in your `nf-core` pipeline runs out of memory (exit code 137), you
-increase the memory request for that task by using a local config.
+can increase the memory request for that task by using a local config.
 
 ```nextflow
 // nextflow.config in your launch directory ( the directory where you run `nextflow run` )
@@ -76,7 +76,7 @@ For specific processes with very short runtimes, the induced latency by submitti
 the task to the scheduler and waiting for them to go through the queue may be
 non-productive. If they are light enough, you can instead have nextflow start
 them on the node where the main Nextflow process runs. The `naiss` profile
-enforces limits on such processes so they don't consume too much resources. You
+enforces limits on such processes so they don't consume too many resources. You
 should still be aware and restrictive with local execution.
 
 To configure local execution for a process, add
