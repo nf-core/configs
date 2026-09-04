@@ -179,6 +179,7 @@ jobs:
           - "rosalind"
           - "rosalind_uge"
           - "roslin"
+          - "saga_sigma2"
           - "sage"
           - "sahmri"
           - "sanger"
