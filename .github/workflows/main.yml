@@ -160,6 +160,7 @@ jobs:
           - "mpcdf_viper"
           - "mssm"
           - "munin"
+          - "naiss"
           - "nci_gadi"
           - "nu_genomics"
           - "nygc"
