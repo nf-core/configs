@@ -54,26 +54,17 @@ GPUs are offered on arrhenius through GH200 "superchip" nodes, which uses
 another CPU architecture than the CPUs on normal arrhenius nodes. Since the
 actual GPU work is initiated and controlled by the CPUs, which causes a problem.
 
-So far, we haven't come up with a good solution for this. In the meantime,
-you can tell nextflow to use specific container images for the tasks requiring
-GPU resources.
+Note that arrhenius uses separate accounts for CPU and GPU allocations.
 
-Recent releases of nf-core pipelines should have a file
-`conf/containers_singularity_https_arm64.config` which you can use to find the
-Nextflow processes you need to run on GPU resources and copy those clauses to
-a file `nextflow.config` in the directory you run nextflow from (which will make
-it used without you asking, see
-[Seqera documentation](https://docs.seqera.io/nextflow/config)) for other options.
+The current approach for running workloads with GPUs is to run the nextflow
+monitoring process. To do this, either run an interacitve session on the GPU
+partition or submit a job.
 
-But from e.g. https://github.com/nf-core/funcprofiler/blob/dev/conf/containers_singularity_https_arm64.config, you can
-copy the line
-
-```nextflow
-process { withName: 'MULTIQC' { container = 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/e4/e48aa28aebc881254a499b24c3e1ce77b8df1b85a5432699ed6f72eb17ac7fb5/data' } }
-```
-
-to your own configuration to make nextflow use a compatible container image
-when running on GPU resources.
+Currently, the `naiss` profile (if run with a GPU account) will assume that a
+jobe without requested GPUs is to be used to run the nextflow monitoring and
+will submit jobs through SLURM, but if a GPU is requested it will instead
+assume it should run using the local executor and run tasks on the same
+node.
 
 ## Getting more memory
 
