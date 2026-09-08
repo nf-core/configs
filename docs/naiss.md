@@ -50,7 +50,7 @@ process uses very little resources.
 
 ##### GPU on arrhenius
 
-GPUs are offerend on arrhenius through GH200 "superchip" nodes, which uses
+GPUs are offered on arrhenius through GH200 "superchip" nodes, which uses
 another CPU architecture than the CPUs on normal arrhenius nodes. Since the
 actual GPU work is initiated and controlled by the CPUs, which causes a problem.
 
