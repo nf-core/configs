@@ -162,6 +162,7 @@ jobs:
           - "munin"
           - "naiss"
           - "nci_gadi"
+          - "newcastle"
           - "nu_genomics"
           - "nygc"
           - "nyu_hpc"
