@@ -10,14 +10,9 @@ For more installation help, read the documentation of a Nextflow workshop on VSC
 
 ```bash
 # Needed for Tier1 accounts, not for Tier2
-export SLURM_ACCOUNT={FILL_IN_NAME_OF_YOUR_ACCOUNT}
-export SALLOC_ACCOUNT=$SLURM_ACCOUNT
-export SBATCH_ACCOUNT=$SLURM_ACCOUNT
-# Needed for running Nextflow jobs
-export NXF_HOME=$VSC_DATA_VO_USER/.nextflow
-# Needed for running Apptainer containers
-export APPTAINER_CACHEDIR=$VSC_SCRATCH_VO_USER/.apptainer/cache
-export APPTAINER_TMPDIR=$VSC_SCRATCH_VO_USER/.apptainer/tmp
+export SBATCH_ACCOUNT={FILL_IN_NAME_OF_YOUR_PROJECT}
+# A list of all projects can be viewed via
+ls ${VSC_SCRATCH_PROJECTS_BASE}
 ```
 
 First you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space on this [link](https://shieldon.ugent.be:8083/pbsmon-web-users/). Use the following commands to easily switch between clusters:
@@ -49,10 +44,11 @@ qsub <script name>.pbs
 ```
 
 > [!NOTE]
-> The profile only works for the clusters `shinx`, `skitty`, `kirlia`, `doduo` and all tier1 clusters.
+> The current profile only works for tier2 clusters `doduo`, `shinx`, `gallade`, `joltik`, `accelgor`, `litleo`, `donphan`, `skiddo` and tier1 clusters `cpu_milan_rhel9`, `debug_milan_rhel9`, `gpu_rome_a100_80_rhel9` and `gpu_rome_a100_rhel9`.
+> Tier1 Hortense will be decommissioned soon, after which  tier1 clusters `cpu_milan_rhel9`, `debug_milan_rhel9`, `gpu_rome_a100_80_rhel9` and `gpu_rome_a100_rhel9` will not be available anymore.
 
 > [!NOTE]
-> The default directory where the `work/` and `singularity/` (cache directory for images) is located in `$VSC_SCRATCH_VO_USER` (when you are part of a VO) or `$VSC_SCRATCH` (when you are not part of a VO) for tier2 clusters and `$VSC_SCRATCH_PROJECTS_BASE/<tier1_project_name>` for tier1 clusters.
+> The default directory where the `work/` and `singularity/` (cache directory for images) is located in `${VSC_SCRATCH_VO_USER}` (when you are part of a VO) or `${VSC_SCRATCH}` (when you are not part of a VO) for tier2 clusters and `${VSC_SCRATCH_PROJECTS_BASE}/${SBATCH_ACCOUNT}` for tier1 clusters.
 
 ## Optional use nf-co2footprint
 
