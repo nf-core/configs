@@ -12,6 +12,10 @@ To use, run the pipeline with `-profile snellius`. This will download and launch
 
 Small processes go to `rome` because its smallest allocation (16 cores) is billed for fewer cores than that of `genoa` (24 cores). Software is run in containers with Apptainer, which is the only container engine installed on Snellius.
 
+## Job names
+
+Nextflow names each Slurm job after the process and its tag, for example `NFCORE_RNASEQ:RNASEQ:FASTQC (SAMPLE1)`. Slurm on Snellius does not accept special characters such as `:`, `(` and `)` in job names, so this profile replaces every character other than letters, digits and underscores with an underscore. The job above is submitted as `NFCORE_RNASEQ_RNASEQ_FASTQC__SAMPLE1_`. Use these names to find your jobs in `squeue` and `sacct`.
+
 ## Large memory jobs (`fat_genoa`)
 
 The `fat_genoa` partition needs its own budget, which has to be requested in your Snellius application. Without it, jobs submitted to `fat_genoa` fail. By default this profile therefore only uses `rome` and `genoa`, and caps the memory of every process at 336 GB.
