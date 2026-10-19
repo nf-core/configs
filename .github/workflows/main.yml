@@ -190,6 +190,7 @@ jobs:
           - "seg_globe"
           - "self_hosted_runner"
           - "shu_bmrc"
+          - "snellius"
           - "stjude"
           - "tes"
           - "tigem"
