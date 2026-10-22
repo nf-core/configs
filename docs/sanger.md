@@ -5,22 +5,29 @@ pre-configured with a setup suitable for the Wellcome Sanger Institute LSF clust
 
 ## Running the workflow on the Wellcome Sanger Institute cluster
 
-The latest version of Nextflow is not installed by default on the cluster. You will need to install it into a directory you have write access to
+Nextflow is installed centrally by IDS. Type `module load nextflow-` and press <key>TAB</key> to see the list of versions available, e.g.:
 
-- Install Nextflow : [here](https://www.nextflow.io/docs/latest/getstarted.html#)
-
-A recommended place to move the `nextflow` executable to is `~/bin` so that it's in the `PATH`.
-
-Nextflow manages each process as a separate job that is submitted to the cluster by using the `bsub` command.
-
-If asking Nextflow to use Singularity to run the individual jobs,
-you should make sure that your account has access to the Singularity binary by adding these lines to your `.bashrc` file
-
-```bash
-[[ -f /software/modules/ISG/singularity ]] && module load ISG/singularity
+```console
+$ module load nextflow-[TAB]
+nextflow-23.10.0  nextflow-26.04.6
 ```
 
-Nextflow shouldn't run directly on the submission node but on a compute node.
+Then `module load nextflow-26.04.6` to load Nextflow.
+
+If you need a different version, raise a ticket at <https://sanger.freshservice.com/>.
+
+If asking Nextflow to use Singularity or Apptainer to run the individual jobs,
+you should make sure that you enable the right module by adding one of these lines to your `.bashrc` file
+
+```bash
+module load ISG/apptainer
+module load ISG/singularity
+module load ISG/experimental/sp39/singularityce
+```
+
+If you need a specific version, press <key>TAB</key> after the module name to see the list of versions available.
+
+Nextflow shouldn't run directly on the submission node but on a compute node, via the `oversubscribed` queue.
 To do so make a shell script with a similar structure to the following code and submit with `bsub < $PWD/my_script.sh`
 
 ```bash
@@ -52,3 +59,8 @@ if [[ $status -eq 0 ]]; then
   rm -r /path/to/some/dir/work
 fi
 ```
+
+## GPU access
+
+GPUs on the `cub22` and `farm22` clusters need a cost code. Pass this to your pipeline via the `gpu_group` parameter.
+
