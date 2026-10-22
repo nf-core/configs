@@ -62,5 +62,5 @@ fi
 
 ## GPU access
 
-GPUs on the `cub22` and `farm22` clusters need a cost code. Pass this to your pipeline via the `gpu_group` parameter.
+GPUs on the `cub22` and `farm22` clusters need a cost code. Pass this to your pipeline via the `sanger_gpu_group` parameter.
 
