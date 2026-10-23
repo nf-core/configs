@@ -113,6 +113,34 @@ Valid GPU types on Pelle are `l40s`, `h100`, and `t4` (see [Pelle partitions](ht
 
 The Pelle config only sets `clusterOptions` for the `slurm` executor. If you run locally on a GPU node (e.g. in an interactive session), set the `accelerator` directive as above and follow [Nextflow's local executor GPU guide](https://docs.seqera.io/nextflow/executor/local#accelerators) to make the GPU visible to the task.
 
+## Using GPUs on Miarka
+
+Miarka has two GPU nodes: `m201` with 4x A100 (96 CPUs, 512 GB memory) and `m202` with 6x L40S (64 CPUs, 384 GB memory), which can be used to accelerate suitable jobs. All pipelines run by NGI on Miarka don't have nf-core's `gpu` profile yet, so you may need to provide a custom configuration that activates a task accelerator for suitable tasks:
+
+```nextflow
+    withLabel: process_gpu {
+        accelerator  = 1
+    }
+```
+
+The `uppmax` profile turns each task's `accelerator` directive into a `-p gpu --gres=gpu:[<type>:]<count>` request and adds `--nv` to the Apptainer call so the container can see the GPU.
+
+```bash
+$ nextflow run nf-core/<PIPELINE> -profile uppmax --project <PROJECT> [...]
+```
+
+By default the `l40s` GPU type is requested, but you can set the custom `miarka_gpu_type` parameter to `--miarka_gpu_type a100` to switch. You can also set the type per process with the `accelerator` directive, as shown for Pelle above:
+
+```nextflow
+process {
+    withName: 'GPU_PROCESS_ONE' {
+        accelerator = [ type: 'a100', request: 2 ] // 2x A100 on m201
+    }
+}
+```
+
+Valid GPU types on Miarka are `a100` and `l40s`.
+
 ## Running on Bianca
 
 > :warning: For more information, please follow the following guides:
