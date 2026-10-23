@@ -113,6 +113,30 @@ Valid GPU types on Pelle are `l40s`, `h100`, and `t4` (see [Pelle partitions](ht
 
 The Pelle config only sets `clusterOptions` for the `slurm` executor. If you run locally on a GPU node (e.g. in an interactive session), set the `accelerator` directive as above and follow [Nextflow's local executor GPU guide](https://docs.seqera.io/nextflow/executor/local#accelerators) to make the GPU visible to the task.
 
+## Using GPUs on Miarka
+
+Miarka has two GPU nodes: `m201` with 4x A100 (96 CPUs, 512 GB memory) and `m202` with 6x L40S (64 CPUs, 384 GB memory). Unlike on Pelle, you don't need nf-core's `gpu` profile, because many pipelines run by NGI on Miarka don't have one yet. The `uppmax` profile on Miarka gives every task labelled `process_gpu` one GPU. It turns each task's `accelerator` directive into a `-p gpu --gres=gpu:[<type>:]<count>` request and adds `--nv` to the Apptainer call so the container can see the GPU.
+
+```bash
+$ nextflow run nf-core/<PIPELINE> -profile uppmax --project <PROJECT> [...]
+```
+
+By default no GPU type is requested, so Slurm schedules a GPU task on whichever suitable node is free. To pin every otherwise-unspecified GPU task to one node, set `--miarka_gpu_type a100` or `--miarka_gpu_type l40s`. You can also set the type per process with the `accelerator` directive, as shown for Pelle above:
+
+```nextflow
+process {
+    withName: 'GPU_PROCESS_ONE' {
+        accelerator = [ type: 'a100', request: 2 ] // 2x A100 on m201
+    }
+}
+```
+
+Valid GPU types on Miarka are `a100` and `l40s`. The config raises an error when a task asks for an unknown type, or for more GPUs, CPUs or memory than the matching node has. Such a task would otherwise wait in the queue forever.
+
+### High-memory nodes on Miarka
+
+By default, tasks on Miarka are limited to 357 GB of memory so they fit on a regular 384 GB node. To let tasks use the high-memory nodes, raise the limit with `--max_memory 2000.GB` or `--max_memory 3998.GB`, the most Slurm can allocate on the 2 TB and 4 TB nodes. Tasks that request more than 357 GB then go to either high-memory node, and tasks that request more than 2000 GB go to the 4 TB node.
+
 ## Running on Bianca
 
 > :warning: For more information, please follow the following guides:
