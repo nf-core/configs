@@ -13,4 +13,11 @@ module load nextflow
 module load singularity
 ```
 
+This profile does not set a shared Singularity cache directory, so you must set your own `NXF_SINGULARITY_CACHEDIR` pointing to a location in your work directory before running the pipeline. If left unset, Singularity will cache downloaded container images under `$HOME/.singularity/cache` by default, which has limited, quota-restricted space and will fill up quickly.
+
+```bash
+## Point the Singularity cache to your own work directory
+export NXF_SINGULARITY_CACHEDIR=/work_ikmb/<username>/singularity_cache
+```
+
 > NB: Access to the caucau cluster is restricted. Please talk to Georg Hemmrich-Stanisak to get access (@ghemmrich).
