@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Print the GitHub Actions test matrix for a git range, or for all profiles without one."""
+"""Print the test matrix for the changes since the merge base with a base ref, or for all profiles without one."""
 
 import json
 import subprocess
@@ -43,8 +43,8 @@ def select_tests(changed, profiles, pipelines):
     return sorted(test for test in tests if test[0] not in UNTESTABLE_PROFILES)
 
 
-def changed_files(git_range):
-    diff = ["git", "diff", "--name-only", git_range]
+def changed_files(base):
+    diff = ["git", "diff", "--name-only", f"{base}...HEAD"]
     return subprocess.check_output(diff, text=True).splitlines()
 
 
@@ -52,8 +52,7 @@ if __name__ == "__main__":
     changed = changed_files(sys.argv[1]) if sys.argv[1:] else None
     tests = select_tests(changed, registered_profiles(), pipeline_includes())
     print(
-        "tests="
-        + json.dumps(
+        json.dumps(
             [{"profile": profile, "pipeline": pipeline} for profile, pipeline in tests]
         )
     )
