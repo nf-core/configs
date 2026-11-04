@@ -48,6 +48,16 @@ You can run `Nextflow` on a login node in a `screen` or a `tmux` session or in a
 (batch or interactive) and it will handle everything else. The nextflow main/monitoring
 process uses very little resources.
 
+##### Running from your home directory
+
+Apptainer on arrhenius is configured to disallow running images from `/home`.
+As a consequence one needs to make sure images are cached elsewhere if one runs
+with the work directory under `/home`, by setting either environment
+variable `NXF_APPTAINER_CACHEDIR` or `apptainer.cacheDir` to an appropriate
+value.
+
+We generally recommend running from the appropriate project directory instead.
+
 ##### GPU on arrhenius
 
 GPUs are offered on arrhenius through GH200 "superchip" nodes, which uses
