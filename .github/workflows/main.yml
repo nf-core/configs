@@ -18,8 +18,10 @@ jobs:
     name: Check if all profiles are tested
     steps:
       - uses: actions/checkout@v4
-      - name: Check whether profiles are all tested
-        run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config
+      - name: Check whether the profile registry is consistent
+        run: python bin/cchecker.py
+      - name: Test the test selection
+        run: python -m unittest discover -s bin
 
   check_nextflow_config:
     name: Check if nextflow config runs in repository root
@@ -65,125 +67,20 @@ jobs:
         with:
           fetch-depth: 0
       - id: detect
-        run: |
-          set -euo pipefail
-
-          # Determine base and head for comparison
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            BASE="${{ github.event.pull_request.base.sha }}"
-            HEAD="${{ github.event.pull_request.head.sha }}"
-          else
-            BASE="${{ github.event.before }}"
-            HEAD="${{ github.event.after }}"
-          fi
-
-          # Function to build test JSON from a list of profile names
-          build_tests() {
-            local main_profiles=("$@")
-            if [ ${#main_profiles[@]} -eq 0 ]; then
-              echo '{"tests": []}'
-              return
-            fi
-            local tests=()
-            for p in "${main_profiles[@]}"; do
-              tests+=("{\"type\": \"main\", \"profile\": \"$p\"}")
-            done
-            printf '%s\n' "${tests[@]}" | jq -s -c '{tests: .}'
-          }
-
-          # On push to master, test all profiles
-          if [ "${{ github.event_name }}" == "push" ]; then
-            ALL_PROFILES=($(grep 'includeConfig' nfcore_custom.config | awk -F'/' '{print $3}' | awk -F'.' '{print $1}'))
-            TESTS=$(build_tests "${ALL_PROFILES[@]}")
-            echo "Push to master: testing all profiles"
-            echo "tests=$TESTS" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # Get list of changed files
-          CHANGED=$(git diff --name-only "$BASE" "$HEAD" || echo "")
-
-          if [ -z "$CHANGED" ]; then
-            echo "No changes detected."
-            echo "tests=[]" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # Core infrastructure files that should trigger a full test
-          if echo "$CHANGED" | grep -qE '^(\.github/workflows/main\.yml|nextflow\.config|nfcore_custom\.config|configtest\.nf|bin/|pipeline/[^/]+\.config)$'; then
-            ALL_PROFILES=($(grep 'includeConfig' nfcore_custom.config | awk -F'/' '{print $3}' | awk -F'.' '{print $1}'))
-            TESTS=$(build_tests "${ALL_PROFILES[@]}")
-            echo "Core files changed: testing all profiles"
-            echo "tests=$TESTS" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # If only docs/README/etc changed, skip tests
-          if ! echo "$CHANGED" | grep -qvE '^(docs/|README\.md|CITATION\.cff|LICENSE|\.editorconfig|\.gitattributes|\.pre-commit-config\.yaml|\.prettierrc\.yml|\.prettierignore|\.github/(PULL_REQUEST_TEMPLATE\.md|CODEOWNERS|generate_codeowners\.sh))$'; then
-            echo "Only documentation changed, skipping tests"
-            echo "tests=[]" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          declare -A MAIN_PROFILES
-          declare -A PIPELINE_TESTS
-
-          # Detect main profile config changes (direct files in conf/)
-          for f in $CHANGED; do
-            if [[ "$f" =~ ^conf/([^/]+)\.config$ ]]; then
-              MAIN_PROFILES["${BASH_REMATCH[1]}"]=1
-            fi
-          done
-
-          # Detect subdirectory config changes (e.g., conf/sanger/farm22.config)
-          for f in $CHANGED; do
-            if [[ "$f" =~ ^conf/([^/]+)/.+\.config$ ]] && [[ "${BASH_REMATCH[1]}" != "pipeline" ]]; then
-              MAIN_PROFILES["${BASH_REMATCH[1]}"]=1
-            fi
-          done
-
-          # Detect pipeline-specific config changes (conf/pipeline/<pipeline>/<name>.config)
-          for f in $CHANGED; do
-            if [[ "$f" =~ ^conf/pipeline/([^/]+)/(.+)\.config$ ]]; then
-              PIPELINE="${BASH_REMATCH[1]}"
-              CONFIG_FILE="${BASH_REMATCH[2]}.config"
-              if [ -f "pipeline/$PIPELINE.config" ]; then
-                while IFS= read -r profile; do
-                  if [ -n "$profile" ]; then
-                    PIPELINE_TESTS["$profile|pipeline/$PIPELINE.config"]=1
-                  fi
-                done < <(grep -B1 "conf/pipeline/$PIPELINE/$CONFIG_FILE" "pipeline/$PIPELINE.config" | grep -oP '^\s+\K\w+(?=\s*\{)')
-              fi
-            fi
-          done
-
-          # Build JSON array of test objects
-          TESTS=()
-          for profile in "${!MAIN_PROFILES[@]}"; do
-            TESTS+=("{\"type\": \"main\", \"profile\": \"$profile\"}")
-          done
-          for key in "${!PIPELINE_TESTS[@]}"; do
-            profile="${key%%|*}"
-            pipeline_config="${key#*|}"
-            TESTS+=("{\"type\": \"pipeline\", \"profile\": \"$profile\", \"pipeline_config\": \"$pipeline_config\"}")
-          done
-
-          if [ ${#TESTS[@]} -eq 0 ]; then
-            echo "No relevant test files changed"
-            echo "tests=[]" >> "$GITHUB_OUTPUT"
-          else
-            JSON=$(printf '%s\n' "${TESTS[@]}" | jq -s -c '{tests: .}')
-            echo "tests=$JSON" >> "$GITHUB_OUTPUT"
-          fi
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: python bin/detect_tests.py ${BASE:+"$BASE...$HEAD"} >> "$GITHUB_OUTPUT"
 
   profile_test:
     runs-on: ubuntu-latest
-    name: "Test ${{ matrix.test.profile }}"
+    name: Run ${{ matrix.test.profile }} profile ${{ matrix.test.pipeline }}
     needs: [test_all_profiles, detect-changes]
+    if: needs.detect-changes.outputs.tests != '[]'
     strategy:
       fail-fast: false
       matrix:
-        test: ${{ fromJson(needs.detect-changes.outputs.tests).tests }}
+        test: ${{ fromJson(needs.detect-changes.outputs.tests) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
@@ -194,14 +91,10 @@ jobs:
         uses: nf-core/setup-nextflow@v2
         with:
           version: "latest-everything"
-      - name: Check ${{ matrix.test.profile }} profile
-        if: matrix.test.type == 'main'
+      - name: Check ${{ matrix.test.profile }} profile ${{ matrix.test.pipeline }}
         env:
           SCRATCH: "~"
           NXF_GLOBAL_CONFIG: awsbatch.config
-        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf -profile ${{ matrix.test.profile }}
-      - name: Check ${{ matrix.test.profile }} profile for ${{ matrix.test.pipeline_config }}
-        if: matrix.test.type == 'pipeline'
-        env:
-          SCRATCH: "~"
-        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf -profile ${{ matrix.test.profile }} -c ${{ matrix.test.pipeline_config }} --custom_config_base ${GITHUB_WORKSPACE}
+          PROFILE: ${{ matrix.test.profile }}
+          PIPELINE: ${{ matrix.test.pipeline }}
+        run: nextflow run configtest.nf -profile "$PROFILE" ${PIPELINE:+-c "pipeline/$PIPELINE.config" --custom_config_base "$GITHUB_WORKSPACE"}
