@@ -101,4 +101,4 @@ jobs:
       # --help parses the real config chain of the pipeline, then exits before any process starts
       - name: Check ${{ matrix.test.profile }} profile with nf-core/${{ matrix.test.pipeline }}
         if: matrix.test.pipeline != ''
-        run: nextflow run "nf-core/$PIPELINE" -profile "test,$PROFILE" --help --custom_config_base "${GITHUB_WORKSPACE}"
+        run: nextflow run "nf-core/$PIPELINE" -profile "test,$PROFILE" --help --outdir results --custom_config_base "${GITHUB_WORKSPACE}"
