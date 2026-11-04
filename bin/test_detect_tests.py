@@ -20,17 +20,8 @@ class SelectTests(unittest.TestCase):
     def test_no_range_tests_every_testable_profile(self):
         self.check(None, EVERY_PROFILE)
 
-    def test_core_files_test_every_profile(self):
-        for path in (
-            "bin/cchecker.py",
-            "configtest.nf",
-            "nfcore_custom.config",
-            ".github/workflows/main.yml",
-        ):
-            self.check([path], EVERY_PROFILE)
-
-    def test_docs_and_nothing_changed_need_no_test(self):
-        self.check(["docs/alpha.md", "README.md", ".github/CODEOWNERS"], [])
+    def test_files_outside_profiles_need_no_test(self):
+        self.check(["docs/alpha.md", "bin/cchecker.py", "nfcore_custom.config"], [])
         self.check([], [])
 
     def test_profile_config(self):

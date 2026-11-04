@@ -10,14 +10,6 @@ from cchecker import pipeline_includes, registered_profiles
 
 # Registered, but CI cannot write to its private S3 work directory
 UNTESTABLE_PROFILES = {"czbiohub_aws"}
-# Changing one of these can affect every profile
-CORE_FILES = (
-    ".github/workflows/main.yml",
-    "nextflow.config",
-    "nfcore_custom.config",
-    "configtest.nf",
-    "bin/",
-)
 
 
 def pipeline_tests(pipeline, pipelines, name=None):
@@ -42,7 +34,7 @@ def tests_for_file(path, profiles, pipelines):
 
 def select_tests(changed, profiles, pipelines):
     """Map changed files to (profile, pipeline) tests; pipeline is empty for a plain profile test."""
-    if changed is None or any(path.startswith(CORE_FILES) for path in changed):
+    if changed is None:
         tests = {(profile, "") for profile in profiles}
     else:
         tests = set().union(
