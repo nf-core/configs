@@ -10,7 +10,7 @@ PIPELINES = {
         ("alpha", "pipeline/viralrecon/alpha"),
     ],
 }
-EVERY_PROFILE = [("alpha", ""), ("sanger", "")]
+ALPHA = [("alpha", ""), ("alpha", "rnaseq"), ("alpha", "viralrecon")]
 
 
 class SelectTests(unittest.TestCase):
@@ -18,14 +18,14 @@ class SelectTests(unittest.TestCase):
         self.assertEqual(select_tests(changed, PROFILES, PIPELINES), expected)
 
     def test_no_range_tests_every_testable_profile(self):
-        self.check(None, EVERY_PROFILE)
+        self.check(None, ALPHA + [("sanger", "")])
 
     def test_files_outside_profiles_need_no_test(self):
         self.check(["docs/alpha.md", "bin/cchecker.py", "nfcore_custom.config"], [])
         self.check([], [])
 
-    def test_profile_config(self):
-        self.check(["conf/alpha.config"], [("alpha", "")])
+    def test_profile_config_also_tests_its_pipelines(self):
+        self.check(["conf/alpha.config"], ALPHA)
 
     def test_profile_subdirectory(self):
         self.check(["conf/sanger/farm22.config"], [("sanger", "")])

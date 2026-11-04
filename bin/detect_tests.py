@@ -21,6 +21,16 @@ def pipeline_tests(pipeline, pipelines, name=None):
     return {(profile, pipeline) for profile in profiles}
 
 
+def profile_tests(profile, pipelines):
+    """Return the test of a profile and of each pipeline config it owns."""
+    owned = {
+        pipeline
+        for pipeline, included in pipelines.items()
+        if profile in {owner for owner, _ in included}
+    }
+    return {(profile, pipeline) for pipeline in owned | {""}}
+
+
 def tests_for_file(path, profiles, pipelines):
     match path.split("/"):
         case ["conf", "pipeline", pipeline, name]:
@@ -28,14 +38,16 @@ def tests_for_file(path, profiles, pipelines):
         case ["pipeline", name]:
             return pipeline_tests(Path(name).stem, pipelines)
         case ["conf", name, *_] if Path(name).stem in profiles:
-            return {(Path(name).stem, "")}
+            return profile_tests(Path(name).stem, pipelines)
     return set()
 
 
 def select_tests(changed, profiles, pipelines):
     """Map changed files to (profile, pipeline) tests; pipeline is empty for a plain profile test."""
     if changed is None:
-        tests = {(profile, "") for profile in profiles}
+        tests = set().union(
+            *(profile_tests(profile, pipelines) for profile in profiles)
+        )
     else:
         tests = set().union(
             *(tests_for_file(path, profiles, pipelines) for path in changed)
