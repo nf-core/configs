@@ -1,6 +1,6 @@
 import unittest
 
-from detect_tests import select_tests
+from detect_tests import job_matrix, select_tests
 
 PROFILES = {"alpha", "sanger", "czbiohub_aws"}
 PIPELINES = {
@@ -11,6 +11,18 @@ PIPELINES = {
     ],
 }
 ALPHA = [("alpha", ""), ("alpha", "rnaseq"), ("alpha", "viralrecon")]
+
+
+class JobMatrix(unittest.TestCase):
+    def test_one_job_per_profile(self):
+        self.assertEqual(
+            job_matrix(ALPHA + [("beta", "rnaseq"), ("sanger", "")]),
+            [
+                {"profile": "alpha", "pipelines": "rnaseq viralrecon"},
+                {"profile": "beta", "pipelines": "rnaseq"},
+                {"profile": "sanger", "pipelines": ""},
+            ],
+        )
 
 
 class SelectTests(unittest.TestCase):

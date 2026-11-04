@@ -7,7 +7,7 @@ inputs:
     default: ""
 outputs:
   tests:
-    description: "JSON array of {profile, pipeline} tests"
+    description: "JSON array of {profile, pipelines} tests, one per job"
     value: ${{ steps.detect.outputs.tests }}
 runs:
   using: "composite"

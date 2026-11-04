@@ -55,6 +55,17 @@ def select_tests(changed, profiles, pipelines):
     return sorted(test for test in tests if test[0] not in UNTESTABLE_PROFILES)
 
 
+def job_matrix(tests):
+    """Group sorted (profile, pipeline) tests into one job per profile, with space-separated pipelines."""
+    pipelines = {}
+    for profile, pipeline in tests:
+        pipelines.setdefault(profile, []).append(pipeline)
+    return [
+        {"profile": profile, "pipelines": " ".join(names).strip()}
+        for profile, names in pipelines.items()
+    ]
+
+
 def changed_files(base):
     diff = ["git", "diff", "--name-only", f"{base}...HEAD"]
     return subprocess.check_output(diff, text=True).splitlines()
@@ -63,8 +74,4 @@ def changed_files(base):
 if __name__ == "__main__":
     changed = changed_files(sys.argv[1]) if sys.argv[1:] else None
     tests = select_tests(changed, registered_profiles(), pipeline_includes())
-    print(
-        json.dumps(
-            [{"profile": profile, "pipeline": pipeline} for profile, pipeline in tests]
-        )
-    )
+    print(json.dumps(job_matrix(tests)))
