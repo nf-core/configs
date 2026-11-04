@@ -77,6 +77,11 @@ jobs:
     name: Run ${{ matrix.test.profile }} profile ${{ matrix.test.pipeline }}
     needs: [test_all_profiles, detect-changes]
     if: needs.detect-changes.outputs.tests != '[]'
+    env:
+      SCRATCH: "~"
+      NXF_GLOBAL_CONFIG: awsbatch.config
+      PROFILE: ${{ matrix.test.profile }}
+      PIPELINE: ${{ matrix.test.pipeline }}
     strategy:
       fail-fast: false
       matrix:
@@ -91,10 +96,11 @@ jobs:
         uses: nf-core/setup-nextflow@v2
         with:
           version: "latest-everything"
-      - name: Check ${{ matrix.test.profile }} profile ${{ matrix.test.pipeline }}
-        env:
-          SCRATCH: "~"
-          NXF_GLOBAL_CONFIG: awsbatch.config
-          PROFILE: ${{ matrix.test.profile }}
-          PIPELINE: ${{ matrix.test.pipeline }}
-        run: nextflow run configtest.nf -profile "$PROFILE" ${PIPELINE:+-c "pipeline/$PIPELINE.config" --custom_config_base "$GITHUB_WORKSPACE"}
+      - name: Check ${{ matrix.test.profile }} profile
+        if: matrix.test.pipeline == ''
+        run: nextflow run configtest.nf -profile "$PROFILE"
+      # --help parses the real config chain of the pipeline, then exits before any process starts
+      - name: Check ${{ matrix.test.profile }} profile with nf-core/${{ matrix.test.pipeline }}
+        if: matrix.test.pipeline != ''
+        timeout-minutes: 10
+        run: nextflow run "nf-core/$PIPELINE" -profile "test,$PROFILE" --help --custom_config_base "$GITHUB_WORKSPACE"
