@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         NXF_VER:
-          - 25.04.0
+          - 26.04.0
           - latest-everything
     steps:
       - uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
       fail-fast: false
       matrix:
         NXF_VER:
-          - 25.04.0
+          - 26.04.0
           - latest-everything
     steps:
       - uses: actions/checkout@v4
@@ -126,7 +126,6 @@ jobs:
           - "hypatia"
           - "humantechnopole"
           - "icr_alma"
-          - "icr_davros"
           - "ifb_core"
           - "imb"
           - "ilifu"
@@ -140,6 +139,7 @@ jobs:
           - "unsw_katana"
           - "ku_sund_danhead"
           - "kaust"
+          - "kelvin2"
           - "ki_luria"
           - "leicester"
           - "lrz_cm4"
@@ -160,13 +160,14 @@ jobs:
           - "mpcdf_viper"
           - "mssm"
           - "munin"
+          - "naiss"
           - "nci_gadi"
           - "nu_genomics"
           - "nygc"
           - "nyu_hpc"
           - "oist"
+          - "palmetto"
           - "pasteur"
-          - "pawsey_nimbus"
           - "pawsey_setonix"
           - "pdc_kth"
           - "phoenix"
@@ -179,10 +180,10 @@ jobs:
           - "rosalind"
           - "rosalind_uge"
           - "roslin"
+          - "saga_sigma2"
           - "sage"
           - "sahmri"
           - "sanger"
-          - "scw"
           - "seadragon"
           - "seattlechildrens"
           - "seawulf"
@@ -211,11 +212,11 @@ jobs:
           - "uzh"
           - "uzl_omics"
           - "vai"
+          - "verily_workbench"
           - "vsc_calcua"
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
           - "wehi"
-          - "wustl_htcf"
           - "xanadu"
           - "york_viking"
 
