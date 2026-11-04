@@ -73,7 +73,7 @@ jobs:
 
   profile_test:
     runs-on: ubuntu-latest
-    name: Run ${{ matrix.test.profile }} profile ${{ matrix.test.pipeline }}
+    name: Run ${{ matrix.test.profile }} profile ${{ matrix.test.pipeline }} (${{ matrix.NXF_VER }})
     needs: [test_all_profiles, detect-changes]
     if: needs.detect-changes.outputs.tests != '[]'
     env:
@@ -85,6 +85,8 @@ jobs:
       fail-fast: false
       matrix:
         test: ${{ fromJson(needs.detect-changes.outputs.tests) }}
+        # A push to master tests everything, two versions would exceed the 256 jobs limit of a matrix
+        NXF_VER: ${{ fromJson(github.event_name == 'pull_request' && '["26.04.0", "latest-everything"]' || '["latest-everything"]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
@@ -94,7 +96,7 @@ jobs:
       - name: Set up Nextflow
         uses: nf-core/setup-nextflow@v2
         with:
-          version: "latest-everything"
+          version: ${{ matrix.NXF_VER }}
       - name: Check ${{ matrix.test.profile }} profile
         if: matrix.test.pipeline == ''
         run: nextflow config -profile "$PROFILE" ${GITHUB_WORKSPACE}
