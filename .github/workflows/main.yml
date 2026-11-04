@@ -102,3 +102,6 @@ jobs:
       - name: Check ${{ matrix.test.profile }} profile with nf-core/${{ matrix.test.pipeline }}
         if: matrix.test.pipeline != ''
         run: nextflow run "nf-core/$PIPELINE" -profile "test,$PROFILE" --help --outdir results --custom_config_base "${GITHUB_WORKSPACE}"
+      - name: Check ${{ matrix.test.profile }} profile with nf-core/${{ matrix.test.pipeline }} dev
+        if: ${{ !cancelled() && matrix.test.pipeline != '' }}
+        run: nextflow run "nf-core/$PIPELINE" -r dev -profile "test,$PROFILE" --help --outdir results --custom_config_base "${GITHUB_WORKSPACE}"
