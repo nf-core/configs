@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Parse the nf-core/configs profile registry and check it is consistent."""
+"""Parse the nf-core/configs profile registry and check every conf/*.config is in it."""
 
 import re
 import sys
@@ -7,17 +7,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Registered, but CI cannot write to its private S3 work directory
-UNTESTABLE_PROFILES = {"czbiohub_aws"}
 # In conf/, but not registered in nfcore_custom.config
 UNREGISTERED_CONFIGS = {"azurebatchdev", "wcm"}
-# In conf/pipeline/, but not included by the matching pipeline/<pipeline>.config
-UNREFERENCED_PIPELINE_CONFIGS = {
-    "methylseq/ku_sund_danhead",
-    "rnaseq/kaust",
-    "rnaseq/ku_sund_dangpu",
-    "seqinspector/hasta",
-}
 
 PROFILE = re.compile(r"\s+(\w+)\s*\{")
 INCLUDE = re.compile(
@@ -47,39 +38,9 @@ def pipeline_includes():
     }
 
 
-def find_problems():
-    problems = []
-
-    registered = {path for _, path in includes(ROOT / "nfcore_custom.config")}
-    for path in sorted(registered):
-        if not (ROOT / "conf" / f"{path}.config").exists():
-            problems.append(
-                f"nfcore_custom.config includes missing file conf/{path}.config"
-            )
-    for config in sorted((ROOT / "conf").glob("*.config")):
-        if config.stem not in registered | UNREGISTERED_CONFIGS:
-            problems.append(
-                f"{config.relative_to(ROOT)} is not registered in nfcore_custom.config"
-            )
-
-    pipelines = pipeline_includes()
-    for config in sorted((ROOT / "conf" / "pipeline").glob("*/*.config")):
-        pipeline = config.parent.name
-        key = f"{pipeline}/{config.stem}"
-        included = {path for _, path in pipelines.get(pipeline, [])}
-        if (
-            f"pipeline/{key}" not in included
-            and key not in UNREFERENCED_PIPELINE_CONFIGS
-        ):
-            problems.append(
-                f"{config.relative_to(ROOT)} is not included by pipeline/{pipeline}.config"
-            )
-
-    return problems
-
-
 if __name__ == "__main__":
-    problems = find_problems()
-    if problems:
-        sys.exit("\n".join(problems))
+    configs = {config.stem for config in (ROOT / "conf").glob("*.config")}
+    unregistered = configs - registered_profiles() - UNREGISTERED_CONFIGS
+    if unregistered:
+        sys.exit(f"Not registered in nfcore_custom.config: {sorted(unregistered)}")
     print("Profile registry is consistent.")

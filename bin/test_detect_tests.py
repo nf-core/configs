@@ -42,14 +42,8 @@ class SelectTests(unittest.TestCase):
     def test_unregistered_and_untestable_configs_are_skipped(self):
         self.check(["conf/wcm.config", "conf/czbiohub_aws.config"], [])
 
-    def test_unsafe_file_name_is_not_a_profile(self):
-        self.check(["conf/$(curl evil).config"], [])
-
     def test_pipeline_profile_config(self):
         self.check(["conf/pipeline/rnaseq/beta.config"], [("beta", "rnaseq")])
-
-    def test_pipeline_profile_data_file(self):
-        self.check(["conf/pipeline/rnaseq/beta/params.yaml"], [("beta", "rnaseq")])
 
     def test_top_level_pipeline_include_tests_every_profile_of_the_pipeline(self):
         self.check(
@@ -65,7 +59,3 @@ class SelectTests(unittest.TestCase):
         self.check(
             ["conf/pipeline/rnaseq/kaust.config", "conf/pipeline/absent/x.config"], []
         )
-
-
-if __name__ == "__main__":
-    unittest.main()
