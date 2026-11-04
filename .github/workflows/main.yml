@@ -19,9 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check whether the profile registry is consistent
-        run: python bin/cchecker.py
+        run: python ${GITHUB_WORKSPACE}/bin/cchecker.py
       - name: Test the test selection
-        run: python -m unittest discover -s bin
+        run: python -m unittest discover -s ${GITHUB_WORKSPACE}/bin
 
   check_nextflow_config:
     name: Check if nextflow config runs in repository root
@@ -70,7 +70,7 @@ jobs:
         env:
           BASE: ${{ github.event.pull_request.base.sha }}
           HEAD: ${{ github.event.pull_request.head.sha }}
-        run: python bin/detect_tests.py ${BASE:+"$BASE...$HEAD"} >> "$GITHUB_OUTPUT"
+        run: python ${GITHUB_WORKSPACE}/bin/detect_tests.py ${BASE:+"$BASE...$HEAD"} >> "$GITHUB_OUTPUT"
 
   profile_test:
     runs-on: ubuntu-latest
@@ -98,9 +98,9 @@ jobs:
           version: "latest-everything"
       - name: Check ${{ matrix.test.profile }} profile
         if: matrix.test.pipeline == ''
-        run: nextflow run configtest.nf -profile "$PROFILE"
+        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf -profile "$PROFILE"
       # --help parses the real config chain of the pipeline, then exits before any process starts
       - name: Check ${{ matrix.test.profile }} profile with nf-core/${{ matrix.test.pipeline }}
         if: matrix.test.pipeline != ''
         timeout-minutes: 10
-        run: nextflow run "nf-core/$PIPELINE" -profile "test,$PROFILE" --help --custom_config_base "$GITHUB_WORKSPACE"
+        run: nextflow run "nf-core/$PIPELINE" -profile "test,$PROFILE" --help --custom_config_base "${GITHUB_WORKSPACE}"
