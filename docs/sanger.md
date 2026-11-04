@@ -1,6 +1,6 @@
 # nf-core/configs: Wellcome Sanger Institute Configuration
 
-To use, run the pipeline with `-profile sanger`. This will download and launch the [`sanger.config`](../conf/sanger.config) which has been
+To use, run the pipeline with `-profile sanger`. This will download and launch the [`sanger.config`](https://github.com/nf-core/configs/blob/master/conf/sanger.config) which has been
 pre-configured with a setup suitable for the Wellcome Sanger Institute LSF cluster.
 
 ## Running the workflow on the Wellcome Sanger Institute cluster

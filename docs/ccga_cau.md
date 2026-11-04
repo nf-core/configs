@@ -13,4 +13,17 @@ module load nextflow
 module load singularity
 ```
 
+Set both of these environment variables before running the pipeline, or Singularity will fill up your `$HOME` quota:
+
+- `NXF_SINGULARITY_CACHEDIR`: Nextflow's cache of converted `.sif` images. Left unset, Nextflow caches them per work directory instead, re-downloading on every new run.
+- `SINGULARITY_CACHEDIR`: Singularity's own cache, used while pulling/converting images - unrelated to the Nextflow setting above. Left unset, it defaults to `$HOME/.singularity/cache`, which is usually quota-limited and the actual cause of most `$HOME`-filling-up issues.
+
+```bash
+export NXF_SINGULARITY_CACHEDIR=/work_ikmb/<username>/singularity_cache
+export SINGULARITY_CACHEDIR=/work_ikmb/<username>/singularity_cache
+## or, if your group uses work_beegfs instead:
+# export NXF_SINGULARITY_CACHEDIR=/work_beegfs/<username>/singularity_cache
+# export SINGULARITY_CACHEDIR=/work_beegfs/<username>/singularity_cache
+```
+
 > NB: Access to the caucau cluster is restricted. Please talk to Georg Hemmrich-Stanisak to get access (@ghemmrich).
