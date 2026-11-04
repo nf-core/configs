@@ -42,6 +42,10 @@ The IRIS config provides several optional parameters to customize job submission
 - `--qos`: Set Quality of Service specification for SLURM jobs (e.g., `priority`)
 - `--preemptable`: Set to `true` to use preemptable queues for faster job submission (default: `false`)
 - `--isolated`: Set to `true` to restrict jobs to only the specified partition (default: `false`)
+- `--short_queue`: Set the SLURM queue for short CPU jobs (default: `cpushort`)
+- `--short_queue_hours`: Set the maximum runtime, in hours, for jobs sent to the short CPU queue (default: `2`)
+- `--fail_mode`: On failure set `ignore` to continue, `finish` to complete with no new jobs, or `terminate` to stop. (default: `ignore`)
+- `--retry_count`: Set the max retry count (default: `3`)
 
 ### Example Commands
 
@@ -72,6 +76,18 @@ Using preemptable queue for faster submission:
 nextflow run nf-core/rnaseq -profile iris --preemptable true --input samplesheet.csv --genome GRCh38
 ```
 
+Using a custom short CPU queue and time limit:
+
+```bash
+nextflow run nf-core/rnaseq -profile iris --short_queue cmobic_short --short_queue_hours 3 --input samplesheet.csv --genome GRCh38
+```
+
+Stopping the workflow when a task fails after retries:
+
+```bash
+nextflow run nf-core/rnaseq -profile iris --fail_fast true --input samplesheet.csv --genome GRCh38
+```
+
 Using a QoS for priority:
 
 ```bash
@@ -92,12 +108,14 @@ The IRIS config sets the following maximum resource limits:
 
 The config automatically selects appropriate SLURM queues based on job requirements:
 
-- **cpushort**: Jobs with runtime ≤ 2 hours (CPU only)
+- **cpushort**: Jobs with runtime ≤ 2 hours (CPU only). The queue name and runtime threshold can be changed with `--short_queue` and `--short_queue_hours`.
 - **gpushort**: GPU jobs with runtime ≤ 2 hours
 - **gpu**: Regular GPU jobs
 - **cpu_highmem**: Jobs requiring ≥ 512 GB memory or ≥ 50 GB per CPU
 - **preemptable**: Use the preemptable queue when `--preemptable true` is set
 - **cpu**: Default queue for standard CPU jobs
+
+The config submits each job to a single queue. When `--isolated true` is used, jobs are restricted to the queue specified with `--partition`, except using both `--isolated true` and `--preemptable true` sends jobs to `preemptable`.
 
 ### GPU Support
 
@@ -142,6 +160,7 @@ The config uses Singularity for containerization with the following settings:
 - **Library Directory**: Uses the shared library, `/data1/core006/resources/singularity_image_library` (or `$NXF_SINGULARITY_LIBRARYDIR`)
 - **Auto-mounting**: Enabled for seamless file access
 - **Scratch Space**: Uses `/localscratch` when available
+- **Temporary Directory**: Creates a task-specific directory under `/localscratch/<TASK_HASH>` and exports it as `SINGULARITY_TMPDIR` and `SINGULARITYENV_TMPDIR`
 
 ## Working Directory
 
@@ -158,6 +177,7 @@ The IRIS config includes intelligent retry logic that automatically adjusts reso
 - Jobs are automatically retried up to 3 times on failure
 - Resources are dynamically increased based on the failure type and attempt number
 - The system uses both **multiplicative** (scales with attempt) and **additive** (fixed increment) strategies
+- After retries are exhausted, failed tasks are ignored by default; set `--fail_fast true` to finish the workflow instead
 
 ### Resource Scaling Logic
 
