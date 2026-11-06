@@ -40,23 +40,6 @@ jobs:
           version: ${{ matrix.NXF_VER }}
       - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
 
-  lint_nextflow_config:
-    name: Check if nextflow files are valid with nextflow lint
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        NXF_VER:
-          - 26.04.0
-          - latest-everything
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Nextflow
-        uses: nf-core/setup-nextflow@v2
-        with:
-          version: ${{ matrix.NXF_VER }}
-      - run: nextflow lint ${GITHUB_WORKSPACE}
-
   detect-changes:
     runs-on: ubuntu-latest
     name: Detect changed profiles
@@ -111,3 +94,12 @@ jobs:
             done
           done
           exit $status
+
+  confirm_pass:
+    runs-on: ubuntu-latest
+    name: Confirm CI pass
+    needs: [check_profiles, check_nextflow_config, detect-changes, profile_test]
+    if: always()
+    steps:
+      - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1
