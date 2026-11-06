@@ -70,10 +70,6 @@ jobs:
           - latest-everything
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
-        with:
-          distribution: "temurin"
-          java-version: "17"
       - name: Set up Nextflow
         uses: nf-core/setup-nextflow@v3
         with:
