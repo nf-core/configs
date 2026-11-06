@@ -13,9 +13,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test_all_profiles:
+  check_profiles:
     runs-on: ubuntu-latest
-    name: Check if all profiles are tested
+    name: Check profile registry
     steps:
       - uses: actions/checkout@v4
       - name: Check whether the profile registry is consistent
@@ -74,7 +74,7 @@ jobs:
   profile_test:
     runs-on: ubuntu-latest
     name: Run ${{ matrix.test.profile }} profile (${{ matrix.NXF_VER }})
-    needs: [test_all_profiles, detect-changes]
+    needs: [check_profiles, detect-changes]
     if: needs.detect-changes.outputs.tests != '[]'
     env:
       SCRATCH: "~"
