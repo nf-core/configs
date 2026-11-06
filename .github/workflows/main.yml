@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Nextflow
-        uses: nf-core/setup-nextflow@v2
+        uses: nf-core/setup-nextflow@v3
         with:
           version: ${{ matrix.NXF_VER }}
       - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
@@ -77,7 +77,7 @@ jobs:
           distribution: "temurin"
           java-version: "17"
       - name: Set up Nextflow
-        uses: nf-core/setup-nextflow@v2
+        uses: nf-core/setup-nextflow@v3
         with:
           version: ${{ matrix.NXF_VER }}
       - name: Check ${{ matrix.test.profile }} profile
