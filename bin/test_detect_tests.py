@@ -29,9 +29,6 @@ class SelectTests(unittest.TestCase):
     def check(self, changed, expected):
         self.assertEqual(select_tests(changed, PROFILES, PIPELINES), expected)
 
-    def test_no_range_tests_every_testable_profile(self):
-        self.check(None, ALPHA + [("sanger", "")])
-
     def test_files_outside_profiles_need_no_test(self):
         self.check(["docs/alpha.md", "bin/cchecker.py", "nfcore_custom.config"], [])
         self.check([], [])

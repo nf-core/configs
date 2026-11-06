@@ -2,9 +2,8 @@ name: "Detect config changes"
 description: "List profile tests related to the changes since the merge base with a base ref"
 inputs:
   base:
-    description: "Base ref or SHA; the merge base with HEAD is used as diff start. Without it, select all profiles"
-    required: false
-    default: ""
+    description: "Base ref or SHA; the merge base with HEAD is used as diff start"
+    required: true
 outputs:
   tests:
     description: "JSON array of {profile, pipelines} tests, one per job"
@@ -18,6 +17,6 @@ runs:
       env:
         BASE: ${{ inputs.base }}
       run: |
-        tests=$(python ${GITHUB_WORKSPACE}/bin/detect_tests.py ${BASE:+"$BASE"})
+        tests=$(python ${GITHUB_WORKSPACE}/bin/detect_tests.py "$BASE")
         echo "tests=$tests"
         echo "tests=$tests" >> $GITHUB_OUTPUT

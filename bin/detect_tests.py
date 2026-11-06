@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Print the test matrix for the changes since the merge base with a base ref, or for all profiles without one."""
+"""Print the test matrix for the changes since the merge base with a base ref."""
 
 import json
 import subprocess
@@ -44,14 +44,9 @@ def tests_for_file(path, profiles, pipelines):
 
 def select_tests(changed, profiles, pipelines):
     """Map changed files to (profile, pipeline) tests; pipeline is empty for a plain profile test."""
-    if changed is None:
-        tests = set().union(
-            *(profile_tests(profile, pipelines) for profile in profiles)
-        )
-    else:
-        tests = set().union(
-            *(tests_for_file(path, profiles, pipelines) for path in changed)
-        )
+    tests = set().union(
+        *(tests_for_file(path, profiles, pipelines) for path in changed)
+    )
     return sorted(test for test in tests if test[0] not in UNTESTABLE_PROFILES)
 
 
@@ -72,6 +67,7 @@ def changed_files(base):
 
 
 if __name__ == "__main__":
-    changed = changed_files(sys.argv[1]) if sys.argv[1:] else None
-    tests = select_tests(changed, registered_profiles(), pipeline_includes())
+    tests = select_tests(
+        changed_files(sys.argv[1]), registered_profiles(), pipeline_includes()
+    )
     print(json.dumps(job_matrix(tests)))

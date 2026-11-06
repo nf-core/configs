@@ -3,9 +3,6 @@ on:
   pull_request:
     branches:
       - "*"
-  push:
-    branches:
-      - master
 
 # Cancel if a newer run is started
 concurrency:
