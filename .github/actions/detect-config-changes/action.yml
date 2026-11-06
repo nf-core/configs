@@ -17,6 +17,6 @@ runs:
       env:
         BASE: ${{ inputs.base }}
       run: |
-        tests=$(python ${GITHUB_WORKSPACE}/bin/detect_tests.py "$BASE")
+        tests=$(python ${GITHUB_WORKSPACE}/bin/detect_changes.py "$BASE")
         echo "tests=$tests"
         echo "tests=$tests" >> $GITHUB_OUTPUT

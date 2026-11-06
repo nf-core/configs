@@ -1,6 +1,6 @@
 import unittest
 
-from detect_tests import job_matrix, select_tests
+from detect_changes import job_matrix, select_tests
 
 PROFILES = {"alpha", "sanger", "czbiohub_aws"}
 PIPELINES = {
