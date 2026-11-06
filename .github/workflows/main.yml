@@ -12,12 +12,12 @@ concurrency:
 jobs:
   check_profiles:
     runs-on: ubuntu-latest
-    name: Check profile registry
+    name: profile registry
     steps:
       - uses: actions/checkout@v4
-      - name: Check whether the profile registry is consistent
-        run: python ${GITHUB_WORKSPACE}/bin/cchecker.py
-      - name: Test the test selection
+      - name: check_registry
+        run: python ${GITHUB_WORKSPACE}/bin/check_registry.py
+      - name: test_detect_tests
         run: python -m unittest discover -s ${GITHUB_WORKSPACE}/bin
 
   check_nextflow_config:
@@ -37,7 +37,7 @@ jobs:
           version: ${{ matrix.NXF_VER }}
       - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
 
-  detect-changes:
+  detect_changes:
     runs-on: ubuntu-latest
     name: Detect changed profiles
     outputs:
@@ -53,9 +53,9 @@ jobs:
 
   profile_test:
     runs-on: ubuntu-latest
-    name: Run ${{ matrix.test.profile }} profile (${{ matrix.NXF_VER }})
-    needs: [check_profiles, detect-changes]
-    if: needs.detect-changes.outputs.tests != '[]'
+    name: profile ${{ matrix.test.profile }} (${{ matrix.NXF_VER }})
+    needs: [check_profiles, detect_changes]
+    if: needs.detect_changes.outputs.tests != '[]'
     env:
       SCRATCH: "~"
       NXF_GLOBAL_CONFIG: awsbatch.config
@@ -64,7 +64,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test: ${{ fromJson(needs.detect-changes.outputs.tests) }}
+        test: ${{ fromJson(needs.detect_changes.outputs.tests) }}
         NXF_VER:
           - 26.04.0
           - latest-everything
@@ -78,10 +78,10 @@ jobs:
         uses: nf-core/setup-nextflow@v3
         with:
           version: ${{ matrix.NXF_VER }}
-      - name: Check ${{ matrix.test.profile }} profile
+      - name: nextflow config
         run: nextflow config -profile "$PROFILE" ${GITHUB_WORKSPACE}
       # --help parses the real config chain of the pipeline, then exits before any process starts
-      - name: Check ${{ matrix.test.profile }} pipeline configs
+      - name: nextflow run
         if: ${{ !cancelled() && matrix.test.pipelines != '' }}
         run: |
           status=0
@@ -96,7 +96,7 @@ jobs:
   confirm_pass:
     runs-on: ubuntu-latest
     name: Confirm CI pass
-    needs: [check_profiles, check_nextflow_config, detect-changes, profile_test]
+    needs: [check_profiles, check_nextflow_config, detect_changes, profile_test]
     if: always()
     steps:
       - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}

@@ -30,7 +30,9 @@ class SelectTests(unittest.TestCase):
         self.assertEqual(select_tests(changed, PROFILES, PIPELINES), expected)
 
     def test_files_outside_profiles_need_no_test(self):
-        self.check(["docs/alpha.md", "bin/cchecker.py", "nfcore_custom.config"], [])
+        self.check(
+            ["docs/alpha.md", "bin/check_registry.py", "nfcore_custom.config"], []
+        )
         self.check([], [])
 
     def test_profile_config_also_tests_its_pipelines(self):

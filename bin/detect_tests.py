@@ -6,7 +6,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from cchecker import pipeline_includes, registered_profiles
+from check_registry import pipeline_includes, registered_profiles
 
 # Registered, but CI cannot write to its private S3 work directory
 UNTESTABLE_PROFILES = {"czbiohub_aws"}
