@@ -68,8 +68,15 @@ jobs:
       fail-fast: false
       matrix:
         test: ${{ fromJson(needs.detect-changes.outputs.tests) }}
+        NXF_VER:
+          - 26.04.0
+          - latest-everything
+        isPR:
+          - ${{ github.event_name == 'pull_request' }}
         # A push to master tests everything, two versions would exceed the 256 jobs limit of a matrix
-        NXF_VER: ${{ fromJson(github.event_name == 'pull_request' && '["26.04.0", "latest-everything"]' || '["latest-everything"]') }}
+        exclude:
+          - isPR: false
+            NXF_VER: 26.04.0
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
