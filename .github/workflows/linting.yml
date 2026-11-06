@@ -30,7 +30,7 @@ jobs:
           extra-args: ""
 
   lint_nextflow_config:
-    name: Check if nextflow files are valid with nextflow lint
+    name: nextflow lint
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
