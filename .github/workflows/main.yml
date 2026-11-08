@@ -216,6 +216,7 @@ jobs:
           - "vsc_calcua"
           - "vsc_kul_uhasselt"
           - "vsc_ugent"
+          - "vt_arc"
           - "wehi"
           - "xanadu"
           - "york_viking"
