@@ -25,6 +25,6 @@ Images are cached in `$NXF_SINGULARITY_CACHEDIR` if it is set, otherwise in `/rd
 > NB: You will need an Imperial account to use any HPC cluster managed by the RCS team. If in doubt contact the [`RCS team`](https://icl-rcs-user-guide.readthedocs.io/en/latest/support/)
 > NB: Nextflow will need to submit the jobs via the job scheduler to the HPC cluster and as such the commands above will have to be executed on one of the login nodes (inside `tmux` or `screen`, so the run survives a disconnect) or from within a PBS job. A PBS job running Nextflow itself is limited to 72 hours; use `-resume` to continue a run that outlives it.
 > NB: Each task can use at most one node: 128 CPUs, 920 GB of memory and 72 hours. Larger requests are capped at these limits.
-> NB: GPU tasks are requested for the `process_gpu` label when the pipeline is run with `-profile imperial,gpu`. To ask for a particular GPU type, `export IMPERIAL_GPU_TYPE=L40S` (or `A100`) before launching.
+> NB: Any task with an `accelerator` directive is given GPUs. In nf-core pipelines this means `process_gpu` tasks when the pipeline is run with `-profile imperial,gpu`. Pipelines that used the `with_gpus` label from earlier versions of this profile should set `accelerator 1` on those processes instead. To ask for a particular GPU type, `export IMPERIAL_GPU_TYPE=L40S` (or `A100`) before launching.
 > NB: To submit jobs to the Imperial College MEDBIO cluster, use `-profile imperial,medbio` instead.
 > NB: You will need a restricted access account to use the HPC cluster MEDBIO.
