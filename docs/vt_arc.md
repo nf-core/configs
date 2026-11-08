@@ -29,13 +29,13 @@ Run the Nextflow head job inside an allocation rather than on a login node, for 
 #SBATCH --partition=normal_q
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
-#SBATCH --time=2-00:00:00
+#SBATCH --time=7-00:00:00
 module load Nextflow/25.10.4 apptainer/1.4.0
 cd /scratch/$USER
 nextflow run nf-core/<pipeline> -profile vt_arc --arc_account "$SLURM_JOB_ACCOUNT" --outdir /scratch/$USER/<run>
 ```
 
-Submit it with `sbatch --account=<account> run.sbatch`.
+Submit it with `sbatch --account=<account> run.sbatch`. The head job asks for the full 7-day limit of `normal_q` because the pipeline stops when the head job does; if it is stopped anyway, rerun the same command with `-resume`.
 
 ## Resource limits
 
