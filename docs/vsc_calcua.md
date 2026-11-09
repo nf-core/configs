@@ -146,7 +146,7 @@ nextflow run nf-core/rnaseq \
 
 By default, Nextflow stores all of the intermediate files required to run the pipeline in the `work` directory. The default work directory is set to `$VSC_SCRATCH/work` in this config.
 
-It is generally recommended to delete this directory after the pipeline has finished successfully, because it can grow quite large, and all of the main output files will be saved in the `results/` directory anyway. That's why this config contains a `cleanup` command that removes the `work` directory automatically once the pipeline has completed successfully.
+It is generally recommended to delete this directory after the pipeline has finished successfully, because it can grow quite large, and all of the main output files will be saved in the `results/` directory anyway. However, note that this config does no longer include the `cleanup=true` command since this can also intervene in two-step pipelines or make it more difficult to troubleshoot. You can create a custom config file and add it to your runs to re-enable this behaviour.
 
 If the run does not complete successfully, then the `work` directory is not deleted and pipelines can be re-submitted using the `-resume` flag to re-use any cached files. If runs are abandoned, the directory should be cleaned manually to save storage space.
 

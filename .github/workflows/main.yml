@@ -1,6 +1,8 @@
 name: Configs tests
-
-on: [pull_request, push]
+on:
+  pull_request:
+    branches:
+      - "*"
 
 # Cancel if a newer run is started
 concurrency:
@@ -8,197 +10,90 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test_all_profiles:
+  check_profiles:
     runs-on: ubuntu-latest
-    name: Check if all profiles are tested
+    name: configs registry
     steps:
-      - uses: actions/checkout@v4
-      - name: Check whether profiles are all tested
-        run: python ${GITHUB_WORKSPACE}/bin/cchecker.py ${GITHUB_WORKSPACE}/nfcore_custom.config ${GITHUB_WORKSPACE}/.github/workflows/main.yml
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: check_registry
+        run: python ${GITHUB_WORKSPACE}/bin/check_registry.py
+      - name: test_detect_changes
+        run: python -m unittest discover -s ${GITHUB_WORKSPACE}/bin
 
   check_nextflow_config:
+    name: nextflow config
     runs-on: ubuntu-latest
-    name: Check if nextflow config runs in repository root
+    strategy:
+      fail-fast: false
+      matrix:
+        NXF_VER:
+          - 26.04.0
+          - latest-everything
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Nextflow
-        run: |
-          wget -qO- get.nextflow.io | bash
-          sudo mv nextflow /usr/local/bin/
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v3
+        with:
+          version: ${{ matrix.NXF_VER }}
       - run: nextflow config -show-profiles ${GITHUB_WORKSPACE}
+
+  detect_changes:
+    runs-on: ubuntu-latest
+    name: Detect changed profiles
+    outputs:
+      tests: ${{ steps.detect.outputs.tests }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+      - id: detect
+        uses: ./.github/actions/detect-config-changes
+        with:
+          base: ${{ github.event.pull_request.base.sha }}
 
   profile_test:
     runs-on: ubuntu-latest
-    name: Run ${{ matrix.profile }} profile
-    needs: test_all_profiles
+    name: profile ${{ matrix.test.profile }} (${{ matrix.NXF_VER }})
+    needs: [check_profiles, detect_changes]
+    if: needs.detect_changes.outputs.tests != '[]'
+    env:
+      SCRATCH: "~"
+      NXF_GLOBAL_CONFIG: awsbatch.config
+      PROFILE: ${{ matrix.test.profile }}
+      PIPELINES: ${{ matrix.test.pipelines }}
     strategy:
+      fail-fast: false
       matrix:
-        profile:
-          - "abims"
-          - "adcra"
-          - "alice"
-          - "alliance_canada"
-          - "apollo"
-          - "arcc"
-          - "aws_tower"
-          - "awsbatch"
-          - "azurebatch"
-          - "bi"
-          - "bigpurple"
-          - "bih"
-          - "binac"
-          - "binac2"
-          - "biohpc_gen"
-          - "biowulf"
-          - "bluebear"
-          - "cambridge"
-          - "cannon"
-          - "cbe"
-          - "ccga_dx"
-          - "ccga_cau"
-          - "ceci_dragon2"
-          - "ceci_nic5"
-          - "cedars"
-          - "ceres"
-          - "cfc"
-          - "cfc_dev"
-          - "cheaha"
-          - "computerome"
-          - "create"
-          - "crg"
-          - "crick"
-          - "cropdiversityhpc"
-          - "crukmi"
-          - "csiro_petrichor"
-          - "daisybio"
-          - "denbi_qbic"
-          - "dkfz"
-          - "ebc"
-          - "ebi_codon"
-          - "ebi_codon_slurm"
-          - "eddie"
-          - "embl_hd"
-          - "engaging"
-          - "einstein"
-          - "ethz_euler"
-          - "eva"
-          - "eva_grace"
-          - "fgcz"
-          - "fred_hutch"
-          - "fsu_draco"
-          - "fub_curta"
-          - "genotoul"
-          - "genouest"
-          - "giga"
-          - "gis"
-          - "googlebatch"
-          - "hasta"
-          - "hki_genie"
-          - "hypatia"
-          - "humantechnopole"
-          - "icr_alma"
-          - "icr_davros"
-          - "ifb_core"
-          - "imb"
-          - "ilifu"
-          - "imperial"
-          - "incliva"
-          - "ipop_up"
-          - "janelia"
-          - "jax"
-          - "jex"
-          - "unsw_katana"
-          - "ku_sund_danhead"
-          - "kaust"
-          - "ki_luria"
-          - "leicester"
-          - "lrz_cm4"
-          - "lugh"
-          - "m3c"
-          - "maestro"
-          - "mana"
-          - "marjorie"
-          - "lovelace"
-          - "dirac"
-          - "marvin"
-          - "mccleary"
-          - "medair"
-          - "mjolnir_globe"
-          - "mpcdf"
-          - "mpcdf_viper"
-          - "mssm"
-          - "munin"
-          - "nci_gadi"
-          - "nu_genomics"
-          - "nygc"
-          - "nyu_hpc"
-          - "oist"
-          - "pasteur"
-          - "pawsey_nimbus"
-          - "pawsey_setonix"
-          - "pdc_kth"
-          - "pe2"
-          - "phoenix"
-          - "psmn"
-          - "qmul_apocrita"
-          - "rki"
-          - "rosalind"
-          - "rosalind_uge"
-          - "roslin"
-          - "sage"
-          - "sahmri"
-          - "sanger"
-          - "scw"
-          - "seadragon"
-          - "seattlechildrens"
-          - "seawulf"
-          - "seg_globe"
-          - "self_hosted_runner"
-          - "shu_bmrc"
-          - "software_license"
-          - "stjude"
-          - "tes"
-          - "tigem"
-          - "tubingen_apg"
-          - "tufts"
-          - "tuos_stanage"
-          - "ucl_cscluster"
-          - "ucl_myriad"
-          - "uct_hpc"
-          - "ucd_sonic"
-          - "uge"
-          - "unibe_ibu"
-          - "unity"
-          - "unc_lccc"
-          - "unc_longleaf"
-          - "uod_hpc"
-          - "uppmax"
-          - "utd_ganymede"
-          - "utd_juno"
-          - "uw_hyak_pedslabs"
-          - "uzh"
-          - "uzl_omics"
-          - "vai"
-          - "vsc_calcua"
-          - "vsc_kul_uhasselt"
-          - "vsc_ugent"
-          - "wehi"
-          - "wustl_htcf"
-          - "xanadu"
-          - "york_viking"
-
+        test: ${{ fromJson(needs.detect_changes.outputs.tests) }}
+        NXF_VER:
+          - 26.04.0
+          - latest-everything
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
-        with:
-          distribution: "temurin"
-          java-version: "17"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Set up Nextflow
-        uses: nf-core/setup-nextflow@v2
+        uses: nf-core/setup-nextflow@v3
         with:
-          version: "latest-everything"
-      - name: Check ${{ matrix.profile }} profile
-        env:
-          SCRATCH: "~"
-          NXF_GLOBAL_CONFIG: awsbatch.config
-        run: nextflow run ${GITHUB_WORKSPACE}/configtest.nf -profile ${{ matrix.profile }}
+          version: ${{ matrix.NXF_VER }}
+      - name: nextflow config
+        run: nextflow config -profile "$PROFILE" ${GITHUB_WORKSPACE}
+      # --help parses the real config chain of the pipeline, then exits before any process starts
+      - name: nextflow run
+        if: ${{ !cancelled() && matrix.test.pipelines != '' }}
+        run: |
+          status=0
+          for pipeline in $PIPELINES; do
+            for revision in "" dev; do
+              nextflow run "nf-core/$pipeline" ${revision:+-r "$revision"} -profile "test,$PROFILE" --help --outdir results --custom_config_base "${GITHUB_WORKSPACE}" \
+                || { echo "::error::nf-core/$pipeline ${revision:-default branch} failed with $PROFILE"; status=1; }
+            done
+          done
+          exit $status
+
+  confirm_pass:
+    runs-on: ubuntu-latest
+    name: Confirm CI pass
+    needs: [check_profiles, check_nextflow_config, detect_changes, profile_test]
+    if: always()
+    steps:
+      - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1
