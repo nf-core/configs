@@ -35,7 +35,7 @@ cd /scratch/$USER
 nextflow run nf-core/<pipeline> -profile vt_arc --arc_account "$SLURM_JOB_ACCOUNT" --outdir /scratch/$USER/<run>
 ```
 
-Submit it with `sbatch --account=<account> run.sbatch`. The head job asks for the full 7-day limit of `normal_q` because the pipeline stops when the head job does; if it is stopped anyway, rerun the same command with `-resume`.
+Submit it with `sbatch --account=<account> run.sbatch`. The head job asks for the full 7-day limit of `normal_q` because the pipeline stops when the head job does; if it is stopped anyway, add `-resume` to the `nextflow run` line in the script and submit it again.
 
 ## Resource limits
 
