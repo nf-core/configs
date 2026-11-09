@@ -5,18 +5,14 @@
 > [!IMPORTANT]
 > You will need an [account](https://www.ugent.be/hpc/en/access/faq/access) to use the HPC cluster to run the pipeline.
 
-Regarding environment variables in `~/.bashrc`, make sure you have a setup similar to the one below. If you're already part of a VO, ask for one or use `VSC_DATA_USER` instead of `VSC_DATA_VO_USER`.
+Make sure you have an environment variable setup similar to the one below in `~/.bashrc`. If you're not already part of a VO, ask your admin to add you or use `VSC_DATA_USER` instead of `VSC_DATA_VO_USER`.
+For more installation help, read the documentation of a Nextflow workshop on VSC infrastructure like [this one](https://vibbits-nextflow-workshop.readthedocs.io/en/latest/installations.html).
 
 ```bash
 # Needed for Tier1 accounts, not for Tier2
-export SLURM_ACCOUNT={FILL_IN_NAME_OF_YOUR_ACCOUNT}
-export SALLOC_ACCOUNT=$SLURM_ACCOUNT
-export SBATCH_ACCOUNT=$SLURM_ACCOUNT
-# Needed for running Nextflow jobs
-export NXF_HOME=$VSC_DATA_VO_USER/.nextflow
-# Needed for running Apptainer containers
-export APPTAINER_CACHEDIR=$VSC_DATA_VO_USER/.apptainer/cache
-export APPTAINER_TMPDIR=$VSC_DATA_VO_USER/.apptainer/tmp
+export SBATCH_ACCOUNT={FILL_IN_NAME_OF_YOUR_PROJECT}
+# A list of all projects can be viewed via
+ls ${VSC_SCRATCH_PROJECTS_BASE}
 ```
 
 First you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space on this [link](https://shieldon.ugent.be:8083/pbsmon-web-users/). Use the following commands to easily switch between clusters:
@@ -48,15 +44,27 @@ qsub <script name>.pbs
 ```
 
 > [!NOTE]
-> The profile only works for the clusters `shinx`, `skitty`, `kirlia`, `doduo` and all tier1 clusters.
+> The current profile only works for tier2 clusters `doduo`, `shinx`, `gallade`, `joltik`, `accelgor`, `litleo`, `donphan`, `skiddo` and tier1 clusters `cpu_milan_rhel9`, `debug_milan_rhel9`, `gpu_rome_a100_80_rhel9` and `gpu_rome_a100_rhel9`.
+> Tier1 Hortense will be decommissioned soon, after which  tier1 clusters `cpu_milan_rhel9`, `debug_milan_rhel9`, `gpu_rome_a100_80_rhel9` and `gpu_rome_a100_rhel9` will not be available anymore.
 
 > [!NOTE]
-> The default directory where the `work/` and `singularity/` (cache directory for images) is located in `$VSC_SCRATCH_VO_USER` (when you are part of a VO) or `$VSC_SCRATCH` (when you are not part of a VO) for tier2 clusters and `$VSC_SCRATCH_PROJECTS_BASE/<tier1_project_name>` for tier1 clusters.
+> The default directory where the `work/` and `singularity/` (cache directory for images) is located in `${VSC_SCRATCH_VO_USER}` (when you are part of a VO) or `${VSC_SCRATCH}` (when you are not part of a VO) for tier2 clusters and `${VSC_SCRATCH_PROJECTS_BASE}/${SBATCH_ACCOUNT}` for tier1 clusters.
+
+## Optional use nf-co2footprint
+
+You can monitor the CO2 usage of your pipeline using the [nf-co2footprint plugin](https://nextflow-io.github.io/nf-co2footprint/) using a nextflow version =>24.10.6. Monitoring the CO2 usage is fully optional and will only be activated when running the following command-line.
+
+```bash
+nextflow run <pipeline> -profile vsc_ugent -plugins nf-co2footprint@1.0.0 --outdir your_output_folder <Add your other parameters>
+```
 
 ## Use Apptainer containers
 
-The VSC does [not support](https://docs.hpc.ugent.be/Linux/apptainer/) Apptainer containers provided via a URL (e.g., shub://... or docker://...).
-One solution is to download all the containers beforehand, like in [this pipeline](https://github.com/saeyslab/spotless-benchmark).
+The VSC does [not support](https://docs.hpc.ugent.be/Linux/apptainer/) Apptainer containers provided via a URL (e.g., shub://... or docker://...). Normally with the right Apptainer cache directory in a SCRATCH folder, you will not see the error `apptainer image is not in an allowed configured path`. If you do have this error, you can ensure the container images are in the correct folder manually in two ways:
+
+One solution is to use [nf-core download](https://nf-co.re/docs/nf-core-tools/pipelines/download). Make sure the cache directory points to a SCRATCH folder and you amend images instead of copying out of the SCRATCH folder.
+
+Another solution is to download all the containers beforehand, like in [this pipeline](https://github.com/saeyslab/spotless-benchmark).
 
 First get the containers.json file from the pipeline you want to run:
 

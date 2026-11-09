@@ -14,8 +14,20 @@ A nextflow module is available that can be loaded `module load Nextflow` but it 
 
 2. Set up the environment variables in `~/.bashrc` or `~/.bash_profile`:
 
+:::note
+If you have access to dedicated nodes, you can export these as a command separated list. These queues will only be used if specified task requirements are not available in the normal partitions but they are available in dedicated partitions. AMD is considered a dedicated partition.
+:::
+
+:::warning
+`dedicated_big_bigmem` exists on both `wice` and `mindwell`, but each cluster requires its own account (`lp_big_wice_cpu` and `lp_big_mindwell_cpu` respectively). The profile you select decides which account is used, so only list `dedicated_big_bigmem` in `VSC_DEDICATED_QUEUES` if you have dedicated access on the cluster whose profile you run. Slurm rejects a mismatched partition/account pair outright.
+:::
+
 ```bash
 export SLURM_ACCOUNT="<your-credential-account>"
+
+# Comma-separated list of available dedicated partitions (if any)
+# For example: export VSC_DEDICATED_QUEUES="dedicated_big_bigmem,dedicated_big_gpu,dedicated_big_gpu_b200"
+export VSC_DEDICATED_QUEUES="<available-dedicated-partitions>"
 
 # Needed for running Nextflow jobs
 export NXF_HOME="$VSC_SCRATCH/.nextflow"
@@ -28,21 +40,21 @@ export NXF_CONDA_CACHEDIR="$VSC_SCRATCH/miniconda3/envs"
 
 # Optional tower key
 # export TOWER_ACCESS_TOKEN="<your_tower_access_token>"
-# export NXF_VER="<version>"      # make sure it's larger then 24.04.0
+# export NXF_VER="<version>"      # make sure it's larger then 24.10.1
 ```
 
 :::warning
-The current config is setup with array jobs. Make sure nextflow version >= 24.04.0, read [array jobs in nextflow](https://www.nextflow.io/docs/latest/process.html#array) you can do this in
+The current config is setup with array jobs. Make sure nextflow version >= 24.10.1, read [array jobs in nextflow](https://www.nextflow.io/docs/latest/process.html#array) you can do this in
 
 ```bash
-export NXF_VER=24.04.0
+export NXF_VER=24.10.1
 ```
 
 :::
 
 3. Make the submission script.
 
-> **NB:** you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius`.
+> **NB:** you should go to the cluster you want to run the pipeline on. You can check what clusters have the most free space using following command `sinfo --cluster wice|genius|mindwell`.
 
 ```bash
 $ more job.pbs
@@ -64,15 +76,32 @@ nextflow run <pipeline> -profile vsc_kul_uhasselt,<CLUSTER> <Add your other para
 Here the cluster options are:
 
 - genius
+- genius_gpu
 - wice
+- wice_gpu
+- mindwell
+- mindwell_gpu
 - superdome
 
-> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. Should you require resources outside of these limits (e.g.gpus) you will need to provide a custom config specifying an appropriate SLURM partition (e.g. 'gpu\*').
+> **NB:** The vsc_kul_uhasselt profile is based on a selected amount of SLURM partitions. The profile will select to its best ability the most appropriate partition for the job. Including modules with a label containing `gpu`will be allocated to a gpu partition when the 'normal' `genius` profile is selected. Select the `genius_gpu`, `wice_gpu` or `mindwell_gpu` profile to force the job to be allocated to a gpu partition.
+> **NB:** If the module does not have `accelerator` set, it will determine the number of GPUs based on the requested resources.
 
 Use the `--cluster` option to specify the cluster you intend to use when submitting the job:
 
 ```shell
-sbatch --cluster=wice|genius job.slurm 
+sbatch --cluster=wice|genius|mindwell job.slurm 
 ```
 
+:::warning
+`$VSC_SCRATCH` resolves to `/lustre1/scratch/...` on `genius` and `wice`, but to `/gpfs1/scratch/...` on `mindwell`, through a node-local symlink. It is expanded where the Nextflow head job runs, so a head job started on a wice node that submits with `-profile mindwell` places `NXF_WORK` and the Apptainer cache on Lustre. VSC states that compute jobs performing intensive I/O on a filesystem not associated with the cluster they run on may be cancelled without prior notice. Either run the head job on the same cluster as the pipeline tasks (`sbatch --clusters=mindwell`), or set `NXF_WORK`, `APPTAINER_CACHEDIR` and `APPTAINER_TMPDIR` explicitly to `$VSC_SCRATCH_GPFS1` for `mindwell` and `$VSC_SCRATCH_LUSTRE1` for `wice`/`genius`.
+:::
+
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. It is recommended to delete this directory after the pipeline has finished successfully because it can get quite large, and all of the main output files will be saved in the `results/` directory anyway.
+
+4. Optional use nf-co2footprint
+
+You can monitor the CO2 usage of your pipeline using the [nf-co2footprint plugin](https://nextflow-io.github.io/nf-co2footprint/) using a nextflow version =>24.10.6. Monitoring the CO2 usage is fully optional and will only be activated when running the following command-line.
+
+```bash
+nextflow run <pipeline> -profile <CLUSTER> -plugins nf-co2footprint@1.0.0 --outdir your_output_folder <Add your other parameters>
+```

@@ -1,6 +1,6 @@
 # nf-core/configs: Bioinfo Genotoul Configuration
 
-All nf-core pipelines have been successfully configured for use on the Bioinfo Genotoul cluster at the INRAe toulouse.
+All nf-core pipelines have been successfully configured for use on the Bioinfo Genotoul cluster at the INRAE toulouse.
 
 To use, run the pipeline with `-profile genotoul`. This will download and
 launch the [`genotoul.config`](../conf/genotoul.config) which has been
@@ -10,7 +10,7 @@ Using this profile, a docker image containing all of the required software
 will be downloaded, and converted to a Singularity image before execution
 of the pipeline. Images are stored for all users in following directory `/usr/local/bioinfo/src/NextflowWorkflows/singularity-img/`.
 
-## Running the workflow ib the Genologin cluster
+## Running the workflow in the Genologin cluster
 
 Before running the pipeline you will need to load Nextflow and
 Singularity using the environment module system on Genotoul. You can do
@@ -30,10 +30,11 @@ sh /usr/local/bioinfo/src/NextflowWorkflows/create_nfx_dirs.sh
 ```
 
 Load environment :
+To find the up-to-date nf-core Nextflow module to load use `search_module nfcore`.
 
 ```bash
 module purge
-module load bioinfo/NextflowWorkflows/nfcore-Nextflow-v23.10.0
+module load bioinfo/NextflowWorkflows/nfcore-Nextflow-v25.10.0
 ```
 
 Try a test workflow (for example the methylseq workflow) :
@@ -51,7 +52,7 @@ Create launch script `nfcore-methylseq.sh` :
 #SBATCH --mem=4G
 #SBATCH --mail-type=BEGIN,END,FAIL
 
-module load bioinfo/NextflowWorkflows/nfcore-Nextflow-v23.10.0
+module load bioinfo/NextflowWorkflows/nfcore-Nextflow-v25.10.0
 nextflow run nf-core/methylseq -profile genotoul,test
 ```
 
@@ -65,7 +66,7 @@ sbatch nfcore-methylseq.sh
 
 By default, available mount points are:
 
-- /bank
+- /usr/local/bioinfo
 - /home
 - /save
 - /work
@@ -76,9 +77,15 @@ To have access to specific other mount point you can add a config profile file w
 singularity.runOptions = '-B /directory/to/mount'
 ```
 
+or
+
+```bash
+apptainer.runOptions = '-B /directory/to/mount'
+```
+
 ## Databanks
 
-A local copy of several genomes are available in `/bank` directory. See
+A local copy of several genomes are available in `/work/bank2` directory. See
 our [databank page](http://bioinfo.genotoul.fr/index.php/resources-2/databanks/)
 to search for your favorite genome.
 

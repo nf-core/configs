@@ -15,15 +15,22 @@ Please be aware that you will need to have a user account, be a member of a Seto
 Before running the pipeline you will need to load Nextflow and Singularity, both of which are globally installed modules on Setonix. You can do this by running the commands below:
 
 ```bash
-module purge
-module load nextflow singularity
+#See what versions are available
+module avail nextflow
+#Load one of the versions
+module load nextflow/<version>
+
+#See what versions are available
+module avail singularity
+#Load one of the versions
+module load nextflow singularity/<version>
 ```
 
 ### Execution command
 
 ```bash
-module load nextflow
-module load singularity
+module load nextflow/<version>
+module load singularity/<version>
 
 nextflow run <nf-core_pipeline>/main.nf \
   -profile singularity,pawsey_setonix \
