@@ -13,7 +13,6 @@ This global configuration includes the following tweaks:
 - Increase the default time limits because we run pipelines on AWS
 - Increase the amount of time allowed for file transfers
 - Improve reliability of file transfers with retries and reduced concurrency
-- Define the `check_max()` function, which is missing in Sarek v2
 
 ## Additional information about iGenomes
 

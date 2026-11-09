@@ -21,13 +21,20 @@ commands below:
 ```bash
 ## Load the latest Nextflow and Singularity environment modules
 ml purge
-ml bioinfo-ugrp-modules
-ml Other/Nextflow
+ml bioinfo-ugrp-modules Nextflow2
+```
+
+If you run a _nf-core_ pipeline via the `nf-core` tool, the following command
+will load all the modules you need.
+
+```bash
+ml bioinfo-ugrp-modules nf-core
 ```
 
 > NB: You will need an account to use the _Deigo_ cluster in order to run the
-> pipeline. If in doubt contact IT.
+> pipeline. If in doubt contact [SCDA](https://groups.oist.jp/scs/documentation).
 >
-> NB: Nextflow will submit the jobs via the SLURM scheduler to the HPC cluster
-> and as such the commands above will have to be executed on one of the login
-> nodes. If in doubt contact IT.
+> NB: Nextflow submits the jobs via the SLURM scheduler to the compute nodes.
+> You can run the `nextflow` or `nf-core` commands on the login nodes, but
+> pay attention that the Nextflow `work` directory must be on the `/flash` file
+> system.
