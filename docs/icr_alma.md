@@ -16,6 +16,14 @@ Singularity is installed on the compute nodes of Alma, but not the login nodes. 
 
 The `icr_alma` profile uses a shared, read-only Singularity image library at `/data/rds/shared/SINGULARITY/nextflow`. Nextflow uses images from this library when they are available. Any image not in the library is pulled into your own cache: by default `<workDir>/singularity`, or set `NXF_SINGULARITY_CACHEDIR` (e.g. in your `~/.bashrc`) to a directory you own to reuse images across runs.
 
+## Resource requests on Alma
+
+Alma `compute` nodes have 48 CPUs, a maximum of 8042 MB of memory per CPU and a maximum walltime of 5 days. The scheduler's submit rules only accept jobs that request **1, 2, 4, 6, 8, 12, 16, 24 or 48 CPUs per task**, and reject requests above 8042 MB per CPU.
+
+The `icr_alma` profile adapts every task to these rules automatically: it requests enough CPUs to fit the task's memory at no more than 8042 MB per CPU, rounds the CPU count up to the next allowed value, and requests at least 1 GB per CPU. A task may therefore be allocated more CPUs or memory than the pipeline asked for. Individual tasks are capped at 48 CPUs and 376 GB.
+
+If you set `process.clusterOptions` in your own config, it replaces this logic, so make sure your requests follow the same rules. In your own `sbatch` scripts (for example for the Nextflow head job), use an allowed `--cpus-per-task` value with `--mem-per-cpu` rather than `--mem`.
+
 All of the intermediate files required to run the pipeline will be stored in the `work/` directory. The `icr_alma` profile does not delete the `work/` directory automatically, so that runs can be resumed with `-resume`. Once you are happy with the results, delete the `work/` directory manually to free up space.
 
 > NB: Nextflow will need to submit the jobs via SLURM to the HPC cluster. This can be done from an interactive or a normal job. If in doubt contact Scientific Computing.
