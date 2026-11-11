@@ -53,6 +53,13 @@ micromamba create \
 micromamba activate nf-env
 ```
 
+Depending on the pipeline, it may additionally be necessary to load the `squashfs` module.
+This is required when Apptainer needs to build or convert container images locally at runtime (e.g. when pulling from Docker Hub), as it relies on the `squashfs-tools` userspace utilities (`mksquashfs`/`unsquashfs`). Pipelines that use pre-built `.sif` images directly do not require this.
+
+```bash
+module load squashfs
+```
+
 ## Considerations
 
 While testing can be done with partial nodes, or interactive jobs, we recommend requesting at least one full node for production runs. Both `local` and `flux` executor can be used for single-node runs, multi-node runs **must** use `flux` to make use of the additional resources. Please note that during testing, we observed that the same test-run of `nf-core/rnaseq` took around 11h with the `local` executor, and 8h with the `flux` executor, which we largely attribute to more efficient scheduling.
