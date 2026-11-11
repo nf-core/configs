@@ -114,6 +114,8 @@ And submit it from a login node with:
 sbatch nextflow.sbatch
 ```
 
+The Nextflow job itself goes to `rome`, because `--snellius_nodes` only applies to the pipeline's processes. If your budget does not cover `rome`, give the Nextflow job a partition it does cover, for example `sbatch --partition=fat_genoa nextflow.sbatch`, or add `#SBATCH --partition=fat_genoa` to the script.
+
 `sbatch` passes on the environment of the shell you submit from, so the variables from your `~/.bashrc` are also set in the Nextflow job and in the jobs it submits.
 
 The Nextflow job needs little compute, but it is billed as at least the smallest allocation on the partition it runs on (see below). Set `--time` to how long you expect the whole pipeline to take, up to the maximum walltime of 120 hours on Snellius. If a run does not finish in time, submit the script again with `-resume` added to the `nextflow run` command.
