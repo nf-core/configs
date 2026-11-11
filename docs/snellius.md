@@ -16,7 +16,7 @@ nextflow run nf-core/<pipeline> -profile snellius --snellius_nodes 'rome,genoa,f
 
 The partitions you list set the following:
 
-- **Maximum resources**: processes are capped at the largest node you list, using the memory available to jobs on the [Snellius partitions](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/30660209/Snellius+partitions) page. The default `rome,genoa` caps processes at 192 CPUs and 336 GB, adding `fat_genoa` raises this to 1440 GB, and adding `himem_8tb` to 7680 GB.
+- **Maximum resources**: processes are capped at the CPUs and memory of the listed node with the most memory, using the memory available to jobs on the [Snellius partitions](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/30660209/Snellius+partitions) page. Both caps come from the same node, so every process fits on at least one of the listed partitions. The default `rome,genoa` caps processes at 192 CPUs and 336 GB, and adding `fat_genoa` raises this to 192 CPUs and 1440 GB. Adding `himem_8tb` raises the memory cap to 7680 GB but lowers the CPU cap to 128, because the high memory nodes have 128 CPUs.
 - **Partition**: Slurm on Snellius sends jobs without a partition to `rome`, so the profile sets the partition for each job. Snellius accepts only one partition per job, so each job is sent to the first of the listed partitions it fits on, in the order `rome`, `genoa`, `fat_rome`, `fat_genoa`, `himem_4tb`, `himem_8tb`. This puts jobs on the cheapest and smallest node that fits. With the default `rome,genoa`, jobs go to `rome`, and jobs that need more than 128 CPUs or 224 GB go to `genoa`. Jobs are never sent to a partition you did not list.
 
 If you list a partition your budget does not cover, Slurm refuses the jobs sent there, and the pipeline stops with:
