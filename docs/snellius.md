@@ -94,7 +94,7 @@ Submit Nextflow itself as a Slurm job. The Nextflow job then submits the pipelin
 #SBATCH --job-name=nextflow
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --time=24:00:00
+#SBATCH --time=5-0:00:00
 #SBATCH --output=nextflow_%j.log
 
 # If you installed Nextflow with mamba
