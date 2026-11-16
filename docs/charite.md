@@ -394,7 +394,7 @@ It is also possible to jump right into an interactive session using the [Open On
 > 
 >   </details>
 >
->   - Option 1: Save to `${HOME}/setup-nxf.sh`. With this method, you must then run `bash ${HOME}/setup-nxf.sh` every time you start a new interactive session.
+>   - Option 1: Save to `${HOME}/setup-nxf.sh`. With this method, you must then run `source ${HOME}/setup-nxf.sh` every time you start a new interactive session.
 >
 >   - Option 2: Add to your `${HOME}/.bashrc`. With this method, you must then run `source ${HOME}/.bashrc` only once, or simply start a new interactive session; the variables are then already exported into your environment (PS: be mindful of what you add into your `${HOME}/.bashrc` file, as it may unexpectedly alter the expected behavior of other existing applications).
 > - Update the value of `PROJ_ABBR` if you have project scratch available to you
