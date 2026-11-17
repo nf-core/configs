@@ -402,7 +402,13 @@ It is also possible to jump right into an interactive session using the [Open On
 # Navigate to the workspace
 cd "${MY_NXF_WORKSPACE}"
 # Launch the pipeline
-nextflow run nf-core/demo -profile test,charite --outdir results/demo-test
+nextflow run nf-core/demo \
+    -profile test,charite \
+    --outdir results/demo-test
+
+    # -r <version> \ # Optional: pin a specific revision of a pipeline
+    # -resume \ # Optional: resume an interrupted workflow
+    # -c custom.config \ # Optional: add an extra config file which contains additional user-defined parameters
 ```
 
 ### Option 2: Batch Script
@@ -499,7 +505,6 @@ If setting up for the first time, create a file with the name `run-nf-core-demo-
 > 
 >   </details>
 > - Update the value of `PROJ_ABBR` if you have project scratch available to you
-> - Update the path to your workspace via `MY_NXF_WORKSPACE`
 > - Update `#SBATCH --time` to expected pipeline runtime (e.g. for a big dataset, consider setting to `12:00:00` or more)
 > - **Optional**: Add `#SBATCH --mail-user=<your-email>` and `#SBATCH --mail-type=ALL` to get status update 
 > - **Optional**: Update the path to your workspace via `MY_NXF_WORKSPACE` - Recommended is to keep it set to `${PROJ_SCRATCHDIR_CHARITE_USER}/nxf-workspace`
