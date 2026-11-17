@@ -12,8 +12,6 @@ This page documents the `charite` Nextflow profile for running Nextflow and nf-c
 - [3. Environment Setup](#3-environment-setup)
   - [3.1. Global Utility Variables](#31-global-utility-variables)
   - [3.2. Apptainer-specific Variables](#32-apptainer-specific-variables)
-    - [3.2.1. Apptainer Cache and Temporary Files](#321-apptainer-cache-and-temporary-files)
-    - [3.2.2. Apptainer Image Cache](#322-apptainer-image-cache)
   - [3.3. Nextflow-specific Variables](#33-nextflow-specific-variables)
   - [3.4. Nextflow Strict Syntax](#34-nextflow-strict-syntax)
   - [3.5. Shared Nextflow Conda Environment](#35-shared-nextflow-conda-environment)
@@ -136,7 +134,7 @@ Apptainer is readily available on Charité HPC compute nodes and does not requir
 
 The configuration distinguishes between **Apptainer's internal cache and temporary files** and **Nextflow's cached container images**. These are stored separately to allow users to customize image storage without affecting Apptainer's internal operations.
 
-#### 3.2.1. Apptainer Cache and Temporary Files
+#### Apptainer Cache and Temporary Files
 
 The following environment variables define where Apptainer stores its internal cache and temporary files:
 
@@ -148,7 +146,7 @@ export APPTAINER_TMPDIR="${PROJ_SCRATCHDIR_CHARITE_USER}/.apptainer/tmp"
 mkdir -p "${APPTAINER_TMPDIR}"
 ```
 
-#### 3.2.2. Apptainer Image Cache
+#### Apptainer Image Cache
 
 The location of built Apptainer container images is managed through through `NXF_APPTAINER_CACHEDIR` and `apptainer.cacheDir`.
 
