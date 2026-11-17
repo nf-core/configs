@@ -331,9 +331,10 @@ It is also possible to jump right into an interactive session using the [Open On
 
 #### Interactive Session Checklist
 
+> [!NOTE]
 > - Activate Nextflow with `conda activate nf-core-2026-1` 
 > - <details closed>
->   <summary>Click here to reveal the complete variables code snippet for your interactive session</summary>
+>   <summary>>>> Click here to reveal the hidden code snippet and copy it for your interactive session! <<<</summary>
 > 
 >   ```bash
 >   # Global Utility Variables
@@ -411,8 +412,9 @@ If setting up for the first time, create a file with the name `run-nf-core-demo-
 
 #### Batch Script Checklist
 
+> [!NOTE]
 > - <details closed>
->   <summary>Click here to copy-paste the complete code snippet for your Batch script</summary>
+>   <summary>>>> Click here to reveal the hidden code snippet and copy it for your Batch script! <<<</summary>
 >
 >   ```bash
 >   #!/usr/bin/env bash
