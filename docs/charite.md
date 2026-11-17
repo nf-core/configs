@@ -37,6 +37,15 @@ This page documents the `charite` Nextflow profile for running Nextflow and nf-c
     - Cornelius Fischer ([@cofischer](https://github.com/cofischer))
     - Namuun Battur ([@NmnBttr](https://github.com/NmnBttr))
 
+
+### Citation
+
+Please reference the HPC @Charité in any research report, journal, or publication that requires citation of authors' work. Recognition of the Charité compute resources you used to perform research is important for acquiring funding for the next generation of hardware, support services, and our research and development activities in HPC, data storage and other related infrastructure.
+
+Our suggested acknowledgement is as follows:
+
+The authors acknowledge the Scientific Computing of the IT Division at the Charité - Universitätsmedizin Berlin for providing computational resources that have contributed to the research results reported in this paper. URL: https://www.charite.de/en/research/research_support_services/research_infrastructure/science_it/#c30646061
+
 ## 1. Quick Overview and Usage Examples
 
 - **Scheduler**: SLURM
