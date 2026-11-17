@@ -302,7 +302,7 @@ For additional information, see the [Nextflow environment variable reference](ht
 
 ### 3.5. Shared Nextflow Conda Environment
 
-The Conda environment `nf-core-2026-1` is provided by the SC HPC Team as part of the SC Software offering, which you can readily use. It contains both the nf-core CLI (`v4.2.0`) as well as Nextflow (`v26.10.4`).
+The Conda environment `nf-core-2026-1` is provided by the SC HPC Team as part of the [Shared Conda Environments](https://git.bihealth.org/charite-sc-public/sc-wiki/-/wikis/Resources/User%20Documentation/User%20Guide:%20HPC%20@Charite#shared-conda-environments) catalogue, which you can readily use. It contains both the nf-core CLI (`v4.2.0`) as well as Nextflow (`v26.10.4`).
 
 ```bash
 conda activate nf-core-2026-1
