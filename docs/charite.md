@@ -672,7 +672,7 @@ process {
 Save the snippet above to `custom.config`, and then run your pipeline like so:
 
 ```
-nextflow run nf-core/<pipeline-name> -profile charite --outdir results/<pipeline-name> -c custom.config
+nextflow run nf-core/<pipeline-name> -profile charite --outdir results/<pipeline-name> -c custom.config ...
 ```
 
 See [Custom Configuration Files](https://nf-co.re/docs/running/configuration/configuration-options#custom-configuration-files) to learn more.
