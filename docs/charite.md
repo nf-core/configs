@@ -19,11 +19,7 @@ This page documents the `charite` Nextflow profile for running Nextflow and nf-c
   - [3.5. Shared Nextflow Conda Environment](#35-shared-nextflow-conda-environment)
 - [4. Running Nextflow Workflows on the Charité HPC](#4-running-nextflow-workflows-on-the-charité-hpc)
   - [Option 1: Interactive Session](#option-1-interactive-session)
-    - [Interactive Session via srun](#interactive-session-via-srun)
-    - [Interactive Session via Open OnDemand Portal](#interactive-session-via-open-ondemand-portal)
-    - [Interactive Session Checklist](#interactive-session-checklist)
   - [Option 2: Batch Script](#option-2-batch-script)
-    - [Batch Script Checklist](#batch-script-checklist)
 - [5. Job Assignment Logic and GPU Acceleration](#5-job-assignment-logic-and-gpu-acceleration)
 - [6. Known Limitations and Issues](#6-known-limitations-and-issues)
 
@@ -398,7 +394,7 @@ It is also possible to jump right into an interactive session using the [Open On
 >
 >   - Option 2: Add to your `${HOME}/.bashrc`. With this method, you must then run `source ${HOME}/.bashrc` only once, or simply start a new interactive session; the variables are then already exported into your environment (PS: be mindful of what you add into your `${HOME}/.bashrc` file, as it may unexpectedly alter the expected behavior of other existing applications).
 > - Update the value of `PROJ_ABBR` if you have project scratch available to you
-> - Update the path to your workspace via `MY_NXF_WORKSPACE`
+> - **Optional**: Update the path to your workspace via `MY_NXF_WORKSPACE` - Recommended is to keep it set to `${PROJ_SCRATCHDIR_CHARITE_USER}/nxf-workspace`
 > - **Optional**: Uncomment `export NXF_APPTAINER_CACHEDIR="${PROJ_SCRATCHDIR_CHARITE}/apptainer-images"` if you wish to override the default path of the images cache
 > - **Optional**: Uncomment `export NXF_SYNTAX_PARSER=v1` if the pipeline you are using is not compatible with the v2 strict parser
 
@@ -497,18 +493,59 @@ If setting up for the first time, create a file with the name `run-nf-core-demo-
 > 
 >       # -r <version> \ # Optional: pin a specific revision of a pipeline
 >       # -resume \ # Optional: resume an interrupted workflow
->       # -c custom-params.config \ # Optional: add an extra config file which contains additional user-defined parameters
+>       # -c custom.config \ # Optional: add an extra config file which contains additional user-defined parameters
 >   ```
 > 
 >   </details>
 > - Update the value of `PROJ_ABBR` if you have project scratch available to you
 > - Update the path to your workspace via `MY_NXF_WORKSPACE`
 > - Update `#SBATCH --time` to expected pipeline runtime (e.g. for a big dataset, consider setting to `12:00:00` or more)
-> - **Optional**: Add `#SBATCH --mail-user=<your-email>` and `#SBATCH --mail-type=ALL` to get status update notifications
+> - **Optional**: Add `#SBATCH --mail-user=<your-email>` and `#SBATCH --mail-type=ALL` to get status update 
+> - **Optional**: Update the path to your workspace via `MY_NXF_WORKSPACE` - Recommended is to keep it set to `${PROJ_SCRATCHDIR_CHARITE_USER}/nxf-workspace`
 > - **Optional**: Uncomment `export NXF_APPTAINER_CACHEDIR="${PROJ_SCRATCHDIR_CHARITE}/apptainer-images"` if you wish to override the default path of the images cache
 > - **Optional**: Uncomment `export NXF_SYNTAX_PARSER=v1` if the pipeline you are using is not compatible with the v2 strict parser
 
 If project scratch is available, future pipeline launches should be launched directly from your newly created `MY_NXF_WORKSPACE` folder (set here to `${PROJ_SCRATCHDIR_CHARITE_USER}/nxf-workspace`), so that SLURM logs get saved there instead of in your home directory.
+
+### More Practical Examples
+
+Each of the [nf-core pipelines](https://nf-co.re/pipelines/) has different input requirements, so you should thoroughly read its corresponding documentation for a full overview on how to customize your run. Below are a few more examples on how to run some on the cluster:
+
+- Run nf-core/rnaseq with test profile
+
+```
+nextflow run nf-core/rnaseq \
+    -profile test,charite \
+    --outdir results/rnaseq-test \
+```
+
+- Run nf-core/rnaseq with test profile and Parabricks GPU acceleration for STAR (see [Jobs Pending in `gpu` Partition](#jobs-pending-in-gpu-partition) for more info on `custom.config`)
+
+```
+nextflow run nf-core/rnaseq \
+    -profile test,charite \
+    --outdir results/rnaseq-parabricks-star-test \
+    --use_parabricks_star \
+    -c custom.config 
+```
+
+- Run nf-core/methylseq with test profile and Bismark aligner (default)
+
+```
+nextflow run nf-core/methylseq \
+    -profile test,charite \
+    --outdir results/methylseq-bismark-test
+```
+
+- Run nf-core/methylseq with test profile and BWA-Meth aligner (GPU) (see [Jobs Pending in `gpu` Partition](#jobs-pending-in-gpu-partition) for more info on `custom.config`)
+
+```
+nextflow run nf-core/methylseq \
+    -profile test,gpu,charite \
+    --aligner bwameth \
+    --outdir results/methylseq-bwameth-test \
+    -c custom.config
+```
 
 ## 5. Job Assignment Logic and GPU Acceleration
 
@@ -607,13 +644,13 @@ Pictured above is the logic that the config follows to determine to which partit
 > 
 > For example
 > ```bash
-> nextflow run nf-core/rnaseq -profile charite,genomics,test ...
+> nextflow run nf-core/rnaseq -profile charite,test ...
 > ```
 > 
 > is not the same as
 >
 > ```bash
-> nextflow run nf-core/rnaseq -profile test,charite,genomics ...
+> nextflow run nf-core/rnaseq -profile test,charite ...
 > ```
 >  The last example shown is how you should correctly test pipelines with the `test` dataset provided by nf-core.
 
