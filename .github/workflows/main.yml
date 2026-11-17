@@ -90,7 +90,6 @@ jobs:
           - "ceres"
           - "cfc"
           - "cfc_dev"
-          - "charite"
           - "cheaha"
           - "computerome"
           - "create"
