@@ -19,7 +19,8 @@ This page documents the `charite` Nextflow profile for running Nextflow and nf-c
   - [Option 1: Interactive Session](#option-1-interactive-session)
   - [Option 2: Batch Script](#option-2-batch-script)
 - [5. Job Assignment Logic and GPU Acceleration](#5-job-assignment-logic-and-gpu-acceleration)
-- [6. Known Limitations and Issues](#6-known-limitations-and-issues)
+- [6. More Practical Examples](#6-more-practical-examples)
+- [7. Known Limitations and Issues](#7-known-limitations-and-issues)
 
 ## Contributors and Acknowledgments
 
@@ -507,46 +508,6 @@ If setting up for the first time, create a file with the name `run-nf-core-demo-
 
 If project scratch is available, future pipeline launches should be launched directly from your newly created `MY_NXF_WORKSPACE` folder (set here to `${PROJ_SCRATCHDIR_CHARITE_USER}/nxf-workspace`), so that SLURM logs get saved there instead of in your home directory.
 
-### More Practical Examples
-
-Each of the [nf-core pipelines](https://nf-co.re/pipelines/) has different input requirements, so you should thoroughly read its corresponding documentation for a full overview on how to customize your run. Below are a few more examples on how to run some on the cluster:
-
-- Run nf-core/rnaseq with test profile
-
-```
-nextflow run nf-core/rnaseq \
-    -profile test,charite \
-    --outdir results/rnaseq-test \
-```
-
-- Run nf-core/rnaseq with test profile and Parabricks GPU acceleration for STAR (see [Jobs Pending in `gpu` Partition](#jobs-pending-in-gpu-partition) for more info on `custom.config`)
-
-```
-nextflow run nf-core/rnaseq \
-    -profile test,charite \
-    --outdir results/rnaseq-parabricks-star-test \
-    --use_parabricks_star \
-    -c custom.config 
-```
-
-- Run nf-core/methylseq with test profile and Bismark aligner (default)
-
-```
-nextflow run nf-core/methylseq \
-    -profile test,charite \
-    --outdir results/methylseq-bismark-test
-```
-
-- Run nf-core/methylseq with test profile and BWA-Meth aligner (GPU) (see [Jobs Pending in `gpu` Partition](#jobs-pending-in-gpu-partition) for more info on `custom.config`)
-
-```
-nextflow run nf-core/methylseq \
-    -profile test,gpu,charite \
-    --aligner bwameth \
-    --outdir results/methylseq-bwameth-test \
-    -c custom.config
-```
-
 ## 5. Job Assignment Logic and GPU Acceleration
 
 | Queue           | `compute` | `dragen_cc05` | `dragen_cc15` | `dragen_gp` | `genomics` | `highmem`  | `gpu`     | `pgpu` |
@@ -654,7 +615,47 @@ Pictured above is the logic that the config follows to determine to which partit
 > ```
 >  The last example shown is how you should correctly test pipelines with the `test` dataset provided by nf-core.
 
-## 6. Known Limitations and Issues
+## 6. More Practical Examples
+
+Each of the [nf-core pipelines](https://nf-co.re/pipelines/) has different input requirements, so you should thoroughly read its corresponding documentation for a full overview on how to customize your run. Below are a few more examples on how to run some on the cluster:
+
+- Run nf-core/rnaseq with test profile
+
+```
+nextflow run nf-core/rnaseq \
+    -profile test,charite \
+    --outdir results/rnaseq-test \
+```
+
+- Run nf-core/rnaseq with test profile and Parabricks GPU acceleration for STAR (see [Jobs Pending in `gpu` Partition](#jobs-pending-in-gpu-partition) for more info on `custom.config`)
+
+```
+nextflow run nf-core/rnaseq \
+    -profile test,charite \
+    --outdir results/rnaseq-parabricks-star-test \
+    --use_parabricks_star \
+    -c custom.config 
+```
+
+- Run nf-core/methylseq with test profile and Bismark aligner (default)
+
+```
+nextflow run nf-core/methylseq \
+    -profile test,charite \
+    --outdir results/methylseq-bismark-test
+```
+
+- Run nf-core/methylseq with test profile and BWA-Meth aligner (GPU) (see [Jobs Pending in `gpu` Partition](#jobs-pending-in-gpu-partition) for more info on `custom.config`)
+
+```
+nextflow run nf-core/methylseq \
+    -profile test,gpu,charite \
+    --aligner bwameth \
+    --outdir results/methylseq-bwameth-test \
+    -c custom.config
+```
+
+## 7. Known Limitations and Issues
 
 ### Jobs Pending in `gpu` Partition
 
