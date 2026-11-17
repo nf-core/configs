@@ -506,7 +506,7 @@ If setting up for the first time, create a file with the name `run-nf-core-demo-
 >   </details>
 > - Update the value of `PROJ_ABBR` if you have project scratch available to you
 > - Update `#SBATCH --time` to expected pipeline runtime (e.g. for a big dataset, consider setting to `12:00:00` or more)
-> - **Optional**: Add `#SBATCH --mail-user=<your-email>` and `#SBATCH --mail-type=ALL` to get status update 
+> - **Optional**: Add `#SBATCH --mail-user=<your-email>` and `#SBATCH --mail-type=ALL` to get status updates
 > - **Optional**: Update the path to your workspace via `MY_NXF_WORKSPACE` - Recommended is to keep it set to `${PROJ_SCRATCHDIR_CHARITE_USER}/nxf-workspace`
 > - **Optional**: Uncomment `export NXF_APPTAINER_CACHEDIR="${PROJ_SCRATCHDIR_CHARITE}/apptainer-images"` if you wish to override the default path of the images cache
 > - **Optional**: Uncomment `export NXF_SYNTAX_PARSER=v1` if the pipeline you are using is not compatible with the v2 strict parser
