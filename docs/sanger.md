@@ -62,5 +62,6 @@ fi
 
 ## GPU access
 
-GPUs on the `cub22` and `tiger22` clusters need a cost code. Pass this to your pipeline via the `sanger_gpu_group` parameter.
+On farm22, the `gpu` and `gpu-basement` queues are used by default. If you would like to use the `cub22-inference` or `tiger22-inference` queues, you will need to specify these directly with the `sanger_gpu_queue` parameter, and provide a cost code with the `sanger_gpu_group` parameter.
 
+Only the `cub22-inference` and `tiger22-inference` queues are available on tol22, and you will need to specify these directly with the `sanger_gpu_queue` parameter, otherwise the pipeline will fail.
