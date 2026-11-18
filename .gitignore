@@ -6,3 +6,4 @@ results/
 *.code-workspace
 
 .vscode/settings.json
+__pycache__/

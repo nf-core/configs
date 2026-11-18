@@ -11,7 +11,7 @@ Before running the pipeline you will need to load Nextflow and Apptainer using t
 ```bash
 ## Load Nextflow and Apptainer environment modules
 module purge
-module load nextflow/24.04.3
+module load nextflow/26.04.1
 module load apptainer/latest
 
 nextflow run <pipeline_name> -profile unity
