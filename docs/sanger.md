@@ -60,6 +60,10 @@ if [[ $status -eq 0 ]]; then
 fi
 ```
 
+## tol22 hugemem
+
+tol22 has access to the farm22 hugemem queue via the `farm22-hugemem` queue. To use this queue instead of the local `hugemem` queue, set the `sanger_use_farm22_hugemem` parameter to `true`.
+
 ## GPU access
 
 On farm22, the `gpu` and `gpu-basement` queues are used by default. If you would like to use the `cub22-inference` or `tiger22-inference` queues, you will need to specify these directly with the `sanger_gpu_queue` parameter, and provide a cost code with the `sanger_gpu_group` parameter.
