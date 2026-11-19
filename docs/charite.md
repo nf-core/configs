@@ -544,8 +544,8 @@ config:
     wrappingWidth: 1000
 ---
 flowchart TB
-    A(["Partition / Queue Routing"])
-    B["Process has label 'process_gpu'?"]
+    A(["Task Queue Routing"])
+    B["Task Label 'process_gpu'?"]
 
     A --> B
 
@@ -554,7 +554,8 @@ flowchart TB
 
         subgraph CPU["CPU routing"]
             direction TB
-            F["Profile(s)?"]
+            F["Profile?"]
+            M["Memory Requested > 1.TB?\n (i.e. task.memory)"]
 
             G["compute"]
             H["dragen_cc05"]
@@ -562,23 +563,28 @@ flowchart TB
             J["dragen_gp"]
             K["genomics"]
             L["highmem"]
+            P["compute"]
 
             F -->|"-profile charite"| G
             F -->|"-profile charite,dragen_cc05"| H
             F -->|"-profile charite,dragen_cc15"| I
             F -->|"-profile charite,dragen_gp"| J
             F -->|"-profile charite,genomics"| K
-            F -->|"-profile charite,highmem"| L
+            F -->|"-profile charite,highmem"| M
+
+            M -->|"No"|P
+            M -->|"Yes"|L
+            
         end
 
         subgraph GPU["GPU routing"]
             direction TB
-            C["GPUs requested?\n (i.e. task.accelerator)"]
+            C["GPUs Requested?\n (i.e. task.accelerator)"]
             D["gpu"]
             E["pgpu"]
 
             C -->|"1"| D
-            C -->|"2+"| E
+            C -->|"2 or more"| E
         end
     end
 
@@ -594,6 +600,7 @@ flowchart TB
     J --> N
     K --> N
     L --> N
+    P --> N
 
     classDef start fill:#dbeafe,stroke:#2563eb,color:#1e40af
     classDef gpu fill:#dcfce7,stroke:#16a34a,color:#166534
@@ -603,8 +610,8 @@ flowchart TB
 
     class A,N start
     class D,E gpu
-    class G,H,I,J,K,L cpu
-    class B,C,F decision
+    class G,H,I,J,K,L,P cpu
+    class B,C,F,M decision
 
     style ROUTING fill:none,stroke:none
     style GPU fill:none,stroke:none
