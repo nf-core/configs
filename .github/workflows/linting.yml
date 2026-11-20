@@ -23,8 +23,34 @@ jobs:
   prek:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Run prek
         uses: j178/prek-action@bdca6f102f98e2b4c7029491a53dfd366469e33d # v2.0.4
         with:
           extra-args: ""
+
+  lint_nextflow_config:
+    name: nextflow lint
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        NXF_VER:
+          - 26.04.0
+          - latest-everything
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v3
+        with:
+          version: ${{ matrix.NXF_VER }}
+      - run: nextflow lint ${GITHUB_WORKSPACE}
+
+  confirm_lint:
+    runs-on: ubuntu-latest
+    name: Confirm linting pass
+    needs: [prek, lint_nextflow_config]
+    if: always()
+    steps:
+      - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1
