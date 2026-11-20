@@ -31,14 +31,6 @@ nextflow run <pipeline> -profile oist -w /flash/<unit>/<user>/work_<run> ...
 
 ## Interaction with Slurm
 
-| Setting                      | Value     | Effect                                                                       |
-| ---------------------------- | --------- | ---------------------------------------------------------------------------- |
-| `process.array`              | `96`      | tasks of a process are submitted as job arrays of up to 96 tasks             |
-| `executor.submitRateLimit`   | `12/1min` | at most 12 submissions (jobs or job arrays) per minute                       |
-| `executor.queueSize`         | `208`     | at most 208 tasks queued or running at once, array tasks included            |
-| `executor.queueStatInterval` | `5 min`   | one `squeue` call every 5 minutes                                            |
-| `executor.pollInterval`      | `30 sec`  | checks for task completion files in the work directory; does not query Slurm |
-
 Job arrays are incompatible with some pipelines:
 
 - Arrays are not supported by the local executor.
@@ -53,14 +45,14 @@ As of September 2026, the pipelines of [sanger-tol](https://github.com/sanger-to
 
 A sub-profile is added after `oist`, for example `-profile oist,oist_short`, and replaces only the settings below.
 
-| Sub-profile  | Cluster | Partition | Node constraint | Limits per task      | `queueSize` | `array` |
-| ------------ | ------- | --------- | --------------- | -------------------- | ----------- | ------- |
-| `oist_short` | Deigo   | `short`   | `-C xeon`       | 40 CPU, 500 GB, 2 h  | 208         | 96      |
-| `oist_saion` | Saion   | `intel`   | none            | 40 CPU, 120 GB, 96 h | 40          | 16      |
-| `oist_ci`    | Deigo   | `short`   | `-C xeon`       | 4 CPU, 15 GB, 1 h    | 32          | 0       |
+| Sub-profile  | Cluster | Partition |
+| ------------ | ------- | --------- |
+| `oist_short` | Deigo   | `short`   |
+| `oist_saion` | Saion   | `intel`   |
+| `oist_ci`    | Deigo   | `short`   |
 
 `oist_saion` lets Slurm requeue preempted jobs instead of cancelling them, and waits up to one day for a requeued job to restart before Nextflow considers the task failed.
 
 `oist_ci` is for test suites of tens of short tasks, for example `-profile oist,test,oist_ci`.
 Its limits replace those of the pipeline's `test` profile.
-It also sets `submitRateLimit` to `1/1s`, `pollInterval` to `5 sec` and `queueStatInterval` to `1 min`.
+It also sets relaxed falues for `submitRateLimit`, `pollInterval` and `queueStatInterval`.
