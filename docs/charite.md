@@ -214,33 +214,7 @@ For projects with multiple collaborators, container images can be stored in a sh
 
 The following diagram illustrates how Nextflow determines where to store container images:
 
-```mermaid
----
-config:
-  flowchart:
-    wrappingWidth: 1000
----
-flowchart TD
-    A(["Apptainer Image Directory"])
-    B["export NXF_APPTAINER_CACHEDIR='...' set by user?"]
-    C["User-specific default directory"]
-    D["Custom directory"]
-    E["${PROJ_SCRATCHDIR_CHARITE_USER}/apptainer-images"]
-    F["${NXF_APPTAINER_CACHEDIR}"]
-    A --> B
-    B -->|"No"| C
-    B -->|"Yes"| D
-    C --> E
-    D --> F
-    classDef start fill:#dbeafe,stroke:#2563eb,color:#1e40af
-    classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f
-    classDef path fill:#dcfce7,stroke:#16a34a,color:#166534
-    classDef category fill:#f1f5f9,stroke:#64748b,color:#334155
-    class A start
-    class B decision
-    class C,D category
-    class E,F path
-```
+<img width="876" height="441" alt="apptainer-image-cache" src="https://github.com/user-attachments/assets/5823aaf9-d53d-425e-ae6a-231a3a40e9ed" />
 
 ### 3.3. Nextflow-specific Variables
 
@@ -536,87 +510,7 @@ If project scratch is available, future pipeline launches should be launched dir
 > - [SLURM Partition Overview](https://git.bihealth.org/charite-sc-public/sc-wiki/-/wikis/Resources/User%20Documentation/User%20Guide:%20HPC%20@Charite#slurm-partition-overview)
 > - [SLURM Features and GPU Types](https://git.bihealth.org/charite-sc-public/sc-wiki/-/wikis/Resources/User%20Documentation/User%20Guide:%20HPC%20@Charite#slurm-features-and-gpu-types)
 
-
-```mermaid
----
-config:
-  flowchart:
-    wrappingWidth: 1000
----
-flowchart TB
-    A(["Task Queue Routing"])
-    B["Task Label 'process_gpu'?"]
-
-    A --> B
-
-    subgraph ROUTING[" "]
-        direction LR
-
-        subgraph CPU["CPU routing"]
-            direction TB
-            F["Profile?"]
-            M["Memory Requested > 1.TB?\n (i.e. task.memory)"]
-
-            G["compute"]
-            H["dragen_cc05"]
-            I["dragen_cc15"]
-            J["dragen_gp"]
-            K["genomics"]
-            L["highmem"]
-            P["compute"]
-
-            F -->|"-profile charite"| G
-            F -->|"-profile charite,dragen_cc05"| H
-            F -->|"-profile charite,dragen_cc15"| I
-            F -->|"-profile charite,dragen_gp"| J
-            F -->|"-profile charite,genomics"| K
-            F -->|"-profile charite,highmem"| M
-
-            M -->|"No"|P
-            M -->|"Yes"|L
-            
-        end
-
-        subgraph GPU["GPU routing"]
-            direction TB
-            C["GPUs Requested?\n (i.e. task.accelerator)"]
-            D["gpu"]
-            E["pgpu"]
-
-            C -->|"1"| D
-            C -->|"2 or more"| E
-        end
-    end
-
-    B -->|"No"| F
-    B -->|"Yes — any profile"| C
-
-
-    D --> N(["SLURM"])
-    E --> N
-    G --> N
-    H --> N
-    I --> N
-    J --> N
-    K --> N
-    L --> N
-    P --> N
-
-    classDef start fill:#dbeafe,stroke:#2563eb,color:#1e40af
-    classDef gpu fill:#dcfce7,stroke:#16a34a,color:#166534
-    classDef cpu fill:#dcfce7,stroke:#16a34a,color:#166534
-    classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f
-    classDef qos fill:#dbeafe,stroke:#2563eb,color:#1e40af
-
-    class A,N start
-    class D,E gpu
-    class G,H,I,J,K,L,P cpu
-    class B,C,F,M decision
-
-    style ROUTING fill:none,stroke:none
-    style GPU fill:none,stroke:none
-    style CPU fill:none,stroke:none
-```
+<img width="1236" height="703" alt="job-assignment-logic-and-gpu-acceleration" src="https://github.com/user-attachments/assets/97d5113a-c625-438f-94ac-57c89a4a512d" />
 
 Pictured above is the logic that the config follows to determine to which partition SLURM should submit a job to. Regardless of the profile(s) chosen, jobs that can benefit from GPU acceleration will be handled accordingly and submitted either to `gpu` or `pgpu`, depending on how many GPUs are requested, thanks to the [`withLabel:process_gpu`](https://github.com/ScientificComputingCharite/configs/blob/94d14de3345ff93199bf195608ba955321426f8d/conf/charite.config#L38) specification in [`conf/charite.config`](../conf/charite.config).
 
