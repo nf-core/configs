@@ -19,6 +19,11 @@ module load nextflow singularity
 
 ### Cluster considerations
 
+**Note:** August 2026 - The slurm queue was changed from 'defq' to 'h24' as this was causing an issue where Nextflow would begin checking the working directory for `.exitcode` despite the job still running. When Nextflow couldn't find the `.exitcode` file it would then kill the pipeline. Changing the queue to 'h24' seems to have fixed it. See the following issues for more information:
+
+- https://github.com/labsyspharm/mcmicro/issues/169
+- https://github.com/nextflow-io/nextflow/issues/5813
+
 Before running an nf-core pipeline you will need to set your project code as a Slurm environment variable:
 
 ```bash
