@@ -5,7 +5,6 @@ All nf-core pipelines have been successfully configured for use on the HPC clust
 To use, run the pipeline with `-profile vai`. This will download and launch the [`vai.config`](../conf/vai.config) which has been pre-configured with a setup suitable for the VAI HPC. Using this profile, a docker image containing all of the required software will be downloaded, and converted to a Singularity image before execution of the pipeline.
 
 ```bash
-module load singularity
 NXF_OPTS="-Xmx500m" MALLOC_ARENA_MAX=4 nextflow run <pipeline>
 ```
 
