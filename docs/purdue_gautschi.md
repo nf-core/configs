@@ -69,7 +69,7 @@ To use your own reference instead, pass the relevant pipeline parameters explici
 ## Container cache and work directory
 
 ```bash
-export NXF_SINGULARITY_CACHEDIR=$RCAC_SCRATCH/.apptainer/cache
+export NXF_APPTAINER_CACHEDIR=$RCAC_SCRATCH/.apptainer/cache
 nextflow run ... -w $RCAC_SCRATCH/nextflow-work ...
 ```
 
